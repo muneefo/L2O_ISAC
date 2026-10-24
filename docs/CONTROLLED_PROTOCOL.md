@@ -88,3 +88,24 @@ in the primary report, while retaining2-repeat and1-repeat controls. All variant
 share identical epoch minibatch permutations and LR schedules. Actual time can
 still differ from the short profile and must be reported. Additional pretrained
 references use balanced B/C and D, not redundant integer-repeat controls.
+
+### Primary loss-matched role control
+
+A graph audit identified another possible confounder: the earlier separated
+procedure used a terminal independent-adversary outer loss, whereas joint training
+uses the original layer-average loss. Preserve every earlier run under its exact
+existing name. Primary B/C/D now use suffix `_clean`: B_clean=original joint loss;
+C_clean=positive joint loss; D_clean=inner-only adversarial training followed by
+**the exact same original negative layer-average outer loss as C**, with inner
+policy parameters frozen and derivatives through adversarial iterates retained.
+No terminal independent attack is inserted into D_clean training. Independent
+robustness evaluation remains unchanged. The old D_s* remains an additional
+terminal-robust-loss variant, and E_previous remains the earlier signed-step/larger
+inner-LR variant. Thus the primary D_clean−C_clean contrast does not mix in an
+outer-loss change. A dedicated test checks exact equality of outer objectives.
+
+Profile clean-role cycle versus joint updates on validation again and freeze a
+separate deterministic fractional repeat schedule in compute_matching_clean.json.
+Primary B_clean/C_clean use that schedule; D_clean uses one inner/outer cycle.
+This amendment follows computational-graph inspection, not selection on clean
+condition test scores. All older results/checkpoints remain available separately.

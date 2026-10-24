@@ -39,18 +39,21 @@ def joint_update(model,batch,initial,optimizer):
             'backward_passes':1,'optimizer_step_calls':1,'inner_block_updates':1,'outer_block_updates':1}
 
 
-def separated_update(model,batch,initial,inner_optimizer,outer_optimizer,attack_steps=15,step_size=.2):
+def separated_update(model,batch,initial,inner_optimizer,outer_optimizer,attack_steps=15,step_size=.2,outer_loss_mode='terminal'):
     with torch.no_grad():design=model(batch,initial)[0]
     model.set_phase('inner');inner_optimizer.zero_grad(set_to_none=True)
     inner_loss=metrics(batch,model.inner_attack(batch,design),model.cfg)['objective'].mean()
     inner_loss.backward();check_gradients(model);inner_optimizer.step();model.project_inner()
     model.set_phase('outer');outer_optimizer.zero_grad(set_to_none=True)
-    state=model(batch,initial)[0]
-    adverse=attack(batch,state,model.cfg,budgets=(attack_steps,),restarts=0,adam_steps=0,step_size=step_size)['state']
-    surrogate=replace(state,**{n:getattr(adverse,n).detach() for n in ERRORS})
-    outer_loss=-metrics(batch,surrogate,model.cfg)['objective'].mean()
+    state,trace,_=model(batch,initial)
+    if outer_loss_mode=='joint':
+        outer_loss=unrolled_loss(trace)
+    else:
+        adverse=attack(batch,state,model.cfg,budgets=(attack_steps,),restarts=0,adam_steps=0,step_size=step_size)['state']
+        surrogate=replace(state,**{n:getattr(adverse,n).detach() for n in ERRORS})
+        outer_loss=-metrics(batch,surrogate,model.cfg)['objective'].mean()
     outer_loss.backward();check_gradients(model);outer_optimizer.step();model.project_inner()
     return {'inner_loss':inner_loss.item(),'outer_loss':outer_loss.item(),'full_analytic_calls':5*model.layers,
-            'error_gradient_calls':2*attack_steps,'differentiated_layers':2*model.layers,
+            'error_gradient_calls':0 if outer_loss_mode=='joint' else 2*attack_steps,'differentiated_layers':2*model.layers,
             'differentiated_full_analytic_calls':3*model.layers,'backward_passes':2,'optimizer_step_calls':2,
             'inner_block_updates':1,'outer_block_updates':1}

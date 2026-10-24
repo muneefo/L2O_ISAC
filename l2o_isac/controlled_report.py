@@ -26,7 +26,7 @@ def bootstrap_contrast(values,rng):
 def main(argv=None):
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--config',default='configs/pilot/controlled_ablation.json');parser.add_argument('--output',default='results/controlled_ablation');a=parser.parse_args(argv)
     torch.set_num_threads(1);spec=read(a.config);out=Path(a.output);rows={};arrays={};training={};per_seed={};failures=0;worst_residual=0.;rng=np.random.default_rng(99181)
-    pretraining=spec['pretraining_seeds'];fine=spec['paired_finetuning_seeds'];labels={'A':'A','B':'B_balanced','C':'C_balanced','D':'D'}
+    pretraining=spec['pretraining_seeds'];fine=spec['paired_finetuning_seeds'];labels={'A':'A','B':'B_clean','C':'C_clean','D':'D_clean'}
     for pre in pretraining:
         folder=out/f'pretrain{pre}'/'evaluation';per_seed[str(pre)]={};arrays[pre]={}
         for condition,label in labels.items():
@@ -51,13 +51,13 @@ def main(argv=None):
         # Verify paired epoch permutations, identical positive initialization C/D,
         # unchanged momentum mapping and same starting checkpoint hash.
         for seed in fine:
-            cb=torch.load(out/f'pretrain{pre}'/f'B_balanced_s{seed}'/'latest.pt',weights_only=True)
-            cc=torch.load(out/f'pretrain{pre}'/f'C_balanced_s{seed}'/'latest.pt',weights_only=True)
-            dd=torch.load(out/f'pretrain{pre}'/f'D_s{seed}'/'latest.pt',weights_only=True)
+            cb=torch.load(out/f'pretrain{pre}'/f'B_clean_s{seed}'/'latest.pt',weights_only=True)
+            cc=torch.load(out/f'pretrain{pre}'/f'C_clean_s{seed}'/'latest.pt',weights_only=True)
+            dd=torch.load(out/f'pretrain{pre}'/f'D_clean_s{seed}'/'latest.pt',weights_only=True)
             assert cb['reference_sha256']==cc['reference_sha256']==dd['reference_sha256']
             assert [h['batch_order_sha256'] for h in cb['history']]==[h['batch_order_sha256'] for h in cc['history']]==[h['batch_order_sha256'] for h in dd['history']]
-            ci=torch.load(out/f'pretrain{pre}'/f'C_balanced_s{seed}'/'initial.pt',weights_only=True)['model']
-            di=torch.load(out/f'pretrain{pre}'/f'D_s{seed}'/'initial.pt',weights_only=True)['model']
+            ci=torch.load(out/f'pretrain{pre}'/f'C_clean_s{seed}'/'initial.pt',weights_only=True)['model']
+            di=torch.load(out/f'pretrain{pre}'/f'D_clean_s{seed}'/'initial.pt',weights_only=True)['model']
             for k in ci:torch.testing.assert_close(ci[k],di[k],atol=0,rtol=0)
     contrasts={}
     for name,left,right in [('B_minus_A','B','A'),('C_minus_B','C','B'),('D_minus_C','D','C'),('D_minus_A','D','A')]:
@@ -98,7 +98,7 @@ def main(argv=None):
       'Pre-study source `73159d4`; immutable full archive `/workspace/evidence_archives/pre_controls_73159d4.zip` is hashed in results/controlled_ablation/preservation.json. Prior saved values were verified: terminal4.66515, independent reference4.03977, earlier separated4.09496, tunedPGDA1804.98123. These concern our implementation. Earlier three fine-tuning seeds share one pretrained reference.','',
       'Now use **three independently pretrained corrected-reference seeds73129,74129,75129**, each with paired fine-tuning seeds101,202,303. New references reuse the unchanged established `l2o_isac.experiment --profile paper` pipeline,5000/1000/1000 channels and10epochs, in fresh directories. Earlier checkpoints were inventoried; remaining ones use legacy EpsNet layouts, different depths, parameterization or array dimensions and are not silently counted as matched corrected references.','',
       'The physical problem and saved audit splits remain fixed: Nt=Nr16,M4,T2,J2,L8,rho.8,SNR5dB,oracle radii.05;256 train/64 validation/128 test channels. Same channel tensors, per-scenario initial states, paired epoch permutations, complex64, three continuation epochs, SGD lr1e-4 with decay.98. Per-case verification asserts identical C/D mapped initial tensors and B/C/D batch-order hashes. No CRB/controller or physical-model change.','',
-      'A=frozen reference. B=original joint negative layer-average utility loss. C=same joint loss with direct inner steps constrained to[1e-6,infinity) by post-update projection. D=separate inner/outer objectives with **exactly C’s parameterization**, same LR and unchanged momentum treatment. Mapping flips negative inner steps to their absolute magnitudes, floors exact zeros, and leaves all momentum/outer parameters unchanged. Mapping-only performance is evaluated separately before any weight training. All conditions use the same independent validation-selection protocol, including initialization. This is a controlled continuation under oracle radii and saved initial states, not a claim of replaying the authors’ unavailable training.','',
+      'A=frozen reference. B=original joint negative layer-average utility loss. C=same joint loss with direct inner steps constrained to[1e-6,infinity) by post-update projection. D=separate inner/outer training with **exactly C’s parameterization and outer layer-average loss**, same LR and unchanged momentum treatment. Only inner training has its adversarial objective; inner-policy parameters are frozen in the outer phase, retaining gradients through its iterates. Mapping flips negative inner steps to their absolute magnitudes, floors exact zeros, and leaves all momentum/outer parameters unchanged. Mapping-only performance is evaluated separately before any weight training. All conditions use the same independent validation-selection protocol, including initialization. This is a controlled continuation under oracle radii and saved initial states, not a claim of replaying the authors’ unavailable training.','',
       '## Main controlled results','',
       '| Condition | Communication | Sensing MI upper-bound metric | Independently attacked shared-union utility |','|---|---:|---:|---:|']
     for c in ['A','B','C','D']:
@@ -112,20 +112,20 @@ def main(argv=None):
       '| Pretrained seed | A | B | C | D | Mapping-only |','|---|---:|---:|---:|---:|---:|']
     for pre in pretraining:lines.append('| '+str(pre)+' | '+' | '.join(f"{per_seed[str(pre)][c]['objective']:.6f}" for c in ['A','B','C','D'])+f" | {mapping[str(pre)]['shared_union']['objective']:.6f} |")
     lines+=['','## Training computation and role verification','',
-      'Short validation profiling found one separated cycle costs about2.42 joint updates. Primary B/C use a deterministic mix of2/3 repeated updates per minibatch to approximate that cost; D makes one inner and one outer update. The earlier2-repeat and1-repeat variants remain supplemental outputs. This matches compute approximately, not optimizer update counts. All batches/permutations/LRs are shared; repeats reuse the same minibatch. Actual measured time and distinct derivative counts are reported rather than called exactly equal.','',
+      'Separate validation profiling of the loss-matched D cycle determines the fractional joint repeat count saved in compute_matching_clean.json. Primary B/C use that deterministic mix of adjacent integer repeat counts; D makes one inner and one outer update. The earlier integer repeats, terminal-adversary and terminal-budget-balanced variants remain supplemental outputs. This matches compute approximately, not optimizer update counts. All batches/permutations/LRs are shared; repeats reuse the same minibatch. Actual measured time and distinct derivative counts are reported rather than called exactly equal.','',
       '| Condition | Mean training update seconds | Full analytic helper calls | Error-only gradient calls | Differentiated layers | Backward passes | Inner/outer block updates |','|---|---:|---:|---:|---:|---:|---|']
     for c in ['B','C','D']:
         x=counts[c];lines.append(f"| {c} | {np.mean(times[c]):.3f} | {x['full_analytic_calls']:.0f} | {x['error_gradient_calls']:.0f} | {x['differentiated_layers']:.0f} | {x['backward_passes']:.0f} | {x['inner_block_updates']:.0f}/{x['outer_block_updates']:.0f} |")
     lines+=['',
       'One full analytic helper call computes all six physical variable gradients; each alternating layer calls it twice. Fifteen online layers cost30 calls for every learned condition. Independent attackers use three-error autograd derivatives, counted separately. Differentiated inner-only layers and alternating layers have different costs; higher derivatives and projections are included in wall time. Raw per-minibatch records, optimizer states, RNG states and source/data hashes are saved. Training-update time excludes common validation/model selection, whose cost is recorded separately. CPU concurrency can affect wall times; derivative counts remain explicit.','',
-      'D’s inner training freezes A/deployed beamformers and differentiates its complete15-step search. Outer training freezes attack-policy parameters, retains full derivatives through deployed adversarial iterates, and detaches only a separately computed terminal approximate adversary. This is not exact Danskin/envelope differentiation through a solved minimum. Tests verify intended parameter blocks and independent NumPy whole-search utility, not merely step signs.','',
+      'D’s inner training freezes A/deployed beamformers and differentiates its complete15-step search. Outer training freezes attack-policy parameters and retains full derivatives through deployed adversarial iterates, using exactly C’s negative layer-average utility loss. It introduces no new terminal training attacker. This finite-unroll gradient is not an exact envelope gradient through a solved global minimum. The earlier terminal-adversary outer loss is retained as a distinct supplementary variant. Tests verify intended parameter blocks and independent NumPy whole-search utility, not merely step signs.','',
       'On identical frozen A validation beams, mapped-initial and trained D policy utilities are independently recomputed with NumPy, then refined using independent search. Complete tables are in summary.json. A lowered policy-candidate utility indicates stronger learned search. With beams fixed, the true minimum does not change; independent refinement can therefore return the same value before/after training. Negative steps and uphill stages alone are not sufficient proof of failure.','',
       '## Classical PGDA at several computation budgets','',
       'Each budget is tuned on24 saved validation scenarios using the same3×3 inner/outer grid and30-step independent validation search:63 configurations total. Test results never choose steps. Generation and adversarial-evaluation time are separated.','',
       '| PGDA iterations | Full analytic calls | Comm | Sensing MI upper bound | Lowest-found utility | Batch-one median/p95ms |','|---|---:|---:|---:|---:|---|']
     for budget in spec['pgda_budgets']:
         z=pgda[f'budget{budget}'];t=timing['methods'][f'PGDA{budget}'];v=z['shared_union'];lines.append(f"| {budget} | {2*budget} | {v['comm']:.6f} | {v['sense']:.6f} | {v['objective']:.6f} | {t['median_ms']:.2f}/{t['p95_ms']:.2f} |")
-    for name in ['A','B_balanced_s101','C_balanced_s101','D_s101']:
+    for name in ['A','B_clean_s101','C_clean_s101','D_clean_s101']:
         t=timing['methods'][name];lines.append(f"\n{name}:30 online full calls, median{t['median_ms']:.2f}ms,p95{t['p95_ms']:.2f}ms.")
     lines+=['',
       'These are warm CPU generation measurements: AMD EPYC9V74 virtual CPU, quota two CPUs, one PyTorch thread, complex64,batch1,five warmups,20 repeats. No GPU synchronization is applicable; no GPU was used. Static scalar schedules have no neural-controller overhead. Initialization and EpsNet are timed separately; RF/CSI acquisition is excluded. No acceleration is claimed solely against180 iterations; nearby15/20-step points and the full utility/runtime/gradient curves are shown.','',
@@ -155,7 +155,7 @@ def main(argv=None):
     axes[0].plot(x,y,marker='o',label='Validation-tuned PGDA')
     axes[1].plot([timing['methods'][f'PGDA{b}']['median_ms'] for b in spec['pgda_budgets']],y,marker='o',label='Validation-tuned PGDA')
     for c in ['A','B','C','D']:
-        name={'A':'A','B':'B_balanced_s101','C':'C_balanced_s101','D':'D_s101'}[c]
+        name={'A':'A','B':'B_clean_s101','C':'C_clean_s101','D':'D_clean_s101'}[c]
         axes[0].scatter(30,report[c+'_mean']['objective'],label=c)
         axes[1].scatter(timing['methods'][name]['median_ms'],report[c+'_mean']['objective'],label=c)
     axes[0].set_xlabel('Full six-block analytic design calls');axes[1].set_xlabel('Warm generation median ms (batch1)')

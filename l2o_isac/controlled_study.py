@@ -20,6 +20,11 @@ from .batched_attack import batched_attack
 from .audit_artifacts import residuals
 from .execution_evidence import numpy_metrics
 
+def atomic_save(value,path):
+    path=Path(path);temporary=path.with_name(path.name+'.tmp.'+str(os.getpid()))
+    torch.save(value,temporary);os.replace(temporary,path)
+
+
 COUNTERS=['full_analytic_calls','error_gradient_calls','differentiated_layers','differentiated_full_analytic_calls','backward_passes','optimizer_step_calls','inner_block_updates','outer_block_updates']
 
 
@@ -57,8 +62,8 @@ class ControlledStudy:
         out=attack(b,design,self.cfg,budgets=(self.spec['validation_attack_steps'],),restarts=0,adam_steps=0,step_size=self.attack_step)
         return out['metrics'][self.spec['validation_attack_steps']]['objective'].mean().item()
 
-    def profile(self):
-        path=self.out/'compute_matching.json'
+    def profile(self,clean=False):
+        path=self.out/('compute_matching_clean.json' if clean else 'compute_matching.json')
         if path.exists():return
         ref,_=self.reference(0);b=self.data['validation'][:32];s=state_slice(self.initial['validation'],slice(0,32));measure={}
         for condition in ['B','C','D']:
@@ -67,7 +72,7 @@ class ControlledStudy:
                 model=ControlledSchedule(ref,condition in ['C','D'],self.spec['positive_inner_floor'])
                 opt=torch.optim.SGD(model.parameters(),lr=self.spec['lr']);io=torch.optim.SGD(model.inner_parameters(),lr=self.spec['lr']);oo=torch.optim.SGD(model.outer_parameters(),lr=self.spec['lr'])
                 t=time.perf_counter()
-                if condition=='D':separated_update(model,b,s,io,oo,self.spec['training_attack_steps'],self.attack_step)
+                if condition=='D':separated_update(model,b,s,io,oo,self.spec['training_attack_steps'],self.attack_step,outer_loss_mode='joint' if clean else 'terminal')
                 else:joint_update(model,b,s,opt)
                 if rep:values.append(time.perf_counter()-t)
             measure[condition]={'median_seconds':float(np.median(values)),'samples_seconds':values}
@@ -78,14 +83,16 @@ class ControlledStudy:
                     'scope':'Approximate wall-time matching of training updates; actual full-run costs separately reported; same cycles for B/C'})
         self.log('Frozen training-compute matching: '+str(cycles)+' joint repeats per minibatch')
 
-    def train_case(self,index,condition,seed,equal_updates=False,balanced=False):
+    def train_case(self,index,condition,seed,equal_updates=False,balanced=False,clean=False):
         ref,refpath=self.reference(index);positive=condition in ['C','D'];model=ControlledSchedule(ref,positive,self.spec['positive_inner_floor'])
-        cycles=1 if equal_updates else read(self.out/'compute_matching.json')['joint_repeats_per_minibatch']
+        profile_file=self.out/('compute_matching_clean.json' if clean else 'compute_matching.json')
+        cycles=1
+        if not balanced and not equal_updates:cycles=read(profile_file)['joint_repeats_per_minibatch']
         if balanced:
-            prof=read(self.out/'compute_matching.json')['methods']
-            cycles=prof['D']['median_seconds']/np.mean([prof[n]['median_seconds'] for n in ['B','C']])
+            prof=read(profile_file)['methods']
+            cycles=float(prof['D']['median_seconds']/np.mean([prof[n]['median_seconds'] for n in ['B','C']]))
         if condition=='D':cycles=1
-        name=condition+('_balanced' if balanced else '')+('_updates' if equal_updates else '')+f'_s{seed}';folder=self.out/f'pretrain{self.spec["pretraining_seeds"][index]}'/name;folder.mkdir(parents=True,exist_ok=True)
+        name=condition+('_clean' if clean else '')+('_balanced' if balanced and not clean else '')+('_updates' if equal_updates else '')+f'_s{seed}';folder=self.out/f'pretrain{self.spec["pretraining_seeds"][index]}'/name;folder.mkdir(parents=True,exist_ok=True)
         optimizers={'joint':torch.optim.SGD(model.parameters(),lr=self.spec['lr']),
                     'inner':torch.optim.SGD(model.inner_parameters(),lr=self.spec['lr']),
                     'outer':torch.optim.SGD(model.outer_parameters(),lr=self.spec['lr'])}
@@ -99,7 +106,8 @@ class ControlledStudy:
                     'reference':refpath,'reference_sha256':sha(refpath),'spec':self.spec,'system':asdict(self.cfg),'split_sha256':self.split_hash,
                     'source_commit':self.source,'source_sha256':self.sources,'epoch':epoch,'history':history,'training_update_seconds':elapsed,
                     'counts':counts,'cycles_per_minibatch':cycles,'initial_validation':initial_score,'best_validation':best,
-                    'gradient_policy':'joint full differentiation' if condition!='D' else 'full deployed iterates; terminal independent adversary stop-gradient'}
+                    'outer_loss_mode':'joint' if clean or condition!='D' else 'terminal',
+                    'gradient_policy':'full deployed differentiation; inner policy frozen in outer phase' if clean else 'joint full differentiation' if condition!='D' else 'full deployed iterates; terminal independent adversary stop-gradient'}
         if latest.exists():
             old=torch.load(latest,weights_only=True)
             if old['reference_sha256']!=sha(refpath) or old['spec']!=self.spec or old['cycles_per_minibatch']!=cycles:raise RuntimeError('Resume provenance mismatch')
@@ -107,7 +115,7 @@ class ControlledStudy:
             for n,o in optimizers.items():o.load_state_dict(old['optimizers'][n])
             history=old['history'];counts=old['counts'];elapsed=old['training_update_seconds'];epoch_start=old['epoch'];best=old['best_validation'];initial_score=old['initial_validation']
         else:
-            torch.save(checkpoint(0),folder/'initial.pt');torch.save(checkpoint(0),selected)
+            atomic_save(checkpoint(0),folder/'initial.pt');atomic_save(checkpoint(0),selected)
         train=self.data['train'];initial=self.initial['train']
         for epoch in range(epoch_start,self.spec['epochs']):
             for opt in optimizers.values():
@@ -119,7 +127,7 @@ class ControlledStudy:
                 repeats=int(np.floor((step_index+1)*cycles)-np.floor(step_index*cycles)) if balanced else int(cycles)
                 for _ in range(repeats):
                     t=time.perf_counter()
-                    if condition=='D':r=separated_update(model,b,s,optimizers['inner'],optimizers['outer'],self.spec['training_attack_steps'],self.attack_step)
+                    if condition=='D':r=separated_update(model,b,s,optimizers['inner'],optimizers['outer'],self.spec['training_attack_steps'],self.attack_step,outer_loss_mode='joint' if clean else 'terminal')
                     else:r=joint_update(model,b,s,optimizers['joint'])
                     r['seconds']=time.perf_counter()-t;batch_records.append(r)
                     for k in COUNTERS:counts[k]+=r[k]
@@ -130,8 +138,8 @@ class ControlledStudy:
             history.append({'epoch':epoch+1,'validation':score,'training_update_seconds':update_time,'validation_seconds':validation_seconds,
                             'batch_order_sha256':__import__('hashlib').sha256(order.numpy().tobytes()).hexdigest(),
                             'negative_inner_steps':int((model.inner_mu<0).sum()),'at_positive_floor':int((model.inner_mu<=model.floor).sum()),'updates':batch_records})
-            torch.save(checkpoint(epoch+1),latest)
-            if improved:torch.save(checkpoint(epoch+1),selected)
+            atomic_save(checkpoint(epoch+1),latest)
+            if improved:atomic_save(checkpoint(epoch+1),selected)
             write(folder/'summary.json',{'condition':condition,'initial_validation':initial_score,'best_validation':best,'selected_epoch':torch.load(selected,weights_only=True)['epoch'],
                   'history':history,'counts':counts,'training_update_seconds':elapsed,'positive_inner':positive,'cycles':cycles})
             self.log(f'pretrain={self.spec["pretraining_seeds"][index]} {name} epoch={epoch+1} validation={score:.6f}')
@@ -147,7 +155,7 @@ class ControlledStudy:
     def cases(self,index):
         ref,refpath=self.reference(index);cases={'A':ControlledSchedule(ref),'Mapped_initial':ControlledSchedule(ref,True,self.spec['positive_inner_floor'])}
         files={}
-        for label in (['B','C','B_balanced','C_balanced','D'] if index==0 else ['B_balanced','C_balanced','D']):
+        for label in (['B','C','B_balanced','C_balanced','D','B_clean','C_clean','D_clean'] if index==0 else ['B_balanced','C_balanced','D','B_clean','C_clean','D_clean']):
             condition=label[0]
             for seed in self.spec['paired_finetuning_seeds']:
                 name=f'{label}_s{seed}';p=self.out/f'pretrain{self.spec["pretraining_seeds"][index]}'/name/'selected.pt'
@@ -162,8 +170,10 @@ class ControlledStudy:
         return cases,files
 
     @torch.no_grad()
-    def evaluate_index(self,index):
-        cases,files=self.cases(index);folder=self.out/f'pretrain{self.spec["pretraining_seeds"][index]}'/'evaluation';folder.mkdir(exist_ok=True)
+    def evaluate_index(self,index,clean_only=False):
+        cases,files=self.cases(index)
+        if clean_only:cases={n:m for n,m in cases.items() if '_clean_' in n}
+        folder=self.out/f'pretrain{self.spec["pretraining_seeds"][index]}'/'evaluation';folder.mkdir(exist_ok=True)
         b,s=self.data['test'],self.initial['test']
         for name,model in cases.items():
             path=folder/(name+'.pt')
@@ -183,7 +193,7 @@ class ControlledStudy:
                 'logical_start_error_gradient_calls':result['logical_start_error_gradient_calls'],'design_full_analytic_calls':2*model.layers,
                 'split_sha256':self.split_hash,'reference_sha256':sha(self.spec['reference_checkpoints'][index]),'model_checkpoint':str(files.get(name,'')),
                 'spec':self.spec,'source_sha256':self.sources}
-            torch.save(payload,path)
+            atomic_save(payload,path)
             self.log(f'eval pretrain={self.spec["pretraining_seeds"][index]} {name}: 200={result["metrics"][200]["objective"].mean():.6f},1000={result["metrics"][1000]["objective"].mean():.6f},attack={result["seconds"]:.1f}s')
         self.union_results()
 
@@ -200,7 +210,7 @@ class ControlledStudy:
         states=union_attack(self.data['test'],designs,candidates,self.cfg)
         for key,state in states.items():
             p,r=entries[key];r['shared_union']=tensor_metrics(self.data['test'],state,self.cfg);r['union_state']=vars(state)
-            torch.save(r,p)
+            atomic_save(r,p)
 
     def additional_references(self):
         if not (self.out/'pilot_training_gate.json').exists():raise RuntimeError('Original-reference controls must validate before extra pretraining')
@@ -222,7 +232,7 @@ class ControlledStudy:
     def inner_validation(self,index):
         ref,_=self.reference(index);cases,files=self.cases(index);b=self.data['validation'];s=self.initial['validation'];fixed=ref(b,s)[0]
         folder=self.out/f'pretrain{self.spec["pretraining_seeds"][index]}'/'fixed_beam_inner_validation';folder.mkdir(exist_ok=True)
-        for name in ['Mapped_initial']+[f'D_s{x}' for x in self.spec['paired_finetuning_seeds']]:
+        for name in ['Mapped_initial']+[f'D_s{x}' for x in self.spec['paired_finetuning_seeds']]+[f'D_clean_s{x}' for x in self.spec['paired_finetuning_seeds'] if f'D_clean_s{x}' in cases]:
             path=folder/(name+'.pt')
             if path.exists():continue
             errors=cases[name].inner_attack(b,fixed);independent=numpy_metrics(b,errors,self.cfg)
@@ -230,7 +240,7 @@ class ControlledStudy:
             payload={'policy_state':vars(errors),'frozen_beamformers':{n:getattr(fixed,n) for n in NAMES[3:]},
                      'numpy_policy_metrics':{k:torch.tensor(v) for k,v in independent.items()},'independent_refinement_metrics':result['metrics'][200],
                      'refined_state':vars(result['state']),'scope':'Same frozen A validation beams; whole15-step MinNet evaluated by independent NumPy, then refined with independent search'}
-            torch.save(payload,path)
+            atomic_save(payload,path)
             self.log(f'fixed-beam inner validation pretrain={self.spec["pretraining_seeds"][index]} {name}: candidate={independent["objective"].mean():.6f}, refined={result["metrics"][200]["objective"].mean():.6f}')
 
     @torch.no_grad()
@@ -257,7 +267,7 @@ class ControlledStudy:
             feas=residuals(result['state'],b,self.cfg);flags=torch.stack(list(feas.values())).amax(0)>1e-5
             if flags.any():raise FloatingPointError('PGDA feasibility failure')
             nominal=replace(design,**{n:getattr(design,n)*0 for n in ERRORS})
-            torch.save({'design':vars(design),'attacked_state':vars(result['state']),'budget_metrics':result['metrics'],'generation_batch_seconds':elapsed,
+            atomic_save({'design':vars(design),'attacked_state':vars(result['state']),'budget_metrics':result['metrics'],'generation_batch_seconds':elapsed,
                        'attack_seconds':result['seconds'],'design_full_analytic_calls':2*budget,'nominal':tensor_metrics(b,nominal,self.cfg),
                        'terminal':tensor_metrics(b,design,self.cfg),'feasibility_per_scenario':feas,'failure_flags':flags,
                        'spec':self.spec,'split_sha256':self.split_hash,'source_sha256':self.sources},p)
@@ -286,7 +296,7 @@ class ControlledStudy:
 
 def main(argv=None):
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--config',default='configs/pilot/controlled_ablation.json');p.add_argument('--output',default='results/controlled_ablation')
-    p.add_argument('--stage',choices=['prepare','profile','pilot','balanced','pretrain','expanded','pgda','timing','condition','all'],default='all');p.add_argument('--condition',choices=['B','C','D']);p.add_argument('--reference-index',type=int,default=0);p.add_argument('--fine-seed',type=int,default=101);a=p.parse_args(argv)
+    p.add_argument('--stage',choices=['prepare','profile','pilot','balanced','pretrain','expanded','pgda','timing','condition','clean','all'],default='all');p.add_argument('--condition',choices=['B','C','D']);p.add_argument('--reference-index',type=int,default=0);p.add_argument('--fine-seed',type=int,default=101);a=p.parse_args(argv)
     torch.set_num_threads(1);torch.use_deterministic_algorithms(True);torch.manual_seed(901)
     study=ControlledStudy(a.config,a.output);study.prepare()
     try:
@@ -302,6 +312,12 @@ def main(argv=None):
         if a.stage in ['pretrain','all']:study.additional_references()
         if a.stage in ['expanded','all']:
             for index in range(1,len(study.spec['reference_checkpoints'])):study.train_index(index);study.inner_validation(index);study.evaluate_index(index)
+        if a.stage in ['clean','all']:
+            study.profile(clean=True)
+            for index in range(len(study.spec['reference_checkpoints'])):
+                for condition in ['B','C','D']:
+                    for seed in study.spec['paired_finetuning_seeds']:study.train_case(index,condition,seed,balanced=condition in ['B','C'],clean=True)
+                study.inner_validation(index);study.evaluate_index(index,clean_only=True)
         if a.stage in ['pgda','all']:study.pgda()
         if a.stage in ['timing','all']:study.timing()
     except Exception as exc:

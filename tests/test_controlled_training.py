@@ -74,3 +74,33 @@ def test_controlled_joint_loss_and_through_update_gradient():
     torch.testing.assert_close(g[idx],torch.tensor((values[0]-values[1])/(2*delta),dtype=torch.float64),rtol=1e-4,atol=1e-8)
     opt=torch.optim.SGD(model.parameters(),lr=.0001);r=joint_update(model,b,s,opt)
     assert r['full_analytic_calls']==6 and model.inner_mu.min()>=1e-6
+
+
+def test_balanced_training_checkpoint_resume_uses_portable_metadata(tmp_path):
+    from l2o_isac.controlled_study import ControlledStudy
+    from l2o_isac.architecture_audit import write,state_slice
+    study=ControlledStudy(output=tmp_path);study.spec['epochs']=1;study.spec['batch_size']=4
+    study.data['train']=study.data['train'][:4];study.initial['train']=state_slice(study.initial['train'],slice(0,4))
+    study.data['validation']=study.data['validation'][:2];study.initial['validation']=state_slice(study.initial['validation'],slice(0,2))
+    write(tmp_path/'compute_matching.json',{'methods':{'B':{'median_seconds':1.},'C':{'median_seconds':1.},'D':{'median_seconds':2.4}}})
+    path=study.train_case(0,'C',101,balanced=True)
+    last=torch.load(path.parent/'latest.pt',weights_only=True)
+    assert type(last['cycles_per_minibatch']) is float
+    assert last['counts']['full_analytic_calls']==60
+    params={k:v.clone() for k,v in last['model'].items()}
+    study.train_case(0,'C',101,balanced=True)
+    after=torch.load(path.parent/'latest.pt',weights_only=True)
+    for k,v in params.items():torch.testing.assert_close(after['model'][k],v,atol=0,rtol=0)
+
+
+def test_lossmatched_separation_uses_identical_outer_loss_to_joint_control():
+    from l2o_isac.solver import UnrolledPGDA,unrolled_loss
+    from l2o_isac.controlled_training import ControlledSchedule,separated_update
+    c,b,s=tiny();model=ControlledSchedule(UnrolledPGDA(c,layers=3).double(),True)
+    expected=unrolled_loss(model(b,s)[1]).item()
+    # Zero optimizer LR isolates the choice of objective from changed parameters.
+    io=torch.optim.SGD(model.inner_parameters(),lr=0.);oo=torch.optim.SGD(model.outer_parameters(),lr=0.)
+    result=separated_update(model,b,s,io,oo,outer_loss_mode='joint')
+    assert result['outer_loss']==expected
+    assert result['error_gradient_calls']==0
+    assert result['full_analytic_calls']==15
