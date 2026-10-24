@@ -1,0 +1,24 @@
+{
+  "source_commit": "73159d458a5293e23c229ab6a3bdfb2777ae0619",
+  "archive_path": "/workspace/evidence_archives/pre_controls_73159d4.zip",
+  "archive_sha256": "a6459eee4351a7f7945943bd38d36de64f440a482988ad64fd560e63a7246ba1",
+  "verified_saved_findings": {
+    "reference_terminal": 4.665152072906494,
+    "reference_independent_200": 4.039768695831299,
+    "separate_seed101_independent_200": 4.094956398010254,
+    "pgda180_independent_200": 4.981232643127441
+  },
+  "preserved_file_sha256": {
+    "configs/pilot/architecture_audit.json": "7ce4345f9f7cee0d82e2ce21965b5043aed1766d1bf4d7f835922d1cb80287bc",
+    "results/architecture_audit/splits.pt": "171fb33933e0d4f9d3c99ca18a4291347bd0283da87cb20257b2932a5c1782f7",
+    "results/architecture_audit/split_manifest.json": "b0cca65c6b14903545df86a51c54779c38c34dc820d0bb12d813496d377573dd",
+    "results/architecture_audit/validation_choices.json": "96a09270fed5b84223d3a5ae27c63c28025ba966b365c75aae7ca74d99d4563c",
+    "results/architecture_audit/environment.json": "ccddc740791471bb53d5a7c0eabb815058725a5949b6694489c18c166434c8f1",
+    "results/manifest.json": "6e2eab5da964f54f4d41bc7764ba33d03b2ea0ef77adef31c72cd4bf7c362c20",
+    "reports/corrected_per_channel_seed73129/checkpoint.pt": "58845000260beae656c91f30217fc75a27c11a94eba116c766b5055a7079f77e"
+  },
+  "source_pdf_found": false,
+  "prior_pdf_path_exists": false,
+  "retained_source_text": "/workspace/reports/paper_extracted.txt",
+  "classification": "Independent reconstruction; no author-code verification"
+}

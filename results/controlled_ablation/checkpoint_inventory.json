@@ -1,0 +1,58 @@
+[
+  {
+    "path": "reports/smoke/checkpoint.pt",
+    "seed": 2026,
+    "nt": 16,
+    "layers": 15,
+    "parameterization": "direct",
+    "eps_layout": "concatenated"
+  },
+  {
+    "path": "reports/paper_n16_l15/checkpoint.pt",
+    "seed": 2026,
+    "nt": 16,
+    "layers": 15,
+    "parameterization": "direct",
+    "eps_layout": "concatenated"
+  },
+  {
+    "path": "reports/paper_n16_l20/checkpoint.pt",
+    "seed": 2026,
+    "nt": 16,
+    "layers": 20,
+    "parameterization": "direct",
+    "eps_layout": "concatenated"
+  },
+  {
+    "path": "reports/fresh_execution_seed73129/checkpoint.pt",
+    "seed": 73129,
+    "nt": 16,
+    "layers": 15,
+    "parameterization": "direct",
+    "eps_layout": "concatenated"
+  },
+  {
+    "path": "reports/corrected_per_channel_seed73129/checkpoint.pt",
+    "seed": 73129,
+    "nt": 16,
+    "layers": 15,
+    "parameterization": "direct",
+    "eps_layout": "per-channel"
+  },
+  {
+    "path": "reports/projected_n16_l15/checkpoint.pt",
+    "seed": 2026,
+    "nt": 16,
+    "layers": 15,
+    "parameterization": "projected",
+    "eps_layout": "concatenated"
+  },
+  {
+    "path": "reports/paper_n32_l15/checkpoint.pt",
+    "seed": 2026,
+    "nt": 32,
+    "layers": 15,
+    "parameterization": "direct",
+    "eps_layout": "concatenated"
+  }
+]

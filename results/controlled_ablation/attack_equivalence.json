@@ -1,0 +1,11 @@
+{
+  "validation_only": true,
+  "max_absolute_component_differences": {
+    "comm": 0.0,
+    "sense": 0.0,
+    "objective": 0.0
+  },
+  "serial_seconds": 0.3438856249995297,
+  "batched_seconds": 0.17123358200115035,
+  "same_candidates_and_hyperparameters": true
+}
