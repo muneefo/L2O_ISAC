@@ -1,0 +1,5 @@
+# Observed numerical environment. CPU torch wheel index needed on clean installs.
+torch==2.14.1+cpu
+numpy==2.3.5
+matplotlib==3.10.8
+pytest==9.1.1

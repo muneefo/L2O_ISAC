@@ -1,0 +1,18 @@
+{
+  "checkpoint": "reports/corrected_per_channel_seed73129/checkpoint.pt",
+  "reference_commit": "83ba89148c8d89a7ab60105da0fa5cbfe6105d9e",
+  "split_seeds": {"train": 842101, "validation": 842102, "test": 842103},
+  "split_sizes": {"train": 256, "validation": 64, "test": 128},
+  "initialization_seeds": {"train": 843101, "validation": 843102, "test": 843103},
+  "training_seeds": [101, 202, 303],
+  "epochs": 3, "batch_size": 32,
+  "inner_lr": 0.001, "outer_lr_candidates": [0.00001, 0.0001],
+  "training_attack_steps": 15,
+  "validation_attack_steps": 30,
+  "attack_budgets": [50, 200], "random_restarts": 5, "adam_steps": 50,
+  "attack_step_candidates": [0.01, 0.05, 0.2],
+  "classical_inner_steps": [0.0025, 0.025, 0.1],
+  "classical_outer_steps": [0.001, 0.01, 0.03],
+  "timing_repeats": 15,
+  "scope": "Executed exploratory pilot; three extension fine-tuning shuffle seeds from one fixed reference, not independent reference pretraining seeds"
+}

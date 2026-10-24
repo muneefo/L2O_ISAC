@@ -1,0 +1,196 @@
+Strict Codex implementation brief: audit and extend robust ISAC L2O
+0. Mission and scope
+Implement and validate an extension of L2O Robust Hybrid Beamforming for ISAC, Lei Wang, Sergiy A. Vorobyov, and Esa Ollila, DOI: 10.1109/TWC.2026.3702925. Verify this metadata against the supplied PDF before using it in reports.
+
+The user states that reproduction has ALREADY been completed. Start from the existing reproduction repository, checkpoints, configurations, and outputs. Do not repeat reproduction, retrain the reference model, regenerate its data, or rebuild working physics code without a specific documented reason. Locate these existing inputs in the current workspace; if they are not accessible, request the repository/checkpoint location rather than starting a new reproduction. Confirm that the reproduced source is this Wang et al. paper, not a different ISAC unfolding paper. Do not assume files from another conversation are accessible.
+
+The goal is to retain the physical model and optimization structure, then investigate whether robust performance can be improved by strengthening the inner minimizer and, if warranted, adapting update parameters to optimization state. This is model-based learning to optimize, not a generic neural predictor of beamformers.
+
+Keep the communication sum-rate and sensing MI objective. Do not add CRB, RIS, scheduling, phase quantization, new QoS floors, or a different channel model to the primary experiment. Those changes would confound the architecture audit.
+
+Produce executable code, tests, configurations, actual experiment outputs, and a candid research report. A plan, skeleton, unexecuted notebook, or attractive plots without raw measurements is insufficient.
+1. Nonnegotiable research rules
+1. Treat every proposed limitation as a hypothesis, not a proven defect. Do not claim the authors are wrong before checking equations, code, and independent experiments.
+2. Never fabricate code availability, checkpoints, citations, numerical results, speedups, convergence guarantees, global worst-case values, or publication novelty.
+3. Preserve an immutable reference implementation or pinned upstream checkout. Put corrections and extensions in separate named variants.
+4. Separate exact reproduction, independent reimplementation, corrected interpretation, and proposed extension in every report.
+5. Never evaluate robustness solely using the trained MinNet that produced a design. Use an independently implemented adversarial evaluation pipeline.
+6. A stronger attack can find a lower utility but cannot generally certify the global minimum. Call its result the lowest utility found or empirical adversarial performance.
+7. Preserve the same uncertainty sets across compared methods. Predicting a smaller radius must not make one method's evaluation artificially easier.
+8. Split channel realizations and correlated scenario groups before generating augmentations. Prevent train/validation/test leakage.
+9. Tune all hyperparameters, attack budgets, and stopping thresholds on training/validation data only. Freeze them before final test evaluation.
+10. Count the cost of extra gradient evaluations, controller inference, projections, restarts, and refinement. Equal iteration count is not equal computation.
+11. A failure to find a feasible beamformer is not a proof that the problem is infeasible. Report numerical failures separately.
+12. Use CPU-capable implementations and optional GPU acceleration. Record hardware and software versions. Do not assume a GPU is available.
+13. Run manageable experiments in this environment. If full experiments exceed resources, deliver executed pilot results and resumable full-run commands, clearly separated. Never call pilot results publication-ready.
+14. Continue through authorized phases without repeatedly asking permission. Pause dependent work only for genuinely missing required information or a mathematical issue that changes the problem; continue independent work meanwhile.
+2. Phase A: reuse existing reproduction and audit its interface
+Inspect the existing reproduction report, tests, checkpoints, data splits, configs, and known discrepancies FIRST. Read the complete formulation, Algorithms 1-3, Eqs. (9)-(24), appendices, and experimental settings to map the implementation to the source. Check numbering against the actual PDF. Reuse existing equation maps and provenance records; extend only missing parts.
+
+Create docs/equation_map.md recording for each quantity: meaning, complex dimensions, equation/page, implementation function, and validation test. Include:
+- Communication and radar symbols, analog/digital beamformers, receive filters.
+- Communication SINRs and sum-rate; radar channels, sensing SINRs, and the paper's MI upper-bound expression.
+- Steering-vector sign convention and transpose versus conjugate transpose. Do not silently replace the paper's radar channel convention.
+- Noise powers, reflection gains, transmit-power normalization, logarithm base, and SNR convention.
+- Separate communication, transmit-steering, and receive-steering uncertainty sets. In particular, verify the paper's radii scale as epsilon_hsqrt(Nt), epsilon_tsqrt(Nt), and epsilon_r*sqrt(Nr).
+- Whether sensing uncertainty includes both targets and clutter sources, and which indices are shared across target SINRs.
+- Exact gradient convention for complex variables, all momentum updates, initialization, and projection order.
+- EpsNet inputs, labels, data-generation relationship, architecture, and loss.
+- U-PGDA layer parameters, loss, and gradient flow through MinNet and MaxNet.
+- RecNet's multiplicative continuation rule and grid-search protocol.
+Reuse recorded source provenance. Fill gaps using links in the paper, author pages, or verified repository metadata. Record URLs, commit IDs, licenses, checkpoint provenance, and availability. Do not invent a repository URL. Preserve the existing classification as official reproduction or independent reimplementation. Do not make unrelated checkpoints appear to be the authors' results.
+
+Create docs/audit_hypotheses.md with the following hypotheses and evidence status:
+
+H1: the trained inner minimizer may leave adversarial utility insufficiently minimized.
+H2: common end-to-end utility training may not adequately preserve the opposing roles of inner and outer updates. Audit the actual computational graph, including detach operations, parameter signs, parameter constraints, and whether the reported loss uses nominal, actual, or perturbed channels. Do not infer the answer from the architecture drawing alone.
+H3: layer-specific scalar update parameters may be less effective than state-dependent parameters on difficult scenarios.
+H4: geometric RecNet continuation may be less effective than progress-dependent continuation beyond training depth.
+H5: RMSE-trained uncertainty radii may lack coverage calibration or may not be identifiable from the supplied input features.
+
+Gate A: no extension training until the equation map and baseline interpretation are explicit. Resolve source discrepancies in writing; preserve reference behavior and any justified correction as separate variants.
+3. Phase B: targeted validation of existing physics and the new attacker
+Use PyTorch with complex tensors where supported. Use complex128/float64 for numerical reference tests; lower precision is permitted for training after checks. Keep functions batched and deterministic where possible.
+
+Reuse existing implementations and passing tests. Implement only missing functionality needed for the audit. Confirm the project contains:
+- Independent NumPy reference metrics and differentiable PyTorch metrics.
+- Channel/steering construction and uncertainty application.
+- Communication/sensing utility with separately reported components.
+- Unit-modulus analog projection, unit-norm filter projection, uncertainty-ball projection, and digital power normalization using the already-updated analog matrix.
+- Explicit handling of zero norms, vanishing signal power, nonfinite outputs, and unsuitable initializations. Do not hide failures with arbitrary denominator clamps. Any numerical floor must be documented and shown not to affect conclusions.
+- A classical projected gradient descent-ascent baseline, original U-PGDA, and the paper's RecNet rule.
+Required meaningful tests:
+1. Compare every SINR and utility component against the independent implementation on tiny deterministic examples.
+2. Check analytic/autograd gradients against central finite differences on real and imaginary coordinates for every variable block. Resolve complex-gradient factor/conjugation conventions explicitly. Use directional derivative checks away from projection kinks.
+3. Check projections for inside/outside/boundary/zero cases and idempotence where applicable.
+4. Check hardware and power residuals after complete layers, not only isolated projection functions.
+5. Verify steering-error norms respect the correct radii for unequal Nt and Nr.
+6. Check one-step projected descent/ascent behavior using sufficiently small or backtracked steps on selected smooth test cases. Do not assert monotonicity of arbitrary momentum or alternating minimax trajectories.
+7. Verify repeatability, batch-versus-single consistency, CPU support, and absence of unintended parameter updates in frozen modules.
+8. Check trainable gradients through a short unroll against a small finite-difference reference. Full backpropagation through gradient updates can require second derivatives; do not silently detach them. Label any first-order approximation separately.
+Use documented dtype-appropriate tolerances; initial float64 targets are approximately 1e-8 for normalized feasibility residuals and 1e-4 relative directional-gradient error away from degeneracy. Diagnose and justify any relaxation rather than changing tolerances to pass.
+
+Gate B: fix failed tests before interpreting architecture results.
+4. Phase C: load the completed reproduction; do not repeat it
+Load the existing trained baseline checkpoint and its exact data/configuration manifest. Reuse the completed reproduction outputs. Run only a small checkpoint-loading and inference regression check against saved values to ensure the audit has not changed baseline behavior. Do not rerun full training or the original reproduction experiments. Maintain an ambiguity log for unspecified settings.
+
+Record both nominal and perturbed communication/sensing components and the weighted utility. Record all constraint residuals and initialization seeds.
+
+Use the already reproduced checkpoint, preserving its provenance. Do not demand bit-for-bit agreement across different software/hardware. Investigate any regression from saved outputs before proceeding. Retraining is justified only by a concrete missing required checkpoint or verified defect, with an explicit explanation in STATUS.md; never silently replace the existing baseline. Digitized plot values, if used, must be labeled approximate.
+
+Start with fixed, oracle simulator radii shared by all methods. This isolates optimizer behavior from EpsNet prediction errors. Report it as an oracle-radius experiment, not a full deployment replication. Add the original EpsNet pipeline as a separate baseline after this experiment works.
+
+Gate C: reference the existing reproduction report and append a short checkpoint-regression result. Do not create a redundant reproduction report. Identify a validated checkpoint, matching configuration, immutable test split, and reusable baseline measurements before claiming extension gains.
+5. Phase D: independent adversarial audit — mandatory first experiment
+For every method and held-out scenario, freeze Fa, Fd, and all receive filters. Search only uncertainty errors. Do not allow beamformer updates during attack evaluation.
+
+Respect the paper's separable robust objective:
+V(B) = rho * min_delta_h gamma_c(B, delta_h)
+       + (1-rho) * min_(delta_t,delta_r) gamma_s(B, delta_t, delta_r).
+Search communication and sensing errors with their correct shared variables and domains. Do not evaluate separate per-target minima with inconsistent versions of a shared error. Do not introduce correlation between uncertainty sets that changes the problem.
+
+Create an attacker in a module independent of the learned MinNet update code. Reuse verified physics and projections, but not learned attack schedules. Include:
+- Zero and learned-terminal-error candidates.
+- Random feasible candidates, including interior and boundary points.
+- Multi-start PGD with validation-tuned step sizes, optional backtracking, and several iteration budgets.
+- At least one additional search strategy, such as projected Adam or a derivative-free search on tiny cases, if supported and numerically reliable.
+- Best-so-far candidate retention, so larger nested candidate budgets cannot worsen the lowest utility found.
+Suggested pilot budgets: 5 restarts and 50/200 steps on at least 100 held-out scenarios, reduced only with an explicit resource explanation. Full-study target: 20 restarts and 200/1000 steps on at least 1000 scenarios where feasible, with attack convergence plots. These are starting budgets, not guarantees of attack sufficiency.
+
+For a fixed method/scenario, define an attack-gap diagnostic using the same utility:
+gap = utility_at_learned_terminal_errors - lowest_utility_found_independently.
+Include the learned-terminal candidate in the independent pool; the gap should then be nonnegative up to numerical tolerance. Compare gamma_c and gamma_s separately as well.
+
+Important interpretation: the lowest feasible candidate utility is an upper bound on the true minimum utility, not a certified lower bound on robust performance. A large attack gap diagnoses weak evaluation; a small gap does not prove global optimality.
+
+Attack every compared method independently. Also evaluate on a shared union of candidates found for all compared methods per scenario. This helps reveal method-specific attacker weaknesses without claiming certification. Keep the frozen test set out of model selection.
+
+Gate D: report whether H1 is supported. If not supported, say so and do not market the extension as fixing an observed failure. H2 requires both graph evidence and experiments, not attack results alone.
+6. Phase E: first extension — preserve the adversarial roles
+Implement a controlled variant with separately trained inner and outer update parameters. Retain physical gradients, momentum structure where used, and all projections. Do not replace beamformers with a generic NN output.
+
+Let psi parameterize MinNet and theta parameterize MaxNet. An inner-training batch must freeze beamformers, then minimize post-attack utility over psi. The outer phase must improve utility under adverse errors while holding the attack policy parameters fixed. Freezing attack parameters does not necessarily mean detaching their dependence on beamformers: explicitly define whether the outer gradient uses a detached approximate adversary or differentiates through the adversarial solve. Derive and document the chosen approximation; do not invoke envelope/Danskin reasoning as an exact theorem for an unsolved nonconvex inner problem.
+
+Write the full objectives and computational graph before coding training. Audit signs with unit tests:
+- Inner-only training should lower validation utility for fixed beamformers relative to its initialization on average.
+- Outer-only updates should improve the chosen training surrogate under the documented adversary procedure.
+- Parameters outside the intended block must remain unchanged during each phase.
+Use the same parameter capacity as the reference schedule where feasible. Keep oracle radii fixed. Evaluate with the independent attacker, not just the trained MinNet. Include a classical stronger-inner-search baseline; improved attack strength alone must not be misattributed to learning.
+
+Gate E: report nominal utility, independent-adversarial utility, hardware feasibility, and compute cost even if the extension loses. No cherry-picking.
+7. Phase F: optional state-dependent update controller
+Proceed only after Phases A-E are validated and compute remains. Add one small shared controller for step sizes/momentum, retaining all physical updates.
+
+Use deployable, normalized state summaries such as gradient norms, iterate differences, recent objective changes, normalized uncertainty radii, and remaining computation budget. Never use true deployment errors, hidden simulator labels, or test-set statistics as controller inputs. Use separate heads or explicit role indicators for inner and outer updates.
+
+Bound positive step sizes and momentum through documented parameterizations. Positive steps alone do not guarantee stability. Compare against validation-tuned fixed schedules and the paper's geometric continuation. Add safeguarded rejection or step reduction if justified; include its overhead.
+
+Test within and beyond training depth and across channel difficulty. Learned stopping must use a specified progress criterion and maximum budget. A small projected-gradient residual is a local progress diagnostic, not a certificate of global robustness.
+
+Required ablation: reference; role-separated training only; state controller only; both. Compare equal derivative-evaluation budgets and matched runtime where feasible, not merely equal layer counts.
+8. Phase G: optional uncertainty-calibration study — separate experiment
+Do not combine this with optimizer changes in the primary claim. First audit what EpsNet actually observes and how simulator radii are generated. If radii vary independently of the available observations, document the identifiability problem instead of inventing a successful predictor.
+
+Retain the original EpsNet RMSE baseline. If realistic estimation metadata is available or explicitly simulated, test a calibrated radius model with a disjoint calibration split. Specify the assumptions, target coverage, and whether coverage is marginal, per-user, per-block, or simultaneous over all errors. Separate per-error 95% coverage does not imply 95% joint coverage. Do not claim conditional or distribution-shift guarantees from marginal exchangeable-data calibration.
+
+Measure coverage, radius size, prediction error, and downstream adversarial performance under both fixed common evaluation sets and stated uncertainty-distribution tests. Distinguish probabilistic error coverage from worst-case performance within the set.
+9. Required comparisons and experimental protocol
+Primary methods: validation-tuned classical PGDA; faithful U-PGDA; paper RecNet; proposed role-separated training; stronger classical inner-search variant. Add state conditioning only when implemented. Use released paper results only as historical references unless the pipeline is runnable.
+
+Tune baselines fairly. A weak hand-chosen classical step size is not adequate evidence for learning. Compare best feasible results at matched runtime and derivative budgets. Report training cost separately from online inference. Time data transfer, synchronization, and repeated measurements consistently; use warmup and synchronized GPU timing where needed. Report median and tail latency with hardware, batch size, and precision.
+
+Primary evidence must hold the physical problem, rho, power, radii, datasets, and independent attacker fixed. Vary SNR, uncertainty magnitude, rho, user/target counts, array dimensions, and extra inference depth in clearly labeled secondary experiments. Models trained separately at each dimension do not demonstrate one-model cross-dimension generalization.
+
+Use at least 3 independent training seeds for exploratory claims and target 5 for full-study claims. Use paired channel scenarios and paired confidence intervals. Separate channel-sampling variability from training-seed variability; thousands of channels from one trained checkpoint are not thousands of independent training runs. Save per-scenario data and failed runs; never silently remove failures from averages.
+
+Required figures/tables:
+1. Existing reproduction reference and new feasibility residual checks.
+2. Learned-terminal utility versus independent-adversarial utility.
+3. Attack budget saturation and attack-gap distributions.
+4. Independent-adversarial utility versus online time/gradient budget.
+5. Separate communication and sensing results across rho and uncertainty.
+6. Ablations with parameter counts, costs, and training seeds.
+7. Beyond-training-depth behavior if continuation is claimed.
+8. Coverage versus radius size only if calibration is implemented.
+Plot the paper's sensing quantity as its MI upper-bound metric, not measured detection probability or angle accuracy. Improvements in this metric alone do not establish improvements in actual detection or estimation.
+10. Repository and deliverables
+Adapt to an existing repository instead of creating duplicate architecture. A reasonable layout is:
+src/isac_l2o/{physics,metrics,projections,uncertainty,data}.py
+src/isac_l2o/optim/{pgda,attacks,schedules}.py
+src/isac_l2o/models/{unrolled,recnet,controller,epsnet}.py
+src/isac_l2o/{train,evaluate,benchmark}.py
+configs/{reference,pilot,full,ablations}/
+tests/
+scripts/
+docs/{equation_map,audit_hypotheses,experiment_protocol}.md
+reports/{reproduction,adversarial_audit,extension_results}.md
+results/manifest.json
+Provide a clean-environment install path, pinned/reproducible dependencies, smoke-test command, reference-training command, attack-audit command, proposed-training command, evaluation command, and figure-generation command. Every documented command must exist; run smoke and pilot commands before delivery. If a full command was not run, say so explicitly.
+
+Checkpoint state must include weights, optimizer state, RNG state, config, source commit, data-split identifiers, and relevant hashes. Evaluation must load checkpoints without requiring training. Persist raw outputs, logs, timing summaries, and plot data. Make long runs resumable. Do not commit secrets or downloaded data without appropriate rights.
+
+Maintain STATUS.md with passed/failed gates, measured evidence, exact commands, resource limits, and next action. Use focused tests tied to scientific correctness rather than tests that merely mirror implementation.
+11. Final report and claim discipline
+Give a self-contained report answering:
+- What was faithfully reproduced, and what was unavailable or ambiguous?
+- Which architecture limitation was actually observed?
+- Was the learned inner minimizer weaker than independent search?
+- Did the extension improve independently evaluated performance at comparable computation?
+- Were all hardware constraints met, including failed cases?
+- Which results survived seeds, paired comparisons, and stronger attacks?
+- What remains untested, and which commands complete it?
+Do not claim global convergence, globally certified robustness, exact worst-case solutions, or guaranteed real-world uncertainty coverage without a valid proof and its assumptions. Projection preserves the relevant feasible set; it does not prove these broader properties.
+
+Before any novelty claim, review primary literature on learned minimax optimization, robust ISAC unfolding, state-dependent learned optimizers, and uncertainty calibration as applicable. Record a comparison table with verified sources and actual differences. Existing generic methods are tools, not automatically new contributions.
+
+The extension succeeds scientifically if it either demonstrates a reproducible improvement or produces a convincing negative result that rules out the proposed weakness. Do not force a positive narrative.
+12. First work session: execute in this order
+1. Locate the completed reproduction repository, checkpoint, configs, and saved outputs. Preserve them.
+2. Read repository instructions and existing reproduction documentation; confirm source-paper identity and available compute.
+3. Load the existing model and run one small regression/feasibility check. Do not retrain.
+4. Audit MinNet/MaxNet loss signs, trainable parameters, perturbation inputs, and detach behavior; extend the equation map only where missing.
+5. Implement the independent attacker as an isolated addition, with targeted projection/gradient and frozen-beamformer tests. Reuse existing physics.
+6. Run the pilot independent frozen-beamformer adversarial audit against the existing checkpoint.
+7. Report attack gaps, separate communication/sensing effects, timing, and budget saturation; update STATUS.md.
+8. Continue to role-separated training only after the preceding gates pass; preserve the checkpoint as the immutable reference. Do not spend the first session rebuilding reproduction or a larger controller.
+Start doing the work. Do not stop after restating this brief. If blocked, identify the exact missing item or failed gate, provide completed results, and continue any independent tasks that remain possible.

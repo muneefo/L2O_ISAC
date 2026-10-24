@@ -1,0 +1,58 @@
+{
+  "checkpoint": "reports/corrected_per_channel_seed73129/checkpoint.pt",
+  "reference_commit": "83ba89148c8d89a7ab60105da0fa5cbfe6105d9e",
+  "split_seeds": {
+    "train": 842101,
+    "validation": 842102,
+    "test": 842103
+  },
+  "split_sizes": {
+    "train": 5000,
+    "validation": 1000,
+    "test": 1000
+  },
+  "initialization_seeds": {
+    "train": 843101,
+    "validation": 843102,
+    "test": 843103
+  },
+  "training_seeds": [
+    101,
+    202,
+    303,
+    404,
+    505
+  ],
+  "epochs": 10,
+  "batch_size": 250,
+  "inner_lr": 0.001,
+  "outer_lr_candidates": [
+    1e-05,
+    0.0001
+  ],
+  "training_attack_steps": 50,
+  "validation_attack_steps": 100,
+  "attack_budgets": [
+    200,
+    1000
+  ],
+  "random_restarts": 20,
+  "adam_steps": 200,
+  "attack_step_candidates": [
+    0.01,
+    0.05,
+    0.2
+  ],
+  "classical_inner_steps": [
+    0.0025,
+    0.025,
+    0.1
+  ],
+  "classical_outer_steps": [
+    0.001,
+    0.01,
+    0.03
+  ],
+  "timing_repeats": 15,
+  "scope": "Unexecuted full-study target; runtime may exceed interactive resources; still one reference pretraining seed"
+}
