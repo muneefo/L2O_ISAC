@@ -1,6 +1,6 @@
 {
   "README.md": "1691e93849906dd35655ceb9c3a573886198a1208a89f46df2b5b6893a517c9e",
-  "pyproject.toml": "6974012c8a4c2b01e36499f4e295d6f8f211f670679e47a5c44ae773a0592349",
+  "pyproject.toml": "9519cff5625df530d7c39b39baf3031a827ca03a0118d9a6962fbdca0e32a79c",
   "l2o_isac/__init__.py": "0084827310bbba095a7cf8ac2ffb4a7870439cbb6c020d0e46b24aa7dda43dae",
   "l2o_isac/audit.py": "00bdbe61a386063587c5a30395ce8cad94c5439e0d31da899220be5ac8d88cf1",
   "l2o_isac/config.py": "60ffcaa031550a3ac4794d14bda551da7cbd439599f2c4204ff48e2b2b986013",
@@ -13,9 +13,9 @@
   "l2o_isac/paper_checks.py": "29dbcf8228bf605787c2db0c06fe975be875d15c4dba970694a0570f21df294e",
   "l2o_isac/physics.py": "40a3db0516c0512cfea3316a6d3c7e9204938a50ba60ea8b8f931cf49705c108",
   "l2o_isac/solver.py": "769e0cab5c613a3ed39eb5328d7e9d1edb8a1ea121402e7872eecd0cd4e81cce",
-  "l2o_isac/suite.py": "3ebfa8bc6c9eed1cb8ff1e65184d2b2812ffbd90325973d527e63de954e4509e",
+  "l2o_isac/suite.py": "db7341c0e923fff59c473ca85b0c428152abc9b72f03ad5072580f8619802916",
   "l2o_isac/training.py": "1933bfadb036ef82d1b43b0e07ef27775625fee30ed43c04462c0bd8de43f070",
-  "l2o_isac/validation_report.py": "4827ac1da35fb507b818db447fd423e9ef1ae8712409577b85eba3b9399f2157",
+  "l2o_isac/validation_report.py": "e1c7ecc241e5dd4af182966f8b4d11118cae1662e89c3e5f6e4fdc112e24a947",
   "tests/test_paper_alignment.py": "a573c78642c52e6ecc870471cd79fa6c3d9520a31741f902cb492b9bba8d4274",
   "tests/test_physics.py": "9140f42059073efab1edbefca23816d375d0fa924c6d756db406e6fe49a074d7",
   "tests/test_pipeline.py": "4bd95bad7cc1e953ac8db7082f8ade4cf2f3d3d7b53eba191c041ad5e06e5c89"

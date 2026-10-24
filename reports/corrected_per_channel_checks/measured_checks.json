@@ -1,0 +1,685 @@
+{
+  "checkpoint": "reports/corrected_per_channel_seed73129/checkpoint.pt",
+  "config": {
+    "nt": 16,
+    "nr": 16,
+    "users": 4,
+    "targets": 2,
+    "clutter": 2,
+    "rf_chains": 8,
+    "snr_db": 5.0,
+    "noise_comm": 1.0,
+    "noise_sense": 1.0,
+    "rho": 0.8,
+    "eps_h": 0.05,
+    "eps_t": 0.05,
+    "eps_r": 0.05,
+    "target_variance_db": 2.0,
+    "clutter_variance_db": 3.0,
+    "angle_min_deg": -60.0,
+    "angle_max_deg": 60.0,
+    "min_separation_deg": 5.0
+  },
+  "eps_layout": "per-channel",
+  "uncertainty_protocol": "One frozen EpsNet evaluated on Table I epsilon values; author training-label protocol unspecified.",
+  "epsilon_sweep": [
+    {
+      "epsilon": 0.001,
+      "rmse": 0.04890028387308121,
+      "rmse_definition": "mean of per-sample three-bound RMSE, Eq. (18)",
+      "global_rmse": 0.0489051528275013,
+      "rmse_by_bound": [
+        0.0488191619515419,
+        0.048904720693826675,
+        0.04899141564965248
+      ],
+      "mean_predicted": [
+        0.049789734184741974,
+        0.04989863187074661,
+        0.04998594522476196
+      ],
+      "mean_true": [
+        0.0010000000474974513,
+        0.0010000000474974513,
+        0.0010000000474974513
+      ]
+    },
+    {
+      "epsilon": 0.01,
+      "rmse": 0.03990229219198227,
+      "rmse_definition": "mean of per-sample three-bound RMSE, Eq. (18)",
+      "global_rmse": 0.03990824520587921,
+      "rmse_by_bound": [
+        0.039825815707445145,
+        0.0399060919880867,
+        0.03999264910817146
+      ],
+      "mean_predicted": [
+        0.049789734184741974,
+        0.04989863187074661,
+        0.04998594522476196
+      ],
+      "mean_true": [
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582
+      ]
+    },
+    {
+      "epsilon": 0.02,
+      "rmse": 0.02990594319999218,
+      "rmse_definition": "mean of per-sample three-bound RMSE, Eq. (18)",
+      "global_rmse": 0.02991386130452156,
+      "rmse_by_bound": [
+        0.02983791194856167,
+        0.02990858629345894,
+        0.029994884505867958
+      ],
+      "mean_predicted": [
+        0.049789734184741974,
+        0.04989863187074661,
+        0.04998594522476196
+      ],
+      "mean_true": [
+        0.019999999552965164,
+        0.019999999552965164,
+        0.019999999552965164
+      ]
+    },
+    {
+      "epsilon": 0.03,
+      "rmse": 0.01991329714655876,
+      "rmse_definition": "mean of per-sample three-bound RMSE, Eq. (18)",
+      "global_rmse": 0.01992512308061123,
+      "rmse_by_bound": [
+        0.019862184301018715,
+        0.019913585856556892,
+        0.01999935880303383
+      ],
+      "mean_predicted": [
+        0.049789734184741974,
+        0.04989863187074661,
+        0.04998594522476196
+      ],
+      "mean_true": [
+        0.029999999329447746,
+        0.029999999329447746,
+        0.029999999329447746
+      ]
+    },
+    {
+      "epsilon": 0.04,
+      "rmse": 0.009935788810253143,
+      "rmse_definition": "mean of per-sample three-bound RMSE, Eq. (18)",
+      "global_rmse": 0.009959005750715733,
+      "rmse_by_bound": [
+        0.009935377165675163,
+        0.009928657673299313,
+        0.010012763552367687
+      ],
+      "mean_predicted": [
+        0.049789734184741974,
+        0.04989863187074661,
+        0.04998594522476196
+      ],
+      "mean_true": [
+        0.03999999910593033,
+        0.03999999910593033,
+        0.03999999910593033
+      ]
+    },
+    {
+      "epsilon": 0.05,
+      "rmse": 0.0010279491543769836,
+      "rmse_definition": "mean of per-sample three-bound RMSE, Eq. (18)",
+      "global_rmse": 0.0011632179375737906,
+      "rmse_by_bound": [
+        0.0017079465324059129,
+        0.0007782054017297924,
+        0.0007324905600398779
+      ],
+      "mean_predicted": [
+        0.049789734184741974,
+        0.04989863187074661,
+        0.04998594522476196
+      ],
+      "mean_true": [
+        0.05000000819563866,
+        0.05000000819563866,
+        0.05000000819563866
+      ]
+    }
+  ],
+  "transfer_protocol": "Same saved weights, no retraining, at Fig. 9 user/target counts. This is an added transfer audit, not a claimed reproduction of their unspecified sharing protocol.",
+  "frozen_weight_count_transfer": [
+    {
+      "users": 2,
+      "targets": 2,
+      "status": "measured with frozen weights",
+      "internal_objective": {
+        "mean": 3.677474021911621,
+        "std": 0.5507359504699707,
+        "sem": 0.04867864027619362,
+        "min": 1.924554705619812,
+        "max": 5.037008285522461
+      },
+      "benchmark_internal_objective": {
+        "mean": 3.393770694732666,
+        "std": 0.5679064989089966,
+        "sem": 0.050196316093206406,
+        "min": 1.6210025548934937,
+        "max": 4.823467254638672
+      },
+      "attacked_objective": {
+        "mean": 3.2250235080718994,
+        "std": 0.5272836089134216,
+        "sem": 0.046605728566646576,
+        "min": 1.6635491847991943,
+        "max": 4.528310775756836
+      },
+      "benchmark_attacked_objective": {
+        "mean": 3.216160535812378,
+        "std": 0.552674412727356,
+        "sem": 0.04884997755289078,
+        "min": 1.5459544658660889,
+        "max": 4.645835876464844
+      },
+      "paired_attacked_difference": {
+        "mean": 0.008863096125423908,
+        "std": 0.1199837401509285,
+        "sem": 0.010605164803564548,
+        "min": -0.1716012954711914,
+        "max": 0.8252954483032227
+      },
+      "constraints": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.1920928955078125e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 0.0,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      }
+    },
+    {
+      "users": 4,
+      "targets": 4,
+      "status": "measured with frozen weights",
+      "internal_objective": {
+        "mean": 4.733355522155762,
+        "std": 0.5425403714179993,
+        "sem": 0.047954246401786804,
+        "min": 3.2796168327331543,
+        "max": 6.038944721221924
+      },
+      "benchmark_internal_objective": {
+        "mean": 4.364667892456055,
+        "std": 0.5526420474052429,
+        "sem": 0.04884711652994156,
+        "min": 2.784796953201294,
+        "max": 5.79610013961792
+      },
+      "attacked_objective": {
+        "mean": 4.090820789337158,
+        "std": 0.5283768177032471,
+        "sem": 0.04670235514640808,
+        "min": 2.6413943767547607,
+        "max": 5.371009826660156
+      },
+      "benchmark_attacked_objective": {
+        "mean": 4.056305408477783,
+        "std": 0.5387120842933655,
+        "sem": 0.04761587083339691,
+        "min": 2.5143940448760986,
+        "max": 5.4413580894470215
+      },
+      "paired_attacked_difference": {
+        "mean": 0.03451533988118172,
+        "std": 0.13645462691783905,
+        "sem": 0.012060998938977718,
+        "min": -0.21337342262268066,
+        "max": 0.6118226051330566
+      },
+      "constraints": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.430511474609375e-06,
+        "receive_norm": 1.7881393432617188e-07,
+        "dh_violation": 0.0,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 1.4901161193847656e-08
+      }
+    },
+    {
+      "users": 6,
+      "targets": 6,
+      "status": "measured with frozen weights",
+      "internal_objective": {
+        "mean": 5.25189733505249,
+        "std": 0.5812954306602478,
+        "sem": 0.051379743963479996,
+        "min": 3.695711374282837,
+        "max": 6.335240364074707
+      },
+      "benchmark_internal_objective": {
+        "mean": 4.888638973236084,
+        "std": 0.6087334156036377,
+        "sem": 0.05380494147539139,
+        "min": 3.343539237976074,
+        "max": 6.060022830963135
+      },
+      "attacked_objective": {
+        "mean": 4.541459083557129,
+        "std": 0.5517489314079285,
+        "sem": 0.04876817762851715,
+        "min": 3.1249687671661377,
+        "max": 5.74044132232666
+      },
+      "benchmark_attacked_objective": {
+        "mean": 4.5042219161987305,
+        "std": 0.5829653143882751,
+        "sem": 0.05152733996510506,
+        "min": 3.036778450012207,
+        "max": 5.73713493347168
+      },
+      "paired_attacked_difference": {
+        "mean": 0.03723635897040367,
+        "std": 0.13680532574653625,
+        "sem": 0.01209199707955122,
+        "min": -0.4476609230041504,
+        "max": 0.5588750839233398
+      },
+      "constraints": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 2.1457672119140625e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 1.4901161193847656e-08,
+        "dt_violation": 1.4901161193847656e-08,
+        "dr_violation": 2.9802322387695312e-08
+      }
+    }
+  ],
+  "latency": {
+    "EpsNet": {
+      "samples_ms": [
+        0.229306,
+        0.21896,
+        0.217318,
+        0.242636,
+        0.221564,
+        0.212971,
+        0.208554,
+        0.210788,
+        0.248024,
+        0.212691,
+        0.208154,
+        0.214754,
+        0.241083,
+        0.217248,
+        0.213051,
+        0.262667,
+        0.237357,
+        0.218459,
+        0.209106,
+        0.209365,
+        0.207313,
+        0.241674,
+        0.214263,
+        0.206161,
+        0.20591,
+        0.209556,
+        0.247082,
+        0.211589,
+        0.216697,
+        0.211819
+      ],
+      "repeats": 30,
+      "warmups": 5,
+      "median_ms": 0.2145085,
+      "p95_ms": 0.2476001
+    },
+    "U-PGDA/solver_only": {
+      "samples_ms": [
+        15.064659,
+        15.659675,
+        15.419223,
+        15.464301,
+        14.903445,
+        15.223357,
+        15.420204,
+        17.752662,
+        16.481375,
+        15.597412,
+        14.990587,
+        14.888853,
+        15.740158,
+        15.22517,
+        16.632173,
+        16.094481,
+        15.015544,
+        22.609356,
+        22.676267,
+        15.43047,
+        16.415415,
+        15.441887,
+        15.110477,
+        14.955734,
+        14.941764,
+        15.578643,
+        15.407195,
+        15.30427,
+        15.800599,
+        15.507025
+      ],
+      "repeats": 30,
+      "warmups": 5,
+      "median_ms": 15.4361785,
+      "p95_ms": 20.423843699999985
+    },
+    "U-PGDA/including_initialization_and_bounds": {
+      "samples_ms": [
+        15.807729,
+        16.269325,
+        16.15993,
+        16.501545,
+        16.872205,
+        16.121612,
+        15.956012,
+        15.933098,
+        15.973449,
+        16.21958,
+        16.540274,
+        16.000419,
+        15.889537,
+        15.840494,
+        15.852691,
+        15.801465,
+        16.605688,
+        16.569383,
+        15.826993,
+        15.899993,
+        15.887604,
+        16.021837,
+        16.377704,
+        16.228248,
+        15.812421,
+        15.9175,
+        15.829697,
+        15.93102,
+        16.359216,
+        16.210791
+      ],
+      "repeats": 30,
+      "warmups": 5,
+      "median_ms": 15.986934000000002,
+      "p95_ms": 16.58935075
+    },
+    "RU-PGDA+10/solver_only": {
+      "samples_ms": [
+        25.441715,
+        25.047,
+        25.581647,
+        24.918446,
+        25.030795,
+        25.059119,
+        26.262244,
+        25.756991,
+        25.121342,
+        25.262315,
+        25.702408,
+        26.196063,
+        25.202945,
+        25.336887,
+        25.536128,
+        25.238618,
+        25.963903,
+        25.115143,
+        26.1273,
+        24.908992,
+        25.040211,
+        26.873776,
+        25.27928,
+        25.166658,
+        25.578117,
+        25.4875,
+        25.531858,
+        25.650707,
+        26.215128,
+        25.83157
+      ],
+      "repeats": 30,
+      "warmups": 5,
+      "median_ms": 25.4646075,
+      "p95_ms": 26.241041799999998
+    },
+    "RU-PGDA+10/including_initialization_and_bounds": {
+      "samples_ms": [
+        25.957189,
+        26.515891,
+        27.305722,
+        26.717375,
+        27.172761,
+        26.127306,
+        26.759739,
+        25.968586,
+        26.035848,
+        27.783713,
+        26.878218,
+        26.825759,
+        27.208536,
+        26.423402,
+        26.674656,
+        26.662492,
+        27.736292,
+        26.508981,
+        26.033885,
+        27.088886,
+        26.411374,
+        26.287137,
+        26.118763,
+        26.919049,
+        26.745598,
+        27.109687,
+        27.162377,
+        26.724976,
+        26.908343,
+        26.730365
+      ],
+      "repeats": 30,
+      "warmups": 5,
+      "median_ms": 26.727670500000002,
+      "p95_ms": 27.5425355
+    },
+    "B-PGDA/solver_only": {
+      "samples_ms": [
+        185.953456,
+        183.626456,
+        184.684893,
+        185.861567,
+        185.397267,
+        187.955984,
+        186.984189,
+        188.088354,
+        187.990447,
+        192.766868
+      ],
+      "repeats": 10,
+      "warmups": 5,
+      "median_ms": 186.4688225,
+      "p95_ms": 190.6615367
+    },
+    "B-PGDA/including_initialization_and_bounds": {
+      "samples_ms": [
+        187.345955,
+        198.528316,
+        188.175105,
+        187.408188,
+        192.103549,
+        185.502596,
+        187.762772,
+        195.048244,
+        187.486508,
+        186.598599
+      ],
+      "repeats": 10,
+      "warmups": 5,
+      "median_ms": 187.62464,
+      "p95_ms": 196.9622836
+    }
+  },
+  "latency_protocol": {
+    "batch_size": 1,
+    "threads": 1,
+    "device": "CPU",
+    "torch": "2.14.1+cpu",
+    "python": "3.12.14",
+    "includes": "fixed-depth inference and diagnostic layer metrics",
+    "excludes": "CSI acquisition, external transfers, RF programming",
+    "interpretation": "Measured inference latency; not a certified time to convergence"
+  },
+  "seed": 39001,
+  "samples_per_scenario": 128,
+  "published_reference": {
+    "source": {
+      "doi": "10.1109/TWC.2026.3702925",
+      "title": "L2O Robust Hybrid Beamforming for ISAC",
+      "provenance": "Manually transcribed from the supplied PDF's figures/tables; these are published reference values, not outputs of this implementation."
+    },
+    "table_I": {
+      "printed_page": 18787,
+      "epsilon": [
+        0.001,
+        0.01,
+        0.02,
+        0.03,
+        0.04,
+        0.05
+      ],
+      "predicted_h": [
+        0.00097,
+        0.0096,
+        0.0174,
+        0.0315,
+        0.0434,
+        0.052
+      ],
+      "predicted_t": [
+        0.00092,
+        0.0104,
+        0.02,
+        0.03,
+        0.0395,
+        0.048
+      ],
+      "predicted_r": [
+        0.00098,
+        0.01,
+        0.0212,
+        0.0296,
+        0.038,
+        0.061
+      ],
+      "rmse": [
+        4e-05,
+        0.0003,
+        0.0016,
+        0.0009,
+        0.0023,
+        0.0065
+      ]
+    },
+    "table_II": {
+      "printed_page": 18789,
+      "hardware": "Intel Core Ultra 7 155H, 32 GB RAM (footnote 8)",
+      "timing_protocol": "Runtime in ms; batch size, warm-up, percentiles, and complete acquisition-to-RF latency are not specified.",
+      "rows": [
+        {
+          "method": "U-PGDA",
+          "train_layers": 20,
+          "test_layers": 20,
+          "objective_n16": 4.6952,
+          "objective_n32": 5.1051,
+          "ms_n16": 9.68,
+          "ms_n32": 13.47
+        },
+        {
+          "method": "U-PGDA",
+          "train_layers": 15,
+          "test_layers": 15,
+          "objective_n16": 4.6667,
+          "objective_n32": 5.0645,
+          "ms_n16": 7.56,
+          "ms_n32": 12.12
+        },
+        {
+          "method": "RU-PGDA",
+          "train_layers": 15,
+          "test_layers": 20,
+          "objective_n16": 4.6777,
+          "objective_n32": 5.078,
+          "ms_n16": 9.98,
+          "ms_n32": 15.44
+        },
+        {
+          "method": "RU-PGDA",
+          "train_layers": 15,
+          "test_layers": 25,
+          "objective_n16": 4.6854,
+          "objective_n32": 5.0844,
+          "ms_n16": 12.64,
+          "ms_n32": 18.51
+        },
+        {
+          "method": "B-PGDA",
+          "train_layers": null,
+          "test_layers": 180,
+          "objective_n16": 4.3958,
+          "objective_n32": 4.9671,
+          "ms_n16": 40.03,
+          "ms_n32": 94.31
+        }
+      ]
+    },
+    "figure_9": {
+      "printed_page": 18788,
+      "nt": 16,
+      "nr": 16,
+      "user_target_pairs": [
+        [
+          2,
+          2
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          6,
+          6
+        ]
+      ],
+      "snr_db": [
+        -6,
+        -4,
+        -2,
+        0,
+        2,
+        4,
+        6
+      ],
+      "weight_sharing_protocol": "Not explicitly specified; do not infer same-checkpoint transfer or separate retraining."
+    },
+    "figure_8": {
+      "printed_page": 18788,
+      "rho": [
+        0.1,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9
+      ]
+    }
+  }
+}

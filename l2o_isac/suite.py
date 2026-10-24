@@ -18,7 +18,7 @@ def main(argv=None):
         'momentum': [(kind, ['--momentum', kind]) for kind in ('none', 'fixed', 'learned')],
         'robustness': [(f'eps{e}', ['--epsilon', str(e)]) for e in PAPER_EPSILON_GRID],
         'tradeoff': [(f'rho{r}', ['--rho', str(r)]) for r in (.1, .2, .3, .4, .5, .6, .7, .8, .9)],
-        'snr': [(f'snr{s}', ['--snr-db', str(s)]) for s in (-6, -3, 0, 3, 6)],
+        'snr': [(f'snr{s}', ['--snr-db', str(s)]) for s in (-6, -4, -2, 0, 2, 4, 6)],
         'scenarios': [(f'm{m}_t{m}', ['--users', str(m), '--targets', str(m)]) for m in (2, 4, 6)],
     }[args.family]
     index = []

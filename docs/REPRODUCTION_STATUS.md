@@ -61,3 +61,16 @@ nominal generator contains no information about independently changed radius
 labels, the report must show that limitation, rather than force agreement with Table I.
 
 The source paper and detailed page-by-page evidence are cited in `PAPER_READING.md`.
+
+## Source snapshots and actual corrected execution
+
+The full-size corrected run at `reports/corrected_per_channel_seed73129` records
+the source hashes corresponding to commit `b6a289d`. It trained on 5000/1000/1000
+channels for 10 epochs and saved new weights, logs and raw complex beamformers.
+Later changes to report formatting and sweep defaults are not changes to the
+numerical training code used in that run. Historical concatenated runs originate
+from commit `4425f7a`. Execution-manifest hashes refer to their source snapshot;
+they are not expected to match every later repository revision.
+
+The primary CLI implementation is still an independent reconstruction: the new
+run must not be described as exact numerical reproduction of Tables I or II.
