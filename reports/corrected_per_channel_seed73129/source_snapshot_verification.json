@@ -2,5 +2,6 @@
   "source_commit": "b6a289d833500cce58d37f9cc95d5fd067ace437",
   "source_hashes_match_commit": true,
   "artifact_hashes_match": true,
-  "saved_raw_tensor_objectives_match_numpy_artifact_at_1e12_tolerance": true
+  "saved_raw_tensor_objectives_match_numpy_artifact": true,
+  "numpy_absolute_tolerance": 1e-12
 }
