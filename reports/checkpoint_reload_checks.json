@@ -1,0 +1,62 @@
+{
+  "paper_n16_l15": {
+    "layers": 25,
+    "constraints": {
+      "analog_modulus": 1.1920928955078125e-07,
+      "transmit_power": 4.76837158203125e-07,
+      "receive_norm": 1.1920928955078125e-07,
+      "dh_violation": 0.0,
+      "dt_violation": 0.0,
+      "dr_violation": 1.4901161193847656e-08
+    },
+    "mu_min": -0.006213944870978594
+  },
+  "paper_n16_l20": {
+    "layers": 30,
+    "constraints": {
+      "analog_modulus": 1.1920928955078125e-07,
+      "transmit_power": 9.5367431640625e-07,
+      "receive_norm": 5.960464477539063e-08,
+      "dh_violation": 0.0,
+      "dt_violation": 0.0,
+      "dr_violation": 1.4901161193847656e-08
+    },
+    "mu_min": -0.006796699482947588
+  },
+  "paper_n32_l15": {
+    "layers": 25,
+    "constraints": {
+      "analog_modulus": 1.1920928955078125e-07,
+      "transmit_power": 4.76837158203125e-07,
+      "receive_norm": 0.0,
+      "dh_violation": 0.0,
+      "dt_violation": 0.0,
+      "dr_violation": 2.9802322387695312e-08
+    },
+    "mu_min": -0.007524809800088406
+  },
+  "projected_n16_l15": {
+    "layers": 25,
+    "constraints": {
+      "analog_modulus": 1.1920928955078125e-07,
+      "transmit_power": 7.152557373046875e-07,
+      "receive_norm": 1.1920928955078125e-07,
+      "dh_violation": 0.0,
+      "dt_violation": 0.0,
+      "dr_violation": 1.4901161193847656e-08
+    },
+    "mu_min": 0.0
+  },
+  "smoke": {
+    "layers": 25,
+    "constraints": {
+      "analog_modulus": 1.1920928955078125e-07,
+      "transmit_power": 9.5367431640625e-07,
+      "receive_norm": 1.1920928955078125e-07,
+      "dh_violation": 0.0,
+      "dt_violation": 0.0,
+      "dr_violation": 0.0
+    },
+    "mu_min": 0.0010139280930161476
+  }
+}

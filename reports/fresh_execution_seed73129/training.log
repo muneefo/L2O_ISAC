@@ -1,0 +1,27 @@
+EpsNet 1/10: train RMSE=0.20510, validation=0.05903
+EpsNet 2/10: train RMSE=0.02596, validation=0.00353
+EpsNet 3/10: train RMSE=0.00242, validation=0.00227
+EpsNet 4/10: train RMSE=0.00228, validation=0.00224
+EpsNet 5/10: train RMSE=0.00224, validation=0.00220
+EpsNet 6/10: train RMSE=0.00221, validation=0.00217
+EpsNet 7/10: train RMSE=0.00217, validation=0.00213
+EpsNet 8/10: train RMSE=0.00214, validation=0.00210
+EpsNet 9/10: train RMSE=0.00210, validation=0.00206
+EpsNet 10/10: train RMSE=0.00207, validation=0.00203
+U-PGDA 1/10: train objective=3.25891, validation=3.84894
+U-PGDA 2/10: train objective=3.92723, validation=3.98189
+U-PGDA 3/10: train objective=4.00764, validation=4.04391
+U-PGDA 4/10: train objective=4.05541, validation=4.08578
+U-PGDA 5/10: train objective=4.08579, validation=4.11636
+U-PGDA 6/10: train objective=4.12848, validation=4.14077
+U-PGDA 7/10: train objective=4.14876, validation=4.16130
+U-PGDA 8/10: train objective=4.16115, validation=4.17890
+U-PGDA 9/10: train objective=4.18764, validation=4.19530
+U-PGDA 10/10: train objective=4.20981, validation=4.21017
+RecNet best: {'beta': 0.9900000095367432, 'phi': 0.9900000095367432, 'loss': -4.350898623466492}
+B-PGDA: internal=4.3405, independently attacked=4.0680
+U-PGDA: internal=4.6935, independently attacked=4.0750
+RU-PGDA+5: internal=4.7075, independently attacked=4.0938
+RU-PGDA+10: internal=4.7171, independently attacked=4.1080
+Nonrobust-PGA: internal=4.6236, independently attacked=4.0477
+Saved results to /workspace/reports/fresh_execution_seed73129 (98.1s)

@@ -1,0 +1,6 @@
+{
+  "source_hashes_match": true,
+  "artifact_hashes_match": true,
+  "numpy_metrics_recomputed_from_saved_raw_tensors_match": true,
+  "absolute_tolerance": 1e-12
+}

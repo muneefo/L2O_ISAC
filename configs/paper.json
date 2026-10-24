@@ -1,0 +1,17 @@
+{
+  "system": {
+    "nt": 16, "nr": 16, "users": 4, "targets": 2, "clutter": 2, "rf_chains": 8,
+    "snr_db": 5.0, "noise_comm": 1.0, "noise_sense": 1.0,
+    "rho": 0.8, "eps_h": 0.05, "eps_t": 0.05, "eps_r": 0.05,
+    "target_variance_db": 2.0, "clutter_variance_db": 3.0
+  },
+  "training": {
+    "train": 5000, "valid": 1000, "test": 1000, "epochs": 10, "batch_size": 250,
+    "layers": 15, "epsnet_optimizer": "SGD", "epsnet_lr": 0.05,
+    "unrolled_optimizer": "SGD", "unrolled_lr": 0.0001, "lr_decay_per_epoch": 0.98,
+    "initial_inner_step": 0.0025, "initial_outer_step": 0.001, "initial_momentum": 0.01
+  },
+  "recurrence": {"beta_range": [0.01, 0.99], "phi_range": [0.01, 0.99], "grid_size_each": 10,
+    "validation_extension_layers": 5, "test_extension_layers": [5, 10]},
+  "note": "Reference manifest. CLI uses these defaults under --profile paper; this JSON is not a CLI input file."
+}

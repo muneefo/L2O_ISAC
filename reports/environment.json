@@ -1,0 +1,8 @@
+{
+  "python": "3.12.14",
+  "torch": "2.14.1+cpu",
+  "numpy": "2.3.5",
+  "device": "CPU",
+  "cpu_quota_cores": 2,
+  "dependencies": "See pyproject.toml; existing interpreter .venv/bin/python"
+}

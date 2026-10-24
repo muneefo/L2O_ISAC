@@ -1,0 +1,20 @@
+{
+  "pyproject.toml": "6974012c8a4c2b01e36499f4e295d6f8f211f670679e47a5c44ae773a0592349",
+  "README.md": "305bb2c500f7d0b5c0b72bbe58957920f17635f304e86a45a6b8598e4f8fee5c",
+  "l2o_isac/__init__.py": "0084827310bbba095a7cf8ac2ffb4a7870439cbb6c020d0e46b24aa7dda43dae",
+  "l2o_isac/audit.py": "00bdbe61a386063587c5a30395ce8cad94c5439e0d31da899220be5ac8d88cf1",
+  "l2o_isac/config.py": "60ffcaa031550a3ac4794d14bda551da7cbd439599f2c4204ff48e2b2b986013",
+  "l2o_isac/data.py": "a69c2654a204f639d715f19320f015e06034802d7e26cd999f48843bc10d6809",
+  "l2o_isac/evaluation.py": "7e1aa50a369dd0de5766891ccf5c19edd2bbe4887a33601ec275747e5540e5e5",
+  "l2o_isac/execution_evidence.py": "b6e7abdbeb0d7bcf018d99c5baf9640647d241effc24f46407ecd21924a039cc",
+  "l2o_isac/experiment.py": "2af8c4a29f70b7e5b91b2b940ac217ea1a9c273486acb1e36954087c0cf7f26a",
+  "l2o_isac/inference.py": "cec67bf4ad6b330c290f416c73de312a7279f55de239d0ee95db0568fe099fb0",
+  "l2o_isac/networks.py": "d2e6f0ebd552d730e03bd087889ef55702a5f78028d3fc7541707e39ce02177c",
+  "l2o_isac/physics.py": "40a3db0516c0512cfea3316a6d3c7e9204938a50ba60ea8b8f931cf49705c108",
+  "l2o_isac/solver.py": "769e0cab5c613a3ed39eb5328d7e9d1edb8a1ea121402e7872eecd0cd4e81cce",
+  "l2o_isac/suite.py": "a542f4abcd2e08a8499b4fef8036b971111043911bcd1c64d50a0b1a459b2974",
+  "l2o_isac/training.py": "8d44a3dc5df7289720d12f800bfee0c567a35b8b88db14c92ecab883667e6e80",
+  "l2o_isac/validation_report.py": "4827ac1da35fb507b818db447fd423e9ef1ae8712409577b85eba3b9399f2157",
+  "tests/test_physics.py": "9140f42059073efab1edbefca23816d375d0fa924c6d756db406e6fe49a074d7",
+  "tests/test_pipeline.py": "4bd95bad7cc1e953ac8db7082f8ade4cf2f3d3d7b53eba191c041ad5e06e5c89"
+}
