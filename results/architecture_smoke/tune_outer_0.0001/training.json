@@ -1,0 +1,18 @@
+{
+  "history": [
+    {
+      "epoch": 1,
+      "inner_train_mean": 4.717667102813721,
+      "outer_train_loss": -4.55739688873291,
+      "independent_validation": 4.458407402038574,
+      "fixed_beam_inner_validation": 4.705248832702637,
+      "epoch_seconds": 0.5070173679996515
+    }
+  ],
+  "initial_validation": 4.462037086486816,
+  "best_validation": 4.462037086486816,
+  "initial_inner_validation": 4.73760461807251,
+  "final_inner_validation": 4.705248832702637,
+  "selected_epoch": 0,
+  "seconds": 0.5069040170019434
+}

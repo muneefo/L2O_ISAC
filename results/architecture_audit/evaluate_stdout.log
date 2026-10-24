@@ -1,0 +1,4 @@
+2026-10-24T21:27:11.372978+00:00 Role_seed101: independent {'comm': 4.931569576263428, 'sense': 0.7485023736953735, 'objective': 4.094956398010254}, gap=0.36276, attack_s=5.2
+2026-10-24T21:27:16.662913+00:00 Role_seed202: independent {'comm': 4.931595325469971, 'sense': 0.7484465837478638, 'objective': 4.094965934753418}, gap=0.36275, attack_s=5.3
+2026-10-24T21:27:21.924203+00:00 Role_seed303: independent {'comm': 4.931487083435059, 'sense': 0.7485138773918152, 'objective': 4.094892501831055}, gap=0.36285, attack_s=5.3
+2026-10-24T21:27:22.159539+00:00 Gate D passed: frozen designs feasible, nested candidates retained; H1=True

@@ -1,0 +1,81 @@
+{
+  "sha256": "171fb33933e0d4f9d3c99ca18a4291347bd0283da87cb20257b2932a5c1782f7",
+  "spec": {
+    "checkpoint": "reports/corrected_per_channel_seed73129/checkpoint.pt",
+    "reference_commit": "83ba89148c8d89a7ab60105da0fa5cbfe6105d9e",
+    "split_seeds": {
+      "train": 842101,
+      "validation": 842102,
+      "test": 842103
+    },
+    "split_sizes": {
+      "train": 256,
+      "validation": 64,
+      "test": 128
+    },
+    "initialization_seeds": {
+      "train": 843101,
+      "validation": 843102,
+      "test": 843103
+    },
+    "training_seeds": [
+      101,
+      202,
+      303
+    ],
+    "epochs": 3,
+    "batch_size": 32,
+    "inner_lr": 0.001,
+    "outer_lr_candidates": [
+      1e-05,
+      0.0001
+    ],
+    "training_attack_steps": 15,
+    "validation_attack_steps": 30,
+    "attack_budgets": [
+      50,
+      200
+    ],
+    "random_restarts": 5,
+    "adam_steps": 50,
+    "attack_step_candidates": [
+      0.01,
+      0.05,
+      0.2
+    ],
+    "classical_inner_steps": [
+      0.0025,
+      0.025,
+      0.1
+    ],
+    "classical_outer_steps": [
+      0.001,
+      0.01,
+      0.03
+    ],
+    "timing_repeats": 15,
+    "scope": "Executed exploratory pilot; three extension fine-tuning shuffle seeds from one fixed reference, not independent reference pretraining seeds"
+  },
+  "reference_sha256": "58845000260beae656c91f30217fc75a27c11a94eba116c766b5055a7079f77e",
+  "scope": "Separate new audit splits; original reproduction data are not regenerated",
+  "system": {
+    "nt": 16,
+    "nr": 16,
+    "users": 4,
+    "targets": 2,
+    "clutter": 2,
+    "rf_chains": 8,
+    "snr_db": 5.0,
+    "noise_comm": 1.0,
+    "noise_sense": 1.0,
+    "rho": 0.8,
+    "eps_h": 0.05,
+    "eps_t": 0.05,
+    "eps_r": 0.05,
+    "target_variance_db": 2.0,
+    "clutter_variance_db": 3.0,
+    "angle_min_deg": -60.0,
+    "angle_max_deg": 60.0,
+    "min_separation_deg": 5.0
+  }
+}

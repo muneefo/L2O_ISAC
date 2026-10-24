@@ -1,0 +1,8 @@
+{
+  "inner_negative_mu": 16,
+  "outer_negative_mu": 0,
+  "negative_eta": 0,
+  "mu_min": -0.0062171947211027145,
+  "mu_max": 0.08368456363677979,
+  "scope": "Our saved reconstruction only; not author weights"
+}

@@ -1,0 +1,616 @@
+{
+  "methods": {
+    "PGDA15": {
+      "nominal": {
+        "comm": 4.981046676635742,
+        "sense": 2.20162296295166,
+        "objective": 4.425161838531494
+      },
+      "internal_unprojected": {
+        "comm": 4.773362636566162,
+        "sense": 1.659593105316162,
+        "objective": 4.150609016418457
+      },
+      "terminal_common_set": {
+        "comm": 4.773362636566162,
+        "sense": 1.659593105316162,
+        "objective": 4.150609016418457
+      },
+      "independent": {
+        "comm": 4.618960380554199,
+        "sense": 1.531404972076416,
+        "objective": 4.0014495849609375
+      },
+      "gap": {
+        "comm": 0.15440237522125244,
+        "sense": 0.1281881034374237,
+        "objective": 0.14915955066680908
+      },
+      "gap_quantiles": [
+        0.1195521354675293,
+        0.13825643062591553,
+        0.14758777618408203,
+        0.15849089622497559,
+        0.17722658812999725,
+        0.18191051483154297
+      ],
+      "budget_means": {
+        "2": {
+          "comm": 4.691947937011719,
+          "sense": 1.5872681140899658,
+          "objective": 4.071012020111084
+        },
+        "4": {
+          "comm": 4.618960380554199,
+          "sense": 1.531404972076416,
+          "objective": 4.0014495849609375
+        }
+      },
+      "constraint_residuals": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 9.5367431640625e-07,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "design_constraint_residuals": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 9.5367431640625e-07,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 0.0,
+        "dt_violation": 0.0,
+        "dr_violation": 0.0
+      },
+      "original_error_ball_violation": {
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 1.4901161193847656e-08,
+        "dr_violation": 1.4901161193847656e-08
+      },
+      "full_analytic_design_calls": 30,
+      "attack_error_gradient_calls": 14,
+      "attack_seconds": 0.06060620100106462,
+      "design_batch_seconds": 0.018210776001069462,
+      "failures": 0,
+      "union": {
+        "comm": 4.454947471618652,
+        "sense": 1.4083728790283203,
+        "objective": 3.8456320762634277
+      }
+    },
+    "PGDA180": {
+      "nominal": {
+        "comm": 5.7760539054870605,
+        "sense": 6.496161460876465,
+        "objective": 5.9200758934021
+      },
+      "internal_unprojected": {
+        "comm": 5.202675819396973,
+        "sense": 5.935439586639404,
+        "objective": 5.349228858947754
+      },
+      "terminal_common_set": {
+        "comm": 5.202675819396973,
+        "sense": 5.935439586639404,
+        "objective": 5.349228858947754
+      },
+      "independent": {
+        "comm": 5.202630519866943,
+        "sense": 5.8497114181518555,
+        "objective": 5.3320465087890625
+      },
+      "gap": {
+        "comm": 4.565715789794922e-05,
+        "sense": 0.08572888374328613,
+        "objective": 0.017182230949401855
+      },
+      "gap_quantiles": [
+        0.0002760887145996094,
+        0.00034618377685546875,
+        0.0006761550903320312,
+        0.017512202262878418,
+        0.057182859629392624,
+        0.06710052490234375
+      ],
+      "budget_means": {
+        "2": {
+          "comm": 5.20265007019043,
+          "sense": 5.897800445556641,
+          "objective": 5.341680526733398
+        },
+        "4": {
+          "comm": 5.202630519866943,
+          "sense": 5.8497114181518555,
+          "objective": 5.3320465087890625
+        }
+      },
+      "constraint_residuals": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 9.5367431640625e-07,
+        "receive_norm": 5.960464477539063e-08,
+        "dh_violation": 1.4901161193847656e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 1.4901161193847656e-08
+      },
+      "design_constraint_residuals": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 9.5367431640625e-07,
+        "receive_norm": 5.960464477539063e-08,
+        "dh_violation": 0.0,
+        "dt_violation": 0.0,
+        "dr_violation": 0.0
+      },
+      "original_error_ball_violation": {
+        "dh_violation": 1.4901161193847656e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 1.4901161193847656e-08
+      },
+      "full_analytic_design_calls": 360,
+      "attack_error_gradient_calls": 14,
+      "attack_seconds": 0.02486933800173574,
+      "design_batch_seconds": 0.316376072998537,
+      "failures": 0,
+      "union": {
+        "comm": 5.202630519866943,
+        "sense": 5.8497114181518555,
+        "objective": 5.3320465087890625
+      }
+    },
+    "StrongInnerMatched": {
+      "nominal": {
+        "comm": 2.993631362915039,
+        "sense": 1.6395554542541504,
+        "objective": 2.722815990447998
+      },
+      "internal_unprojected": {
+        "comm": 2.799175262451172,
+        "sense": 1.0170563459396362,
+        "objective": 2.442751884460449
+      },
+      "terminal_common_set": {
+        "comm": 2.799175262451172,
+        "sense": 1.0170563459396362,
+        "objective": 2.442751884460449
+      },
+      "independent": {
+        "comm": 2.7287192344665527,
+        "sense": 0.9694089293479919,
+        "objective": 2.376857042312622
+      },
+      "gap": {
+        "comm": 0.07045626640319824,
+        "sense": 0.047647446393966675,
+        "objective": 0.06589454412460327
+      },
+      "gap_quantiles": [
+        0.05556225776672363,
+        0.06027507781982422,
+        0.06621146202087402,
+        0.07183092832565308,
+        0.07484058290719986,
+        0.0755929946899414
+      ],
+      "budget_means": {
+        "2": {
+          "comm": 2.7620902061462402,
+          "sense": 0.9904240369796753,
+          "objective": 2.407757043838501
+        },
+        "4": {
+          "comm": 2.7287192344665527,
+          "sense": 0.9694089293479919,
+          "objective": 2.376857042312622
+        }
+      },
+      "constraint_residuals": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 4.76837158203125e-07,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 0.0,
+        "dr_violation": 1.4901161193847656e-08
+      },
+      "design_constraint_residuals": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 4.76837158203125e-07,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 0.0,
+        "dt_violation": 0.0,
+        "dr_violation": 0.0
+      },
+      "original_error_ball_violation": {
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 1.4901161193847656e-08
+      },
+      "full_analytic_design_calls": 30,
+      "attack_error_gradient_calls": 14,
+      "attack_seconds": 0.024915588001022115,
+      "design_batch_seconds": 0.04626608100079466,
+      "failures": 0,
+      "union": {
+        "comm": 2.655177116394043,
+        "sense": 0.9054521322250366,
+        "objective": 2.305232286453247
+      }
+    },
+    "StrongInner15": {
+      "nominal": {
+        "comm": 5.002635478973389,
+        "sense": 2.097238302230835,
+        "objective": 4.421555995941162
+      },
+      "internal_unprojected": {
+        "comm": 4.548043727874756,
+        "sense": 1.3422563076019287,
+        "objective": 3.906886577606201
+      },
+      "terminal_common_set": {
+        "comm": 4.548044204711914,
+        "sense": 1.3422563076019287,
+        "objective": 3.906886577606201
+      },
+      "independent": {
+        "comm": 4.508709907531738,
+        "sense": 1.3219963312149048,
+        "objective": 3.8713674545288086
+      },
+      "gap": {
+        "comm": 0.03933382034301758,
+        "sense": 0.020259976387023926,
+        "objective": 0.0355190634727478
+      },
+      "gap_quantiles": [
+        0.018386363983154297,
+        0.031545281410217285,
+        0.039705872535705566,
+        0.043679654598236084,
+        0.0441584475338459,
+        0.04427814483642578
+      ],
+      "budget_means": {
+        "2": {
+          "comm": 4.526350975036621,
+          "sense": 1.3315876722335815,
+          "objective": 3.8873982429504395
+        },
+        "4": {
+          "comm": 4.508709907531738,
+          "sense": 1.3219963312149048,
+          "objective": 3.8713674545288086
+        }
+      },
+      "constraint_residuals": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 9.5367431640625e-07,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 1.4901161193847656e-08,
+        "dr_violation": 1.4901161193847656e-08
+      },
+      "design_constraint_residuals": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 9.5367431640625e-07,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 0.0,
+        "dt_violation": 0.0,
+        "dr_violation": 0.0
+      },
+      "original_error_ball_violation": {
+        "dh_violation": 1.4901161193847656e-08,
+        "dt_violation": 0.0,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "full_analytic_design_calls": 75,
+      "attack_error_gradient_calls": 14,
+      "attack_seconds": 0.02581047000057879,
+      "design_batch_seconds": 0.03483644100197125,
+      "failures": 0,
+      "union": {
+        "comm": 4.492849826812744,
+        "sense": 1.3219963312149048,
+        "objective": 3.8586792945861816
+      }
+    },
+    "U15": {
+      "nominal": {
+        "comm": 5.306484222412109,
+        "sense": 1.9284424781799316,
+        "objective": 4.630876064300537
+      },
+      "internal_unprojected": {
+        "comm": 5.354184150695801,
+        "sense": 1.8805656433105469,
+        "objective": 4.65946102142334
+      },
+      "terminal_common_set": {
+        "comm": 5.354184150695801,
+        "sense": 1.8805656433105469,
+        "objective": 4.65946102142334
+      },
+      "independent": {
+        "comm": 4.997315406799316,
+        "sense": 1.4256460666656494,
+        "objective": 4.282981872558594
+      },
+      "gap": {
+        "comm": 0.3568683862686157,
+        "sense": 0.45491963624954224,
+        "objective": 0.3764788508415222
+      },
+      "gap_quantiles": [
+        0.2929234504699707,
+        0.3467046022415161,
+        0.3927561044692993,
+        0.4225303530693054,
+        0.42648985981941223,
+        0.42747974395751953
+      ],
+      "budget_means": {
+        "2": {
+          "comm": 5.078469276428223,
+          "sense": 1.6088976860046387,
+          "objective": 4.384555339813232
+        },
+        "4": {
+          "comm": 4.997315406799316,
+          "sense": 1.4256460666656494,
+          "objective": 4.282981872558594
+        }
+      },
+      "constraint_residuals": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.1920928955078125e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 0.0,
+        "dr_violation": 0.0
+      },
+      "design_constraint_residuals": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.1920928955078125e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 0.0,
+        "dt_violation": 0.0,
+        "dr_violation": 0.0
+      },
+      "original_error_ball_violation": {
+        "dh_violation": 0.0,
+        "dt_violation": 0.0,
+        "dr_violation": 0.0
+      },
+      "full_analytic_design_calls": 30,
+      "attack_error_gradient_calls": 14,
+      "attack_seconds": 0.025274079998780508,
+      "design_batch_seconds": 0.019639121001091553,
+      "failures": 0,
+      "union": {
+        "comm": 4.728096008300781,
+        "sense": 1.1537376642227173,
+        "objective": 4.013224124908447
+      }
+    },
+    "RU25": {
+      "nominal": {
+        "comm": 5.334048748016357,
+        "sense": 2.026200771331787,
+        "objective": 4.672479629516602
+      },
+      "internal_unprojected": {
+        "comm": 5.364906311035156,
+        "sense": 1.9254971742630005,
+        "objective": 4.6770243644714355
+      },
+      "terminal_common_set": {
+        "comm": 5.364906311035156,
+        "sense": 1.9254971742630005,
+        "objective": 4.6770243644714355
+      },
+      "independent": {
+        "comm": 5.027832984924316,
+        "sense": 1.5157723426818848,
+        "objective": 4.32542085647583
+      },
+      "gap": {
+        "comm": 0.3370734453201294,
+        "sense": 0.40972477197647095,
+        "objective": 0.35160350799560547
+      },
+      "gap_quantiles": [
+        0.26531076431274414,
+        0.32143867015838623,
+        0.3685300350189209,
+        0.39869487285614014,
+        0.4029735326766968,
+        0.40404319763183594
+      ],
+      "budget_means": {
+        "2": {
+          "comm": 5.104245662689209,
+          "sense": 1.6957100629806519,
+          "objective": 4.422538757324219
+        },
+        "4": {
+          "comm": 5.027832984924316,
+          "sense": 1.5157723426818848,
+          "objective": 4.32542085647583
+        }
+      },
+      "constraint_residuals": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 9.5367431640625e-07,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 0.0,
+        "dr_violation": 0.0
+      },
+      "design_constraint_residuals": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 9.5367431640625e-07,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 0.0,
+        "dt_violation": 0.0,
+        "dr_violation": 0.0
+      },
+      "original_error_ball_violation": {
+        "dh_violation": 0.0,
+        "dt_violation": 0.0,
+        "dr_violation": 0.0
+      },
+      "full_analytic_design_calls": 50,
+      "attack_error_gradient_calls": 14,
+      "attack_seconds": 0.06115838199912105,
+      "design_batch_seconds": 0.06516435300000012,
+      "failures": 0,
+      "union": {
+        "comm": 4.751071453094482,
+        "sense": 1.2430274486541748,
+        "objective": 4.04946231842041
+      }
+    },
+    "U15_EpsNet": {
+      "nominal": {
+        "comm": 5.306576728820801,
+        "sense": 1.9285798072814941,
+        "objective": 4.630977630615234
+      },
+      "internal_unprojected": {
+        "comm": 5.354135513305664,
+        "sense": 1.8806986808776855,
+        "objective": 4.659448146820068
+      },
+      "terminal_common_set": {
+        "comm": 5.354135513305664,
+        "sense": 1.8806986808776855,
+        "objective": 4.659448146820068
+      },
+      "independent": {
+        "comm": 4.997440338134766,
+        "sense": 1.4257234334945679,
+        "objective": 4.283097267150879
+      },
+      "gap": {
+        "comm": 0.3566945791244507,
+        "sense": 0.4549751579761505,
+        "objective": 0.3763507008552551
+      },
+      "gap_quantiles": [
+        0.29244375228881836,
+        0.346560001373291,
+        0.3927396535873413,
+        0.4225303530693054,
+        0.42648985981941223,
+        0.42747974395751953
+      ],
+      "budget_means": {
+        "2": {
+          "comm": 5.078549861907959,
+          "sense": 1.6090185642242432,
+          "objective": 4.3846435546875
+        },
+        "4": {
+          "comm": 4.997440338134766,
+          "sense": 1.4257234334945679,
+          "objective": 4.283097267150879
+        }
+      },
+      "constraint_residuals": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.1920928955078125e-06,
+        "receive_norm": 5.960464477539063e-08,
+        "dh_violation": 1.4901161193847656e-08,
+        "dt_violation": 0.0,
+        "dr_violation": 0.0
+      },
+      "design_constraint_residuals": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.1920928955078125e-06,
+        "receive_norm": 5.960464477539063e-08,
+        "dh_violation": 0.0,
+        "dt_violation": 0.0,
+        "dr_violation": 0.0
+      },
+      "original_error_ball_violation": {
+        "dh_violation": 0.0,
+        "dt_violation": 0.0,
+        "dr_violation": 0.0
+      },
+      "full_analytic_design_calls": 30,
+      "attack_error_gradient_calls": 14,
+      "attack_seconds": 0.024975419997645076,
+      "design_batch_seconds": 0.017219912002474302,
+      "failures": 0,
+      "union": {
+        "comm": 4.72807502746582,
+        "sense": 1.1538275480270386,
+        "objective": 4.013225555419922
+      }
+    }
+  },
+  "paired_comparisons": {
+    "PGDA15": {
+      "paired_mean_difference_vs_U15": -0.16759169101715088,
+      "channel_bootstrap_95pct": [
+        -0.3822072744369507,
+        -0.0009483098983764648
+      ],
+      "scope": "Channel sampling only for fixed checkpoints; not training-seed CI"
+    },
+    "PGDA180": {
+      "paired_mean_difference_vs_U15": 1.3188223838806152,
+      "channel_bootstrap_95pct": [
+        1.172298550605774,
+        1.5046403408050537
+      ],
+      "scope": "Channel sampling only for fixed checkpoints; not training-seed CI"
+    },
+    "StrongInnerMatched": {
+      "paired_mean_difference_vs_U15": -1.7079918384552002,
+      "channel_bootstrap_95pct": [
+        -2.1317858695983887,
+        -1.2841978073120117
+      ],
+      "scope": "Channel sampling only for fixed checkpoints; not training-seed CI"
+    },
+    "StrongInner15": {
+      "paired_mean_difference_vs_U15": -0.15454500913619995,
+      "channel_bootstrap_95pct": [
+        -0.328823447227478,
+        0.00473630428314209
+      ],
+      "scope": "Channel sampling only for fixed checkpoints; not training-seed CI"
+    },
+    "U15": {
+      "paired_mean_difference_vs_U15": 0.0,
+      "channel_bootstrap_95pct": [
+        0.0,
+        0.0
+      ],
+      "scope": "Channel sampling only for fixed checkpoints; not training-seed CI"
+    },
+    "RU25": {
+      "paired_mean_difference_vs_U15": 0.03623855113983154,
+      "channel_bootstrap_95pct": [
+        0.02568066120147705,
+        0.04870229959487915
+      ],
+      "scope": "Channel sampling only for fixed checkpoints; not training-seed CI"
+    },
+    "U15_EpsNet": {
+      "paired_mean_difference_vs_U15": 1.5497207641601562e-06,
+      "channel_bootstrap_95pct": [
+        -4.76837158203125e-07,
+        4.649162292480469e-06
+      ],
+      "scope": "Channel sampling only for fixed checkpoints; not training-seed CI"
+    }
+  },
+  "samples": 4,
+  "radius_mode": "oracle except separately named EpsNet branch",
+  "training_seed_differences": [],
+  "training_seed_difference_sd": null,
+  "reference_pretraining_seeds": 1,
+  "reference_sha256": "58845000260beae656c91f30217fc75a27c11a94eba116c766b5055a7079f77e",
+  "claim": "Lowest feasible utility found; no global minimum certification",
+  "H1_supported_for_reconstruction": true
+}

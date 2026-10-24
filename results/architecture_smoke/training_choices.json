@@ -1,0 +1,11 @@
+{
+  "candidates": [
+    {
+      "lr": 0.0001,
+      "validation": 4.462037086486816
+    }
+  ],
+  "selected_outer_lr": 0.0001,
+  "selection_split": "validation only",
+  "test_used": false
+}

@@ -1,0 +1,713 @@
+{
+  "per_scenario_feasibility": {
+    "adversarial_audit/PGDA15/attacked_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.6689300537109375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 4.470348358154297e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "adversarial_audit/PGDA15/union_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.6689300537109375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 4.470348358154297e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 4.470348358154297e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "adversarial_audit/StrongInnerMatched/attacked_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.430511474609375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "adversarial_audit/StrongInnerMatched/union_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.430511474609375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "adversarial_audit/PGDA180/attacked_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.9073486328125e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 4.470348358154297e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "adversarial_audit/PGDA180/union_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.9073486328125e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 4.470348358154297e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "adversarial_audit/StrongInner15/attacked_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.430511474609375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 4.470348358154297e-08,
+        "dt_violation": 4.470348358154297e-08,
+        "dr_violation": 4.470348358154297e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "adversarial_audit/StrongInner15/union_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.430511474609375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 4.470348358154297e-08,
+        "dt_violation": 4.470348358154297e-08,
+        "dr_violation": 4.470348358154297e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "adversarial_audit/RU25/attacked_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.430511474609375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "adversarial_audit/RU25/union_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.430511474609375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "adversarial_audit/U15/attacked_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.9073486328125e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "adversarial_audit/U15/union_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.9073486328125e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "adversarial_audit/U15_EpsNet/attacked_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.9073486328125e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 4.470348358154297e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "adversarial_audit/U15_EpsNet/union_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.9073486328125e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 4.470348358154297e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "extension_evaluation/PGDA15/attacked_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.6689300537109375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 4.470348358154297e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "extension_evaluation/PGDA15/union_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.6689300537109375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 4.470348358154297e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 4.470348358154297e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "extension_evaluation/Role_seed101/attacked_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.430511474609375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 4.470348358154297e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "extension_evaluation/Role_seed101/union_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.430511474609375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 4.470348358154297e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "extension_evaluation/StrongInnerMatched/attacked_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.430511474609375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "extension_evaluation/StrongInnerMatched/union_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.430511474609375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "extension_evaluation/Role_seed202/attacked_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.6689300537109375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 4.470348358154297e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "extension_evaluation/Role_seed202/union_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.6689300537109375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 4.470348358154297e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "extension_evaluation/Role_seed303/attacked_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.430511474609375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "extension_evaluation/Role_seed303/union_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.430511474609375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 4.470348358154297e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "extension_evaluation/PGDA180/attacked_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.9073486328125e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 4.470348358154297e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "extension_evaluation/PGDA180/union_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.9073486328125e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 4.470348358154297e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "extension_evaluation/StrongInner15/attacked_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.430511474609375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 4.470348358154297e-08,
+        "dt_violation": 4.470348358154297e-08,
+        "dr_violation": 4.470348358154297e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "extension_evaluation/StrongInner15/union_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.430511474609375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 4.470348358154297e-08,
+        "dt_violation": 4.470348358154297e-08,
+        "dr_violation": 4.470348358154297e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "extension_evaluation/RU25/attacked_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.430511474609375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "extension_evaluation/RU25/union_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.430511474609375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "extension_evaluation/U15/attacked_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.9073486328125e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "extension_evaluation/U15/union_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.9073486328125e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "extension_evaluation/U15_EpsNet/attacked_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.9073486328125e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 4.470348358154297e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "extension_evaluation/U15_EpsNet/union_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.9073486328125e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 4.470348358154297e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "strong_attack_check/Role_seed101/state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.430511474609375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 4.470348358154297e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "strong_attack_check/Role_seed101/union_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.430511474609375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 4.470348358154297e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "strong_attack_check/Role_seed202/state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.6689300537109375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 4.470348358154297e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "strong_attack_check/Role_seed202/union_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.6689300537109375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 4.470348358154297e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "strong_attack_check/Role_seed303/state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.430511474609375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "strong_attack_check/Role_seed303/union_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.430511474609375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 4.470348358154297e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "strong_attack_check/PGDA180/state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.9073486328125e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 4.470348358154297e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "strong_attack_check/PGDA180/union_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.9073486328125e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 4.470348358154297e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "strong_attack_check/RU25/state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.430511474609375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "strong_attack_check/RU25/union_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.430511474609375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "strong_attack_check/U15/state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.9073486328125e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "strong_attack_check/U15/union_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.9073486328125e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "role_ablations/inner_only_seed202/attacked_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.430511474609375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "role_ablations/inner_only_seed202/union_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.430511474609375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "role_ablations/outer_only_seed303/attacked_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.6689300537109375e-06,
+        "receive_norm": 2.384185791015625e-07,
+        "dh_violation": 4.470348358154297e-08,
+        "dt_violation": 4.470348358154297e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "role_ablations/outer_only_seed303/union_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.6689300537109375e-06,
+        "receive_norm": 2.384185791015625e-07,
+        "dh_violation": 4.470348358154297e-08,
+        "dt_violation": 4.470348358154297e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "role_ablations/outer_only_seed202/attacked_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.430511474609375e-06,
+        "receive_norm": 1.7881393432617188e-07,
+        "dh_violation": 4.470348358154297e-08,
+        "dt_violation": 4.470348358154297e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "role_ablations/outer_only_seed202/union_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.430511474609375e-06,
+        "receive_norm": 1.7881393432617188e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "role_ablations/inner_only_seed101/attacked_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.430511474609375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "role_ablations/inner_only_seed101/union_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.430511474609375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "role_ablations/inner_only_seed303/attacked_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.430511474609375e-06,
+        "receive_norm": 1.7881393432617188e-07,
+        "dh_violation": 4.470348358154297e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "role_ablations/inner_only_seed303/union_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.430511474609375e-06,
+        "receive_norm": 1.7881393432617188e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "role_ablations/outer_only_seed101/attacked_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.6689300537109375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 4.470348358154297e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    },
+    "role_ablations/outer_only_seed101/union_state": {
+      "maxima": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.6689300537109375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 4.470348358154297e-08,
+        "dt_violation": 4.470348358154297e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "failures": 0,
+      "scenarios": 128
+    }
+  },
+  "reference_files_unchanged": {
+    "l2o_isac/physics.py": true,
+    "l2o_isac/solver.py": true,
+    "l2o_isac/data.py": true,
+    "l2o_isac/networks.py": true,
+    "l2o_isac/training.py": true,
+    "l2o_isac/inference.py": true,
+    "reports/corrected_per_channel_seed73129/checkpoint.pt": true,
+    "reports/corrected_per_channel_seed73129/raw_beamformers_and_channels.pt": true
+  },
+  "reference_sha256": "58845000260beae656c91f30217fc75a27c11a94eba116c766b5055a7079f77e",
+  "failures": 0,
+  "precision": "complex64; absolute feasibility tolerance 1e-5"
+}

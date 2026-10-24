@@ -1,0 +1,15 @@
+{
+  "candidates": [
+    {
+      "lr": 1e-05,
+      "validation": 3.9286627769470215
+    },
+    {
+      "lr": 0.0001,
+      "validation": 3.9507529735565186
+    }
+  ],
+  "selected_outer_lr": 0.0001,
+  "selection_split": "validation only",
+  "test_used": false
+}

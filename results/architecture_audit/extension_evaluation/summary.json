@@ -1,0 +1,878 @@
+{
+  "methods": {
+    "PGDA15": {
+      "nominal": {
+        "comm": 5.172203063964844,
+        "sense": 1.2011892795562744,
+        "objective": 4.378000259399414
+      },
+      "internal_unprojected": {
+        "comm": 4.7487945556640625,
+        "sense": 0.7786429524421692,
+        "objective": 3.9547648429870605
+      },
+      "terminal_common_set": {
+        "comm": 4.748795032501221,
+        "sense": 0.7786429524421692,
+        "objective": 3.9547648429870605
+      },
+      "independent": {
+        "comm": 4.663906097412109,
+        "sense": 0.6998051404953003,
+        "objective": 3.8710856437683105
+      },
+      "gap": {
+        "comm": 0.08488880097866058,
+        "sense": 0.0788377895951271,
+        "objective": 0.08367860317230225
+      },
+      "gap_quantiles": [
+        0.023926973342895508,
+        0.062053143978118896,
+        0.07536828517913818,
+        0.10447704792022705,
+        0.13878394663333893,
+        0.1862030029296875
+      ],
+      "budget_means": {
+        "50": {
+          "comm": 4.663922309875488,
+          "sense": 0.7001063227653503,
+          "objective": 3.8711588382720947
+        },
+        "200": {
+          "comm": 4.663906097412109,
+          "sense": 0.6998051404953003,
+          "objective": 3.8710856437683105
+        }
+      },
+      "constraint_residuals": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.6689300537109375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 4.470348358154297e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "design_constraint_residuals": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.6689300537109375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 0.0,
+        "dt_violation": 0.0,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "original_error_ball_violation": {
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "full_analytic_design_calls": 30,
+      "attack_error_gradient_calls": 1450,
+      "attack_seconds": 5.6254657089994,
+      "design_batch_seconds": 0.06284375899849692,
+      "failures": 0,
+      "union": {
+        "comm": 4.663906097412109,
+        "sense": 0.6998045444488525,
+        "objective": 3.8710856437683105
+      }
+    },
+    "PGDA180": {
+      "nominal": {
+        "comm": 5.2439727783203125,
+        "sense": 7.013185501098633,
+        "objective": 5.597815990447998
+      },
+      "internal_unprojected": {
+        "comm": 4.828587532043457,
+        "sense": 6.679203987121582,
+        "objective": 5.198710918426514
+      },
+      "terminal_common_set": {
+        "comm": 4.828587532043457,
+        "sense": 6.679203987121582,
+        "objective": 5.198710918426514
+      },
+      "independent": {
+        "comm": 4.822395324707031,
+        "sense": 5.61658239364624,
+        "objective": 4.981232643127441
+      },
+      "gap": {
+        "comm": 0.0061924271285533905,
+        "sense": 1.0626215934753418,
+        "objective": 0.21747826039791107
+      },
+      "gap_quantiles": [
+        0.0026702880859375,
+        0.1422027349472046,
+        0.202789306640625,
+        0.29467254877090454,
+        0.4122956693172455,
+        0.4932265281677246
+      ],
+      "budget_means": {
+        "50": {
+          "comm": 4.822396278381348,
+          "sense": 5.61667013168335,
+          "objective": 4.981250762939453
+        },
+        "200": {
+          "comm": 4.822395324707031,
+          "sense": 5.61658239364624,
+          "objective": 4.981232643127441
+        }
+      },
+      "constraint_residuals": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.9073486328125e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 4.470348358154297e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "design_constraint_residuals": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.9073486328125e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 1.4901161193847656e-08,
+        "dt_violation": 1.4901161193847656e-08,
+        "dr_violation": 1.4901161193847656e-08
+      },
+      "original_error_ball_violation": {
+        "dh_violation": 4.470348358154297e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "full_analytic_design_calls": 360,
+      "attack_error_gradient_calls": 1450,
+      "attack_seconds": 5.539983153001231,
+      "design_batch_seconds": 0.7438387680012966,
+      "failures": 0,
+      "union": {
+        "comm": 4.822395324707031,
+        "sense": 5.61658239364624,
+        "objective": 4.981232643127441
+      }
+    },
+    "StrongInnerMatched": {
+      "nominal": {
+        "comm": 4.662215232849121,
+        "sense": 1.2103948593139648,
+        "objective": 3.971850872039795
+      },
+      "internal_unprojected": {
+        "comm": 4.289477825164795,
+        "sense": 0.7671338319778442,
+        "objective": 3.5850090980529785
+      },
+      "terminal_common_set": {
+        "comm": 4.289477825164795,
+        "sense": 0.7671338319778442,
+        "objective": 3.5850090980529785
+      },
+      "independent": {
+        "comm": 4.165841102600098,
+        "sense": 0.710778534412384,
+        "objective": 3.4748284816741943
+      },
+      "gap": {
+        "comm": 0.12363683432340622,
+        "sense": 0.05635536462068558,
+        "objective": 0.11018054932355881
+      },
+      "gap_quantiles": [
+        0.02399611473083496,
+        0.0697641372680664,
+        0.10157251358032227,
+        0.1469096541404724,
+        0.19953544437885284,
+        0.32895708084106445
+      ],
+      "budget_means": {
+        "50": {
+          "comm": 4.165846347808838,
+          "sense": 0.7110811471939087,
+          "objective": 3.474893569946289
+        },
+        "200": {
+          "comm": 4.165841102600098,
+          "sense": 0.710778534412384,
+          "objective": 3.4748284816741943
+        }
+      },
+      "constraint_residuals": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.430511474609375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "design_constraint_residuals": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.430511474609375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 0.0,
+        "dt_violation": 1.4901161193847656e-08,
+        "dr_violation": 1.4901161193847656e-08
+      },
+      "original_error_ball_violation": {
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "full_analytic_design_calls": 30,
+      "attack_error_gradient_calls": 1450,
+      "attack_seconds": 5.790095411000948,
+      "design_batch_seconds": 0.05676647899963427,
+      "failures": 0,
+      "union": {
+        "comm": 4.165841102600098,
+        "sense": 0.7107782959938049,
+        "objective": 3.4748284816741943
+      }
+    },
+    "StrongInner15": {
+      "nominal": {
+        "comm": 5.162756443023682,
+        "sense": 1.199121356010437,
+        "objective": 4.370029449462891
+      },
+      "internal_unprojected": {
+        "comm": 4.73638916015625,
+        "sense": 0.7755175828933716,
+        "objective": 3.9442150592803955
+      },
+      "terminal_common_set": {
+        "comm": 4.73638916015625,
+        "sense": 0.7755175828933716,
+        "objective": 3.9442150592803955
+      },
+      "independent": {
+        "comm": 4.655635833740234,
+        "sense": 0.6980336308479309,
+        "objective": 3.8641154766082764
+      },
+      "gap": {
+        "comm": 0.08075347542762756,
+        "sense": 0.07748385518789291,
+        "objective": 0.08009956777095795
+      },
+      "gap_quantiles": [
+        0.022522687911987305,
+        0.05909758806228638,
+        0.07142412662506104,
+        0.10037291049957275,
+        0.13378116488456726,
+        0.1810002326965332
+      ],
+      "budget_means": {
+        "50": {
+          "comm": 4.655651569366455,
+          "sense": 0.6983352303504944,
+          "objective": 3.8641881942749023
+        },
+        "200": {
+          "comm": 4.655635833740234,
+          "sense": 0.6980336308479309,
+          "objective": 3.8641154766082764
+        }
+      },
+      "constraint_residuals": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.430511474609375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 4.470348358154297e-08,
+        "dt_violation": 4.470348358154297e-08,
+        "dr_violation": 4.470348358154297e-08
+      },
+      "design_constraint_residuals": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.430511474609375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 1.4901161193847656e-08,
+        "dt_violation": 0.0,
+        "dr_violation": 1.4901161193847656e-08
+      },
+      "original_error_ball_violation": {
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "full_analytic_design_calls": 75,
+      "attack_error_gradient_calls": 1450,
+      "attack_seconds": 5.66660327900172,
+      "design_batch_seconds": 0.13511085999925854,
+      "failures": 0,
+      "union": {
+        "comm": 4.655635833740234,
+        "sense": 0.6980330944061279,
+        "objective": 3.8641152381896973
+      }
+    },
+    "U15": {
+      "nominal": {
+        "comm": 5.465463161468506,
+        "sense": 1.2399773597717285,
+        "objective": 4.620366096496582
+      },
+      "internal_unprojected": {
+        "comm": 5.524331092834473,
+        "sense": 1.2284330129623413,
+        "objective": 4.665152072906494
+      },
+      "terminal_common_set": {
+        "comm": 5.524331092834473,
+        "sense": 1.2284330129623413,
+        "objective": 4.665152072906494
+      },
+      "independent": {
+        "comm": 4.873872756958008,
+        "sense": 0.7033500671386719,
+        "objective": 4.039768695831299
+      },
+      "gap": {
+        "comm": 0.6504583358764648,
+        "sense": 0.5250829458236694,
+        "objective": 0.6253833174705505
+      },
+      "gap_quantiles": [
+        0.2852013111114502,
+        0.5458893775939941,
+        0.6239783763885498,
+        0.7075703144073486,
+        0.8294819593429565,
+        0.9122006893157959
+      ],
+      "budget_means": {
+        "50": {
+          "comm": 4.873908996582031,
+          "sense": 0.7036140561103821,
+          "objective": 4.039850234985352
+        },
+        "200": {
+          "comm": 4.873872756958008,
+          "sense": 0.7033500671386719,
+          "objective": 4.039768695831299
+        }
+      },
+      "constraint_residuals": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.9073486328125e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "design_constraint_residuals": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.9073486328125e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 0.0,
+        "dt_violation": 0.0,
+        "dr_violation": 0.0
+      },
+      "original_error_ball_violation": {
+        "dh_violation": 0.0,
+        "dt_violation": 1.4901161193847656e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "full_analytic_design_calls": 30,
+      "attack_error_gradient_calls": 1450,
+      "attack_seconds": 5.707479478001915,
+      "design_batch_seconds": 0.060752926001441665,
+      "failures": 0,
+      "union": {
+        "comm": 4.873872756958008,
+        "sense": 0.7033491134643555,
+        "objective": 4.039768218994141
+      }
+    },
+    "RU25": {
+      "nominal": {
+        "comm": 5.5048370361328125,
+        "sense": 1.3100439310073853,
+        "objective": 4.6658782958984375
+      },
+      "internal_unprojected": {
+        "comm": 5.548020362854004,
+        "sense": 1.2689229249954224,
+        "objective": 4.692201137542725
+      },
+      "terminal_common_set": {
+        "comm": 5.548020362854004,
+        "sense": 1.2689229249954224,
+        "objective": 4.692201137542725
+      },
+      "independent": {
+        "comm": 4.9075093269348145,
+        "sense": 0.7536501288414001,
+        "objective": 4.076737403869629
+      },
+      "gap": {
+        "comm": 0.6405110359191895,
+        "sense": 0.515272855758667,
+        "objective": 0.6154634356498718
+      },
+      "gap_quantiles": [
+        0.27956581115722656,
+        0.5348116755485535,
+        0.6167020797729492,
+        0.6929458379745483,
+        0.8132849931716919,
+        0.8919587135314941
+      ],
+      "budget_means": {
+        "50": {
+          "comm": 4.907562255859375,
+          "sense": 0.753899097442627,
+          "objective": 4.07682991027832
+        },
+        "200": {
+          "comm": 4.9075093269348145,
+          "sense": 0.7536501288414001,
+          "objective": 4.076737403869629
+        }
+      },
+      "constraint_residuals": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.430511474609375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "design_constraint_residuals": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.430511474609375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 0.0,
+        "dt_violation": 0.0,
+        "dr_violation": 0.0
+      },
+      "original_error_ball_violation": {
+        "dh_violation": 0.0,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "full_analytic_design_calls": 50,
+      "attack_error_gradient_calls": 1450,
+      "attack_seconds": 5.441688962997432,
+      "design_batch_seconds": 0.11927225900217309,
+      "failures": 0,
+      "union": {
+        "comm": 4.9075093269348145,
+        "sense": 0.7536495923995972,
+        "objective": 4.076737403869629
+      }
+    },
+    "U15_EpsNet": {
+      "nominal": {
+        "comm": 5.465691566467285,
+        "sense": 1.2400028705596924,
+        "objective": 4.6205549240112305
+      },
+      "internal_unprojected": {
+        "comm": 5.5242228507995605,
+        "sense": 1.2284671068191528,
+        "objective": 4.665071487426758
+      },
+      "terminal_common_set": {
+        "comm": 5.524105072021484,
+        "sense": 1.228487491607666,
+        "objective": 4.664981842041016
+      },
+      "independent": {
+        "comm": 4.874137878417969,
+        "sense": 0.7033552527427673,
+        "objective": 4.039981842041016
+      },
+      "gap": {
+        "comm": 0.64996737241745,
+        "sense": 0.5251320600509644,
+        "objective": 0.6250003576278687
+      },
+      "gap_quantiles": [
+        0.28531837463378906,
+        0.5457816123962402,
+        0.6240450143814087,
+        0.7050860524177551,
+        0.8269310593605042,
+        0.9124047756195068
+      ],
+      "budget_means": {
+        "50": {
+          "comm": 4.874174118041992,
+          "sense": 0.7036191821098328,
+          "objective": 4.040063858032227
+        },
+        "200": {
+          "comm": 4.874137878417969,
+          "sense": 0.7033552527427673,
+          "objective": 4.039981842041016
+        }
+      },
+      "constraint_residuals": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.9073486328125e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 4.470348358154297e-08
+      },
+      "design_constraint_residuals": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.9073486328125e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 1.4901161193847656e-08,
+        "dr_violation": 1.4901161193847656e-08
+      },
+      "original_error_ball_violation": {
+        "dh_violation": 0.006354391574859619,
+        "dt_violation": 0.0017189830541610718,
+        "dr_violation": 0.001865297555923462
+      },
+      "full_analytic_design_calls": 30,
+      "attack_error_gradient_calls": 1450,
+      "attack_seconds": 5.513170541002182,
+      "design_batch_seconds": 0.06691575400327565,
+      "failures": 0,
+      "union": {
+        "comm": 4.874137878417969,
+        "sense": 0.7033541798591614,
+        "objective": 4.039981365203857
+      }
+    },
+    "Role_seed101": {
+      "nominal": {
+        "comm": 5.507808208465576,
+        "sense": 1.2996629476547241,
+        "objective": 4.6661787033081055
+      },
+      "internal_unprojected": {
+        "comm": 5.271244525909424,
+        "sense": 1.2035865783691406,
+        "objective": 4.4577131271362305
+      },
+      "terminal_common_set": {
+        "comm": 5.271244525909424,
+        "sense": 1.2035865783691406,
+        "objective": 4.4577131271362305
+      },
+      "independent": {
+        "comm": 4.931569576263428,
+        "sense": 0.7485023736953735,
+        "objective": 4.094956398010254
+      },
+      "gap": {
+        "comm": 0.3396751284599304,
+        "sense": 0.4550842046737671,
+        "objective": 0.36275699734687805
+      },
+      "gap_quantiles": [
+        0.1614830493927002,
+        0.30708545446395874,
+        0.36436545848846436,
+        0.42083799839019775,
+        0.5102047324180603,
+        0.5492582321166992
+      ],
+      "budget_means": {
+        "50": {
+          "comm": 4.9316086769104,
+          "sense": 0.7487608194351196,
+          "objective": 4.095038414001465
+        },
+        "200": {
+          "comm": 4.931569576263428,
+          "sense": 0.7485023736953735,
+          "objective": 4.094956398010254
+        }
+      },
+      "constraint_residuals": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.430511474609375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 4.470348358154297e-08
+      },
+      "design_constraint_residuals": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.430511474609375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 1.4901161193847656e-08,
+        "dt_violation": 0.0,
+        "dr_violation": 0.0
+      },
+      "original_error_ball_violation": {
+        "dh_violation": 4.470348358154297e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "full_analytic_design_calls": 30,
+      "attack_error_gradient_calls": 1450,
+      "attack_seconds": 5.17673866000041,
+      "design_batch_seconds": 0.06274586800282123,
+      "failures": 0,
+      "union": {
+        "comm": 4.931569576263428,
+        "sense": 0.7485018372535706,
+        "objective": 4.094956398010254
+      }
+    },
+    "Role_seed202": {
+      "nominal": {
+        "comm": 5.5078349113464355,
+        "sense": 1.2995924949645996,
+        "objective": 4.666186809539795
+      },
+      "internal_unprojected": {
+        "comm": 5.271238803863525,
+        "sense": 1.2036397457122803,
+        "objective": 4.457719326019287
+      },
+      "terminal_common_set": {
+        "comm": 5.271238803863525,
+        "sense": 1.2036397457122803,
+        "objective": 4.457718849182129
+      },
+      "independent": {
+        "comm": 4.931595325469971,
+        "sense": 0.7484465837478638,
+        "objective": 4.094965934753418
+      },
+      "gap": {
+        "comm": 0.33964303135871887,
+        "sense": 0.4551931321620941,
+        "objective": 0.36275309324264526
+      },
+      "gap_quantiles": [
+        0.1614696979522705,
+        0.30708086490631104,
+        0.3643537759780884,
+        0.4208357334136963,
+        0.5102085471153259,
+        0.5493097305297852
+      ],
+      "budget_means": {
+        "50": {
+          "comm": 4.931633949279785,
+          "sense": 0.7487050294876099,
+          "objective": 4.095048427581787
+        },
+        "200": {
+          "comm": 4.931595325469971,
+          "sense": 0.7484465837478638,
+          "objective": 4.094965934753418
+        }
+      },
+      "constraint_residuals": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.6689300537109375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 4.470348358154297e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "design_constraint_residuals": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.6689300537109375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 1.4901161193847656e-08,
+        "dt_violation": 0.0,
+        "dr_violation": 0.0
+      },
+      "original_error_ball_violation": {
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "full_analytic_design_calls": 30,
+      "attack_error_gradient_calls": 1450,
+      "attack_seconds": 5.280261670999607,
+      "design_batch_seconds": 0.062417467997875065,
+      "failures": 0,
+      "union": {
+        "comm": 4.931595325469971,
+        "sense": 0.7484461069107056,
+        "objective": 4.094965934753418
+      }
+    },
+    "Role_seed303": {
+      "nominal": {
+        "comm": 5.507720470428467,
+        "sense": 1.2996909618377686,
+        "objective": 4.666115760803223
+      },
+      "internal_unprojected": {
+        "comm": 5.2711873054504395,
+        "sense": 1.2039713859558105,
+        "objective": 4.4577436447143555
+      },
+      "terminal_common_set": {
+        "comm": 5.2711873054504395,
+        "sense": 1.2039713859558105,
+        "objective": 4.4577436447143555
+      },
+      "independent": {
+        "comm": 4.931487083435059,
+        "sense": 0.7485138773918152,
+        "objective": 4.094892501831055
+      },
+      "gap": {
+        "comm": 0.33969947695732117,
+        "sense": 0.4554574191570282,
+        "objective": 0.36285102367401123
+      },
+      "gap_quantiles": [
+        0.16150426864624023,
+        0.30714476108551025,
+        0.36444222927093506,
+        0.42091166973114014,
+        0.5103858113288879,
+        0.549382209777832
+      ],
+      "budget_means": {
+        "50": {
+          "comm": 4.931525707244873,
+          "sense": 0.7487722039222717,
+          "objective": 4.094975471496582
+        },
+        "200": {
+          "comm": 4.931487083435059,
+          "sense": 0.7485138773918152,
+          "objective": 4.094892501831055
+        }
+      },
+      "constraint_residuals": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.430511474609375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 2.9802322387695312e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "design_constraint_residuals": {
+        "analog_modulus": 1.1920928955078125e-07,
+        "transmit_power": 1.430511474609375e-06,
+        "receive_norm": 1.1920928955078125e-07,
+        "dh_violation": 1.4901161193847656e-08,
+        "dt_violation": 0.0,
+        "dr_violation": 0.0
+      },
+      "original_error_ball_violation": {
+        "dh_violation": 2.9802322387695312e-08,
+        "dt_violation": 1.4901161193847656e-08,
+        "dr_violation": 2.9802322387695312e-08
+      },
+      "full_analytic_design_calls": 30,
+      "attack_error_gradient_calls": 1450,
+      "attack_seconds": 5.252105891002429,
+      "design_batch_seconds": 0.06018216200027382,
+      "failures": 0,
+      "union": {
+        "comm": 4.931487083435059,
+        "sense": 0.7485133409500122,
+        "objective": 4.094892501831055
+      }
+    }
+  },
+  "paired_comparisons": {
+    "PGDA15": {
+      "paired_mean_difference_vs_U15": -0.1686822474002838,
+      "channel_bootstrap_95pct": [
+        -0.19844437800347806,
+        -0.14129029624164105
+      ],
+      "scope": "Channel sampling only for fixed checkpoints; not training-seed CI"
+    },
+    "PGDA180": {
+      "paired_mean_difference_vs_U15": 0.9414645433425903,
+      "channel_bootstrap_95pct": [
+        0.847939370572567,
+        1.0362506091594696
+      ],
+      "scope": "Channel sampling only for fixed checkpoints; not training-seed CI"
+    },
+    "StrongInnerMatched": {
+      "paired_mean_difference_vs_U15": -0.5649397373199463,
+      "channel_bootstrap_95pct": [
+        -0.6391852110624313,
+        -0.49540090933442127
+      ],
+      "scope": "Channel sampling only for fixed checkpoints; not training-seed CI"
+    },
+    "StrongInner15": {
+      "paired_mean_difference_vs_U15": -0.1756528615951538,
+      "channel_bootstrap_95pct": [
+        -0.20539248622953893,
+        -0.1456474978476763
+      ],
+      "scope": "Channel sampling only for fixed checkpoints; not training-seed CI"
+    },
+    "U15": {
+      "paired_mean_difference_vs_U15": 0.0,
+      "channel_bootstrap_95pct": [
+        0.0,
+        0.0
+      ],
+      "scope": "Channel sampling only for fixed checkpoints; not training-seed CI"
+    },
+    "RU25": {
+      "paired_mean_difference_vs_U15": 0.036969143897295,
+      "channel_bootstrap_95pct": [
+        0.029501705896109343,
+        0.04527829084545373
+      ],
+      "scope": "Channel sampling only for fixed checkpoints; not training-seed CI"
+    },
+    "U15_EpsNet": {
+      "paired_mean_difference_vs_U15": 0.00021323375403881073,
+      "channel_bootstrap_95pct": [
+        0.00011642081663012504,
+        0.00031721391715109324
+      ],
+      "scope": "Channel sampling only for fixed checkpoints; not training-seed CI"
+    },
+    "Role_seed101": {
+      "paired_mean_difference_vs_U15": 0.05518797039985657,
+      "channel_bootstrap_95pct": [
+        0.048736737295985225,
+        0.06193656893447041
+      ],
+      "scope": "Channel sampling only for fixed checkpoints; not training-seed CI"
+    },
+    "Role_seed202": {
+      "paired_mean_difference_vs_U15": 0.055197518318891525,
+      "channel_bootstrap_95pct": [
+        0.048765874933451414,
+        0.06216836003586649
+      ],
+      "scope": "Channel sampling only for fixed checkpoints; not training-seed CI"
+    },
+    "Role_seed303": {
+      "paired_mean_difference_vs_U15": 0.055124394595623016,
+      "channel_bootstrap_95pct": [
+        0.048766862414777276,
+        0.06198811624199152
+      ],
+      "scope": "Channel sampling only for fixed checkpoints; not training-seed CI"
+    }
+  },
+  "samples": 128,
+  "radius_mode": "oracle except separately named EpsNet branch",
+  "training_seed_differences": [
+    0.05518797039985657,
+    0.055197518318891525,
+    0.055124394595623016
+  ],
+  "training_seed_difference_sd": 3.9749474936763604e-05,
+  "reference_pretraining_seeds": 1,
+  "reference_sha256": "58845000260beae656c91f30217fc75a27c11a94eba116c766b5055a7079f77e",
+  "claim": "Lowest feasible utility found; no global minimum certification",
+  "H1_supported_for_reconstruction": true
+}

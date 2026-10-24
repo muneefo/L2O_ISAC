@@ -1,0 +1,82 @@
+{
+  "attack_step": 0.05,
+  "attack_candidates": [
+    {
+      "step": 0.05,
+      "objective": 4.130763530731201
+    }
+  ],
+  "families": {
+    "PGDA15": {
+      "selected": {
+        "inner": 0.025,
+        "outer": 0.01,
+        "objective": 4.097638130187988
+      },
+      "candidates": [
+        {
+          "inner": 0.025,
+          "outer": 0.01,
+          "objective": 4.097638130187988
+        }
+      ],
+      "outer_steps": 15,
+      "inner_per_outer": 1,
+      "full_analytic_calls": 30
+    },
+    "PGDA180": {
+      "selected": {
+        "inner": 0.025,
+        "outer": 0.01,
+        "objective": 4.782304286956787
+      },
+      "candidates": [
+        {
+          "inner": 0.025,
+          "outer": 0.01,
+          "objective": 4.782304286956787
+        }
+      ],
+      "outer_steps": 180,
+      "inner_per_outer": 1,
+      "full_analytic_calls": 360
+    },
+    "StrongInnerMatched": {
+      "selected": {
+        "inner": 0.025,
+        "outer": 0.01,
+        "objective": 2.8979263305664062
+      },
+      "candidates": [
+        {
+          "inner": 0.025,
+          "outer": 0.01,
+          "objective": 2.8979263305664062
+        }
+      ],
+      "outer_steps": 6,
+      "inner_per_outer": 4,
+      "full_analytic_calls": 30
+    },
+    "StrongInner15": {
+      "selected": {
+        "inner": 0.025,
+        "outer": 0.01,
+        "objective": 4.096805095672607
+      },
+      "candidates": [
+        {
+          "inner": 0.025,
+          "outer": 0.01,
+          "objective": 4.096805095672607
+        }
+      ],
+      "outer_steps": 15,
+      "inner_per_outer": 4,
+      "full_analytic_calls": 75
+    }
+  },
+  "selection_split": "validation first 24 only",
+  "test_used": false,
+  "frozen_utc": "2026-10-24T21:29:20.529883+00:00"
+}

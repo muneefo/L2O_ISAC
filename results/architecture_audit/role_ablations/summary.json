@@ -1,0 +1,245 @@
+{
+  "methods": {
+    "inner_only_seed101": {
+      "shared_union": {
+        "comm": 4.911740303039551,
+        "sense": 0.7026395201683044,
+        "objective": 4.069920063018799
+      },
+      "paired_difference_vs_U15": 0.030151981860399246,
+      "paired_channel_95pct": [
+        0.02671984354965389,
+        0.03368491316214204
+      ],
+      "selected_epoch": 3,
+      "parameters_total": 180,
+      "online_full_analytic_calls": 30
+    },
+    "inner_only_seed202": {
+      "shared_union": {
+        "comm": 4.911744117736816,
+        "sense": 0.7026587724685669,
+        "objective": 4.069927215576172
+      },
+      "paired_difference_vs_U15": 0.030159030109643936,
+      "paired_channel_95pct": [
+        0.026725571369752288,
+        0.034088419377803804
+      ],
+      "selected_epoch": 3,
+      "parameters_total": 180,
+      "online_full_analytic_calls": 30
+    },
+    "inner_only_seed303": {
+      "shared_union": {
+        "comm": 4.9117302894592285,
+        "sense": 0.7026863694190979,
+        "objective": 4.069921493530273
+      },
+      "paired_difference_vs_U15": 0.03015335276722908,
+      "paired_channel_95pct": [
+        0.02660041572526097,
+        0.0338177889585495
+      ],
+      "selected_epoch": 3,
+      "parameters_total": 180,
+      "online_full_analytic_calls": 30
+    },
+    "outer_only_seed101": {
+      "shared_union": {
+        "comm": 4.888082027435303,
+        "sense": 0.7496600151062012,
+        "objective": 4.060398101806641
+      },
+      "paired_difference_vs_U15": 0.020629722625017166,
+      "paired_channel_95pct": [
+        0.017161313770338894,
+        0.024482737155631182
+      ],
+      "selected_epoch": 3,
+      "parameters_total": 180,
+      "online_full_analytic_calls": 30
+    },
+    "outer_only_seed202": {
+      "shared_union": {
+        "comm": 4.888033390045166,
+        "sense": 0.7496273517608643,
+        "objective": 4.060352325439453
+      },
+      "paired_difference_vs_U15": 0.02058391459286213,
+      "paired_channel_95pct": [
+        0.01720308642834425,
+        0.024534224765375257
+      ],
+      "selected_epoch": 3,
+      "parameters_total": 180,
+      "online_full_analytic_calls": 30
+    },
+    "outer_only_seed303": {
+      "shared_union": {
+        "comm": 4.887962341308594,
+        "sense": 0.7496088147163391,
+        "objective": 4.060291767120361
+      },
+      "paired_difference_vs_U15": 0.020523568615317345,
+      "paired_channel_95pct": [
+        0.017016887618228792,
+        0.02411077939905226
+      ],
+      "selected_epoch": 3,
+      "parameters_total": 180,
+      "online_full_analytic_calls": 30
+    },
+    "PGDA15": {
+      "shared_union": {
+        "comm": 4.663906097412109,
+        "sense": 0.6998045444488525,
+        "objective": 3.8710856437683105
+      },
+      "paired_difference_vs_U15": -0.16868221759796143,
+      "paired_channel_95pct": [
+        -0.1976824052631855,
+        -0.1397970922291279
+      ],
+      "selected_epoch": null,
+      "parameters_total": 180,
+      "online_full_analytic_calls": null
+    },
+    "Role_seed101": {
+      "shared_union": {
+        "comm": 4.9315690994262695,
+        "sense": 0.7485018372535706,
+        "objective": 4.0949554443359375
+      },
+      "paired_difference_vs_U15": 0.05518777668476105,
+      "paired_channel_95pct": [
+        0.04886780083179474,
+        0.06225836239755153
+      ],
+      "selected_epoch": null,
+      "parameters_total": 180,
+      "online_full_analytic_calls": 30
+    },
+    "StrongInnerMatched": {
+      "shared_union": {
+        "comm": 4.165841102600098,
+        "sense": 0.7107782959938049,
+        "objective": 3.4748284816741943
+      },
+      "paired_difference_vs_U15": -0.5649396777153015,
+      "paired_channel_95pct": [
+        -0.6410316675901413,
+        -0.4976604782044888
+      ],
+      "selected_epoch": null,
+      "parameters_total": 180,
+      "online_full_analytic_calls": null
+    },
+    "Role_seed202": {
+      "shared_union": {
+        "comm": 4.9315948486328125,
+        "sense": 0.7484461069107056,
+        "objective": 4.09496545791626
+      },
+      "paired_difference_vs_U15": 0.05519732087850571,
+      "paired_channel_95pct": [
+        0.048983602039515975,
+        0.062388638779520986
+      ],
+      "selected_epoch": null,
+      "parameters_total": 180,
+      "online_full_analytic_calls": 30
+    },
+    "Role_seed303": {
+      "shared_union": {
+        "comm": 4.9314866065979,
+        "sense": 0.7485133409500122,
+        "objective": 4.094892501831055
+      },
+      "paired_difference_vs_U15": 0.0551241971552372,
+      "paired_channel_95pct": [
+        0.04887913214042783,
+        0.06203657370060682
+      ],
+      "selected_epoch": null,
+      "parameters_total": 180,
+      "online_full_analytic_calls": 30
+    },
+    "PGDA180": {
+      "shared_union": {
+        "comm": 4.822395324707031,
+        "sense": 5.61658239364624,
+        "objective": 4.981232643127441
+      },
+      "paired_difference_vs_U15": 0.9414645433425903,
+      "paired_channel_95pct": [
+        0.8409296259284019,
+        1.034835058450699
+      ],
+      "selected_epoch": null,
+      "parameters_total": 180,
+      "online_full_analytic_calls": null
+    },
+    "StrongInner15": {
+      "shared_union": {
+        "comm": 4.655635833740234,
+        "sense": 0.6980330944061279,
+        "objective": 3.8641152381896973
+      },
+      "paired_difference_vs_U15": -0.17565283179283142,
+      "paired_channel_95pct": [
+        -0.20578282773494722,
+        -0.14614433757960796
+      ],
+      "selected_epoch": null,
+      "parameters_total": 180,
+      "online_full_analytic_calls": null
+    },
+    "RU25": {
+      "shared_union": {
+        "comm": 4.907508850097656,
+        "sense": 0.7536495327949524,
+        "objective": 4.076736927032471
+      },
+      "paired_difference_vs_U15": 0.03696882724761963,
+      "paired_channel_95pct": [
+        0.029569964529946445,
+        0.04547924268990755
+      ],
+      "selected_epoch": null,
+      "parameters_total": 180,
+      "online_full_analytic_calls": null
+    },
+    "U15": {
+      "shared_union": {
+        "comm": 4.873872756958008,
+        "sense": 0.7033489942550659,
+        "objective": 4.039768218994141
+      },
+      "paired_difference_vs_U15": 0.0,
+      "paired_channel_95pct": [
+        0.0,
+        0.0
+      ],
+      "selected_epoch": null,
+      "parameters_total": 180,
+      "online_full_analytic_calls": 30
+    },
+    "U15_EpsNet": {
+      "shared_union": {
+        "comm": 4.874137878417969,
+        "sense": 0.7033540606498718,
+        "objective": 4.039981365203857
+      },
+      "paired_difference_vs_U15": 0.00021323375403881073,
+      "paired_channel_95pct": [
+        0.00011842469684779644,
+        0.0003174259327352047
+      ],
+      "selected_epoch": null,
+      "parameters_total": 180,
+      "online_full_analytic_calls": 30
+    }
+  },
+  "scope": "Three paired fine-tuning shuffle seeds; one shared pretrained reference; selected on validation; channel CIs do not represent training-seed uncertainty"
+}

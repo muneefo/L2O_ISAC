@@ -1,0 +1,152 @@
+{
+  "methods": {
+    "U15": {
+      "200": {
+        "comm": 4.873872756958008,
+        "sense": 0.7033500671386719,
+        "objective": 4.039768695831299
+      },
+      "1000": {
+        "comm": 4.873872756958008,
+        "sense": 0.7033350467681885,
+        "objective": 4.039765357971191
+      },
+      "seconds": 26.57511013000112,
+      "error_gradient_calls": 7050,
+      "shared_union": {
+        "comm": 4.873872756958008,
+        "sense": 0.7033349871635437,
+        "objective": 4.039765357971191
+      },
+      "paired_difference_vs_U15": 0.0,
+      "paired_channel_95pct": [
+        0.0,
+        0.0
+      ]
+    },
+    "RU25": {
+      "200": {
+        "comm": 4.9075093269348145,
+        "sense": 0.7536501288414001,
+        "objective": 4.076737403869629
+      },
+      "1000": {
+        "comm": 4.907507419586182,
+        "sense": 0.7536357641220093,
+        "objective": 4.076733589172363
+      },
+      "seconds": 26.772357297999406,
+      "error_gradient_calls": 7050,
+      "shared_union": {
+        "comm": 4.907507419586182,
+        "sense": 0.7536357641220093,
+        "objective": 4.076733589172363
+      },
+      "paired_difference_vs_U15": 0.036968015134334564,
+      "paired_channel_95pct": [
+        0.029093350004404783,
+        0.04564970619976518
+      ]
+    },
+    "PGDA180": {
+      "200": {
+        "comm": 4.822395324707031,
+        "sense": 5.61658239364624,
+        "objective": 4.981232643127441
+      },
+      "1000": {
+        "comm": 4.822394847869873,
+        "sense": 5.616574764251709,
+        "objective": 4.981231689453125
+      },
+      "seconds": 28.517833601999882,
+      "error_gradient_calls": 7050,
+      "shared_union": {
+        "comm": 4.822394847869873,
+        "sense": 5.616574764251709,
+        "objective": 4.981231689453125
+      },
+      "paired_difference_vs_U15": 0.9414659738540649,
+      "paired_channel_95pct": [
+        0.8469797566533088,
+        1.0352303713560105
+      ]
+    },
+    "Role_seed101": {
+      "200": {
+        "comm": 4.931569576263428,
+        "sense": 0.7485023736953735,
+        "objective": 4.094956398010254
+      },
+      "1000": {
+        "comm": 4.9315690994262695,
+        "sense": 0.7484881281852722,
+        "objective": 4.094952583312988
+      },
+      "seconds": 26.463197400000354,
+      "error_gradient_calls": 7050,
+      "shared_union": {
+        "comm": 4.9315690994262695,
+        "sense": 0.7484881281852722,
+        "objective": 4.094952583312988
+      },
+      "paired_difference_vs_U15": 0.05518775433301926,
+      "paired_channel_95pct": [
+        0.04893073420971632,
+        0.062072704732418056
+      ]
+    },
+    "Role_seed202": {
+      "200": {
+        "comm": 4.931595325469971,
+        "sense": 0.7484465837478638,
+        "objective": 4.094965934753418
+      },
+      "1000": {
+        "comm": 4.9315948486328125,
+        "sense": 0.7484322786331177,
+        "objective": 4.0949625968933105
+      },
+      "seconds": 25.985469931998523,
+      "error_gradient_calls": 7050,
+      "shared_union": {
+        "comm": 4.9315948486328125,
+        "sense": 0.7484322190284729,
+        "objective": 4.0949625968933105
+      },
+      "paired_difference_vs_U15": 0.05519730597734451,
+      "paired_channel_95pct": [
+        0.04851000215858221,
+        0.06199446301907301
+      ]
+    },
+    "Role_seed303": {
+      "200": {
+        "comm": 4.931487083435059,
+        "sense": 0.7485138773918152,
+        "objective": 4.094892501831055
+      },
+      "1000": {
+        "comm": 4.931487083435059,
+        "sense": 0.7484995722770691,
+        "objective": 4.0948896408081055
+      },
+      "seconds": 30.187505315003364,
+      "error_gradient_calls": 7050,
+      "shared_union": {
+        "comm": 4.931487083435059,
+        "sense": 0.7484995722770691,
+        "objective": 4.0948896408081055
+      },
+      "paired_difference_vs_U15": 0.0551241859793663,
+      "paired_channel_95pct": [
+        0.048817234579473734,
+        0.06199702741578221
+      ]
+    }
+  },
+  "samples": 128,
+  "steps": 1000,
+  "random_restarts": 5,
+  "scope": "Additional pilot strength check, fixed before execution, not used for model selection; five random restarts, not full-study twenty; no certificate"
+}

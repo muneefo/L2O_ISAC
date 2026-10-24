@@ -1,0 +1,15 @@
+2026-10-24T21:26:35.587330+00:00 role seed=101 lr=1e-05 epoch=1: val=3.906923, fixed-beam inner=4.385334
+2026-10-24T21:26:37.397896+00:00 role seed=101 lr=1e-05 epoch=2: val=3.917746, fixed-beam inner=4.263386
+2026-10-24T21:26:39.265706+00:00 role seed=101 lr=1e-05 epoch=3: val=3.928663, fixed-beam inner=4.130290
+2026-10-24T21:26:41.502161+00:00 role seed=101 lr=0.0001 epoch=1: val=3.914427, fixed-beam inner=4.385162
+2026-10-24T21:26:43.324210+00:00 role seed=101 lr=0.0001 epoch=2: val=3.932662, fixed-beam inner=4.262644
+2026-10-24T21:26:45.207379+00:00 role seed=101 lr=0.0001 epoch=3: val=3.950753, fixed-beam inner=4.128587
+2026-10-24T21:26:47.346170+00:00 role seed=101 lr=0.0001 epoch=1: val=3.914427, fixed-beam inner=4.385162
+2026-10-24T21:26:49.247915+00:00 role seed=101 lr=0.0001 epoch=2: val=3.932662, fixed-beam inner=4.262644
+2026-10-24T21:26:51.077025+00:00 role seed=101 lr=0.0001 epoch=3: val=3.950753, fixed-beam inner=4.128587
+2026-10-24T21:26:53.223429+00:00 role seed=202 lr=0.0001 epoch=1: val=3.914328, fixed-beam inner=4.385202
+2026-10-24T21:26:55.059777+00:00 role seed=202 lr=0.0001 epoch=2: val=3.932514, fixed-beam inner=4.262688
+2026-10-24T21:26:56.875606+00:00 role seed=202 lr=0.0001 epoch=3: val=3.950759, fixed-beam inner=4.128551
+2026-10-24T21:26:58.915164+00:00 role seed=303 lr=0.0001 epoch=1: val=3.914353, fixed-beam inner=4.385244
+2026-10-24T21:27:00.748091+00:00 role seed=303 lr=0.0001 epoch=2: val=3.932546, fixed-beam inner=4.262769
+2026-10-24T21:27:02.623939+00:00 role seed=303 lr=0.0001 epoch=3: val=3.950655, fixed-beam inner=4.128693

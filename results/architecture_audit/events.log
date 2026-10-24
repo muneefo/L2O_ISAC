@@ -1,0 +1,61 @@
+2026-10-24T21:24:32.177637+00:00 Saved disjoint immutable audit splits; no reference retraining
+2026-10-24T21:24:39.420787+00:00 Validation tuning frozen before test; {"PGDA15": {"inner": 0.1, "outer": 0.01, "objective": 3.641355514526367}, "PGDA180": {"inner": 0.025, "outer": 0.03, "objective": 4.887460231781006}, "StrongInnerMatched": {"inner": 0.1, "outer": 0.03, "objective": 3.2997941970825195}, "StrongInner15": {"inner": 0.025, "outer": 0.01, "objective": 3.634084463119507}}
+2026-10-24T21:25:32.985182+00:00 PGDA15: independent {'comm': 4.663906097412109, 'sense': 0.6998051404953003, 'objective': 3.8710856437683105}, gap=0.08368, attack_s=5.6
+2026-10-24T21:25:38.535357+00:00 PGDA180: independent {'comm': 4.822395324707031, 'sense': 5.61658239364624, 'objective': 4.981232643127441}, gap=0.21748, attack_s=5.5
+2026-10-24T21:25:44.335972+00:00 StrongInnerMatched: independent {'comm': 4.165841102600098, 'sense': 0.710778534412384, 'objective': 3.4748284816741943}, gap=0.11018, attack_s=5.8
+2026-10-24T21:25:50.015408+00:00 StrongInner15: independent {'comm': 4.655635833740234, 'sense': 0.6980336308479309, 'objective': 3.8641154766082764}, gap=0.08010, attack_s=5.7
+2026-10-24T21:25:55.733189+00:00 U15: independent {'comm': 4.873872756958008, 'sense': 0.7033500671386719, 'objective': 4.039768695831299}, gap=0.62538, attack_s=5.7
+2026-10-24T21:26:01.183982+00:00 RU25: independent {'comm': 4.9075093269348145, 'sense': 0.7536501288414001, 'objective': 4.076737403869629}, gap=0.61546, attack_s=5.5
+2026-10-24T21:26:06.706423+00:00 U15_EpsNet: independent {'comm': 4.874137878417969, 'sense': 0.7033552527427673, 'objective': 4.039981842041016}, gap=0.62500, attack_s=5.5
+2026-10-24T21:26:06.846150+00:00 Gate D passed: frozen designs feasible, nested candidates retained; H1=True
+2026-10-24T21:26:35.587330+00:00 role seed=101 lr=1e-05 epoch=1: val=3.906923, fixed-beam inner=4.385334
+2026-10-24T21:26:37.397896+00:00 role seed=101 lr=1e-05 epoch=2: val=3.917746, fixed-beam inner=4.263386
+2026-10-24T21:26:39.265706+00:00 role seed=101 lr=1e-05 epoch=3: val=3.928663, fixed-beam inner=4.130290
+2026-10-24T21:26:41.502161+00:00 role seed=101 lr=0.0001 epoch=1: val=3.914427, fixed-beam inner=4.385162
+2026-10-24T21:26:43.324210+00:00 role seed=101 lr=0.0001 epoch=2: val=3.932662, fixed-beam inner=4.262644
+2026-10-24T21:26:45.207379+00:00 role seed=101 lr=0.0001 epoch=3: val=3.950753, fixed-beam inner=4.128587
+2026-10-24T21:26:47.346170+00:00 role seed=101 lr=0.0001 epoch=1: val=3.914427, fixed-beam inner=4.385162
+2026-10-24T21:26:49.247915+00:00 role seed=101 lr=0.0001 epoch=2: val=3.932662, fixed-beam inner=4.262644
+2026-10-24T21:26:51.077025+00:00 role seed=101 lr=0.0001 epoch=3: val=3.950753, fixed-beam inner=4.128587
+2026-10-24T21:26:53.223429+00:00 role seed=202 lr=0.0001 epoch=1: val=3.914328, fixed-beam inner=4.385202
+2026-10-24T21:26:55.059777+00:00 role seed=202 lr=0.0001 epoch=2: val=3.932514, fixed-beam inner=4.262688
+2026-10-24T21:26:56.875606+00:00 role seed=202 lr=0.0001 epoch=3: val=3.950759, fixed-beam inner=4.128551
+2026-10-24T21:26:58.915164+00:00 role seed=303 lr=0.0001 epoch=1: val=3.914353, fixed-beam inner=4.385244
+2026-10-24T21:27:00.748091+00:00 role seed=303 lr=0.0001 epoch=2: val=3.932546, fixed-beam inner=4.262769
+2026-10-24T21:27:02.623939+00:00 role seed=303 lr=0.0001 epoch=3: val=3.950655, fixed-beam inner=4.128693
+2026-10-24T21:27:11.372978+00:00 Role_seed101: independent {'comm': 4.931569576263428, 'sense': 0.7485023736953735, 'objective': 4.094956398010254}, gap=0.36276, attack_s=5.2
+2026-10-24T21:27:16.662913+00:00 Role_seed202: independent {'comm': 4.931595325469971, 'sense': 0.7484465837478638, 'objective': 4.094965934753418}, gap=0.36275, attack_s=5.3
+2026-10-24T21:27:21.924203+00:00 Role_seed303: independent {'comm': 4.931487083435059, 'sense': 0.7485138773918152, 'objective': 4.094892501831055}, gap=0.36285, attack_s=5.3
+2026-10-24T21:27:22.159539+00:00 Gate D passed: frozen designs feasible, nested candidates retained; H1=True
+2026-10-24T21:28:40.768658+00:00 Strong attack U15: {'200': {'comm': 4.873872756958008, 'sense': 0.7033500671386719, 'objective': 4.039768695831299}, '1000': {'comm': 4.873872756958008, 'sense': 0.7033350467681885, 'objective': 4.039765357971191}, 'seconds': 26.57511013000112, 'error_gradient_calls': 7050}
+2026-10-24T21:28:55.445819+00:00 inner-only seed=101 epoch=1 validation=3.906023
+2026-10-24T21:28:56.135030+00:00 inner-only seed=101 epoch=2 validation=3.915795
+2026-10-24T21:28:56.924173+00:00 inner-only seed=101 epoch=3 validation=3.925510
+2026-10-24T21:29:03.230098+00:00 inner-only seed=202 epoch=1 validation=3.906021
+2026-10-24T21:29:03.893011+00:00 inner-only seed=202 epoch=2 validation=3.915798
+2026-10-24T21:29:04.536101+00:00 inner-only seed=202 epoch=3 validation=3.925517
+2026-10-24T21:29:07.551558+00:00 Strong attack RU25: {'200': {'comm': 4.9075093269348145, 'sense': 0.7536501288414001, 'objective': 4.076737403869629}, '1000': {'comm': 4.907507419586182, 'sense': 0.7536357641220093, 'objective': 4.076733589172363}, 'seconds': 26.772357297999406, 'error_gradient_calls': 7050}
+2026-10-24T21:29:10.909638+00:00 inner-only seed=303 epoch=1 validation=3.906018
+2026-10-24T21:29:11.562961+00:00 inner-only seed=303 epoch=2 validation=3.915793
+2026-10-24T21:29:12.220392+00:00 inner-only seed=303 epoch=3 validation=3.925510
+2026-10-24T21:29:20.127265+00:00 outer-only seed=101 epoch=1 validation=3.904212
+2026-10-24T21:29:22.353598+00:00 outer-only seed=101 epoch=2 validation=3.910771
+2026-10-24T21:29:24.828144+00:00 outer-only seed=101 epoch=3 validation=3.916448
+2026-10-24T21:29:32.090581+00:00 outer-only seed=202 epoch=1 validation=3.904119
+2026-10-24T21:29:33.451839+00:00 outer-only seed=202 epoch=2 validation=3.910658
+2026-10-24T21:29:34.845530+00:00 outer-only seed=202 epoch=3 validation=3.916385
+2026-10-24T21:29:36.079973+00:00 Strong attack PGDA180: {'200': {'comm': 4.822395324707031, 'sense': 5.61658239364624, 'objective': 4.981232643127441}, '1000': {'comm': 4.822394847869873, 'sense': 5.616574764251709, 'objective': 4.981231689453125}, 'seconds': 28.517833601999882, 'error_gradient_calls': 7050}
+2026-10-24T21:29:42.058941+00:00 outer-only seed=303 epoch=1 validation=3.904151
+2026-10-24T21:29:43.406428+00:00 outer-only seed=303 epoch=2 validation=3.910664
+2026-10-24T21:29:44.739733+00:00 outer-only seed=303 epoch=3 validation=3.916312
+2026-10-24T21:30:02.554660+00:00 Strong attack Role_seed101: {'200': {'comm': 4.931569576263428, 'sense': 0.7485023736953735, 'objective': 4.094956398010254}, '1000': {'comm': 4.9315690994262695, 'sense': 0.7484881281852722, 'objective': 4.094952583312988}, 'seconds': 26.463197400000354, 'error_gradient_calls': 7050}
+2026-10-24T21:30:28.550685+00:00 Strong attack Role_seed202: {'200': {'comm': 4.931595325469971, 'sense': 0.7484465837478638, 'objective': 4.094965934753418}, '1000': {'comm': 4.9315948486328125, 'sense': 0.7484322786331177, 'objective': 4.0949625968933105}, 'seconds': 25.985469931998523, 'error_gradient_calls': 7050}
+2026-10-24T21:30:30.268737+00:00 Secondary rho=0.2 epsilon=0.01 complete
+2026-10-24T21:30:36.218842+00:00 Secondary rho=0.2 epsilon=0.05 complete
+2026-10-24T21:30:41.903977+00:00 Secondary rho=0.5 epsilon=0.01 complete
+2026-10-24T21:30:50.647221+00:00 Secondary rho=0.5 epsilon=0.05 complete
+2026-10-24T21:30:57.169809+00:00 Secondary rho=0.8 epsilon=0.01 complete
+2026-10-24T21:30:58.749154+00:00 Strong attack Role_seed303: {'200': {'comm': 4.931487083435059, 'sense': 0.7485138773918152, 'objective': 4.094892501831055}, '1000': {'comm': 4.931487083435059, 'sense': 0.7484995722770691, 'objective': 4.0948896408081055}, 'seconds': 30.187505315003364, 'error_gradient_calls': 7050}
+2026-10-24T21:31:02.743489+00:00 Secondary rho=0.8 epsilon=0.05 complete
+2026-10-24T21:32:14.484039+00:00 Generated figures from saved measurements
+2026-10-24T21:35:57.991426+00:00 Generated figures from saved measurements

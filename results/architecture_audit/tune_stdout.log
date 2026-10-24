@@ -1,0 +1,2 @@
+2026-10-24T21:24:32.177637+00:00 Saved disjoint immutable audit splits; no reference retraining
+2026-10-24T21:24:39.420787+00:00 Validation tuning frozen before test; {"PGDA15": {"inner": 0.1, "outer": 0.01, "objective": 3.641355514526367}, "PGDA180": {"inner": 0.025, "outer": 0.03, "objective": 4.887460231781006}, "StrongInnerMatched": {"inner": 0.1, "outer": 0.03, "objective": 3.2997941970825195}, "StrongInner15": {"inner": 0.025, "outer": 0.01, "objective": 3.634084463119507}}

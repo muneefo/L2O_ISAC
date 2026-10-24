@@ -1,0 +1,102 @@
+{
+  "rows": [
+    {
+      "method": "U15",
+      "rho": 0.2,
+      "epsilon": 0.01,
+      "comm": 2.1969573497772217,
+      "sense": 3.7383503913879395,
+      "objective": 3.4300715923309326
+    },
+    {
+      "method": "Role_seed101",
+      "rho": 0.2,
+      "epsilon": 0.01,
+      "comm": 2.2681705951690674,
+      "sense": 3.9080617427825928,
+      "objective": 3.5800836086273193
+    },
+    {
+      "method": "U15",
+      "rho": 0.2,
+      "epsilon": 0.05,
+      "comm": 1.9523125886917114,
+      "sense": 2.8705317974090576,
+      "objective": 2.6868879795074463
+    },
+    {
+      "method": "Role_seed101",
+      "rho": 0.2,
+      "epsilon": 0.05,
+      "comm": 2.0138442516326904,
+      "sense": 3.057603359222412,
+      "objective": 2.8488516807556152
+    },
+    {
+      "method": "U15",
+      "rho": 0.5,
+      "epsilon": 0.01,
+      "comm": 4.786758899688721,
+      "sense": 2.45473313331604,
+      "objective": 3.62074613571167
+    },
+    {
+      "method": "Role_seed101",
+      "rho": 0.5,
+      "epsilon": 0.01,
+      "comm": 4.822785377502441,
+      "sense": 2.60233211517334,
+      "objective": 3.7125587463378906
+    },
+    {
+      "method": "U15",
+      "rho": 0.5,
+      "epsilon": 0.05,
+      "comm": 4.337137222290039,
+      "sense": 1.7356364727020264,
+      "objective": 3.036386489868164
+    },
+    {
+      "method": "Role_seed101",
+      "rho": 0.5,
+      "epsilon": 0.05,
+      "comm": 4.390813827514648,
+      "sense": 1.8712395429611206,
+      "objective": 3.1310267448425293
+    },
+    {
+      "method": "U15",
+      "rho": 0.8,
+      "epsilon": 0.01,
+      "comm": 5.394081115722656,
+      "sense": 0.8471369743347168,
+      "objective": 4.484692573547363
+    },
+    {
+      "method": "Role_seed101",
+      "rho": 0.8,
+      "epsilon": 0.01,
+      "comm": 5.420000076293945,
+      "sense": 0.8954458832740784,
+      "objective": 4.515089511871338
+    },
+    {
+      "method": "U15",
+      "rho": 0.8,
+      "epsilon": 0.05,
+      "comm": 4.872999668121338,
+      "sense": 0.49375441670417786,
+      "objective": 3.997150421142578
+    },
+    {
+      "method": "Role_seed101",
+      "rho": 0.8,
+      "epsilon": 0.05,
+      "comm": 4.92278528213501,
+      "sense": 0.5321105718612671,
+      "objective": 4.044651031494141
+    }
+  ],
+  "samples": 32,
+  "scope": "Secondary 32 fixed test scenarios; fixed weights trained at rho=.8/epsilon=.05; only extension seed101; no tuning/retraining, no broad generalization claim"
+}

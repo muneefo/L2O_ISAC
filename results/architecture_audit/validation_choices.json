@@ -1,0 +1,250 @@
+{
+  "attack_step": 0.2,
+  "attack_candidates": [
+    {
+      "step": 0.01,
+      "objective": 3.865593671798706
+    },
+    {
+      "step": 0.05,
+      "objective": 3.8515937328338623
+    },
+    {
+      "step": 0.2,
+      "objective": 3.8492343425750732
+    }
+  ],
+  "families": {
+    "PGDA15": {
+      "selected": {
+        "inner": 0.1,
+        "outer": 0.01,
+        "objective": 3.641355514526367
+      },
+      "candidates": [
+        {
+          "inner": 0.0025,
+          "outer": 0.001,
+          "objective": 0.6581495404243469
+        },
+        {
+          "inner": 0.0025,
+          "outer": 0.01,
+          "objective": 3.6209583282470703
+        },
+        {
+          "inner": 0.0025,
+          "outer": 0.03,
+          "objective": 3.3515827655792236
+        },
+        {
+          "inner": 0.025,
+          "outer": 0.001,
+          "objective": 0.6504576802253723
+        },
+        {
+          "inner": 0.025,
+          "outer": 0.01,
+          "objective": 3.6351659297943115
+        },
+        {
+          "inner": 0.025,
+          "outer": 0.03,
+          "objective": 3.41281795501709
+        },
+        {
+          "inner": 0.1,
+          "outer": 0.001,
+          "objective": 0.6307463645935059
+        },
+        {
+          "inner": 0.1,
+          "outer": 0.01,
+          "objective": 3.641355514526367
+        },
+        {
+          "inner": 0.1,
+          "outer": 0.03,
+          "objective": 3.5099704265594482
+        }
+      ],
+      "outer_steps": 15,
+      "inner_per_outer": 1,
+      "full_analytic_calls": 30
+    },
+    "PGDA180": {
+      "selected": {
+        "inner": 0.025,
+        "outer": 0.03,
+        "objective": 4.887460231781006
+      },
+      "candidates": [
+        {
+          "inner": 0.0025,
+          "outer": 0.001,
+          "objective": 3.819133758544922
+        },
+        {
+          "inner": 0.0025,
+          "outer": 0.01,
+          "objective": 4.8268818855285645
+        },
+        {
+          "inner": 0.0025,
+          "outer": 0.03,
+          "objective": 4.844725131988525
+        },
+        {
+          "inner": 0.025,
+          "outer": 0.001,
+          "objective": 3.8437111377716064
+        },
+        {
+          "inner": 0.025,
+          "outer": 0.01,
+          "objective": 4.828032970428467
+        },
+        {
+          "inner": 0.025,
+          "outer": 0.03,
+          "objective": 4.887460231781006
+        },
+        {
+          "inner": 0.1,
+          "outer": 0.001,
+          "objective": 3.8058555126190186
+        },
+        {
+          "inner": 0.1,
+          "outer": 0.01,
+          "objective": 4.808134078979492
+        },
+        {
+          "inner": 0.1,
+          "outer": 0.03,
+          "objective": 4.801252841949463
+        }
+      ],
+      "outer_steps": 180,
+      "inner_per_outer": 1,
+      "full_analytic_calls": 360
+    },
+    "StrongInnerMatched": {
+      "selected": {
+        "inner": 0.1,
+        "outer": 0.03,
+        "objective": 3.2997941970825195
+      },
+      "candidates": [
+        {
+          "inner": 0.0025,
+          "outer": 0.001,
+          "objective": 0.4095778465270996
+        },
+        {
+          "inner": 0.0025,
+          "outer": 0.01,
+          "objective": 2.135526180267334
+        },
+        {
+          "inner": 0.0025,
+          "outer": 0.03,
+          "objective": 3.2379910945892334
+        },
+        {
+          "inner": 0.025,
+          "outer": 0.001,
+          "objective": 0.4050551950931549
+        },
+        {
+          "inner": 0.025,
+          "outer": 0.01,
+          "objective": 2.109950304031372
+        },
+        {
+          "inner": 0.025,
+          "outer": 0.03,
+          "objective": 3.2894697189331055
+        },
+        {
+          "inner": 0.1,
+          "outer": 0.001,
+          "objective": 0.39719143509864807
+        },
+        {
+          "inner": 0.1,
+          "outer": 0.01,
+          "objective": 2.0304579734802246
+        },
+        {
+          "inner": 0.1,
+          "outer": 0.03,
+          "objective": 3.2997941970825195
+        }
+      ],
+      "outer_steps": 6,
+      "inner_per_outer": 4,
+      "full_analytic_calls": 30
+    },
+    "StrongInner15": {
+      "selected": {
+        "inner": 0.025,
+        "outer": 0.01,
+        "objective": 3.634084463119507
+      },
+      "candidates": [
+        {
+          "inner": 0.0025,
+          "outer": 0.001,
+          "objective": 0.6513356566429138
+        },
+        {
+          "inner": 0.0025,
+          "outer": 0.01,
+          "objective": 3.618910789489746
+        },
+        {
+          "inner": 0.0025,
+          "outer": 0.03,
+          "objective": 3.358328104019165
+        },
+        {
+          "inner": 0.025,
+          "outer": 0.001,
+          "objective": 0.6268088817596436
+        },
+        {
+          "inner": 0.025,
+          "outer": 0.01,
+          "objective": 3.634084463119507
+        },
+        {
+          "inner": 0.025,
+          "outer": 0.03,
+          "objective": 3.498563766479492
+        },
+        {
+          "inner": 0.1,
+          "outer": 0.001,
+          "objective": 0.6024792194366455
+        },
+        {
+          "inner": 0.1,
+          "outer": 0.01,
+          "objective": 3.591571092605591
+        },
+        {
+          "inner": 0.1,
+          "outer": 0.03,
+          "objective": 3.4554426670074463
+        }
+      ],
+      "outer_steps": 15,
+      "inner_per_outer": 4,
+      "full_analytic_calls": 75
+    }
+  },
+  "selection_split": "validation first 24 only",
+  "test_used": false,
+  "frozen_utc": "2026-10-24T21:24:39.420178+00:00"
+}

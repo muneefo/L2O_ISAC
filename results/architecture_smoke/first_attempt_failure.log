@@ -1,0 +1,49 @@
+2026-10-24T21:29:19.447624+00:00 Saved disjoint immutable audit splits; no reference retraining
+2026-10-24T21:29:20.530202+00:00 Validation tuning frozen before test; {"PGDA15": {"inner": 0.025, "outer": 0.01, "objective": 4.097638130187988}, "PGDA180": {"inner": 0.025, "outer": 0.01, "objective": 4.782304286956787}, "StrongInnerMatched": {"inner": 0.025, "outer": 0.01, "objective": 2.8979263305664062}, "StrongInner15": {"inner": 0.025, "outer": 0.01, "objective": 4.096805095672607}}
+2026-10-24T21:29:21.114760+00:00 PGDA15: independent {'comm': 4.618960380554199, 'sense': 1.531404972076416, 'objective': 4.0014495849609375}, gap=0.14916, attack_s=0.1
+2026-10-24T21:29:21.142437+00:00 PGDA180: independent {'comm': 5.202630519866943, 'sense': 5.8497114181518555, 'objective': 5.3320465087890625}, gap=0.01718, attack_s=0.0
+2026-10-24T21:29:21.170041+00:00 StrongInnerMatched: independent {'comm': 2.7287192344665527, 'sense': 0.9694089293479919, 'objective': 2.376857042312622}, gap=0.06589, attack_s=0.0
+2026-10-24T21:29:21.234529+00:00 StrongInner15: independent {'comm': 4.508709907531738, 'sense': 1.3219963312149048, 'objective': 3.8713674545288086}, gap=0.03552, attack_s=0.1
+2026-10-24T21:29:21.262519+00:00 U15: independent {'comm': 4.997315406799316, 'sense': 1.4256460666656494, 'objective': 4.282981872558594}, gap=0.37648, attack_s=0.0
+2026-10-24T21:29:21.326650+00:00 RU25: independent {'comm': 5.027832984924316, 'sense': 1.5157723426818848, 'objective': 4.32542085647583}, gap=0.35160, attack_s=0.1
+2026-10-24T21:29:21.354324+00:00 U15_EpsNet: independent {'comm': 4.997440338134766, 'sense': 1.4257234334945679, 'objective': 4.283097267150879}, gap=0.37635, attack_s=0.0
+2026-10-24T21:29:21.449671+00:00 Gate D passed: frozen designs feasible, nested candidates retained; H1=True
+2026-10-24T21:29:23.549320+00:00 role seed=101 lr=0.0001 epoch=1: val=4.458407, fixed-beam inner=4.705249
+2026-10-24T21:29:24.016987+00:00 role seed=101 lr=0.0001 epoch=1: val=4.458407, fixed-beam inner=4.705249
+2026-10-24T21:29:24.573597+00:00 Role_seed101: independent {'comm': 4.997315406799316, 'sense': 1.4256460666656494, 'objective': 4.282981872558594}, gap=0.37648, attack_s=0.0
+/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/numpy/_core/_methods.py:222: RuntimeWarning: Degrees of freedom <= 0 for slice
+  ret = _var(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/numpy/_core/_methods.py:214: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+2026-10-24T21:29:24.660210+00:00 FAILED ValueError: Out of range float values are not JSON compliant: nan
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/workspace/github-export/l2o-isac/l2o_isac/architecture_audit.py", line 334, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/github-export/l2o-isac/l2o_isac/architecture_audit.py", line 328, in main
+    if args.stage in ('evaluate','all'):study.evaluate(True);study.timing()
+                                        ^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/github-export/l2o-isac/l2o_isac/architecture_audit.py", line 184, in evaluate
+    write(folder/'summary.json',report)
+  File "/workspace/github-export/l2o-isac/l2o_isac/architecture_audit.py", line 30, in write
+    def write(path,x):Path(path).write_text(json.dumps(x,indent=2,allow_nan=False)+'\n')
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 202, in encode
+    chunks = list(chunks)
+             ^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 398, in _iterencode_dict
+    yield _floatstr(value)
+          ^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 240, in floatstr
+    raise ValueError(
+ValueError: Out of range float values are not JSON compliant: nan

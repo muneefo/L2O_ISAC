@@ -1,0 +1,33 @@
+{
+  "python": "3.12.14",
+  "torch": "2.14.1+cpu",
+  "numpy": "2.3.5",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+  "cpu": "AMD EPYC 9V74 80-Core Processor",
+  "cpu_quota": "200000 100000",
+  "threads": 1,
+  "cuda_available": false,
+  "precision": "complex64 experiments; complex128 numerical tests",
+  "reference_sha256": "58845000260beae656c91f30217fc75a27c11a94eba116c766b5055a7079f77e",
+  "source_commit": "83ba89148c8d89a7ab60105da0fa5cbfe6105d9e",
+  "source_sha256": {
+    "l2o_isac/__init__.py": "0084827310bbba095a7cf8ac2ffb4a7870439cbb6c020d0e46b24aa7dda43dae",
+    "l2o_isac/architecture_audit.py": "9da2daab7d0a730acf2019835aa044b3455b3f9a918b5c808e074cf47748a9bc",
+    "l2o_isac/attacks.py": "245b329279755888825406550461121f0cc6b69698c993edb0b06d1b7788d2fb",
+    "l2o_isac/audit.py": "00bdbe61a386063587c5a30395ce8cad94c5439e0d31da899220be5ac8d88cf1",
+    "l2o_isac/config.py": "60ffcaa031550a3ac4794d14bda551da7cbd439599f2c4204ff48e2b2b986013",
+    "l2o_isac/data.py": "4ddc566131c9820a0a01d0dd222499efc0ed959ec6443059662cf814ad57436c",
+    "l2o_isac/evaluation.py": "7e1aa50a369dd0de5766891ccf5c19edd2bbe4887a33601ec275747e5540e5e5",
+    "l2o_isac/execution_evidence.py": "b6e7abdbeb0d7bcf018d99c5baf9640647d241effc24f46407ecd21924a039cc",
+    "l2o_isac/experiment.py": "482a52e36f014252ae0d13bd7d3cbedae56cf4df531b045c527ead876cd29e8f",
+    "l2o_isac/inference.py": "9c959dcd5fa1bdc2720839ed7017aa2b33939d86b17cbc6c3e229ddc0ed9c4fe",
+    "l2o_isac/networks.py": "31d9ba49ccdac84656996313b79e62dcd9dff03ea1371a73d792ec4315346840",
+    "l2o_isac/paper_checks.py": "29dbcf8228bf605787c2db0c06fe975be875d15c4dba970694a0570f21df294e",
+    "l2o_isac/physics.py": "40a3db0516c0512cfea3316a6d3c7e9204938a50ba60ea8b8f931cf49705c108",
+    "l2o_isac/role_training.py": "2e730f999b87a849eca30c6eaa88df87d921eb626312595d5cde44b889cf3fdd",
+    "l2o_isac/solver.py": "769e0cab5c613a3ed39eb5328d7e9d1edb8a1ea121402e7872eecd0cd4e81cce",
+    "l2o_isac/suite.py": "db7341c0e923fff59c473ca85b0c428152abc9b72f03ad5072580f8619802916",
+    "l2o_isac/training.py": "1933bfadb036ef82d1b43b0e07ef27775625fee30ed43c04462c0bd8de43f070",
+    "l2o_isac/validation_report.py": "e1c7ecc241e5dd4af182966f8b4d11118cae1662e89c3e5f6e4fdc112e24a947"
+  }
+}
