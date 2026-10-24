@@ -1,0 +1,107 @@
+{
+  "batch_size": 1,
+  "threads": 1,
+  "device": "CPU",
+  "torch": "2.14.1+cpu",
+  "python": "3.12.14",
+  "seed": 86420,
+  "timing_scope": "Warm inference with analytic gradients, projections and per-layer metrics. Includes EpsNet for learned methods. Excludes channel generation, initialization, CSI acquisition, data transfer and RF programming. Fixed iteration counts; not certified time to convergence.",
+  "results": [
+    {
+      "nt": 16,
+      "nr": 16,
+      "users": 4,
+      "targets": 2,
+      "rf_chains": 8,
+      "method": "EpsNet",
+      "repeats": 100,
+      "median_ms": 0.192145,
+      "p95_ms": 0.21872405,
+      "min_ms": 0.18557
+    },
+    {
+      "nt": 16,
+      "nr": 16,
+      "users": 4,
+      "targets": 2,
+      "rf_chains": 8,
+      "method": "U-PGDA 15 layers, predicted bounds",
+      "repeats": 50,
+      "median_ms": 15.681111,
+      "p95_ms": 26.909394149999997,
+      "min_ms": 15.34853
+    },
+    {
+      "nt": 16,
+      "nr": 16,
+      "users": 4,
+      "targets": 2,
+      "rf_chains": 8,
+      "method": "RU-PGDA 25 layers, predicted bounds",
+      "repeats": 50,
+      "median_ms": 26.266461,
+      "p95_ms": 31.21851745,
+      "min_ms": 25.490005
+    },
+    {
+      "nt": 16,
+      "nr": 16,
+      "users": 4,
+      "targets": 2,
+      "rf_chains": 8,
+      "method": "B-PGDA 180 iterations, oracle bounds",
+      "repeats": 15,
+      "median_ms": 185.991049,
+      "p95_ms": 210.2507471,
+      "min_ms": 183.159378
+    },
+    {
+      "nt": 32,
+      "nr": 32,
+      "users": 4,
+      "targets": 2,
+      "rf_chains": 8,
+      "method": "EpsNet",
+      "repeats": 100,
+      "median_ms": 0.341876,
+      "p95_ms": 0.3826906,
+      "min_ms": 0.325822
+    },
+    {
+      "nt": 32,
+      "nr": 32,
+      "users": 4,
+      "targets": 2,
+      "rf_chains": 8,
+      "method": "U-PGDA 15 layers, predicted bounds",
+      "repeats": 50,
+      "median_ms": 17.169119000000002,
+      "p95_ms": 18.07998195,
+      "min_ms": 16.64894
+    },
+    {
+      "nt": 32,
+      "nr": 32,
+      "users": 4,
+      "targets": 2,
+      "rf_chains": 8,
+      "method": "RU-PGDA 25 layers, predicted bounds",
+      "repeats": 50,
+      "median_ms": 28.772667,
+      "p95_ms": 30.87664555,
+      "min_ms": 27.485104
+    },
+    {
+      "nt": 32,
+      "nr": 32,
+      "users": 4,
+      "targets": 2,
+      "rf_chains": 8,
+      "method": "B-PGDA 180 iterations, oracle bounds",
+      "repeats": 15,
+      "median_ms": 203.530543,
+      "p95_ms": 208.1684819,
+      "min_ms": 200.182326
+    }
+  ]
+}

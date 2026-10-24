@@ -1,0 +1,35 @@
+{
+  "source": {
+    "doi": "10.1109/TWC.2026.3702925",
+    "title": "L2O Robust Hybrid Beamforming for ISAC",
+    "provenance": "Manually transcribed from the supplied PDF's figures/tables; these are published reference values, not outputs of this implementation."
+  },
+  "table_I": {
+    "printed_page": 18787,
+    "epsilon": [0.001, 0.01, 0.02, 0.03, 0.04, 0.05],
+    "predicted_h": [0.00097, 0.0096, 0.0174, 0.0315, 0.0434, 0.0520],
+    "predicted_t": [0.00092, 0.0104, 0.0200, 0.0300, 0.0395, 0.0480],
+    "predicted_r": [0.00098, 0.0100, 0.0212, 0.0296, 0.0380, 0.0610],
+    "rmse": [0.00004, 0.0003, 0.0016, 0.0009, 0.0023, 0.0065]
+  },
+  "table_II": {
+    "printed_page": 18789,
+    "hardware": "Intel Core Ultra 7 155H, 32 GB RAM (footnote 8)",
+    "timing_protocol": "Runtime in ms; batch size, warm-up, percentiles, and complete acquisition-to-RF latency are not specified.",
+    "rows": [
+      {"method": "U-PGDA", "train_layers": 20, "test_layers": 20, "objective_n16": 4.6952, "objective_n32": 5.1051, "ms_n16": 9.68, "ms_n32": 13.47},
+      {"method": "U-PGDA", "train_layers": 15, "test_layers": 15, "objective_n16": 4.6667, "objective_n32": 5.0645, "ms_n16": 7.56, "ms_n32": 12.12},
+      {"method": "RU-PGDA", "train_layers": 15, "test_layers": 20, "objective_n16": 4.6777, "objective_n32": 5.0780, "ms_n16": 9.98, "ms_n32": 15.44},
+      {"method": "RU-PGDA", "train_layers": 15, "test_layers": 25, "objective_n16": 4.6854, "objective_n32": 5.0844, "ms_n16": 12.64, "ms_n32": 18.51},
+      {"method": "B-PGDA", "train_layers": null, "test_layers": 180, "objective_n16": 4.3958, "objective_n32": 4.9671, "ms_n16": 40.03, "ms_n32": 94.31}
+    ]
+  },
+  "figure_9": {
+    "printed_page": 18788,
+    "nt": 16, "nr": 16,
+    "user_target_pairs": [[2, 2], [4, 4], [6, 6]],
+    "snr_db": [-6, -4, -2, 0, 2, 4, 6],
+    "weight_sharing_protocol": "Not explicitly specified; do not infer same-checkpoint transfer or separate retraining."
+  },
+  "figure_8": {"printed_page": 18788, "rho": [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]}
+}

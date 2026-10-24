@@ -4,6 +4,9 @@ import torch
 from .config import SystemConfig
 
 
+PAPER_EPSILON_GRID = (0.001, 0.01, 0.02, 0.03, 0.04, 0.05)
+
+
 @dataclass
 class ChannelBatch:
     h: torch.Tensor       # [batch, users, nt], presumed channel vectors (no conjugation)
@@ -40,7 +43,7 @@ def complex_normal(shape, generator, dtype=torch.complex64, device="cpu"):
 
 
 def generate_channels(cfg: SystemConfig, count, seed=0, dtype=torch.complex64,
-                      device="cpu", variable_eps=False):
+                      device="cpu", variable_eps=False, eps_mode='fixed'):
     """Seeded independent samples; unspecified angular distribution is documented."""
     g = torch.Generator().manual_seed(seed)
     real = torch.float64 if dtype == torch.complex128 else torch.float32
@@ -59,7 +62,16 @@ def generate_channels(cfg: SystemConfig, count, seed=0, dtype=torch.complex64,
                             + [10 ** (cfg.clutter_variance_db / 10)] * cfg.clutter, dtype=real)
     alpha *= variance.sqrt()
     eps = torch.tensor([cfg.eps_h, cfg.eps_t, cfg.eps_r], dtype=real).expand(count, -1).clone()
-    if variable_eps:
+    if eps_mode not in ('fixed', 'paper-grid', 'independent-uniform'):
+        raise ValueError('Unknown uncertainty-label mode')
+    if variable_eps and eps_mode != 'fixed':
+        raise ValueError('Select variable_eps or eps_mode, not both')
+    if eps_mode == 'paper-grid':
+        # Table I's evaluation values. Sampling them for training is OUR optional
+        # protocol, not an assertion about the authors' unspecified label generation.
+        grid = torch.tensor(PAPER_EPSILON_GRID, dtype=real)
+        eps = grid[torch.randint(len(grid), (count,), generator=g)][:, None].expand(-1, 3).clone()
+    elif variable_eps or eps_mode == 'independent-uniform':
         # Experimental only: independent random bounds are NOT identifiable from nominal CSI.
         eps = 0.001 + torch.rand(count, 3, generator=g, dtype=real) * (eps - 0.001).clamp_min(0)
     return ChannelBatch(h, steering(cfg.nt), steering(cfg.nr), alpha, eps).to(device)

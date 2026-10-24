@@ -6,6 +6,18 @@ Communications*, vol. 25, pp. 18778–18794, 2026.
 [DOI: 10.1109/TWC.2026.3702925](https://doi.org/10.1109/TWC.2026.3702925).
 This is reconstructed from the supplied paper, not the authors’ software.
 
+**Paper-audit correction:** the original release used concatenated channel inputs in EpsNet.
+New runs default to shared per-channel heads, following Figure 1's individual-channel input;
+the mean aggregation to common radii is an explicit reconstruction choice. Equation (18) is now
+averaged per sample. Historical checkpoints and reports retain their original architecture and
+results. See [reproduction status](docs/REPRODUCTION_STATUS.md) and the
+[paper-grounded reading](docs/PAPER_READING.md).
+
+The paper already evaluates different user/target counts and reports millisecond runtimes.
+Its no-retraining demonstration concerns inference depth; same-weight transfer across counts
+is not explicitly specified. Published values are labeled separately in
+[paper reference data](configs/paper_reference.json).
+
 Completed runs and findings: [validation report](reports/VALIDATION.md).
 
 Fresh execution with paper and previous-result reads blocked:
@@ -22,6 +34,7 @@ NumPy signal equations. Its results are produced by the code, not taken from the
 - U-PGDA, Algorithm 2: six learned step sizes and six learned momentum coefficients per layer,
   differentiated end to end through the analytical gradients and projections. Loss averages all layers.
 - EpsNet: three BN/FC/SoftPlus branches with the stated hidden sizes and supervised RMSE.
+- Per-channel and legacy concatenated layouts, with automatic historical-checkpoint loading.
 - RU-PGDA, Algorithm 3: validation-only grid search over shared beta/phi, with arbitrary finite
   inference extension depth. No claim of stable behavior at infinite depth.
 - Paper training defaults, checkpoint reload/inference, momentum ablations, parameter sweeps,
@@ -37,6 +50,7 @@ cd L2O_ISAC
 .venv/bin/python -m l2o_isac.experiment --profile smoke --output reports/my_smoke
 .venv/bin/python -m l2o_isac.experiment --profile paper --nt 16 --layers 15 --output reports/my_paper
 .venv/bin/python -m l2o_isac.execution_evidence --seed 73129 --output reports/my_fresh_execution
+.venv/bin/python -m l2o_isac.paper_checks --checkpoint reports/corrected_per_channel_seed73129/checkpoint.pt --output reports/my_paper_checks
 ```
 
 On another machine:
@@ -56,6 +70,9 @@ test set. Training and grid search never use the test set. `configs/paper.json` 
 
 Other useful flags: `--bounds oracle`, `--momentum fixed`, `--momentum none`, `--nt 32`,
 `--nr 16`, `--layers 20`, `--rho 0.5`, `--snr-db 0`, `--epsilon 0.01`, `--device cuda`.
+`--eps-layout concatenated` selects the historical input layout. `--eps-label-mode paper-grid`
+samples the six Table-I bounds as optional training labels. That sampling protocol is our choice:
+the paper specifies its evaluation levels but not the training-label distribution.
 Use `--help` for all options. The `smoke` profile exercises the pipeline on small datasets;
 its EpsNet is deliberately undertrained and it is not a performance reproduction.
 CPU runs default to one PyTorch thread: small complex operations slow down substantially when
@@ -133,16 +150,26 @@ EpsNet prediction and independent attacks. These are batched timings, not deploy
 - The appendices use Wirtinger `df/dz*` gradients. For real-valued losses PyTorch’s complex
   autograd gives twice that value. The analytical implementation matches the paper’s convention,
   checked independently. In sensing sums, each target retains its own denominator from equation (6).
-- The communication EpsNet branch sees real/imaginary nominal h; both sensing branches see
-  real/imaginary flattened nominal radar matrices. Each branch normalizes inputs with BN and uses
-  SoftPlus after every FC layer. The exact cross-branch feature wiring is not fully specified.
+- Figure 1(a) depicts an individual h_m. Default `per-channel` EpsNet applies shared heads to each
+  communication vector and each flattened radar matrix, then averages predictions to the common
+  radii in (9). Sharing and mean aggregation are explicit choices because the paper does not specify
+  how predictions across users/paths are combined. The historical `concatenated` layout joined all
+  users/paths into fixed-width inputs; it is preserved for loading old checkpoints. The per-channel
+  layout accepts varying counts at fixed antenna dimensions. This is architectural compatibility,
+  not proof of learned transfer quality or a claim about the authors' unpublished implementation.
 - The explicit staged procedure in Section IV-D is followed: train EpsNet, freeze it, train U-PGDA,
   freeze it, then select recurrence on validation data. This resolves the less precise “joint/end-to-end”
   wording elsewhere. Best validation checkpoints, including the initial U-PGDA, are retained.
-- The default experiment labels all uncertainty bounds 0.05. A constant predictor therefore achieves
-  zero RMSE. With `--variable-eps`, bounds are independently sampled in [0.001,epsilon]; because
-  nominal CSI does not encode those independently sampled labels, prediction of an individual
-  bound is statistically unidentifiable. No dynamic-bound generalization claim is made.
+- Our default experiment uses fixed 0.05 labels; this is not an assertion that the authors trained
+  only on that value. Their Table I evaluates six levels from 0.001 to 0.05, and Fig. 6 explicitly
+  studies bound miscalibration. `--eps-label-mode paper-grid` samples those common bounds;
+  `independent-uniform` / legacy `--variable-eps` samples separate bounds in [0.001,epsilon].
+  In our nominal-channel generator these labels do not change channel observations, so individual
+  random labels are unidentifiable. The authors' label-generation distribution is not specified.
+  `paper_checks` reports the fixed-weight epsilon sweep transparently, without claiming to match
+  Table I or assuming its unspecified training protocol.
+- Equation (18) now uses a three-bound RMSE per sample followed by a batch mean. The original
+  release used a global batch RMSE; historical reports retain those original numerical results.
 - The paper gives no positivity constraints on learned hyperparameters. Default `direct` uses
   literal unconstrained scalars. Reports save every learned value so negative step sizes can be
   detected. `--parameterization positive` is an optional, explicitly different softplus-step /
@@ -154,7 +181,10 @@ EpsNet prediction and independent attacks. These are batched timings, not deploy
   adversary; learning can favor weaker minimization. Hence the separate attack evaluation.
 - Projection and momentum do not by themselves guarantee monotone objectives or global min-max
   convergence in this nonconvex problem. The implementation tests feasibility and empirical behavior
-  without asserting a theorem or reproducing all qualitative claims.
+  without asserting a theorem or reproducing all qualitative claims. The authors do provide a
+  convergence discussion in Section IV-E and claim stationarity; applicability of its assumptions
+  requires a separate mathematical audit. Failures in our reconstruction are not evidence that
+  the authors' trained coefficients or implementation exhibited the same behavior.
 - The SCA/DNN/CNN baselines from other papers are not included: their adaptations are not specified
   sufficiently to reconstruct them faithfully. `Nonrobust-PGA` is the fixed-step PGDA solver with
   zero uncertainty, not a separately trained U-PGA baseline. The implemented core consists of all
@@ -173,6 +203,14 @@ EpsNet prediction and independent attacks. These are batched timings, not deploy
 | `l2o_isac/experiment.py` | Complete command-line experiment and artifacts |
 | `l2o_isac/suite.py` | Core configurations, ablations, parameter sweeps |
 | `l2o_isac/inference.py` | Checkpoint reload and inference |
+| `l2o_isac/paper_checks.py` | Frozen-weight count/epsilon audits and batch-one latency |
+
+The authors' Table II already reports 7.56/12.12 ms for 15-layer U-PGDA at N=16/32 on an
+Intel Core Ultra 7 155H with 32 GB RAM. Our batched throughput must not be compared as though
+it were the same timing protocol. `paper_checks` saves raw batch-one latency samples, with
+separate solver-only and initialization-plus-bound-estimation scopes. Timing fixed layers is
+not a certificate of convergence. Historical source and artifacts remain available at commit
+`4425f7a`; old execution manifests describe that source snapshot, not subsequent revisions.
 
 The source paper is available through the DOI cited above.
 

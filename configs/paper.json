@@ -13,5 +13,11 @@
   },
   "recurrence": {"beta_range": [0.01, 0.99], "phi_range": [0.01, 0.99], "grid_size_each": 10,
     "validation_extension_layers": 5, "test_extension_layers": [5, 10]},
-  "note": "Reference manifest. CLI uses these defaults under --profile paper; this JSON is not a CLI input file."
+  "reconstruction_choices": {
+    "eps_layout": "per-channel",
+    "eps_aggregation": "shared heads followed by arithmetic mean; not specified by the paper",
+    "eps_label_mode": "fixed; our default, not a statement about authors' training labels",
+    "eps_loss": "batch mean of per-sample Eq. (18) RMSE"
+  },
+  "note": "Paper-specified numerical defaults plus explicitly labeled reconstruction choices. This JSON is not a CLI input file. Published tables are stored separately in paper_reference.json."
 }

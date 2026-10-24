@@ -19,6 +19,8 @@ def bound_metrics(model, data):
     model.eval()
     predicted = model(data)
     return {"rmse": eps_rmse(predicted, data.eps).item(),
+            "rmse_definition": "mean of per-sample three-bound RMSE, Eq. (18)",
+            "global_rmse": (predicted - data.eps).square().mean().sqrt().item(),
             "rmse_by_bound": (predicted - data.eps).square().mean(0).sqrt().tolist(),
             "mean_predicted": predicted.mean(0).tolist(), "mean_true": data.eps.mean(0).tolist()}
 

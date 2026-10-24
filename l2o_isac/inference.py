@@ -10,7 +10,8 @@ def load_checkpoint(path, device='cpu'):
     saved = torch.load(path, map_location=device, weights_only=True)
     cfg = SystemConfig(**saved['config'])
     run = saved['run']
-    epsnet = EpsNet(cfg).to(device)
+    # Missing metadata identifies checkpoints written before per-channel support.
+    epsnet = EpsNet(cfg, layout=run.get('eps_layout', 'concatenated')).to(device)
     epsnet.load_state_dict(saved['epsnet'])
     epsnet.eval()
     model = UnrolledPGDA(cfg, layers=run['layers'],

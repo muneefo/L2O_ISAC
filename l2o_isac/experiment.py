@@ -5,6 +5,7 @@ import json
 import os
 from pathlib import Path
 import platform
+import tempfile
 import time
 import numpy as np
 import torch
@@ -17,8 +18,8 @@ from .evaluation import evaluate_methods
 
 
 def plot_results(report, output):
-    os.environ.setdefault('MPLCONFIGDIR', str(Path('/workspace/.mplconfig')))
-    os.environ.setdefault('XDG_CACHE_HOME', str(Path('/tmp/l2o-isac-cache')))
+    os.environ.setdefault('MPLCONFIGDIR', str(Path(tempfile.gettempdir()) / 'l2o-isac-mpl'))
+    os.environ.setdefault('XDG_CACHE_HOME', str(Path(tempfile.gettempdir()) / 'l2o-isac-cache'))
     import matplotlib
     matplotlib.use('Agg')
     import matplotlib.pyplot as plt
@@ -94,12 +95,19 @@ def main(argv=None):
     p.add_argument('--momentum', choices=['learned', 'fixed', 'none'], default='learned')
     p.add_argument('--parameterization', choices=['direct', 'positive', 'projected'], default='direct')
     p.add_argument('--bounds', choices=['learned', 'oracle'], default='learned')
+    p.add_argument('--eps-layout', choices=['per-channel', 'concatenated'], default='per-channel')
+    p.add_argument('--eps-label-mode', choices=['fixed', 'paper-grid', 'independent-uniform'], default='fixed',
+                   help='Reconstruction label protocol; authors do not specify the EpsNet training-label distribution')
     p.add_argument('--variable-eps', action='store_true')
     p.add_argument('--device', default='cpu')
     p.add_argument('--threads', type=int, default=1)
     for name in ['train', 'valid', 'test', 'epochs', 'batch-size', 'grids', 'attack-steps', 'attack-restarts', 'attack-samples']:
         p.add_argument('--' + name, type=int)
     args = p.parse_args(argv)
+    if args.variable_eps:
+        if args.eps_label_mode != 'fixed':
+            p.error('Use --variable-eps or --eps-label-mode, not both')
+        args.eps_label_mode = 'independent-uniform'
     defaults = dict(train=5000, valid=1000, test=1000, epochs=10, batch_size=250, grids=10,
                     attack_steps=80, attack_restarts=4, attack_samples=128) if args.profile == 'paper' else dict(
                     train=128, valid=32, test=32, epochs=3, batch_size=32, grids=3,
@@ -118,11 +126,11 @@ def main(argv=None):
     cfg = SystemConfig(nt=args.nt, nr=args.nr or args.nt, users=args.users, targets=args.targets,
                        clutter=args.clutter, rf_chains=args.rf_chains, snr_db=args.snr_db,
                        rho=args.rho, eps_h=args.epsilon, eps_t=args.epsilon, eps_r=args.epsilon)
-    train = generate_channels(cfg, args.train, seed=args.seed, device=args.device, variable_eps=args.variable_eps)
-    valid = generate_channels(cfg, args.valid, seed=args.seed + 1, device=args.device, variable_eps=args.variable_eps)
-    test = generate_channels(cfg, args.test, seed=args.seed + 2, device=args.device, variable_eps=args.variable_eps)
+    train = generate_channels(cfg, args.train, seed=args.seed, device=args.device, eps_mode=args.eps_label_mode)
+    valid = generate_channels(cfg, args.valid, seed=args.seed + 1, device=args.device, eps_mode=args.eps_label_mode)
+    test = generate_channels(cfg, args.test, seed=args.seed + 2, device=args.device, eps_mode=args.eps_label_mode)
     started = time.perf_counter()
-    epsnet = EpsNet(cfg).to(args.device)
+    epsnet = EpsNet(cfg, layout=args.eps_layout).to(args.device)
     ehistory = train_epsnet(epsnet, train, valid, epochs=args.epochs, batch_size=args.batch_size, seed=args.seed)
     etest = bound_metrics(epsnet, test)
     model = UnrolledPGDA(cfg, layers=args.layers, learn_momentum=args.momentum == 'learned',
@@ -158,6 +166,12 @@ def main(argv=None):
                                         "negative_momentum_count": (model.eta < 0).sum().item(),
                                         "inner_step_min": model.mu[:, :3].min().item(),
                                         "outer_step_min": model.mu[:, 3:].min().item()},
+              "reconstruction": {"schema_version": 2, "eps_layout": args.eps_layout,
+                                  "eps_aggregation": 'shared heads followed by arithmetic mean' if args.eps_layout == 'per-channel' else 'concatenation',
+                                  "eps_aggregation_specified_by_paper": False,
+                                  "eps_training_label_distribution_specified_by_paper": False,
+                                  "eps_loss": 'mean per-sample RMSE, Eq. (18)',
+                                  "timing_scope": 'batched solver throughput; excludes EpsNet; not single-decision latency'},
               "provenance": {"paper_doi": "10.1109/TWC.2026.3702925", "python": platform.python_version(),
                              "torch": torch.__version__, "numpy": np.__version__, "device": args.device,
                              "implementation": "independent; not author-provided code"},

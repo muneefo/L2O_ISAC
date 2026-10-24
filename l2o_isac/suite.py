@@ -3,6 +3,7 @@ import argparse
 import json
 from pathlib import Path
 from .experiment import main as run
+from .data import PAPER_EPSILON_GRID
 
 
 def main(argv=None):
@@ -15,7 +16,7 @@ def main(argv=None):
     settings = {
         'core': [(f'n{n}_l{l}', ['--nt', str(n), '--layers', str(l)]) for n in (16, 32) for l in (15, 20)],
         'momentum': [(kind, ['--momentum', kind]) for kind in ('none', 'fixed', 'learned')],
-        'robustness': [(f'eps{e}', ['--epsilon', str(e)]) for e in (.001, .005, .01, .025, .05)],
+        'robustness': [(f'eps{e}', ['--epsilon', str(e)]) for e in PAPER_EPSILON_GRID],
         'tradeoff': [(f'rho{r}', ['--rho', str(r)]) for r in (.1, .2, .3, .4, .5, .6, .7, .8, .9)],
         'snr': [(f'snr{s}', ['--snr-db', str(s)]) for s in (-6, -3, 0, 3, 6)],
         'scenarios': [(f'm{m}_t{m}', ['--users', str(m), '--targets', str(m)]) for m in (2, 4, 6)],
