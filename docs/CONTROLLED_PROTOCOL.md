@@ -74,3 +74,17 @@ all references. Report pretraining variability and conditional fine-tuning
 variability separately; paired bootstrap resamples pretrained references,
 fine-tuning runs and channels at their corresponding levels, with only three
 pretrained seeds acknowledged as exploratory. Preserve failures.
+
+### Compute-profile amendment (before balanced-condition test evaluation)
+
+The nearest integer repeat count2 predicted only82.6% of separated-cycle training
+wall time. Preserve those original B/C runs as `B_s*`/`C_s*` diagnostics. The
+primary compute-matched controls additionally use deterministic balanced repeats:
+ratio = measured separated median / mean joint B,C median; each minibatch k uses
+floor((k+1)*ratio)-floor(k*ratio) joint updates. For ratio~2.42, this mixes2 and3
+updates, rather than wasting dummy work. The schedule depends only on validation
+profiling, never test scores. Save as B_balanced/C_balanced; compare these with D
+in the primary report, while retaining2-repeat and1-repeat controls. All variants
+share identical epoch minibatch permutations and LR schedules. Actual time can
+still differ from the short profile and must be reported. Additional pretrained
+references use balanced B/C and D, not redundant integer-repeat controls.

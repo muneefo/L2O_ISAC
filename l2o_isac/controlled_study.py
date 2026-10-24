@@ -78,11 +78,14 @@ class ControlledStudy:
                     'scope':'Approximate wall-time matching of training updates; actual full-run costs separately reported; same cycles for B/C'})
         self.log('Frozen training-compute matching: '+str(cycles)+' joint repeats per minibatch')
 
-    def train_case(self,index,condition,seed,equal_updates=False):
+    def train_case(self,index,condition,seed,equal_updates=False,balanced=False):
         ref,refpath=self.reference(index);positive=condition in ['C','D'];model=ControlledSchedule(ref,positive,self.spec['positive_inner_floor'])
         cycles=1 if equal_updates else read(self.out/'compute_matching.json')['joint_repeats_per_minibatch']
+        if balanced:
+            prof=read(self.out/'compute_matching.json')['methods']
+            cycles=prof['D']['median_seconds']/np.mean([prof[n]['median_seconds'] for n in ['B','C']])
         if condition=='D':cycles=1
-        name=condition+('_updates' if equal_updates else '')+f'_s{seed}';folder=self.out/f'pretrain{self.spec["pretraining_seeds"][index]}'/name;folder.mkdir(parents=True,exist_ok=True)
+        name=condition+('_balanced' if balanced else '')+('_updates' if equal_updates else '')+f'_s{seed}';folder=self.out/f'pretrain{self.spec["pretraining_seeds"][index]}'/name;folder.mkdir(parents=True,exist_ok=True)
         optimizers={'joint':torch.optim.SGD(model.parameters(),lr=self.spec['lr']),
                     'inner':torch.optim.SGD(model.inner_parameters(),lr=self.spec['lr']),
                     'outer':torch.optim.SGD(model.outer_parameters(),lr=self.spec['lr'])}
@@ -110,9 +113,11 @@ class ControlledStudy:
             for opt in optimizers.values():
                 for group in opt.param_groups:group['lr']=self.spec['lr']*self.spec['lr_decay']**epoch
             order=torch.randperm(len(train),generator=generator);start=time.perf_counter();batch_records=[]
-            for ids in order.split(self.spec['batch_size']):
+            for batch_index,ids in enumerate(order.split(self.spec['batch_size'])):
                 b,s=train[ids],state_slice(initial,ids)
-                for _ in range(cycles):
+                step_index=epoch*((len(train)+self.spec['batch_size']-1)//self.spec['batch_size'])+batch_index
+                repeats=int(np.floor((step_index+1)*cycles)-np.floor(step_index*cycles)) if balanced else int(cycles)
+                for _ in range(repeats):
                     t=time.perf_counter()
                     if condition=='D':r=separated_update(model,b,s,optimizers['inner'],optimizers['outer'],self.spec['training_attack_steps'],self.attack_step)
                     else:r=joint_update(model,b,s,optimizers['joint'])
@@ -134,7 +139,7 @@ class ControlledStudy:
 
     def train_index(self,index,pilot=False):
         for condition in ['B','C','D']:
-            for seed in self.spec['paired_finetuning_seeds']:self.train_case(index,condition,seed)
+            for seed in self.spec['paired_finetuning_seeds']:self.train_case(index,condition,seed,balanced=index>0 and condition in ['B','C'])
         if index==0:
             for condition in ['B','C']:self.train_case(0,condition,self.spec['paired_finetuning_seeds'][0],True)
         if pilot:write(self.out/'pilot_training_gate.json',{'passed':True,'scope':'Methodology/finite training validation, independent test evaluation follows; no positive-gain gate'})
@@ -142,9 +147,11 @@ class ControlledStudy:
     def cases(self,index):
         ref,refpath=self.reference(index);cases={'A':ControlledSchedule(ref),'Mapped_initial':ControlledSchedule(ref,True,self.spec['positive_inner_floor'])}
         files={}
-        for condition in ['B','C','D']:
+        for label in (['B','C','B_balanced','C_balanced','D'] if index==0 else ['B_balanced','C_balanced','D']):
+            condition=label[0]
             for seed in self.spec['paired_finetuning_seeds']:
-                name=f'{condition}_s{seed}';p=self.out/f'pretrain{self.spec["pretraining_seeds"][index]}'/name/'selected.pt'
+                name=f'{label}_s{seed}';p=self.out/f'pretrain{self.spec["pretraining_seeds"][index]}'/name/'selected.pt'
+                if not p.exists():continue
                 saved=torch.load(p,weights_only=True);m=ControlledSchedule(ref,condition in ['C','D'],self.spec['positive_inner_floor']);m.load_state_dict(saved['model']);cases[name]=m;files[name]=p
         if index==0:
             for condition in ['B','C']:
@@ -279,12 +286,19 @@ class ControlledStudy:
 
 def main(argv=None):
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--config',default='configs/pilot/controlled_ablation.json');p.add_argument('--output',default='results/controlled_ablation')
-    p.add_argument('--stage',choices=['prepare','profile','pilot','pretrain','expanded','pgda','timing','all'],default='all');a=p.parse_args(argv)
+    p.add_argument('--stage',choices=['prepare','profile','pilot','balanced','pretrain','expanded','pgda','timing','condition','all'],default='all');p.add_argument('--condition',choices=['B','C','D']);p.add_argument('--reference-index',type=int,default=0);p.add_argument('--fine-seed',type=int,default=101);a=p.parse_args(argv)
     torch.set_num_threads(1);torch.use_deterministic_algorithms(True);torch.manual_seed(901)
     study=ControlledStudy(a.config,a.output);study.prepare()
     try:
         if a.stage in ['profile','pilot','all']:study.profile()
         if a.stage in ['pilot','all']:study.train_index(0,True);study.inner_validation(0);study.evaluate_index(0)
+        if a.stage in ['balanced','all']:
+            for condition in ['B','C']:
+                for seed in study.spec['paired_finetuning_seeds']:study.train_case(0,condition,seed,balanced=True)
+            study.evaluate_index(0)
+        if a.stage=='condition':
+            if a.condition is None:p.error('--condition is required for condition stage')
+            study.profile();study.train_case(a.reference_index,a.condition,a.fine_seed,balanced=a.condition in ['B','C'])
         if a.stage in ['pretrain','all']:study.additional_references()
         if a.stage in ['expanded','all']:
             for index in range(1,len(study.spec['reference_checkpoints'])):study.train_index(index);study.inner_validation(index);study.evaluate_index(index)
