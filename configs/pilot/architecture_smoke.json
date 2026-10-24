@@ -1,0 +1,47 @@
+{
+  "checkpoint": "reports/corrected_per_channel_seed73129/checkpoint.pt",
+  "reference_commit": "83ba89148c8d89a7ab60105da0fa5cbfe6105d9e",
+  "split_seeds": {
+    "train": 842101,
+    "validation": 842102,
+    "test": 842103
+  },
+  "split_sizes": {
+    "train": 8,
+    "validation": 4,
+    "test": 4
+  },
+  "initialization_seeds": {
+    "train": 843101,
+    "validation": 843102,
+    "test": 843103
+  },
+  "training_seeds": [
+    101
+  ],
+  "epochs": 1,
+  "batch_size": 4,
+  "inner_lr": 0.001,
+  "outer_lr_candidates": [
+    0.0001
+  ],
+  "training_attack_steps": 2,
+  "validation_attack_steps": 3,
+  "attack_budgets": [
+    2,
+    4
+  ],
+  "random_restarts": 1,
+  "adam_steps": 2,
+  "attack_step_candidates": [
+    0.05
+  ],
+  "classical_inner_steps": [
+    0.025
+  ],
+  "classical_outer_steps": [
+    0.01
+  ],
+  "timing_repeats": 2,
+  "scope": "Tiny executed CLI integration smoke; not a scientific experiment"
+}

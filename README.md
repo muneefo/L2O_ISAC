@@ -223,3 +223,24 @@ To rerun stronger attacks on a trained model with fresh, held-out channels:
 This compares 80-step/4-start attacks against 200-step/8-start attacks with nested starting seeds.
 It asserts that stronger attacks cannot improve the attacked objective and that attacks do not
 improve over zero error. Results are saved as `robustness_audit.json` next to the checkpoint.
+
+## Executed architecture audit and role-separated extension
+
+The original reference checkpoint remains unchanged. The new pilot isolates
+optimizer training with common oracle uncertainty radii and independently attacks
+frozen beamformers. It includes three fine-tuning seeds, inner-only/outer-only
+controls, 1,000-step stress checks, raw scenario tensors, feasibility, timings,
+source snapshots and resumable checkpoints.
+
+- [Measured findings and limitations](reports/extension_results.md)
+- [Gate status and exact executed commands](STATUS.md)
+- [Equation map](docs/equation_map.md), [graph and objectives](docs/audit_hypotheses.md)
+- [Install/run commands](docs/architecture_commands.md)
+
+```bash
+python -m pytest -q
+python -m l2o_isac.architecture_audit --stage all
+```
+
+This is an executed exploratory extension of an independent reconstruction, not
+official author software or a claim of exact published numerical reproduction.

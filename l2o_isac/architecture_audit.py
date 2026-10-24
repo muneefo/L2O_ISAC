@@ -65,6 +65,7 @@ class Study:
             manifest=read(self.output/'split_manifest.json')
             if sha(path)!=manifest['sha256']:raise RuntimeError('Immutable split hash mismatch')
             if manifest['spec']!=self.spec:raise RuntimeError('Existing split uses a different protocol')
+            if manifest['reference_sha256']!=self.sha:raise RuntimeError('Immutable reference checkpoint hash mismatch')
             return
         values={};init={}
         for name,size in self.spec['split_sizes'].items():
@@ -178,7 +179,7 @@ class Study:
                               'scope':'Channel sampling only for fixed checkpoints; not training-seed CI'}
         role_diffs=[comparison[f'Role_seed{s}']['paired_mean_difference_vs_U15'] for s in self.spec['training_seeds']] if roles else []
         report={'methods':records,'paired_comparisons':comparison,'samples':len(batch),'radius_mode':'oracle except separately named EpsNet branch',
-                'training_seed_differences':role_diffs,'training_seed_difference_sd':float(np.std(role_diffs,ddof=1)) if roles else None,
+                'training_seed_differences':role_diffs,'training_seed_difference_sd':float(np.std(role_diffs,ddof=1)) if len(role_diffs)>1 else None,
                 'reference_pretraining_seeds':1,'reference_sha256':self.sha,'claim':'Lowest feasible utility found; no global minimum certification',
                 'H1_supported_for_reconstruction':records['U15']['gap']['objective']>1e-3}
         write(folder/'summary.json',report)
@@ -287,6 +288,7 @@ class Study:
 
     def figures(self):
         os.environ.setdefault('MPLCONFIGDIR','/tmp/isac-audit-mpl')
+        os.environ.setdefault('XDG_CACHE_HOME','/tmp/isac-audit-cache')
         import matplotlib
         matplotlib.use('Agg')
         import matplotlib.pyplot as plt

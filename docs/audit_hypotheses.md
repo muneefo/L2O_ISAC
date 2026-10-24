@@ -57,3 +57,28 @@ initial weights if training loses is reported explicitly, not as a new gain.
 A stronger-classical-inner variant uses k>1 classical inner gradient steps for
 each outer update; its extra calls and runtime are charged. A matched-budget
 version reduces outer steps. Learning is not credited for extra search effort.
+
+## Executed evidence after the pilot
+
+Independent frozen-design attacks support H1 for this checkpoint: terminal
+utility 4.66515 versus found 4.03977. A separate actual-stage audit reports
+communication utility increasing in 80% of reference inner sample/layer steps,
+and weighted utility increasing in 76.77% (threshold 1e-6). Role-separated
+variants have no observed component increases above 1e-6 across these same
+128×15 inner stages. This is a finite sample observation, not a monotonicity proof.
+The reference has 16 negative inner mu entries; all three role variants have zero,
+without an imposed sign constraint. These observations, graph evidence and the
+inner-only ablation support H2's role-conflict mechanism in our reconstruction.
+They do not establish that it is the only source of gain: the extension receives
+additional optimization/training, and no identical-budget shared-loss fine-tuning
+control was run. No conclusion about author's trained coefficients follows.
+
+For one interior inner step with frozen beamformers, zero momentum and mu=0,
+let g=df/d(delta*) and delta'=delta-mu*g. Then
+ d f(delta')/d mu = -2||g||², while d(-f)/d mu = +2||g||².
+Thus the direct negative-utility path encourages a smaller inner step. In a full
+alternating projected unroll, other indirect paths can change this sign; this
+local calculation is a mechanism, not a theorem that end-to-end training fails.
+
+H3/H4 remain untested. H5 is supported for our independent-label simulator input
+law only; no additional calibration method or real metadata was introduced.

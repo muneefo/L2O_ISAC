@@ -1,0 +1,111 @@
+# Robust ISAC architecture audit and role-separated extension — executed pilot
+
+**Result:** a modest positive pilot result, with a substantial evaluation gap in our existing independent reconstruction. This is not an exact author-code reproduction or a publication-ready claim. No reference retraining, regenerated reference dataset, or new physical model was used.
+
+## What was preserved and verified
+
+Source paper: Lei Wang, Sergiy A. Vorobyov, Esa Ollila, *L2O Robust Hybrid Beamforming for ISAC*, IEEE TWC25,18778–18794(2026), DOI10.1109/TWC.2026.3702925. Metadata agrees with the previously inspected supplied PDF, its retained complete text and the author institution portal. The original PDF attachment is absent in this session; the journal formulation/Algorithms1–3/Appendix/settings were re-read from retained text. The 2025 ICASSP predecessor was not substituted.
+
+Pinned reference commit: `83ba89148c8d89a7ab60105da0fa5cbfe6105d9e`. Checkpoint SHA256: `58845000260beae656c91f30217fc75a27c11a94eba116c766b5055a7079f77e`. Its training-source snapshot remains `b6a289d`. Existing source/weights/raw outputs are unchanged byte-for-byte; eight saved raw channel/state/trace examples replay with **zero** maximum error. No official author code/checkpoint has been verified. EpsNet pooling, label/data relationship, initialization details and validation selection remain reconstruction assumptions. SCA/CNN/DNN comparators were not recovered. See [previous reproduction status](../docs/REPRODUCTION_STATUS.md); this report appends an audit rather than replacing that report.
+
+Primary problem unchanged: Nt=Nr=16,M=4,T=2,J=2,L=8,SNR5dB,rho=.8, three true normalized radii=.05. Physical communication sum-rate and sensing sum-log **MI upper-bound metric**, natural logs, norm balls, all interference terms and projections are retained. Primary solvers use common oracle simulator radii. EpsNet is separately evaluated using the same true attack balls. No calibration guarantee is introduced.
+
+The full reference split was not saved as channel tensors, so it was not regenerated. Instead, separate audit splits of 256/64/128 train/validation/test channels were saved once, with disjoint seeds and hashes before any tuning. Training and selection use only train/validation; all final methods share paired frozen test scenarios.
+
+## What the audit actually observed
+
+H1 is supported for our checkpoint: U15 terminal weighted utility 4.665152 versus independently found 4.039769; mean attack gap 0.625383. Both communication and sensing are searched separately with correct shared sensing errors, and beamformers remain frozen. The independent module differentiates verified metrics with autograd and does not call the learned update or analytic gradient routine. Its pool includes zero, terminal, five random interior/boundary starts, backtracked PGD and projected Adam.
+
+H2 has graph and experimental support **for this reconstruction**: the same negative perturbed-utility loss trains both roles through the complete unroll; 16/45 inner step entries in the reference are negative. The direct inner stage increased communication utility in 80% of tested sample/layer pairs and weighted utility in 76.77% (threshold1e-6). It should be minimizing. Role variants had no observed component increases above this threshold in these 128×15 stages, and zero negative inner steps without a positivity constraint. This finite-sample result does not prove general monotonicity. Additional training remains a confounder: an equally trained shared-loss continuation control was not run. These observations do not establish an author-code defect.
+
+H3/H4 (state-dependent schedules/progress-dependent continuation) remain untested. H5 is supported only for our simulator case where changing radius labels are independent of observed nominal channels. Authors’ input/label generation remains unspecified. No additional calibration model was trained.
+
+## Primary comparisons and costs
+
+Each design is attacked independently with nested50/200 PGD steps per start, five random starts plus zero/terminal and50 Adam steps; then all methods receive a shared union of found candidates. The table gives 200-step independent values. Union values and all scenario-level tensors are saved separately.
+
+| Method | Nominal utility | Comm | Sensing MI upper bound | Independent utility | Full analytic design calls | Batch-one median / p95 ms |
+|---|---:|---:|---:|---:|---:|---:|
+| PGDA15 | 4.378000 | 4.663906 | 0.699805 | 3.871086 | 30 | 14.87 / 16.12 |
+| StrongInnerMatched | 3.971851 | 4.165841 | 0.710779 | 3.474828 | 30 | 11.83 / 12.24 |
+| U15 | 4.620366 | 4.873873 | 0.703350 | 4.039769 | 30 | 15.69 / 16.46 |
+| RU25 | 4.665878 | 4.907509 | 0.753650 | 4.076737 | 50 | 26.35 / 27.14 |
+| StrongInner15 | 4.370029 | 4.655636 | 0.698034 | 3.864115 | 75 | 29.82 / 30.11 |
+| PGDA180 | 5.597816 | 4.822395 | 5.616582 | 4.981233 | 360 | 179.63 / 187.59 |
+| U15_EpsNet | 4.620555 | 4.874138 | 0.703355 | 4.039982 | 30 | Not separately timed |
+| Role_seed101 | 4.666179 | 4.931570 | 0.748502 | 4.094956 | 30 | 15.15 / 15.72 |
+| Role_seed202 | 4.666187 | 4.931595 | 0.748447 | 4.094966 | 30 | 15.06 / 15.56 |
+| Role_seed303 | 4.666116 | 4.931487 | 0.748514 | 4.094893 | 30 | 15.16 / 16.48 |
+
+Classical schedules were selected on the same validation channels from a3×3 grid separately for each family. Retuned180-step PGDA reaches substantially higher utility than U15 and the extension, at360 versus30 full analytic calls and much greater latency. We do not claim the extension beats classical optimization at unrestricted computation. PGDA15 is approximately comparable in latency and has the same derivative-call budget; stronger-inner matched uses4 inner steps and6 outer steps (30 calls), while its15-outer-step version uses75 calls. Full analytic calls are an accounting unit, not a FLOP equivalence to independent error-only autograd calls. Online timings include projections and trace calculations; initialization and EpsNet are measured separately. No controller overhead exists.
+
+Measured hardware: AMD EPYC 9V74 80-Core Processor; cgroup CPU quota `200000 100000`, one PyTorch thread, complex64, Python3.12.14, PyTorch2.14.1+cpu. Timings use three warmups and15 batch-one repetitions, saved raw samples, median/p95. These are warm solver times, not CSI acquisition, RF programming, transfer, or convergence-to-a-tolerance measurements. No sub-millisecond or guaranteed deadline claim is supported.
+
+## Role training and controls
+
+All variants retain180 scalar parameters and15 deployed layers/30 analytic calls. Inner training freezes beamformers and minimizes terminal attack utility over inner coefficients only. Outer training freezes those coefficients and optimizes beamformers under a fixed classical approximate adversary. Full differentiation through the deployed alternating trajectory is retained; the terminal adversary is explicitly stop-gradient. This is a surrogate, not exact Danskin/envelope differentiation through a solved global minimum. The exact objectives and graph are in [audit_hypotheses.md](../docs/audit_hypotheses.md).
+
+Three epochs per run,256 train/64 validation channels, batch32; inner SGD lr=.001, outer lr=.0001 selected from two values on validation. Three **shuffle-seed fine-tuning runs share one pretrained checkpoint and one dataset**. Their variability does not measure independent reference-pretraining variability. Final three-run training took 16.60s total; learning-rate candidate runs took another 11.15s, excluding data/tuning/evaluation setup. Backpropagation through the differentiable analytic updates includes higher derivatives. Per batch, combined training executes30 detached design calls +15 inner-training calls +30 deployed differentiable calls, plus30 error-only autograd attack calls and two backward passes; actual wall time includes these and validation. Classical validation-grid cost and attack costs are recorded separately in raw timing/logs.
+
+| Variant | Three independently attacked weighted utilities (200 steps) | Total parameters / trained parameters | Online analytic calls |
+|---|---|---:|---:|
+| Frozen reference | 4.039769 | 180 / 0 | 30 |
+| inner only | 4.069920, 4.069927, 4.069921 | 180 / 90 | 30 |
+| outer only | 4.060398, 4.060352, 4.060292 | 180 / 90 | 30 |
+| Both roles | 4.094956, 4.094966, 4.094893 | 180 / 180 | 30 |
+
+The controls are exploratory mechanism ablations using the same learning rates and validation selection, not a new test-driven hyperparameter search. Both controls improve; combining them performs best in this pilot. The sensing quantity is an MI upper-bound proxy. Improvements do not demonstrate detection probability, localization RMSE or actual physical sensing accuracy.
+
+## Stronger attacks and paired evidence
+
+A fixed additional1,000-step check on all128 channels used five random starts plus zero/terminal and50 Adam steps for reference, RecNet, tunedPGDA180 and all three role variants. It retained200-step prefixes and previous candidates, then formed another shared union. It was never used to select a checkpoint.
+
+| Method | 1,000-step shared-union utility | Paired gain over U15 | 95% paired channel bootstrap interval |
+|---|---:|---:|---|
+| U15 | 4.039765 | 0.000000 | [0.000000, 0.000000] |
+| RU25 | 4.076734 | 0.036968 | [0.029093, 0.045650] |
+| PGDA180 | 4.981232 | 0.941466 | [0.846980, 1.035230] |
+| Role_seed101 | 4.094953 | 0.055188 | [0.048931, 0.062073] |
+| Role_seed202 | 4.094963 | 0.055197 | [0.048510, 0.061994] |
+| Role_seed303 | 4.094890 | 0.055124 | [0.048817, 0.061997] |
+
+The role mean is 4.094935, versus reference 4.039765: gain 0.055170 (1.37%). The SD of the three fine-tuning-run mean gains is 0.00003975; this very small SD is conditional on the shared starting weights/data. The table intervals resample channels, not training seeds. Increasing200→1,000 steps changed found mean utility by less than2e-5 for these methods; this is search saturation evidence, not a global-optimality proof. Each200-step attack uses1450 error-gradient calls; the1,000-step check uses7050, separately charged from online design.
+
+The learned terminal gap remains about 0.363 after role training. Inner minimization remains approximate. A small attack gap would not certify an exact minimum either. The lowest feasible utility found is an **upper bound on the true minimum utility**, not a certified lower bound on robust performance.
+
+## Feasibility, failures and remaining scope
+
+All primary, control and strengthened-attack scenarios had finite outputs and zero observed hardware/power/ball failures at absolute complex64 tolerance1e-5; largest saved residual 1.91e-06. Per-scenario values and failure flags are in feasibility_per_scenario.npz, with raw complex states retained. Projections enforce structural sets mathematically; they do not prove global robustness. The EpsNet branch separately records any pre-projection terminal-ball violations under common true sets. All completed reference layers and stressed role layers were checked in complex128 tests.
+
+The tiny one-seed smoke initially exposed a reporting bug: sample SD with ddof1 is undefined for one run and could not serialize as strict JSON. It now saves null. The failed attempt log is retained; successful rerun uses cached weights/splits without replacing scientific results. Final tests and source/artifact validation logs are retained. There were no failed primary scientific scenarios; no failures were silently dropped.
+
+A secondary frozen-weight rho/radius sensitivity uses32 scenarios, rho=.2,.5,.8 and epsilon=.01,.05 with reference and extensionseed101 only. Both components and raw outputs are saved with a separate figure. It is not a three-seed generalization study. Primary N/rho/power/sets are unchanged; no hardware/channel-model additions, QoS floors, CRB, RIS, scheduling or phase quantization were introduced. No broad antenna/count/SNR transfer experiment was added here. Original RecNet’s25-layer baseline is measured, but the extension does not claim learned beyond-depth continuation.
+
+GatesA–E pass at the **executed pilot** scope. Optional state controller/calibration are deferred, consistent with the first-session focus on an isolated audit and role-separated training. Related primary literature already contains separate learned minimax roles, trajectory-conditioned game optimizers and conformal robust beamforming; [related_work_audit.md](../docs/related_work_audit.md) records verified sources. No novelty claim is made.
+
+Unexecuted full target:1,000 test channels,20 random restarts,200/1,000 steps, five extension-training seeds and larger data. Scaling measured attack costs gives approximately1–2CPU hours for primary methods plus additional tuning/training/controls; actual runtime depends on configuration. The provided full configuration is resumable but has not run. Extra independent pretraining seeds, an equal-extra-training shared-loss control, broader channel/configuration transfer and a thorough novelty study are still needed before publication claims.
+
+## Files and commands
+
+- [Equation map](../docs/equation_map.md), [graph and objectives](../docs/audit_hypotheses.md), [prespecified protocol](../docs/experiment_protocol.md), [exact commands](../docs/architecture_commands.md).
+- results/architecture_audit/{split_manifest.json,splits.pt,checkpoint_regression.json,environment.json,validation_choices.json,training_choices.json}.
+- adversarial_audit/ and extension_evaluation/: raw per-scenario designs, errors, components, gaps, budget curves and summaries.
+- role_seed*/: selected/latest weights, SGD states, RNG state, config, source hashes, split identifiers and training history.
+- role_ablations/, strong_attack_check/, secondary_tradeoff/: executed controls and stress tests.
+- audit_figures.png/pdf; utility_vs_latency.png; secondary_tradeoff/components_vs_rho.png/pdf; feasibility_per_scenario.npz.
+- STATUS.md: gate state, limits, exact commands, next action. results/manifest.json: source/output hashes.
+
+Minimal rerun from repository root (existing weights; no reference training):
+
+```bash
+python -m pytest -q
+python -m l2o_isac.architecture_audit --stage all
+python -m l2o_isac.strong_attack_check
+python -m l2o_isac.role_ablations
+python -m l2o_isac.secondary_tradeoff
+python -m l2o_isac.minnet_direction_audit
+python -m l2o_isac.audit_artifacts
+python -m l2o_isac.audit_report
+```
+
+Completed stages resume/cache. Use a new output folder for a genuinely new protocol or numerical source; do not mix versions. Clean-environment install commands are provided but a second clean install was not executed. The source/weights classification remains independent reimplementation plus proposed extension.

@@ -127,3 +127,21 @@ def test_new_attacker_closed_form_zero_radius_and_adam_floor():
     # closed-form agreement: a PGD-only search already reaches the same minimum.
     pgd=attack(b,s,c,budgets=(100,),restarts=1,adam_steps=0)
     torch.testing.assert_close(pgd['metrics'][100]['comm'],expected,rtol=1e-6,atol=1e-8)
+
+
+def test_complete_role_layers_keep_hardware_and_unequal_array_balls(monkeypatch):
+    import l2o_isac.role_training as role_module
+    from l2o_isac.solver import UnrolledPGDA
+    c,b,s=tiny();model=role_module.RoleSeparatedPGDA(UnrolledPGDA(c,layers=4).double())
+    with torch.no_grad():
+        model.inner_mu[1].mul_(-20);model.outer_mu.mul_(20);model.inner_eta.fill_(.7);model.outer_eta.fill_(.7)
+    captured=[];original=role_module.pgda_step
+    def checked(*args,**kwargs):
+        result=original(*args,**kwargs);captured.append(result)
+        return result
+    monkeypatch.setattr(role_module,'pgda_step',checked)
+    model(b,s)
+    assert len(captured)==4
+    for state in captured:
+        assert max(constraint_errors(state,b,c).values())<1e-8
+        assert all(torch.isfinite(getattr(state,n)).all() for n in NAMES)
