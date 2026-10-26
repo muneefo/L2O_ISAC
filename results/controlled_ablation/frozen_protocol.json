@@ -1,0 +1,87 @@
+{
+  "spec": {
+    "reference_checkpoints": [
+      "reports/corrected_per_channel_seed73129/checkpoint.pt",
+      "reports/additional_reference_seed74129/checkpoint.pt",
+      "reports/additional_reference_seed75129/checkpoint.pt"
+    ],
+    "pretraining_seeds": [
+      73129,
+      74129,
+      75129
+    ],
+    "paired_finetuning_seeds": [
+      101,
+      202,
+      303
+    ],
+    "split_file": "results/architecture_audit/splits.pt",
+    "validation_attack_choices": "results/architecture_audit/validation_choices.json",
+    "epochs": 3,
+    "batch_size": 32,
+    "lr": 0.0001,
+    "lr_decay": 0.98,
+    "positive_inner_floor": 1e-06,
+    "positive_mapping": "max(abs(pretrained_inner_mu), floor); all momentum and outer coefficients unchanged",
+    "joint_cycle_candidates": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "profiling_repeats": 3,
+    "validation_attack_steps": 30,
+    "training_attack_steps": 15,
+    "attack_budgets": [
+      200,
+      1000
+    ],
+    "attack_restarts": 5,
+    "adam_steps": 50,
+    "attack_seed": 9001,
+    "pgda_budgets": [
+      5,
+      10,
+      15,
+      20,
+      30,
+      60,
+      180
+    ],
+    "pgda_inner_grid": [
+      0.0025,
+      0.025,
+      0.1
+    ],
+    "pgda_outer_grid": [
+      0.001,
+      0.01,
+      0.03
+    ],
+    "timing_repeats": 20,
+    "scope": "Controlled exploratory ablation; three independently pretrained references and three paired fine-tuning shuffle seeds; no physics changes"
+  },
+  "split_sha256": "171fb33933e0d4f9d3c99ca18a4291347bd0283da87cb20257b2932a5c1782f7",
+  "attack_step": 0.2,
+  "system": {
+    "nt": 16,
+    "nr": 16,
+    "users": 4,
+    "targets": 2,
+    "clutter": 2,
+    "rf_chains": 8,
+    "snr_db": 5.0,
+    "noise_comm": 1.0,
+    "noise_sense": 1.0,
+    "rho": 0.8,
+    "eps_h": 0.05,
+    "eps_t": 0.05,
+    "eps_r": 0.05,
+    "target_variance_db": 2.0,
+    "clutter_variance_db": 3.0,
+    "angle_min_deg": -60.0,
+    "angle_max_deg": 60.0,
+    "min_separation_deg": 5.0
+  },
+  "scope": "Independent reimplementation controls; source PDF currently unavailable"
+}

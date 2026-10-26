@@ -1,0 +1,2 @@
+2026-10-24T23:28:40.175327+00:00 Explicitly authorized additional independent pretraining: /workspace/.venv/bin/python -u -m l2o_isac.experiment --profile paper --seed 74129 --output reports/additional_reference_seed74129
+2026-10-24T23:30:19.217997+00:00 Explicitly authorized additional independent pretraining: /workspace/.venv/bin/python -u -m l2o_isac.experiment --profile paper --seed 75129 --output reports/additional_reference_seed75129

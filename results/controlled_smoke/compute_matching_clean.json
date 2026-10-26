@@ -1,0 +1,26 @@
+{
+  "profile_split": "validation first32",
+  "methods": {
+    "B": {
+      "median_seconds": 0.062274916999740526,
+      "samples_seconds": [
+        0.062274916999740526
+      ]
+    },
+    "C": {
+      "median_seconds": 0.06108032599877333,
+      "samples_seconds": [
+        0.06108032599877333
+      ]
+    },
+    "D": {
+      "median_seconds": 0.10090343199772178,
+      "samples_seconds": [
+        0.10090343199772178
+      ]
+    }
+  },
+  "joint_repeats_per_minibatch": 2,
+  "predicted_joint_to_separate_ratio": 1.222507902419999,
+  "scope": "Approximate wall-time matching of training updates; actual full-run costs separately reported; same cycles for B/C"
+}

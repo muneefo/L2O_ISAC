@@ -1,0 +1,297 @@
+2026-10-24T23:22:34.959995+00:00 Frozen training-compute matching: 2 joint repeats per minibatch
+2026-10-24T23:22:36.794407+00:00 pretrain=73129 B_s101 epoch=1 validation=3.900813
+2026-10-24T23:22:38.470089+00:00 pretrain=73129 B_s101 epoch=2 validation=3.904463
+2026-10-24T23:22:40.174881+00:00 pretrain=73129 B_s101 epoch=3 validation=3.907793
+2026-10-24T23:22:42.016489+00:00 pretrain=73129 B_s202 epoch=1 validation=3.900632
+2026-10-24T23:22:43.573502+00:00 pretrain=73129 B_s202 epoch=2 validation=3.904152
+2026-10-24T23:22:45.122194+00:00 pretrain=73129 B_s202 epoch=3 validation=3.907424
+2026-10-24T23:22:46.868726+00:00 pretrain=73129 B_s303 epoch=1 validation=3.900945
+2026-10-24T23:22:48.423994+00:00 pretrain=73129 B_s303 epoch=2 validation=3.904587
+2026-10-24T23:22:49.997610+00:00 pretrain=73129 B_s303 epoch=3 validation=3.907580
+2026-10-24T23:22:51.830171+00:00 pretrain=73129 C_s101 epoch=1 validation=3.911666
+2026-10-24T23:22:53.471559+00:00 pretrain=73129 C_s101 epoch=2 validation=3.915693
+2026-10-24T23:22:55.091449+00:00 pretrain=73129 C_s101 epoch=3 validation=3.919235
+2026-10-24T23:22:56.923686+00:00 pretrain=73129 C_s202 epoch=1 validation=3.911447
+2026-10-24T23:22:58.606070+00:00 pretrain=73129 C_s202 epoch=2 validation=3.915302
+2026-10-24T23:23:00.292226+00:00 pretrain=73129 C_s202 epoch=3 validation=3.918740
+2026-10-24T23:23:02.232323+00:00 pretrain=73129 C_s303 epoch=1 validation=3.911760
+2026-10-24T23:23:03.823891+00:00 pretrain=73129 C_s303 epoch=2 validation=3.915719
+2026-10-24T23:23:05.407095+00:00 pretrain=73129 C_s303 epoch=3 validation=3.918897
+2026-10-24T23:23:07.521768+00:00 pretrain=73129 D_s101 epoch=1 validation=3.916372
+2026-10-24T23:23:09.397788+00:00 pretrain=73129 D_s101 epoch=2 validation=3.924577
+2026-10-24T23:23:11.258410+00:00 pretrain=73129 D_s101 epoch=3 validation=3.931687
+2026-10-24T23:23:13.306639+00:00 pretrain=73129 D_s202 epoch=1 validation=3.916267
+2026-10-24T23:23:15.144566+00:00 pretrain=73129 D_s202 epoch=2 validation=3.924443
+2026-10-24T23:23:17.003411+00:00 pretrain=73129 D_s202 epoch=3 validation=3.931621
+2026-10-24T23:23:19.233454+00:00 pretrain=73129 D_s303 epoch=1 validation=3.916302
+2026-10-24T23:23:21.146387+00:00 pretrain=73129 D_s303 epoch=2 validation=3.924457
+2026-10-24T23:23:23.106137+00:00 pretrain=73129 D_s303 epoch=3 validation=3.931541
+2026-10-24T23:23:24.205178+00:00 pretrain=73129 B_updates_s101 epoch=1 validation=3.898585
+2026-10-24T23:23:25.114612+00:00 pretrain=73129 B_updates_s101 epoch=2 validation=3.900502
+2026-10-24T23:23:25.999313+00:00 pretrain=73129 B_updates_s101 epoch=3 validation=3.902310
+2026-10-24T23:23:27.112185+00:00 pretrain=73129 C_updates_s101 epoch=1 validation=3.909199
+2026-10-24T23:23:28.015988+00:00 pretrain=73129 C_updates_s101 epoch=2 validation=3.911368
+2026-10-24T23:23:28.939419+00:00 pretrain=73129 C_updates_s101 epoch=3 validation=3.913331
+2026-10-24T23:23:31.139519+00:00 fixed-beam inner validation pretrain=73129 Mapped_initial: candidate=4.409606, refined=3.896123
+2026-10-24T23:23:33.200912+00:00 fixed-beam inner validation pretrain=73129 D_s101: candidate=4.375315, refined=3.896123
+2026-10-24T23:23:35.204820+00:00 fixed-beam inner validation pretrain=73129 D_s202: candidate=4.375318, refined=3.896123
+2026-10-24T23:23:37.167571+00:00 fixed-beam inner validation pretrain=73129 D_s303: candidate=4.375320, refined=3.896123
+2026-10-24T23:23:54.219106+00:00 eval pretrain=73129 A: 200=4.039769,1000=4.039765,attack=17.0s
+2026-10-24T23:24:11.916369+00:00 eval pretrain=73129 Mapped_initial: 200=4.050275,1000=4.050272,attack=17.6s
+2026-10-24T23:24:29.477372+00:00 eval pretrain=73129 B_s101: 200=4.054266,1000=4.054263,attack=17.5s
+2026-10-24T23:24:35.660814+00:00 PGDA budget=5 calls=10 independent1000=3.314481
+2026-10-24T23:24:47.300573+00:00 eval pretrain=73129 B_s202: 200=4.053966,1000=4.053962,attack=17.8s
+2026-10-24T23:24:53.113482+00:00 PGDA budget=10 calls=20 independent1000=3.577396
+2026-10-24T23:25:04.376595+00:00 eval pretrain=73129 B_s303: 200=4.054124,1000=4.054121,attack=17.0s
+2026-10-24T23:25:10.180857+00:00 PGDA budget=15 calls=30 independent1000=3.871083
+2026-10-24T23:25:22.786737+00:00 eval pretrain=73129 C_s101: 200=4.065819,1000=4.065817,attack=18.3s
+2026-10-24T23:25:27.815697+00:00 PGDA budget=20 calls=40 independent1000=4.085763
+2026-10-24T23:25:40.407354+00:00 eval pretrain=73129 C_s202: 200=4.065403,1000=4.065400,attack=17.5s
+2026-10-24T23:25:45.317180+00:00 PGDA budget=30 calls=60 independent1000=4.273519
+2026-10-24T23:25:57.836956+00:00 eval pretrain=73129 C_s303: 200=4.065553,1000=4.065550,attack=17.4s
+2026-10-24T23:26:02.543874+00:00 PGDA budget=60 calls=120 independent1000=4.508877
+2026-10-24T23:26:15.193639+00:00 eval pretrain=73129 D_s101: 200=4.075651,1000=4.075647,attack=17.3s
+2026-10-24T23:26:20.426742+00:00 PGDA budget=180 calls=360 independent1000=4.981232
+2026-10-24T23:26:32.331418+00:00 eval pretrain=73129 D_s202: 200=4.075600,1000=4.075596,attack=17.1s
+2026-10-24T23:26:49.175234+00:00 eval pretrain=73129 D_s303: 200=4.075536,1000=4.075533,attack=16.8s
+2026-10-24T23:27:06.448714+00:00 eval pretrain=73129 B_updates_s101: 200=4.047069,1000=4.047066,attack=17.2s
+2026-10-24T23:27:23.501357+00:00 eval pretrain=73129 C_updates_s101: 200=4.058240,1000=4.058238,attack=17.0s
+2026-10-24T23:27:40.679467+00:00 eval pretrain=73129 E_previous_s101: 200=4.094956,1000=4.094953,attack=17.1s
+2026-10-24T23:27:57.644056+00:00 eval pretrain=73129 E_previous_s202: 200=4.094966,1000=4.094963,attack=16.9s
+2026-10-24T23:28:14.728715+00:00 eval pretrain=73129 E_previous_s303: 200=4.094893,1000=4.094890,attack=17.0s
+2026-10-24T23:28:40.175327+00:00 Explicitly authorized additional independent pretraining: /workspace/.venv/bin/python -u -m l2o_isac.experiment --profile paper --seed 74129 --output reports/additional_reference_seed74129
+2026-10-24T23:30:19.217997+00:00 Explicitly authorized additional independent pretraining: /workspace/.venv/bin/python -u -m l2o_isac.experiment --profile paper --seed 75129 --output reports/additional_reference_seed75129
+2026-10-24T23:30:26.967132+00:00 pretrain=73129 B_balanced_s101 epoch=2 validation=3.905949
+2026-10-24T23:30:29.042321+00:00 pretrain=73129 B_balanced_s101 epoch=3 validation=3.909257
+2026-10-24T23:30:31.107384+00:00 pretrain=73129 B_balanced_s202 epoch=1 validation=3.900896
+2026-10-24T23:30:32.929326+00:00 pretrain=73129 B_balanced_s202 epoch=2 validation=3.905703
+2026-10-24T23:30:34.785576+00:00 pretrain=73129 B_balanced_s202 epoch=3 validation=3.908987
+2026-10-24T23:30:36.778142+00:00 pretrain=73129 B_balanced_s303 epoch=1 validation=3.901822
+2026-10-24T23:30:38.553293+00:00 pretrain=73129 B_balanced_s303 epoch=2 validation=3.906089
+2026-10-24T23:30:40.538306+00:00 pretrain=73129 B_balanced_s303 epoch=3 validation=3.909603
+2026-10-24T23:30:43.647047+00:00 pretrain=73129 C_balanced_s101 epoch=1 validation=3.912537
+2026-10-24T23:30:46.558005+00:00 pretrain=73129 C_balanced_s101 epoch=2 validation=3.917216
+2026-10-24T23:30:48.567036+00:00 pretrain=73129 C_balanced_s101 epoch=3 validation=3.920596
+2026-10-24T23:30:50.657138+00:00 pretrain=73129 C_balanced_s202 epoch=1 validation=3.911873
+2026-10-24T23:30:52.610776+00:00 pretrain=73129 C_balanced_s202 epoch=2 validation=3.916854
+2026-10-24T23:30:54.535584+00:00 pretrain=73129 C_balanced_s202 epoch=3 validation=3.920278
+2026-10-24T23:30:56.588895+00:00 pretrain=73129 C_balanced_s303 epoch=1 validation=3.912769
+2026-10-24T23:30:58.419613+00:00 pretrain=73129 C_balanced_s303 epoch=2 validation=3.917356
+2026-10-24T23:31:00.418417+00:00 pretrain=73129 C_balanced_s303 epoch=3 validation=3.920829
+2026-10-24T23:31:55.328537+00:00 eval pretrain=73129 B_balanced_s101: 200=4.056604,1000=4.056602,attack=17.2s
+2026-10-24T23:32:12.715854+00:00 eval pretrain=73129 B_balanced_s202: 200=4.056378,1000=4.056375,attack=17.3s
+2026-10-24T23:32:30.257853+00:00 eval pretrain=73129 B_balanced_s303: 200=4.056971,1000=4.056968,attack=17.5s
+2026-10-24T23:32:43.801928+00:00 pretrain=74129 B_balanced_s101 epoch=1 validation=3.902211
+2026-10-24T23:32:45.728005+00:00 pretrain=74129 B_balanced_s101 epoch=2 validation=3.906411
+2026-10-24T23:32:47.741035+00:00 pretrain=74129 B_balanced_s101 epoch=3 validation=3.909678
+2026-10-24T23:32:47.917708+00:00 eval pretrain=73129 C_balanced_s101: 200=4.068042,1000=4.068039,attack=17.6s
+2026-10-24T23:32:49.999157+00:00 pretrain=74129 B_balanced_s202 epoch=1 validation=3.901431
+2026-10-24T23:32:51.857662+00:00 pretrain=74129 B_balanced_s202 epoch=2 validation=3.906225
+2026-10-24T23:32:53.770606+00:00 pretrain=74129 B_balanced_s202 epoch=3 validation=3.909425
+2026-10-24T23:32:55.821606+00:00 pretrain=74129 B_balanced_s303 epoch=1 validation=3.902279
+2026-10-24T23:32:57.626852+00:00 pretrain=74129 B_balanced_s303 epoch=2 validation=3.906406
+2026-10-24T23:32:59.511992+00:00 pretrain=74129 B_balanced_s303 epoch=3 validation=3.909659
+2026-10-24T23:33:01.534787+00:00 pretrain=74129 C_balanced_s101 epoch=1 validation=3.913162
+2026-10-24T23:33:03.323940+00:00 pretrain=74129 C_balanced_s101 epoch=2 validation=3.917589
+2026-10-24T23:33:04.786162+00:00 eval pretrain=73129 C_balanced_s202: 200=4.067826,1000=4.067823,attack=16.8s
+2026-10-24T23:33:05.235286+00:00 pretrain=74129 C_balanced_s101 epoch=3 validation=3.921113
+2026-10-24T23:33:07.277766+00:00 pretrain=74129 C_balanced_s202 epoch=1 validation=3.912589
+2026-10-24T23:33:09.188508+00:00 pretrain=74129 C_balanced_s202 epoch=2 validation=3.917583
+2026-10-24T23:33:11.221688+00:00 pretrain=74129 C_balanced_s202 epoch=3 validation=3.920867
+2026-10-24T23:33:13.396566+00:00 pretrain=74129 C_balanced_s303 epoch=1 validation=3.913237
+2026-10-24T23:33:15.234223+00:00 pretrain=74129 C_balanced_s303 epoch=2 validation=3.917616
+2026-10-24T23:33:17.168007+00:00 pretrain=74129 C_balanced_s303 epoch=3 validation=3.921223
+2026-10-24T23:33:19.291368+00:00 pretrain=74129 D_s101 epoch=1 validation=3.917068
+2026-10-24T23:33:21.192279+00:00 pretrain=74129 D_s101 epoch=2 validation=3.925205
+2026-10-24T23:33:21.879628+00:00 eval pretrain=73129 C_balanced_s303: 200=4.068374,1000=4.068371,attack=17.0s
+2026-10-24T23:33:23.073235+00:00 pretrain=74129 D_s101 epoch=3 validation=3.932321
+2026-10-24T23:33:25.171226+00:00 pretrain=74129 D_s202 epoch=1 validation=3.916968
+2026-10-24T23:33:27.091111+00:00 pretrain=74129 D_s202 epoch=2 validation=3.925084
+2026-10-24T23:33:29.047662+00:00 pretrain=74129 D_s202 epoch=3 validation=3.932246
+2026-10-24T23:33:31.086663+00:00 pretrain=74129 D_s303 epoch=1 validation=3.917000
+2026-10-24T23:33:32.908888+00:00 pretrain=74129 D_s303 epoch=2 validation=3.925093
+2026-10-24T23:33:34.750492+00:00 pretrain=74129 D_s303 epoch=3 validation=3.932148
+2026-10-24T23:33:36.781101+00:00 fixed-beam inner validation pretrain=74129 Mapped_initial: candidate=4.410337, refined=3.896851
+2026-10-24T23:33:38.799937+00:00 fixed-beam inner validation pretrain=74129 D_s101: candidate=4.376016, refined=3.896851
+2026-10-24T23:33:40.781205+00:00 fixed-beam inner validation pretrain=74129 D_s202: candidate=4.376019, refined=3.896851
+2026-10-24T23:33:42.858051+00:00 fixed-beam inner validation pretrain=74129 D_s303: candidate=4.376021, refined=3.896851
+2026-10-24T23:34:00.196196+00:00 eval pretrain=74129 A: 200=4.040512,1000=4.040509,attack=17.2s
+2026-10-24T23:34:17.267757+00:00 eval pretrain=74129 Mapped_initial: 200=4.051089,1000=4.051086,attack=17.0s
+2026-10-24T23:34:34.012941+00:00 eval pretrain=74129 B_balanced_s101: 200=4.057120,1000=4.057117,attack=16.7s
+2026-10-24T23:34:50.925532+00:00 eval pretrain=74129 B_balanced_s202: 200=4.056925,1000=4.056922,attack=16.8s
+2026-10-24T23:35:07.993103+00:00 eval pretrain=74129 B_balanced_s303: 200=4.057226,1000=4.057223,attack=17.0s
+2026-10-24T23:35:25.089716+00:00 eval pretrain=74129 C_balanced_s101: 200=4.068684,1000=4.068681,attack=17.0s
+2026-10-24T23:35:42.297456+00:00 eval pretrain=74129 C_balanced_s202: 200=4.068486,1000=4.068483,attack=17.1s
+2026-10-24T23:35:59.418452+00:00 eval pretrain=74129 C_balanced_s303: 200=4.068860,1000=4.068857,attack=17.1s
+2026-10-24T23:36:16.708098+00:00 eval pretrain=74129 D_s101: 200=4.076375,1000=4.076371,attack=17.2s
+2026-10-24T23:36:30.354049+00:00 Frozen training-compute matching: 2 joint repeats per minibatch
+2026-10-24T23:36:32.010500+00:00 pretrain=73129 B_clean_s101 epoch=1 validation=3.899648
+2026-10-24T23:36:33.450982+00:00 pretrain=73129 B_clean_s101 epoch=2 validation=3.902915
+2026-10-24T23:36:34.187924+00:00 eval pretrain=74129 D_s202: 200=4.076318,1000=4.076314,attack=17.4s
+2026-10-24T23:36:35.136627+00:00 pretrain=73129 B_clean_s101 epoch=3 validation=3.906354
+2026-10-24T23:36:36.876013+00:00 pretrain=73129 B_clean_s202 epoch=1 validation=3.900133
+2026-10-24T23:36:38.483872+00:00 pretrain=73129 B_clean_s202 epoch=2 validation=3.903348
+2026-10-24T23:36:40.102816+00:00 pretrain=73129 B_clean_s202 epoch=3 validation=3.906461
+2026-10-24T23:36:41.747267+00:00 pretrain=73129 B_clean_s303 epoch=1 validation=3.900078
+2026-10-24T23:36:43.148951+00:00 pretrain=73129 B_clean_s303 epoch=2 validation=3.903326
+2026-10-24T23:36:44.553996+00:00 pretrain=73129 B_clean_s303 epoch=3 validation=3.906192
+2026-10-24T23:36:46.088259+00:00 pretrain=73129 C_clean_s101 epoch=1 validation=3.910416
+2026-10-24T23:36:47.634284+00:00 pretrain=73129 C_clean_s101 epoch=2 validation=3.913974
+2026-10-24T23:36:49.183652+00:00 pretrain=73129 C_clean_s101 epoch=3 validation=3.917630
+2026-10-24T23:36:50.716922+00:00 pretrain=73129 C_clean_s202 epoch=1 validation=3.910912
+2026-10-24T23:36:52.007941+00:00 eval pretrain=74129 D_s303: 200=4.076232,1000=4.076230,attack=17.7s
+2026-10-24T23:36:52.111896+00:00 pretrain=73129 C_clean_s202 epoch=2 validation=3.914484
+2026-10-24T23:36:53.567797+00:00 pretrain=73129 C_clean_s202 epoch=3 validation=3.917649
+2026-10-24T23:36:55.262397+00:00 pretrain=73129 C_clean_s303 epoch=1 validation=3.910815
+2026-10-24T23:36:56.679272+00:00 pretrain=73129 C_clean_s303 epoch=2 validation=3.914289
+2026-10-24T23:36:57.340787+00:00 pretrain=75129 B_balanced_s101 epoch=1 validation=3.899673
+2026-10-24T23:36:58.067826+00:00 pretrain=73129 C_clean_s303 epoch=3 validation=3.917347
+2026-10-24T23:36:59.141804+00:00 pretrain=75129 B_balanced_s101 epoch=2 validation=3.904118
+2026-10-24T23:36:59.707019+00:00 pretrain=73129 D_clean_s101 epoch=1 validation=3.910597
+2026-10-24T23:37:01.112773+00:00 pretrain=75129 B_balanced_s101 epoch=3 validation=3.907761
+2026-10-24T23:37:01.204396+00:00 pretrain=73129 D_clean_s101 epoch=2 validation=3.914187
+2026-10-24T23:37:02.561577+00:00 pretrain=73129 D_clean_s101 epoch=3 validation=3.917581
+2026-10-24T23:37:03.148988+00:00 pretrain=75129 B_balanced_s202 epoch=1 validation=3.898897
+2026-10-24T23:37:04.147217+00:00 pretrain=73129 D_clean_s202 epoch=1 validation=3.910591
+2026-10-24T23:37:05.086725+00:00 pretrain=75129 B_balanced_s202 epoch=2 validation=3.904069
+2026-10-24T23:37:05.521149+00:00 pretrain=73129 D_clean_s202 epoch=2 validation=3.914150
+2026-10-24T23:37:06.875508+00:00 pretrain=73129 D_clean_s202 epoch=3 validation=3.917587
+2026-10-24T23:37:06.952885+00:00 pretrain=75129 B_balanced_s202 epoch=3 validation=3.907557
+2026-10-24T23:37:08.452465+00:00 pretrain=73129 D_clean_s303 epoch=1 validation=3.910725
+2026-10-24T23:37:09.007941+00:00 pretrain=75129 B_balanced_s303 epoch=1 validation=3.899837
+2026-10-24T23:37:09.808694+00:00 pretrain=73129 D_clean_s303 epoch=2 validation=3.914302
+2026-10-24T23:37:10.958779+00:00 pretrain=75129 B_balanced_s303 epoch=2 validation=3.904106
+2026-10-24T23:37:11.442519+00:00 pretrain=73129 D_clean_s303 epoch=3 validation=3.917634
+2026-10-24T23:37:12.849725+00:00 pretrain=75129 B_balanced_s303 epoch=3 validation=3.907618
+2026-10-24T23:37:13.473651+00:00 fixed-beam inner validation pretrain=73129 D_clean_s101: candidate=4.375437, refined=3.896123
+2026-10-24T23:37:14.907576+00:00 pretrain=75129 C_balanced_s101 epoch=1 validation=3.910480
+2026-10-24T23:37:15.427591+00:00 fixed-beam inner validation pretrain=73129 D_clean_s202: candidate=4.375434, refined=3.896123
+2026-10-24T23:37:16.772446+00:00 pretrain=75129 C_balanced_s101 epoch=2 validation=3.915184
+2026-10-24T23:37:17.379297+00:00 fixed-beam inner validation pretrain=73129 D_clean_s303: candidate=4.375434, refined=3.896123
+2026-10-24T23:37:18.694954+00:00 pretrain=75129 C_balanced_s101 epoch=3 validation=3.919040
+2026-10-24T23:37:20.720304+00:00 pretrain=75129 C_balanced_s202 epoch=1 validation=3.909677
+2026-10-24T23:37:22.526084+00:00 pretrain=75129 C_balanced_s202 epoch=2 validation=3.915142
+2026-10-24T23:37:24.451320+00:00 pretrain=75129 C_balanced_s202 epoch=3 validation=3.918832
+2026-10-24T23:37:26.543844+00:00 pretrain=75129 C_balanced_s303 epoch=1 validation=3.910655
+2026-10-24T23:37:28.573165+00:00 pretrain=75129 C_balanced_s303 epoch=2 validation=3.915149
+2026-10-24T23:37:30.601219+00:00 pretrain=75129 C_balanced_s303 epoch=3 validation=3.918825
+2026-10-24T23:37:32.715177+00:00 pretrain=75129 D_s101 epoch=1 validation=3.915159
+2026-10-24T23:37:34.581481+00:00 pretrain=75129 D_s101 epoch=2 validation=3.923585
+2026-10-24T23:37:34.619149+00:00 eval pretrain=73129 B_clean_s101: 200=4.052168,1000=4.052165,attack=17.1s
+2026-10-24T23:37:36.391411+00:00 pretrain=75129 D_s101 epoch=3 validation=3.930873
+2026-10-24T23:37:38.464634+00:00 pretrain=75129 D_s202 epoch=1 validation=3.915039
+2026-10-24T23:37:40.426009+00:00 pretrain=75129 D_s202 epoch=2 validation=3.923427
+2026-10-24T23:37:42.234386+00:00 pretrain=75129 D_s202 epoch=3 validation=3.930784
+2026-10-24T23:37:44.238553+00:00 pretrain=75129 D_s303 epoch=1 validation=3.915077
+2026-10-24T23:37:46.042947+00:00 pretrain=75129 D_s303 epoch=2 validation=3.923446
+2026-10-24T23:37:47.850390+00:00 pretrain=75129 D_s303 epoch=3 validation=3.930716
+2026-10-24T23:37:49.933264+00:00 fixed-beam inner validation pretrain=75129 Mapped_initial: candidate=4.408014, refined=3.894716
+2026-10-24T23:37:51.852827+00:00 eval pretrain=73129 B_clean_s202: 200=4.052376,1000=4.052373,attack=17.2s
+2026-10-24T23:37:51.870467+00:00 fixed-beam inner validation pretrain=75129 D_s101: candidate=4.373788, refined=3.894716
+2026-10-24T23:37:53.824702+00:00 fixed-beam inner validation pretrain=75129 D_s202: candidate=4.373791, refined=3.894716
+2026-10-24T23:37:55.853549+00:00 fixed-beam inner validation pretrain=75129 D_s303: candidate=4.373794, refined=3.894716
+2026-10-24T23:38:09.012121+00:00 eval pretrain=73129 B_clean_s303: 200=4.052122,1000=4.052119,attack=17.1s
+2026-10-24T23:38:13.280526+00:00 eval pretrain=75129 A: 200=4.038723,1000=4.038720,attack=17.3s
+2026-10-24T23:38:26.094019+00:00 eval pretrain=73129 C_clean_s101: 200=4.063583,1000=4.063580,attack=17.0s
+2026-10-24T23:38:30.491279+00:00 eval pretrain=75129 Mapped_initial: 200=4.049113,1000=4.049110,attack=17.1s
+2026-10-24T23:38:43.363997+00:00 eval pretrain=73129 C_clean_s202: 200=4.063711,1000=4.063707,attack=17.2s
+2026-10-24T23:38:47.675922+00:00 eval pretrain=75129 B_balanced_s101: 200=4.055474,1000=4.055471,attack=17.1s
+2026-10-24T23:39:00.682418+00:00 eval pretrain=73129 C_clean_s303: 200=4.063397,1000=4.063395,attack=17.2s
+2026-10-24T23:39:05.028789+00:00 eval pretrain=75129 B_balanced_s202: 200=4.055317,1000=4.055314,attack=17.3s
+2026-10-24T23:39:17.615103+00:00 eval pretrain=73129 D_clean_s101: 200=4.062601,1000=4.062598,attack=16.9s
+2026-10-24T23:39:22.236742+00:00 eval pretrain=75129 B_balanced_s303: 200=4.055451,1000=4.055449,attack=17.1s
+2026-10-24T23:39:35.325934+00:00 eval pretrain=73129 D_clean_s202: 200=4.062584,1000=4.062582,attack=17.6s
+2026-10-24T23:39:39.949055+00:00 eval pretrain=75129 C_balanced_s101: 200=4.066878,1000=4.066875,attack=17.6s
+2026-10-24T23:39:52.628312+00:00 eval pretrain=73129 D_clean_s303: 200=4.062634,1000=4.062631,attack=17.2s
+2026-10-24T23:39:57.275960+00:00 eval pretrain=75129 C_balanced_s202: 200=4.066715,1000=4.066712,attack=17.2s
+2026-10-24T23:40:00.361643+00:00 pretrain=74129 B_clean_s101 epoch=1 validation=3.900192
+2026-10-24T23:40:01.741485+00:00 pretrain=74129 B_clean_s101 epoch=2 validation=3.903286
+2026-10-24T23:40:03.111239+00:00 pretrain=74129 B_clean_s101 epoch=3 validation=3.906666
+2026-10-24T23:40:04.628628+00:00 pretrain=74129 B_clean_s202 epoch=1 validation=3.900654
+2026-10-24T23:40:06.006291+00:00 pretrain=74129 B_clean_s202 epoch=2 validation=3.903692
+2026-10-24T23:40:07.561138+00:00 pretrain=74129 B_clean_s202 epoch=3 validation=3.906781
+2026-10-24T23:40:09.071353+00:00 pretrain=74129 B_clean_s303 epoch=1 validation=3.900673
+2026-10-24T23:40:10.518791+00:00 pretrain=74129 B_clean_s303 epoch=2 validation=3.903772
+2026-10-24T23:40:11.943681+00:00 pretrain=74129 B_clean_s303 epoch=3 validation=3.906581
+2026-10-24T23:40:13.492189+00:00 pretrain=74129 C_clean_s101 epoch=1 validation=3.911021
+2026-10-24T23:40:14.564394+00:00 eval pretrain=75129 C_balanced_s303: 200=4.066797,1000=4.066794,attack=17.2s
+2026-10-24T23:40:14.856022+00:00 pretrain=74129 C_clean_s101 epoch=2 validation=3.914330
+2026-10-24T23:40:16.227349+00:00 pretrain=74129 C_clean_s101 epoch=3 validation=3.918102
+2026-10-24T23:40:17.758662+00:00 pretrain=74129 C_clean_s202 epoch=1 validation=3.911518
+2026-10-24T23:40:19.178503+00:00 pretrain=74129 C_clean_s202 epoch=2 validation=3.914858
+2026-10-24T23:40:20.601853+00:00 pretrain=74129 C_clean_s202 epoch=3 validation=3.918067
+2026-10-24T23:40:22.100875+00:00 pretrain=74129 C_clean_s303 epoch=1 validation=3.911494
+2026-10-24T23:40:23.454961+00:00 pretrain=74129 C_clean_s303 epoch=2 validation=3.915043
+2026-10-24T23:40:25.045861+00:00 pretrain=74129 C_clean_s303 epoch=3 validation=3.918099
+2026-10-24T23:40:27.182866+00:00 pretrain=74129 D_clean_s101 epoch=1 validation=3.911258
+2026-10-24T23:40:28.718984+00:00 pretrain=74129 D_clean_s101 epoch=2 validation=3.914737
+2026-10-24T23:40:30.081065+00:00 pretrain=74129 D_clean_s101 epoch=3 validation=3.918055
+2026-10-24T23:40:31.662286+00:00 pretrain=74129 D_clean_s202 epoch=1 validation=3.911253
+2026-10-24T23:40:32.393769+00:00 eval pretrain=75129 D_s101: 200=4.075096,1000=4.075093,attack=17.8s
+2026-10-24T23:40:33.012796+00:00 pretrain=74129 D_clean_s202 epoch=2 validation=3.914716
+2026-10-24T23:40:34.356453+00:00 pretrain=74129 D_clean_s202 epoch=3 validation=3.918010
+2026-10-24T23:40:35.919801+00:00 pretrain=74129 D_clean_s303 epoch=1 validation=3.911404
+2026-10-24T23:40:37.267007+00:00 pretrain=74129 D_clean_s303 epoch=2 validation=3.914962
+2026-10-24T23:40:38.629419+00:00 pretrain=74129 D_clean_s303 epoch=3 validation=3.918326
+2026-10-24T23:40:40.710606+00:00 fixed-beam inner validation pretrain=74129 D_clean_s101: candidate=4.376139, refined=3.896851
+2026-10-24T23:40:42.681862+00:00 fixed-beam inner validation pretrain=74129 D_clean_s202: candidate=4.376135, refined=3.896851
+2026-10-24T23:40:44.632191+00:00 fixed-beam inner validation pretrain=74129 D_clean_s303: candidate=4.376135, refined=3.896851
+2026-10-24T23:40:49.318456+00:00 eval pretrain=75129 D_s202: 200=4.075025,1000=4.075021,attack=16.9s
+2026-10-24T23:41:01.865143+00:00 eval pretrain=74129 B_clean_s101: 200=4.052612,1000=4.052609,attack=17.1s
+2026-10-24T23:41:06.364723+00:00 eval pretrain=75129 D_s303: 200=4.074972,1000=4.074968,attack=17.0s
+2026-10-24T23:41:19.049570+00:00 eval pretrain=74129 B_clean_s202: 200=4.052819,1000=4.052816,attack=17.1s
+2026-10-24T23:41:36.220900+00:00 eval pretrain=74129 B_clean_s303: 200=4.052611,1000=4.052608,attack=17.1s
+2026-10-24T23:41:53.273713+00:00 eval pretrain=74129 C_clean_s101: 200=4.064169,1000=4.064167,attack=17.0s
+2026-10-24T23:42:10.023000+00:00 eval pretrain=74129 C_clean_s202: 200=4.064237,1000=4.064234,attack=16.7s
+2026-10-24T23:42:27.116723+00:00 eval pretrain=74129 C_clean_s303: 200=4.064167,1000=4.064164,attack=17.0s
+2026-10-24T23:42:44.133850+00:00 eval pretrain=74129 D_clean_s101: 200=4.063168,1000=4.063165,attack=16.9s
+2026-10-24T23:43:00.837441+00:00 eval pretrain=74129 D_clean_s202: 200=4.063116,1000=4.063113,attack=16.6s
+2026-10-24T23:43:17.898939+00:00 eval pretrain=74129 D_clean_s303: 200=4.063374,1000=4.063370,attack=17.0s
+2026-10-24T23:43:28.992076+00:00 pretrain=75129 B_clean_s101 epoch=1 validation=3.898079
+2026-10-24T23:43:30.362083+00:00 pretrain=75129 B_clean_s101 epoch=2 validation=3.901026
+2026-10-24T23:43:31.817028+00:00 pretrain=75129 B_clean_s101 epoch=3 validation=3.904612
+2026-10-24T23:43:33.403272+00:00 pretrain=75129 B_clean_s202 epoch=1 validation=3.898371
+2026-10-24T23:43:34.837259+00:00 pretrain=75129 B_clean_s202 epoch=2 validation=3.901354
+2026-10-24T23:43:36.305893+00:00 pretrain=75129 B_clean_s202 epoch=3 validation=3.904822
+2026-10-24T23:43:37.831271+00:00 pretrain=75129 B_clean_s303 epoch=1 validation=3.898281
+2026-10-24T23:43:39.226819+00:00 pretrain=75129 B_clean_s303 epoch=2 validation=3.901214
+2026-10-24T23:43:40.815532+00:00 pretrain=75129 B_clean_s303 epoch=3 validation=3.904200
+2026-10-24T23:43:42.331443+00:00 pretrain=75129 C_clean_s101 epoch=1 validation=3.908733
+2026-10-24T23:43:43.748183+00:00 pretrain=75129 C_clean_s101 epoch=2 validation=3.911973
+2026-10-24T23:43:45.223727+00:00 pretrain=75129 C_clean_s101 epoch=3 validation=3.915734
+2026-10-24T23:43:46.786932+00:00 pretrain=75129 C_clean_s202 epoch=1 validation=3.909038
+2026-10-24T23:43:48.245178+00:00 pretrain=75129 C_clean_s202 epoch=2 validation=3.912289
+2026-10-24T23:43:49.689667+00:00 pretrain=75129 C_clean_s202 epoch=3 validation=3.915976
+2026-10-24T23:43:51.257002+00:00 pretrain=75129 C_clean_s303 epoch=1 validation=3.908929
+2026-10-24T23:43:52.621514+00:00 pretrain=75129 C_clean_s303 epoch=2 validation=3.912152
+2026-10-24T23:43:53.988562+00:00 pretrain=75129 C_clean_s303 epoch=3 validation=3.915318
+2026-10-24T23:43:55.539572+00:00 pretrain=75129 D_clean_s101 epoch=1 validation=3.908894
+2026-10-24T23:43:56.871565+00:00 pretrain=75129 D_clean_s101 epoch=2 validation=3.912371
+2026-10-24T23:43:58.201824+00:00 pretrain=75129 D_clean_s101 epoch=3 validation=3.915664
+2026-10-24T23:43:59.783614+00:00 pretrain=75129 D_clean_s202 epoch=1 validation=3.908823
+2026-10-24T23:44:01.123756+00:00 pretrain=75129 D_clean_s202 epoch=2 validation=3.912257
+2026-10-24T23:44:02.574510+00:00 pretrain=75129 D_clean_s202 epoch=3 validation=3.915579
+2026-10-24T23:44:04.143101+00:00 pretrain=75129 D_clean_s303 epoch=1 validation=3.908942
+2026-10-24T23:44:05.526218+00:00 pretrain=75129 D_clean_s303 epoch=2 validation=3.912369
+2026-10-24T23:44:06.871564+00:00 pretrain=75129 D_clean_s303 epoch=3 validation=3.915558
+2026-10-24T23:44:08.909703+00:00 fixed-beam inner validation pretrain=75129 D_clean_s101: candidate=4.373919, refined=3.894716
+2026-10-24T23:44:10.930466+00:00 fixed-beam inner validation pretrain=75129 D_clean_s202: candidate=4.373916, refined=3.894716
+2026-10-24T23:44:12.951277+00:00 fixed-beam inner validation pretrain=75129 D_clean_s303: candidate=4.373917, refined=3.894716
+2026-10-24T23:44:30.533115+00:00 eval pretrain=75129 B_clean_s101: 200=4.050840,1000=4.050837,attack=17.5s
+2026-10-24T23:44:47.690021+00:00 eval pretrain=75129 B_clean_s202: 200=4.051131,1000=4.051128,attack=17.1s
+2026-10-24T23:45:01.338128+00:00 fixed-beam inner validation pretrain=73129 C_clean_s101: candidate=4.428176, refined=3.896123
+2026-10-24T23:45:03.269386+00:00 fixed-beam inner validation pretrain=73129 C_clean_s202: candidate=4.428161, refined=3.896123
+2026-10-24T23:45:05.034092+00:00 eval pretrain=75129 B_clean_s303: 200=4.050552,1000=4.050550,attack=17.3s
+2026-10-24T23:45:05.241047+00:00 fixed-beam inner validation pretrain=73129 C_clean_s303: candidate=4.428165, refined=3.896123
+2026-10-24T23:45:07.291861+00:00 fixed-beam inner validation pretrain=74129 C_clean_s101: candidate=4.428931, refined=3.896851
+2026-10-24T23:45:09.233844+00:00 fixed-beam inner validation pretrain=74129 C_clean_s202: candidate=4.428912, refined=3.896851
+2026-10-24T23:45:11.261964+00:00 fixed-beam inner validation pretrain=74129 C_clean_s303: candidate=4.428917, refined=3.896851
+2026-10-24T23:45:13.340921+00:00 fixed-beam inner validation pretrain=75129 C_clean_s101: candidate=4.426570, refined=3.894716
+2026-10-24T23:45:15.245622+00:00 fixed-beam inner validation pretrain=75129 C_clean_s202: candidate=4.426558, refined=3.894716
+2026-10-24T23:45:17.132291+00:00 fixed-beam inner validation pretrain=75129 C_clean_s303: candidate=4.426556, refined=3.894716
+2026-10-24T23:45:22.304029+00:00 eval pretrain=75129 C_clean_s101: 200=4.062100,1000=4.062098,attack=17.2s
+2026-10-24T23:45:39.331486+00:00 eval pretrain=75129 C_clean_s202: 200=4.062417,1000=4.062414,attack=17.0s
+2026-10-24T23:45:56.384374+00:00 eval pretrain=75129 C_clean_s303: 200=4.061809,1000=4.061806,attack=17.0s
+2026-10-24T23:46:13.591567+00:00 eval pretrain=75129 D_clean_s101: 200=4.061092,1000=4.061088,attack=17.1s
+2026-10-24T23:46:30.815518+00:00 eval pretrain=75129 D_clean_s202: 200=4.061020,1000=4.061017,attack=17.2s
+2026-10-24T23:46:48.120651+00:00 eval pretrain=75129 D_clean_s303: 200=4.061003,1000=4.061000,attack=17.2s

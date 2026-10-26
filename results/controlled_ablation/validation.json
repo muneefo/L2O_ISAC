@@ -1,0 +1,764 @@
+{
+  "preserved_prior_inputs": {
+    "configs/pilot/architecture_audit.json": true,
+    "results/architecture_audit/splits.pt": true,
+    "results/architecture_audit/split_manifest.json": true,
+    "results/architecture_audit/validation_choices.json": true,
+    "results/architecture_audit/environment.json": true,
+    "results/manifest.json": true,
+    "reports/corrected_per_channel_seed73129/checkpoint.pt": true
+  },
+  "physical_core_unchanged": {
+    "l2o_isac/physics.py": true,
+    "l2o_isac/solver.py": true,
+    "l2o_isac/data.py": true,
+    "l2o_isac/networks.py": true,
+    "l2o_isac/training.py": true,
+    "l2o_isac/inference.py": true
+  },
+  "distinct_pretraining_seeds": [
+    73129,
+    74129,
+    75129
+  ],
+  "pretrained_weight_max_differences": {
+    "73129/74129": 0.0003274912014603615,
+    "73129/75129": 0.0015358072705566883,
+    "74129/75129": 0.001550997607409954
+  },
+  "mapping_parameter_changes": {
+    "73129": {
+      "negative_inner_steps": 16,
+      "flipped_entries": 16,
+      "max_inner_mu_change": 0.012434389442205429,
+      "momentum_treatment": "unchanged direct learned coefficients",
+      "checkpoint_sha256": "58845000260beae656c91f30217fc75a27c11a94eba116c766b5055a7079f77e"
+    },
+    "74129": {
+      "negative_inner_steps": 16,
+      "flipped_entries": 16,
+      "max_inner_mu_change": 0.012460417114198208,
+      "momentum_treatment": "unchanged direct learned coefficients",
+      "checkpoint_sha256": "7bcb7f7382ee1ece362543deef2f16274d9f3ce32784b615d5fc9419821a9f3f"
+    },
+    "75129": {
+      "negative_inner_steps": 16,
+      "flipped_entries": 16,
+      "max_inner_mu_change": 0.012395265512168407,
+      "momentum_treatment": "unchanged direct learned coefficients",
+      "checkpoint_sha256": "f9facc84e6b1c0b497232522f0a73b4eaf366637b69666dddb45cfe8fb6548f6"
+    }
+  },
+  "output_checks": {
+    "pretrain74129/evaluation/A.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.0731984705358855e-06,
+        "sense": 5.85622632165439e-07,
+        "objective": 1.1017745844554838e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.00034339074045419693
+    },
+    "pretrain74129/evaluation/B_balanced_s101.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.080425052535361e-06,
+        "sense": 6.708569928459696e-07,
+        "objective": 1.1353791267154634e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.00033480487763881683
+    },
+    "pretrain74129/evaluation/B_balanced_s202.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.2204841670637734e-06,
+        "sense": 7.889795083926288e-07,
+        "objective": 1.0748833441098782e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.00033481884747743607
+    },
+    "pretrain74129/evaluation/B_balanced_s303.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.2428650597584578e-06,
+        "sense": 7.801682944119648e-07,
+        "objective": 1.1177262111417008e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.00033452361822128296
+    },
+    "pretrain74129/evaluation/B_clean_s101.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.108973612495845e-06,
+        "sense": 6.734268573893587e-07,
+        "objective": 1.0134123078486823e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.0003411639481782913
+    },
+    "pretrain74129/evaluation/B_clean_s202.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.1904593986145073e-06,
+        "sense": 5.424320872471355e-07,
+        "objective": 1.0535821255430733e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.0003408854827284813
+    },
+    "pretrain74129/evaluation/B_clean_s303.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.2975915026913754e-06,
+        "sense": 7.310067737797965e-07,
+        "objective": 1.0064867708159397e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.0003410773351788521
+    },
+    "pretrain74129/evaluation/C_balanced_s101.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.2014382271274826e-06,
+        "sense": 8.794924966082363e-07,
+        "objective": 1.1753353916788e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.0003360901027917862
+    },
+    "pretrain74129/evaluation/C_balanced_s202.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.2305146945834622e-06,
+        "sense": 6.704691957182263e-07,
+        "objective": 1.1275989946213372e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.0003361264243721962
+    },
+    "pretrain74129/evaluation/C_balanced_s303.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.2331721572778065e-06,
+        "sense": 5.507080089728333e-07,
+        "objective": 1.234137254613188e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.00033585075289011
+    },
+    "pretrain74129/evaluation/C_clean_s101.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.1275627098683572e-06,
+        "sense": 8.218907319168522e-07,
+        "objective": 1.0069246503263685e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.0003422815352678299
+    },
+    "pretrain74129/evaluation/C_clean_s202.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.1690124672725233e-06,
+        "sense": 5.402256113562487e-07,
+        "objective": 9.959634788003768e-07
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.0003420459106564522
+    },
+    "pretrain74129/evaluation/C_clean_s303.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.1331178999540725e-06,
+        "sense": 6.937720042898832e-07,
+        "objective": 9.686921726981268e-07
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.00034224800765514374
+    },
+    "pretrain74129/evaluation/D_clean_s101.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.0789697331148318e-06,
+        "sense": 5.955005601965269e-07,
+        "objective": 9.828557123725545e-07
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.00034685898572206497
+    },
+    "pretrain74129/evaluation/D_clean_s202.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.2536567979282154e-06,
+        "sense": 5.952572781353638e-07,
+        "objective": 1.0281297182501703e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.0003468496724963188
+    },
+    "pretrain74129/evaluation/D_clean_s303.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.172762193135668e-06,
+        "sense": 6.256828686268534e-07,
+        "objective": 1.0122928655320607e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.0003468664363026619
+    },
+    "pretrain74129/evaluation/D_s101.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.1040741014767264e-06,
+        "sense": 6.35190718689671e-07,
+        "objective": 1.267026445539443e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.0003428775817155838
+    },
+    "pretrain74129/evaluation/D_s202.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.2920030947327632e-06,
+        "sense": 5.811053580551118e-07,
+        "objective": 1.0032360533429596e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.00034290365874767303
+    },
+    "pretrain74129/evaluation/D_s303.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.1819704051063695e-06,
+        "sense": 6.738640978554145e-07,
+        "objective": 8.891929352827788e-07
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.0003429241478443146
+    },
+    "pretrain74129/evaluation/Mapped_initial.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.1379238964437377e-06,
+        "sense": 6.273693773373168e-07,
+        "objective": 9.527238145068395e-07
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.0003437809646129608
+    },
+    "pretrain75129/evaluation/A.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.3195604129379035e-06,
+        "sense": 6.765568261180022e-07,
+        "objective": 1.0791640612239917e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.0003432370722293854
+    },
+    "pretrain75129/evaluation/B_balanced_s101.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.151056759240987e-06,
+        "sense": 6.837121793168421e-07,
+        "objective": 1.1647980082685194e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.00033535994589328766
+    },
+    "pretrain75129/evaluation/B_balanced_s202.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.1359510718733645e-06,
+        "sense": 5.746338023193687e-07,
+        "objective": 9.486345726728018e-07
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.00033537857234477997
+    },
+    "pretrain75129/evaluation/B_balanced_s303.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.1165354463216204e-06,
+        "sense": 5.898667048143125e-07,
+        "objective": 1.0177761278207242e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.0003351513296365738
+    },
+    "pretrain75129/evaluation/B_clean_s101.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.2407545550985333e-06,
+        "sense": 6.773589766861932e-07,
+        "objective": 1.0214753762838313e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.0003416510298848152
+    },
+    "pretrain75129/evaluation/B_clean_s202.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.2608969059968445e-06,
+        "sense": 7.169174764953823e-07,
+        "objective": 1.0515813038125543e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.00034135859459638596
+    },
+    "pretrain75129/evaluation/B_clean_s303.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.036257087250192e-06,
+        "sense": 6.84195418099165e-07,
+        "objective": 9.522161503738857e-07
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.000341649167239666
+    },
+    "pretrain75129/evaluation/C_balanced_s101.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.0510022656617934e-06,
+        "sense": 5.845996993159019e-07,
+        "objective": 9.259350539636557e-07
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.0003366507589817047
+    },
+    "pretrain75129/evaluation/C_balanced_s202.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.2393446464642466e-06,
+        "sense": 6.129128242715609e-07,
+        "objective": 1.1331399489833416e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.0003366852179169655
+    },
+    "pretrain75129/evaluation/C_balanced_s303.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.1663839210029892e-06,
+        "sense": 5.584505675670925e-07,
+        "objective": 9.974754764385807e-07
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.0003364523872733116
+    },
+    "pretrain75129/evaluation/C_clean_s101.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.0948007052036246e-06,
+        "sense": 7.197141655979067e-07,
+        "objective": 1.1087294593536967e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.0003428170457482338
+    },
+    "pretrain75129/evaluation/C_clean_s202.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.262215056918592e-06,
+        "sense": 6.369425378238702e-07,
+        "objective": 1.0690840710481098e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.00034252647310495377
+    },
+    "pretrain75129/evaluation/C_clean_s303.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.2487554137408097e-06,
+        "sense": 6.547921729271877e-07,
+        "objective": 9.53843108497665e-07
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.00034280121326446533
+    },
+    "pretrain75129/evaluation/D_clean_s101.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.236790095227036e-06,
+        "sense": 5.499789574869851e-07,
+        "objective": 9.606225743752361e-07
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.0003467099741101265
+    },
+    "pretrain75129/evaluation/D_clean_s202.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.2820429065030226e-06,
+        "sense": 5.819994983724541e-07,
+        "objective": 1.2710583874309123e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.00034670159220695496
+    },
+    "pretrain75129/evaluation/D_clean_s303.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.161155723572449e-06,
+        "sense": 7.271363196004188e-07,
+        "objective": 1.0683052540372273e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.0003467155620455742
+    },
+    "pretrain75129/evaluation/D_s101.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.204691675305014e-06,
+        "sense": 7.968343620490259e-07,
+        "objective": 1.21863315172277e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.0003432389348745346
+    },
+    "pretrain75129/evaluation/D_s202.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.1880869177360864e-06,
+        "sense": 5.688528554870231e-07,
+        "objective": 1.0694486061169073e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.00034325849264860153
+    },
+    "pretrain75129/evaluation/D_s303.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.1028064088591805e-06,
+        "sense": 5.947013121954114e-07,
+        "objective": 9.825749476277679e-07
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.0003432752564549446
+    },
+    "pretrain75129/evaluation/Mapped_initial.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.0412593276498683e-06,
+        "sense": 5.791448633996055e-07,
+        "objective": 1.1053340900346598e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.00034360960125923157
+    },
+    "pretrain73129/evaluation/A.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.1299192781422107e-06,
+        "sense": 7.235340364619702e-07,
+        "objective": 9.631155419853599e-07
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.00034316536039114
+    },
+    "pretrain73129/evaluation/B_balanced_s101.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 9.854092954952876e-07,
+        "sense": 5.955991935202576e-07,
+        "objective": 8.853075685877343e-07
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.00033535901457071304
+    },
+    "pretrain73129/evaluation/B_balanced_s202.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.1092131408929617e-06,
+        "sense": 5.714742283835506e-07,
+        "objective": 1.0125054625831353e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.00033541861921548843
+    },
+    "pretrain73129/evaluation/B_balanced_s303.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.1576976532978733e-06,
+        "sense": 6.66943199778558e-07,
+        "objective": 1.0836580024431441e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.00033506564795970917
+    },
+    "pretrain73129/evaluation/B_clean_s101.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.1414555114441782e-06,
+        "sense": 6.957810636532002e-07,
+        "objective": 9.488374441701808e-07
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.0003416072577238083
+    },
+    "pretrain73129/evaluation/B_clean_s202.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.2099510602325836e-06,
+        "sense": 8.642583773088575e-07,
+        "objective": 1.0526576987857084e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.00034132320433855057
+    },
+    "pretrain73129/evaluation/B_clean_s303.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.2100468422815425e-06,
+        "sense": 4.7870283603757e-07,
+        "objective": 1.1153383558948349e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.00034153368324041367
+    },
+    "pretrain73129/evaluation/B_s101.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.0983343106119037e-06,
+        "sense": 5.268782086176316e-07,
+        "objective": 9.416774933157512e-07
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.0003390144556760788
+    },
+    "pretrain73129/evaluation/B_s202.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.0300743085167596e-06,
+        "sense": 6.369398781735924e-07,
+        "objective": 9.150420776649071e-07
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.00033907219767570496
+    },
+    "pretrain73129/evaluation/B_s303.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.1721046542234603e-06,
+        "sense": 7.045849050868469e-07,
+        "objective": 1.1343335550861866e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.00033901259303092957
+    },
+    "pretrain73129/evaluation/B_updates_s101.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.0680281006258951e-06,
+        "sense": 5.30798224041007e-07,
+        "objective": 1.0123481537505086e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.00034619681537151337
+    },
+    "pretrain73129/evaluation/C_balanced_s101.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.113234125327267e-06,
+        "sense": 5.222641016322527e-07,
+        "objective": 1.0983658702556909e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.0003367047756910324
+    },
+    "pretrain73129/evaluation/C_balanced_s202.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.1957593288869361e-06,
+        "sense": 7.489668254478943e-07,
+        "objective": 1.0096522502500704e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.00033668987452983856
+    },
+    "pretrain73129/evaluation/C_balanced_s303.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.2240407798458364e-06,
+        "sense": 5.641234976927478e-07,
+        "objective": 9.426909501897285e-07
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.0003363676369190216
+    },
+    "pretrain73129/evaluation/C_clean_s101.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.2416494294953395e-06,
+        "sense": 5.17736740146546e-07,
+        "objective": 1.0157219971773657e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.0003427499905228615
+    },
+    "pretrain73129/evaluation/C_clean_s202.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.3120831070523309e-06,
+        "sense": 6.852901486276153e-07,
+        "objective": 9.864046255358971e-07
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.00034250132739543915
+    },
+    "pretrain73129/evaluation/C_clean_s303.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.1625126781211748e-06,
+        "sense": 7.470274838716762e-07,
+        "objective": 1.0386223694425212e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.0003427146002650261
+    },
+    "pretrain73129/evaluation/C_s101.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.095952404384093e-06,
+        "sense": 6.657921793884469e-07,
+        "objective": 1.0161648837936355e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.0003401953727006912
+    },
+    "pretrain73129/evaluation/C_s202.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.1542059557001494e-06,
+        "sense": 6.43806723932272e-07,
+        "objective": 1.114242663469156e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.00034029223024845123
+    },
+    "pretrain73129/evaluation/C_s303.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.0539827348665654e-06,
+        "sense": 7.655117464366867e-07,
+        "objective": 9.451372093849386e-07
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.0003402233123779297
+    },
+    "pretrain73129/evaluation/C_updates_s101.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.0910395342733636e-06,
+        "sense": 6.060392898632472e-07,
+        "objective": 1.0249664583739104e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.0003465525805950165
+    },
+    "pretrain73129/evaluation/D_clean_s101.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.0862537411782114e-06,
+        "sense": 6.854607623729692e-07,
+        "objective": 9.084002785542111e-07
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.0003466997295618057
+    },
+    "pretrain73129/evaluation/D_clean_s202.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.0031722830206036e-06,
+        "sense": 6.477938701010544e-07,
+        "objective": 8.307699985721229e-07
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.00034669507294893265
+    },
+    "pretrain73129/evaluation/D_clean_s303.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.067849453306735e-06,
+        "sense": 5.556795028560657e-07,
+        "objective": 1.0004498109950077e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.00034670066088438034
+    },
+    "pretrain73129/evaluation/D_s101.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.1022447772290889e-06,
+        "sense": 6.633845592851628e-07,
+        "objective": 1.0883116754456523e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.00034337118268013
+    },
+    "pretrain73129/evaluation/D_s202.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.2022128110800168e-06,
+        "sense": 6.278733586384533e-07,
+        "objective": 9.959760234323767e-07
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.0003433814272284508
+    },
+    "pretrain73129/evaluation/D_s303.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.3896524517775788e-06,
+        "sense": 7.087119859860991e-07,
+        "objective": 1.0702622423863772e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.0003434056416153908
+    },
+    "pretrain73129/evaluation/E_previous_s101.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.228552349630263e-06,
+        "sense": 5.066084347582489e-07,
+        "objective": 1.0054195413999878e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.00034268293529748917
+    },
+    "pretrain73129/evaluation/E_previous_s202.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.1809379945049159e-06,
+        "sense": 7.394983332353888e-07,
+        "objective": 1.126070314327876e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.00034269317984580994
+    },
+    "pretrain73129/evaluation/E_previous_s303.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.3299484793449778e-06,
+        "sense": 6.32219079088614e-07,
+        "objective": 1.1520116771635003e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.0003426969051361084
+    },
+    "pretrain73129/evaluation/Mapped_initial.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.1076959509637163e-06,
+        "sense": 6.08484833186651e-07,
+        "objective": 1.108336318722536e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.00034356676042079926
+    },
+    "pgda/budget10.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.1745480739122627e-06,
+        "sense": 8.57976999224519e-07,
+        "objective": 1.007190055357654e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.00019743479788303375
+    },
+    "pgda/budget15.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.450348018572356e-06,
+        "sense": 5.723967286819232e-07,
+        "objective": 1.1445395009523907e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.0003258669748902321
+    },
+    "pgda/budget180.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.2499943089494536e-06,
+        "sense": 1.4827020198282526e-06,
+        "objective": 1.2629312511336366e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.00026774872094392776
+    },
+    "pgda/budget20.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.2472460984014333e-06,
+        "sense": 6.261929339501648e-07,
+        "objective": 1.3870433175355856e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.00033981166779994965
+    },
+    "pgda/budget30.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.1314385428562446e-06,
+        "sense": 1.2025723261643861e-06,
+        "objective": 1.1451588823874204e-06
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.0002543991431593895
+    },
+    "pgda/budget5.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 9.542027807896147e-07,
+        "sense": 4.977549004081538e-07,
+        "objective": 8.673019911142887e-07
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.00032217707484960556
+    },
+    "pgda/budget60.pt": {
+      "numpy_max_absolute_errors": {
+        "comm": 1.2498261234838992e-06,
+        "sense": 1.2287511230724135e-06,
+        "objective": 9.336079731525615e-07
+      },
+      "failures": 0,
+      "attack_saturation_max_change": 0.0002294480800628662
+    }
+  },
+  "preserved_serial_vs_batched_1000step_A_max_errors": {
+    "comm": 0.0,
+    "sense": 0.0,
+    "objective": 0.0
+  },
+  "failure_count": 0,
+  "source_pdf_available": false,
+  "source_pdf_request": "Reattach source PDF; no actual source-PDF path exists in the accessible project inputs"
+}

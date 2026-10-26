@@ -232,7 +232,7 @@ class ControlledStudy:
     def inner_validation(self,index):
         ref,_=self.reference(index);cases,files=self.cases(index);b=self.data['validation'];s=self.initial['validation'];fixed=ref(b,s)[0]
         folder=self.out/f'pretrain{self.spec["pretraining_seeds"][index]}'/'fixed_beam_inner_validation';folder.mkdir(exist_ok=True)
-        for name in ['Mapped_initial']+[f'D_s{x}' for x in self.spec['paired_finetuning_seeds']]+[f'D_clean_s{x}' for x in self.spec['paired_finetuning_seeds'] if f'D_clean_s{x}' in cases]:
+        for name in ['Mapped_initial']+[f'D_s{x}' for x in self.spec['paired_finetuning_seeds']]+[f'D_clean_s{x}' for x in self.spec['paired_finetuning_seeds'] if f'D_clean_s{x}' in cases]+[f'C_clean_s{x}' for x in self.spec['paired_finetuning_seeds'] if f'C_clean_s{x}' in cases]:
             path=folder/(name+'.pt')
             if path.exists():continue
             errors=cases[name].inner_attack(b,fixed);independent=numpy_metrics(b,errors,self.cfg)
@@ -277,8 +277,13 @@ class ControlledStudy:
     @torch.no_grad()
     def timing(self):
         b=self.data['test'][:1];s=state_slice(self.initial['test'],slice(0,1));functions={};results={}
-        cases,_=self.cases(0)
-        for name,m in cases.items():functions[name]=lambda m=m:m(b,s)
+        for index in range(len(self.spec['reference_checkpoints'])):
+            cases,_=self.cases(index)
+            for name,m in cases.items():
+                key=name if index==0 else f'pretrain{self.spec["pretraining_seeds"][index]}/'+name
+                functions[key]=lambda m=m:m(b,s)
+                if index==0 and name in ['A','B_clean_s101','C_clean_s101','D_clean_s101']:
+                    functions[key+'_with_initialization']=lambda m=m:m(b,initialize_state(b,self.cfg,seed=843103))
         choices=read(self.out/'pgda/validation_choices.json')['budgets']
         for budget in self.spec['pgda_budgets']:
             c=choices[str(budget)]['selected'];solver=PGDA(self.cfg,iterations=budget,mu=[c['inner']]*3+[c['outer']]*3)
@@ -291,7 +296,7 @@ class ControlledStudy:
                 t=time.perf_counter();fn();samples.append((time.perf_counter()-t)*1000)
             results[name]={'median_ms':float(np.median(samples)),'p95_ms':float(np.quantile(samples,.95)),'samples_ms':samples}
         write(self.out/'timing.json',{'batch_size':1,'threads':1,'precision':'complex64','warmup':5,'repeats':self.spec['timing_repeats'],
-             'hardware':read('results/architecture_audit/environment.json'),'scope':'CPU solver generation only, no GPU, independent attacker excluded; initialization/EpsNet separate','methods':results})
+             'hardware':{'cpu':next(x.split(':',1)[1].strip() for x in Path('/proc/cpuinfo').read_text().splitlines() if x.startswith('model name')),'cpu_quota':Path('/sys/fs/cgroup/cpu.max').read_text().strip(),'python':platform.python_version(),'torch':str(torch.__version__),'numpy':np.__version__,'cuda_available':torch.cuda.is_available()},'scope':'CPU solver generation only, no GPU, independent attacker excluded; initialization/EpsNet separate','methods':results})
 
 
 def main(argv=None):

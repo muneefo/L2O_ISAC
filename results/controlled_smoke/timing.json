@@ -1,0 +1,171 @@
+{
+  "batch_size": 1,
+  "threads": 1,
+  "precision": "complex64",
+  "warmup": 5,
+  "repeats": 2,
+  "hardware": {
+    "python": "3.12.14",
+    "torch": "2.14.1+cpu",
+    "numpy": "2.3.5",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "cpu": "AMD EPYC 9V74 80-Core Processor",
+    "cpu_quota": "200000 100000",
+    "threads": 1,
+    "cuda_available": false,
+    "precision": "complex64 experiments; complex128 numerical tests",
+    "reference_sha256": "58845000260beae656c91f30217fc75a27c11a94eba116c766b5055a7079f77e",
+    "source_commit": "83ba89148c8d89a7ab60105da0fa5cbfe6105d9e",
+    "source_sha256": {
+      "l2o_isac/__init__.py": "0084827310bbba095a7cf8ac2ffb4a7870439cbb6c020d0e46b24aa7dda43dae",
+      "l2o_isac/architecture_audit.py": "9da2daab7d0a730acf2019835aa044b3455b3f9a918b5c808e074cf47748a9bc",
+      "l2o_isac/attacks.py": "245b329279755888825406550461121f0cc6b69698c993edb0b06d1b7788d2fb",
+      "l2o_isac/audit.py": "00bdbe61a386063587c5a30395ce8cad94c5439e0d31da899220be5ac8d88cf1",
+      "l2o_isac/config.py": "60ffcaa031550a3ac4794d14bda551da7cbd439599f2c4204ff48e2b2b986013",
+      "l2o_isac/data.py": "4ddc566131c9820a0a01d0dd222499efc0ed959ec6443059662cf814ad57436c",
+      "l2o_isac/evaluation.py": "7e1aa50a369dd0de5766891ccf5c19edd2bbe4887a33601ec275747e5540e5e5",
+      "l2o_isac/execution_evidence.py": "b6e7abdbeb0d7bcf018d99c5baf9640647d241effc24f46407ecd21924a039cc",
+      "l2o_isac/experiment.py": "482a52e36f014252ae0d13bd7d3cbedae56cf4df531b045c527ead876cd29e8f",
+      "l2o_isac/inference.py": "9c959dcd5fa1bdc2720839ed7017aa2b33939d86b17cbc6c3e229ddc0ed9c4fe",
+      "l2o_isac/networks.py": "31d9ba49ccdac84656996313b79e62dcd9dff03ea1371a73d792ec4315346840",
+      "l2o_isac/paper_checks.py": "29dbcf8228bf605787c2db0c06fe975be875d15c4dba970694a0570f21df294e",
+      "l2o_isac/physics.py": "40a3db0516c0512cfea3316a6d3c7e9204938a50ba60ea8b8f931cf49705c108",
+      "l2o_isac/role_training.py": "2e730f999b87a849eca30c6eaa88df87d921eb626312595d5cde44b889cf3fdd",
+      "l2o_isac/solver.py": "769e0cab5c613a3ed39eb5328d7e9d1edb8a1ea121402e7872eecd0cd4e81cce",
+      "l2o_isac/suite.py": "db7341c0e923fff59c473ca85b0c428152abc9b72f03ad5072580f8619802916",
+      "l2o_isac/training.py": "1933bfadb036ef82d1b43b0e07ef27775625fee30ed43c04462c0bd8de43f070",
+      "l2o_isac/validation_report.py": "e1c7ecc241e5dd4af182966f8b4d11118cae1662e89c3e5f6e4fdc112e24a947"
+    }
+  },
+  "scope": "CPU solver generation only, no GPU, independent attacker excluded; initialization/EpsNet separate",
+  "methods": {
+    "A": {
+      "median_ms": 18.19660900036979,
+      "p95_ms": 19.461743501415185,
+      "samples_ms": [
+        16.79090399920824,
+        19.60231400153134
+      ]
+    },
+    "Mapped_initial": {
+      "median_ms": 16.706576501746895,
+      "p95_ms": 16.754294951533666,
+      "samples_ms": [
+        16.653556001983816,
+        16.759597001509974
+      ]
+    },
+    "B_s101": {
+      "median_ms": 16.588688500632998,
+      "p95_ms": 16.664826251508202,
+      "samples_ms": [
+        16.673286001605447,
+        16.504090999660548
+      ]
+    },
+    "C_s101": {
+      "median_ms": 16.60074649953458,
+      "p95_ms": 16.712424349861976,
+      "samples_ms": [
+        16.724832999898354,
+        16.476659999170806
+      ]
+    },
+    "B_balanced_s101": {
+      "median_ms": 16.775465499449638,
+      "p95_ms": 16.84381104842032,
+      "samples_ms": [
+        16.699526000593323,
+        16.851404998305952
+      ]
+    },
+    "C_balanced_s101": {
+      "median_ms": 16.823157000544597,
+      "p95_ms": 17.12497290227475,
+      "samples_ms": [
+        16.487805998622207,
+        17.158508002466988
+      ]
+    },
+    "D_s101": {
+      "median_ms": 16.715190002287272,
+      "p95_ms": 16.718218501773663,
+      "samples_ms": [
+        16.71182500285795,
+        16.718555001716595
+      ]
+    },
+    "B_clean_s101": {
+      "median_ms": 16.605378501481027,
+      "p95_ms": 16.606816251623968,
+      "samples_ms": [
+        16.603781001322204,
+        16.60697600163985
+      ]
+    },
+    "C_clean_s101": {
+      "median_ms": 17.019032000462175,
+      "p95_ms": 17.337415100519138,
+      "samples_ms": [
+        17.372791000525467,
+        16.665273000398884
+      ]
+    },
+    "D_clean_s101": {
+      "median_ms": 16.597011002886575,
+      "p95_ms": 16.60539360345865,
+      "samples_ms": [
+        16.606325003522215,
+        16.587697002250934
+      ]
+    },
+    "B_updates_s101": {
+      "median_ms": 16.845235499204136,
+      "p95_ms": 17.00939144830045,
+      "samples_ms": [
+        16.662840000208234,
+        17.02763099820004
+      ]
+    },
+    "C_updates_s101": {
+      "median_ms": 16.67705199906777,
+      "p95_ms": 16.82671390062751,
+      "samples_ms": [
+        16.843343000800814,
+        16.510760997334728
+      ]
+    },
+    "E_previous_s101": {
+      "median_ms": 16.59552400087705,
+      "p95_ms": 16.70404329961457,
+      "samples_ms": [
+        16.474947002279805,
+        16.716100999474293
+      ]
+    },
+    "PGDA15": {
+      "median_ms": 16.693150499122567,
+      "p95_ms": 17.082794248017308,
+      "samples_ms": [
+        17.1260879978945,
+        16.26021300035063
+      ]
+    },
+    "EpsNet_only": {
+      "median_ms": 0.24440900051558856,
+      "p95_ms": 0.2612551999845891,
+      "samples_ms": [
+        0.22569100110558793,
+        0.2631269999255892
+      ]
+    },
+    "Initialization_only": {
+      "median_ms": 0.2854904996638652,
+      "p95_ms": 0.29700104969379026,
+      "samples_ms": [
+        0.2982799996971153,
+        0.2727009996306151
+      ]
+    }
+  }
+}

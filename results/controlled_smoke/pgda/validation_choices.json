@@ -1,0 +1,22 @@
+{
+  "budgets": {
+    "15": {
+      "selected": {
+        "inner": 0.025,
+        "outer": 0.01,
+        "validation_utility": 4.086765766143799
+      },
+      "all": [
+        {
+          "inner": 0.025,
+          "outer": 0.01,
+          "validation_utility": 4.086765766143799
+        }
+      ]
+    }
+  },
+  "selection_scenarios": 24,
+  "configurations_searched": 1,
+  "seconds": 0.11413476599773276,
+  "test_used_for_tuning": false
+}

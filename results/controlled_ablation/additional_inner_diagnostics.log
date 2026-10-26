@@ -1,0 +1,9 @@
+2026-10-24T23:45:01.338128+00:00 fixed-beam inner validation pretrain=73129 C_clean_s101: candidate=4.428176, refined=3.896123
+2026-10-24T23:45:03.269386+00:00 fixed-beam inner validation pretrain=73129 C_clean_s202: candidate=4.428161, refined=3.896123
+2026-10-24T23:45:05.241047+00:00 fixed-beam inner validation pretrain=73129 C_clean_s303: candidate=4.428165, refined=3.896123
+2026-10-24T23:45:07.291861+00:00 fixed-beam inner validation pretrain=74129 C_clean_s101: candidate=4.428931, refined=3.896851
+2026-10-24T23:45:09.233844+00:00 fixed-beam inner validation pretrain=74129 C_clean_s202: candidate=4.428912, refined=3.896851
+2026-10-24T23:45:11.261964+00:00 fixed-beam inner validation pretrain=74129 C_clean_s303: candidate=4.428917, refined=3.896851
+2026-10-24T23:45:13.340921+00:00 fixed-beam inner validation pretrain=75129 C_clean_s101: candidate=4.426570, refined=3.894716
+2026-10-24T23:45:15.245622+00:00 fixed-beam inner validation pretrain=75129 C_clean_s202: candidate=4.426558, refined=3.894716
+2026-10-24T23:45:17.132291+00:00 fixed-beam inner validation pretrain=75129 C_clean_s303: candidate=4.426556, refined=3.894716

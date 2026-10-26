@@ -1,0 +1,32 @@
+....F                                                                    [100%]
+=================================== FAILURES ===================================
+_______ test_balanced_training_checkpoint_resume_uses_portable_metadata ________
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-7/test_balanced_training_checkpo0')
+
+    def test_balanced_training_checkpoint_resume_uses_portable_metadata(tmp_path):
+        from l2o_isac.controlled_study import ControlledStudy
+        from l2o_isac.architecture_audit import write,state_slice
+        study=ControlledStudy(output=tmp_path);study.spec['epochs']=1;study.spec['batch_size']=4
+        study.data['train']=study.data['train'][:4];study.initial['train']=state_slice(study.initial['train'],slice(0,4))
+        study.data['validation']=study.data['validation'][:2];study.initial['validation']=state_slice(study.initial['validation'],slice(0,2))
+        write(tmp_path/'compute_matching.json',{'methods':{'B':{'median_seconds':1.},'C':{'median_seconds':1.},'D':{'median_seconds':2.4}}})
+>       path=study.train_case(0,'C',101,balanced=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_controlled_training.py:86: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <l2o_isac.controlled_study.ControlledStudy object at 0x7f427f52bbf0>
+index = 0, condition = 'C', seed = 101, equal_updates = False, balanced = True
+
+    def train_case(self,index,condition,seed,equal_updates=False,balanced=False):
+        ref,refpath=self.reference(index);positive=condition in ['C','D'];model=ControlledSchedule(ref,positive,self.spec['positive_inner_floor'])
+>       cycles=1 if equal_updates else read(self.out/'compute_matching.json')['joint_repeats_per_minibatch']
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'joint_repeats_per_minibatch'
+
+l2o_isac/controlled_study.py:83: KeyError
+=========================== short test summary info ============================
+FAILED tests/test_controlled_training.py::test_balanced_training_checkpoint_resume_uses_portable_metadata
+1 failed, 4 passed in 2.12s

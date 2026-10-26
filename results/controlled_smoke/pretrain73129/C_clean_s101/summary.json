@@ -1,0 +1,68 @@
+{
+  "condition": "C",
+  "initial_validation": 4.143813133239746,
+  "best_validation": 4.144190788269043,
+  "selected_epoch": 1,
+  "history": [
+    {
+      "epoch": 1,
+      "validation": 4.144190788269043,
+      "training_update_seconds": 0.17822696300208918,
+      "validation_seconds": 0.02795057199909934,
+      "batch_order_sha256": "9e713d3356f7094589d33e98d92239604e493ddfe96b924584e2f2b06bded62a",
+      "negative_inner_steps": 0,
+      "at_positive_floor": 2,
+      "updates": [
+        {
+          "loss": -4.071524143218994,
+          "full_analytic_calls": 30,
+          "error_gradient_calls": 0,
+          "differentiated_layers": 15,
+          "differentiated_full_analytic_calls": 30,
+          "backward_passes": 1,
+          "optimizer_step_calls": 1,
+          "inner_block_updates": 1,
+          "outer_block_updates": 1,
+          "seconds": 0.06137370800206554
+        },
+        {
+          "loss": -4.579163551330566,
+          "full_analytic_calls": 30,
+          "error_gradient_calls": 0,
+          "differentiated_layers": 15,
+          "differentiated_full_analytic_calls": 30,
+          "backward_passes": 1,
+          "optimizer_step_calls": 1,
+          "inner_block_updates": 1,
+          "outer_block_updates": 1,
+          "seconds": 0.05819767700086231
+        },
+        {
+          "loss": -4.580227375030518,
+          "full_analytic_calls": 30,
+          "error_gradient_calls": 0,
+          "differentiated_layers": 15,
+          "differentiated_full_analytic_calls": 30,
+          "backward_passes": 1,
+          "optimizer_step_calls": 1,
+          "inner_block_updates": 1,
+          "outer_block_updates": 1,
+          "seconds": 0.05838670299999649
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "full_analytic_calls": 90,
+    "error_gradient_calls": 0,
+    "differentiated_layers": 45,
+    "differentiated_full_analytic_calls": 90,
+    "backward_passes": 3,
+    "optimizer_step_calls": 3,
+    "inner_block_updates": 3,
+    "outer_block_updates": 3
+  },
+  "training_update_seconds": 0.17822696300208918,
+  "positive_inner": true,
+  "cycles": 1.635981244817254
+}

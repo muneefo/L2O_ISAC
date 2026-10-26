@@ -1,0 +1,18 @@
+{
+  "reason": "Numpy scalar metadata blocked weights_only loading; weights/optimizer/RNG retained, numeric metadata converted to Python float",
+  "failed_originals_preserved": "results/controlled_ablation/pretrain73129/B_balanced_s101_failed_numpy_scalar",
+  "files": {
+    "selected.pt": {
+      "preserved_failed_sha256": "d2fb877e2df2df13201bd8b22d9d772a630aca2c98c2314c35f618d9beb344d3",
+      "repaired_copy_sha256": "337f59f814eedafbadc94412e2cb722eb04ea74a1d22d26db4e0b01417c3f606"
+    },
+    "initial.pt": {
+      "preserved_failed_sha256": "30b921e2719b21282f635f9bffb299cda02e32eacc5a9ba80bca8a339fb2f7f7",
+      "repaired_copy_sha256": "48ca4cb9b29550fafefd7901843b9e31b3567a88710d4533ad4f39527c9d94ca"
+    },
+    "latest.pt": {
+      "preserved_failed_sha256": "aaeeec1b5bdba852eb78cc1d7e0e369b822a1ff38a03c503d65b559e4bffd95f",
+      "repaired_copy_sha256": "9d624df03f2df2a33c6753f672c80d304e7d5c83e742e1085e97565f502bf010"
+    }
+  }
+}
