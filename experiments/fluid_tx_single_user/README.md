@@ -6,7 +6,7 @@ records the model, resource matching, validation choices and learning controls.
 are confined to this directory. The original reproduction files are imported, not
 refactored or retrained. Their hashes are checked against the pre-fluid snapshot.
 
-Run from repository root, using the existing CPU environment:
+Current checkout: `/workspace/github-export/l2o-isac`. Run from that repository root (or the extracted archive root), using the existing CPU environment:
 
 ```bash
 /workspace/.venv/bin/python -m pytest -q tests/test_physics.py experiments/fluid_tx_single_user/tests
