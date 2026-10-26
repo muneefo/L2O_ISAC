@@ -1,0 +1,93 @@
+2026-10-26T15:50:31.680365+00:00 A Plain_tuned control: independent=3.527481
+2026-10-26T15:50:32.655870+00:00 Position training A LearnedConstant seed=101 epoch=1: validation=3.588951
+2026-10-26T15:50:33.386034+00:00 Position training A LearnedConstant seed=101 epoch=2: validation=3.588951
+2026-10-26T15:50:34.087531+00:00 Position training A LearnedConstant seed=101 epoch=3: validation=3.588953
+2026-10-26T15:50:34.938442+00:00 Position training A LearnedConstant seed=101 epoch=4: validation=3.588953
+2026-10-26T15:50:39.076717+00:00 A LearnedConstant seed101: independent=3.527486
+2026-10-26T15:50:40.970862+00:00 Position training A LearnedSchedule seed=101 epoch=1: validation=3.588951
+2026-10-26T15:50:41.706228+00:00 Position training A LearnedSchedule seed=101 epoch=2: validation=3.588951
+2026-10-26T15:50:42.486215+00:00 Position training A LearnedSchedule seed=101 epoch=3: validation=3.588953
+2026-10-26T15:50:43.231413+00:00 Position training A LearnedSchedule seed=101 epoch=4: validation=3.588953
+2026-10-26T15:50:47.811694+00:00 A LearnedSchedule seed101: independent=3.527486
+2026-10-26T15:50:49.791631+00:00 Position training A LearnedConstant seed=202 epoch=1: validation=3.588950
+2026-10-26T15:50:50.677592+00:00 Position training A LearnedConstant seed=202 epoch=2: validation=3.588951
+2026-10-26T15:50:51.407981+00:00 Position training A LearnedConstant seed=202 epoch=3: validation=3.588953
+2026-10-26T15:50:52.103174+00:00 Position training A LearnedConstant seed=202 epoch=4: validation=3.588953
+2026-10-26T15:50:55.795765+00:00 A LearnedConstant seed202: independent=3.527486
+2026-10-26T15:50:57.423915+00:00 Position training A LearnedSchedule seed=202 epoch=1: validation=3.588950
+2026-10-26T15:50:58.171320+00:00 Position training A LearnedSchedule seed=202 epoch=2: validation=3.588951
+2026-10-26T15:50:58.860657+00:00 Position training A LearnedSchedule seed=202 epoch=3: validation=3.588953
+2026-10-26T15:50:59.589805+00:00 Position training A LearnedSchedule seed=202 epoch=4: validation=3.588953
+2026-10-26T15:51:03.469463+00:00 A LearnedSchedule seed202: independent=3.527486
+2026-10-26T15:51:05.108743+00:00 Position training A LearnedConstant seed=303 epoch=1: validation=3.588950
+2026-10-26T15:51:05.768821+00:00 Position training A LearnedConstant seed=303 epoch=2: validation=3.588951
+2026-10-26T15:51:06.468356+00:00 Position training A LearnedConstant seed=303 epoch=3: validation=3.588953
+2026-10-26T15:51:07.176524+00:00 Position training A LearnedConstant seed=303 epoch=4: validation=3.588953
+2026-10-26T15:51:11.141793+00:00 A LearnedConstant seed303: independent=3.527486
+2026-10-26T15:51:12.717276+00:00 Position training A LearnedSchedule seed=303 epoch=1: validation=3.588950
+2026-10-26T15:51:13.479983+00:00 Position training A LearnedSchedule seed=303 epoch=2: validation=3.588951
+2026-10-26T15:51:14.213400+00:00 Position training A LearnedSchedule seed=303 epoch=3: validation=3.588953
+2026-10-26T15:51:14.906130+00:00 Position training A LearnedSchedule seed=303 epoch=4: validation=3.588953
+2026-10-26T15:51:18.600139+00:00 A LearnedSchedule seed303: independent=3.527486
+2026-10-26T15:51:24.620099+00:00 B Plain_tuned control: independent=3.236578
+2026-10-26T15:51:25.577205+00:00 Position training B LearnedConstant seed=101 epoch=1: validation=3.166117
+2026-10-26T15:51:26.518542+00:00 Position training B LearnedConstant seed=101 epoch=2: validation=3.167082
+2026-10-26T15:51:27.237956+00:00 Position training B LearnedConstant seed=101 epoch=3: validation=3.168009
+2026-10-26T15:51:27.957025+00:00 Position training B LearnedConstant seed=101 epoch=4: validation=3.168902
+2026-10-26T15:51:31.630540+00:00 B LearnedConstant seed101: independent=3.241004
+2026-10-26T15:51:33.199384+00:00 Position training B LearnedSchedule seed=101 epoch=1: validation=3.166117
+2026-10-26T15:51:33.911596+00:00 Position training B LearnedSchedule seed=101 epoch=2: validation=3.167082
+2026-10-26T15:51:34.601708+00:00 Position training B LearnedSchedule seed=101 epoch=3: validation=3.168003
+2026-10-26T15:51:35.295614+00:00 Position training B LearnedSchedule seed=101 epoch=4: validation=3.168893
+2026-10-26T15:51:39.669445+00:00 B LearnedSchedule seed101: independent=3.240997
+2026-10-26T15:51:41.873925+00:00 Position training B LearnedConstant seed=202 epoch=1: validation=3.166132
+2026-10-26T15:51:42.762127+00:00 Position training B LearnedConstant seed=202 epoch=2: validation=3.167118
+2026-10-26T15:51:43.546213+00:00 Position training B LearnedConstant seed=202 epoch=3: validation=3.168081
+2026-10-26T15:51:44.324532+00:00 Position training B LearnedConstant seed=202 epoch=4: validation=3.168977
+2026-10-26T15:51:48.764411+00:00 B LearnedConstant seed202: independent=3.241082
+2026-10-26T15:51:50.865418+00:00 Position training B LearnedSchedule seed=202 epoch=1: validation=3.166130
+2026-10-26T15:51:51.757176+00:00 Position training B LearnedSchedule seed=202 epoch=2: validation=3.167113
+2026-10-26T15:51:52.751987+00:00 Position training B LearnedSchedule seed=202 epoch=3: validation=3.168073
+2026-10-26T15:51:53.956603+00:00 Position training B LearnedSchedule seed=202 epoch=4: validation=3.168966
+2026-10-26T15:51:59.471963+00:00 B LearnedSchedule seed202: independent=3.241071
+2026-10-26T15:52:01.915064+00:00 Position training B LearnedConstant seed=303 epoch=1: validation=3.166127
+2026-10-26T15:52:02.705893+00:00 Position training B LearnedConstant seed=303 epoch=2: validation=3.167115
+2026-10-26T15:52:03.525445+00:00 Position training B LearnedConstant seed=303 epoch=3: validation=3.168075
+2026-10-26T15:52:04.406450+00:00 Position training B LearnedConstant seed=303 epoch=4: validation=3.168958
+2026-10-26T15:52:08.630656+00:00 B LearnedConstant seed303: independent=3.241063
+2026-10-26T15:52:10.551329+00:00 Position training B LearnedSchedule seed=303 epoch=1: validation=3.166126
+2026-10-26T15:52:11.395849+00:00 Position training B LearnedSchedule seed=303 epoch=2: validation=3.167113
+2026-10-26T15:52:12.248591+00:00 Position training B LearnedSchedule seed=303 epoch=3: validation=3.168072
+2026-10-26T15:52:13.064927+00:00 Position training B LearnedSchedule seed=303 epoch=4: validation=3.168953
+2026-10-26T15:52:17.535027+00:00 B LearnedSchedule seed303: independent=3.241059
+2026-10-26T15:52:23.854852+00:00 C Plain_tuned control: independent=2.830243
+2026-10-26T15:52:24.885045+00:00 Position training C LearnedConstant seed=101 epoch=1: validation=2.866125
+2026-10-26T15:52:25.693434+00:00 Position training C LearnedConstant seed=101 epoch=2: validation=2.848345
+2026-10-26T15:52:26.528491+00:00 Position training C LearnedConstant seed=101 epoch=3: validation=2.862074
+2026-10-26T15:52:27.282686+00:00 Position training C LearnedConstant seed=101 epoch=4: validation=2.872601
+2026-10-26T15:52:32.008182+00:00 C LearnedConstant seed101: independent=2.826695
+2026-10-26T15:52:33.665566+00:00 Position training C LearnedSchedule seed=101 epoch=1: validation=2.858672
+2026-10-26T15:52:34.383284+00:00 Position training C LearnedSchedule seed=101 epoch=2: validation=2.858967
+2026-10-26T15:52:35.115578+00:00 Position training C LearnedSchedule seed=101 epoch=3: validation=2.861536
+2026-10-26T15:52:35.852670+00:00 Position training C LearnedSchedule seed=101 epoch=4: validation=2.858036
+2026-10-26T15:52:40.905014+00:00 C LearnedSchedule seed101: independent=2.830243
+2026-10-26T15:52:42.710382+00:00 Position training C LearnedConstant seed=202 epoch=1: validation=2.857887
+2026-10-26T15:52:43.532893+00:00 Position training C LearnedConstant seed=202 epoch=2: validation=2.855996
+2026-10-26T15:52:44.371321+00:00 Position training C LearnedConstant seed=202 epoch=3: validation=2.857234
+2026-10-26T15:52:45.184325+00:00 Position training C LearnedConstant seed=202 epoch=4: validation=2.860319
+2026-10-26T15:52:50.461869+00:00 C LearnedConstant seed202: independent=2.830243
+2026-10-26T15:52:52.258746+00:00 Position training C LearnedSchedule seed=202 epoch=1: validation=2.852403
+2026-10-26T15:52:53.028378+00:00 Position training C LearnedSchedule seed=202 epoch=2: validation=2.856392
+2026-10-26T15:52:53.781290+00:00 Position training C LearnedSchedule seed=202 epoch=3: validation=2.869584
+2026-10-26T15:52:54.498428+00:00 Position training C LearnedSchedule seed=202 epoch=4: validation=2.852581
+2026-10-26T15:52:59.398105+00:00 C LearnedSchedule seed202: independent=2.826451
+2026-10-26T15:53:01.345885+00:00 Position training C LearnedConstant seed=303 epoch=1: validation=2.867017
+2026-10-26T15:53:02.189606+00:00 Position training C LearnedConstant seed=303 epoch=2: validation=2.848519
+2026-10-26T15:53:02.997823+00:00 Position training C LearnedConstant seed=303 epoch=3: validation=2.857165
+2026-10-26T15:53:03.807244+00:00 Position training C LearnedConstant seed=303 epoch=4: validation=2.856997
+2026-10-26T15:53:09.420027+00:00 C LearnedConstant seed303: independent=2.830243
+2026-10-26T15:53:12.138674+00:00 Position training C LearnedSchedule seed=303 epoch=1: validation=2.852632
+2026-10-26T15:53:13.412460+00:00 Position training C LearnedSchedule seed=303 epoch=2: validation=2.845340
+2026-10-26T15:53:14.568254+00:00 Position training C LearnedSchedule seed=303 epoch=3: validation=2.858871
+2026-10-26T15:53:15.786612+00:00 Position training C LearnedSchedule seed=303 epoch=4: validation=2.865208
+2026-10-26T15:53:22.484222+00:00 C LearnedSchedule seed303: independent=2.830243

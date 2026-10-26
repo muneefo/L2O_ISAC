@@ -1,0 +1,7 @@
+2026-10-26T15:35:47.866401+00:00 Saved new fixed spatial paths and immutable paired splits
+2026-10-26T15:35:51.050131+00:00 Validation choices A: {'ula': {'inner': 0.2, 'outer': 0.001, 'utility': 3.588361978530884}, 'random': {'inner': 0.2, 'outer': 0.001, 'utility': 3.5883090496063232}, 'position': {'step': 0.08, 'utility': 3.5887153148651123}}
+2026-10-26T15:35:54.379993+00:00 Validation choices B: {'ula': {'inner': 0.05, 'outer': 0.005, 'utility': 2.929682731628418}, 'random': {'inner': 0.05, 'outer': 0.005, 'utility': 2.9608306884765625}, 'position': {'step': 0.08, 'utility': 3.1928582191467285}}
+2026-10-26T15:35:58.337606+00:00 Validation choices C: {'ula': {'inner': 0.01, 'outer': 0.02, 'utility': 2.580061197280884}, 'random': {'inner': 0.01, 'outer': 0.02, 'utility': 2.596534013748169}, 'position': {'step': 0.08, 'utility': 2.8834428787231445}}
+2026-10-26T15:36:04.127195+00:00 Validation runtime match A: Fluid20 vs ULA30
+2026-10-26T15:36:09.902668+00:00 Validation runtime match B: Fluid20 vs ULA45
+2026-10-26T15:36:15.557759+00:00 Validation runtime match C: Fluid20 vs ULA45

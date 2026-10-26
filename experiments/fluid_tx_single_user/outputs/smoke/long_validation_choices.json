@@ -1,0 +1,97 @@
+{
+  "cases": {
+    "A": {
+      "90": {
+        "selected": {
+          "inner": 0.05,
+          "outer": 0.005,
+          "utility": 2.764624834060669
+        },
+        "grid": [
+          {
+            "inner": 0.05,
+            "outer": 0.005,
+            "utility": 2.764624834060669
+          }
+        ]
+      },
+      "180": {
+        "selected": {
+          "inner": 0.05,
+          "outer": 0.005,
+          "utility": 2.764624834060669
+        },
+        "grid": [
+          {
+            "inner": 0.05,
+            "outer": 0.005,
+            "utility": 2.764624834060669
+          }
+        ]
+      }
+    },
+    "B": {
+      "90": {
+        "selected": {
+          "inner": 0.05,
+          "outer": 0.005,
+          "utility": 2.2324981689453125
+        },
+        "grid": [
+          {
+            "inner": 0.05,
+            "outer": 0.005,
+            "utility": 2.2324981689453125
+          }
+        ]
+      },
+      "180": {
+        "selected": {
+          "inner": 0.05,
+          "outer": 0.005,
+          "utility": 2.255873918533325
+        },
+        "grid": [
+          {
+            "inner": 0.05,
+            "outer": 0.005,
+            "utility": 2.255873918533325
+          }
+        ]
+      }
+    },
+    "C": {
+      "90": {
+        "selected": {
+          "inner": 0.05,
+          "outer": 0.005,
+          "utility": 1.5752719640731812
+        },
+        "grid": [
+          {
+            "inner": 0.05,
+            "outer": 0.005,
+            "utility": 1.5752719640731812
+          }
+        ]
+      },
+      "180": {
+        "selected": {
+          "inner": 0.05,
+          "outer": 0.005,
+          "utility": 1.580551028251648
+        },
+        "grid": [
+          {
+            "inner": 0.05,
+            "outer": 0.005,
+            "utility": 1.580551028251648
+          }
+        ]
+      }
+    }
+  },
+  "selection_split": "validation only",
+  "test_used": false,
+  "purpose": "Stronger per-budget fixed-ULA controls"
+}

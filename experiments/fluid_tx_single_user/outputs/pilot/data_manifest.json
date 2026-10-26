@@ -1,0 +1,82 @@
+{
+  "sha256": "5b6caa85a9085f5f5a531feb3c5af7490d39fbb27da4df8a4c846eb20adbe2e8",
+  "spec": {
+    "nt": 8,
+    "nr": 8,
+    "rf_chains": 4,
+    "wavelength_m": 0.01,
+    "aperture_wavelengths": 3.5,
+    "min_spacing_wavelengths": 0.25,
+    "ula_spacing_wavelengths": 0.5,
+    "rho": 0.8,
+    "snr_db": 5.0,
+    "epsilon": 0.05,
+    "clutter_case_c": 1,
+    "communication_paths": 4,
+    "train_scenarios_per_case": 64,
+    "validation_scenarios_per_case": 32,
+    "test_scenarios_per_case": 100,
+    "split_seeds": {
+      "train": 906101,
+      "validation": 906102,
+      "test": 906103
+    },
+    "initialization_seed": 907100,
+    "derivative_budgets": [
+      60,
+      180,
+      360
+    ],
+    "inner_step_grid": [
+      0.01,
+      0.05,
+      0.2
+    ],
+    "outer_step_grid": [
+      0.001,
+      0.005,
+      0.02
+    ],
+    "position_step_grid": [
+      0.005,
+      0.02,
+      0.08
+    ],
+    "tuning_iterations": 30,
+    "position_backtracks": 6,
+    "position_armijo": 0.0001,
+    "validation_attack_steps": 50,
+    "test_attack_budgets": [
+      50,
+      200,
+      1000
+    ],
+    "attack_random_restarts": 5,
+    "attack_adam_steps": 50,
+    "attack_step": 0.2,
+    "timing_repeats": 15,
+    "timing_warmup": 3,
+    "learning_seeds": [
+      101,
+      202,
+      303
+    ],
+    "learning_layers": 20,
+    "learning_epochs": 4,
+    "learning_batch_size": 32,
+    "learning_lr": 0.0002,
+    "learning_position_bounds": [
+      1e-05,
+      0.2
+    ]
+  },
+  "scope": "Fresh field-response scenario splits; not the paper CN channel law",
+  "source_commit": "6e037b3095c0a389ca7656a88ac8a46a7247c9d5",
+  "source_sha256": {
+    "experiments/fluid_tx_single_user/spatial.py": "babde2bef38df9889b0539d5a15d7c8141507c9a105e291a8cd2a0170f34da97",
+    "experiments/fluid_tx_single_user/run.py": "3b89695e2aaec1ee955d187d492e63bf8ec54ecc47c8b6ec5f11b048ea2e0930",
+    "experiments/fluid_tx_single_user/geometry.py": "d0b5ee6b231f80f7afe117166e4281de376cd032057a6dc667e0e75aae93dc44",
+    "experiments/fluid_tx_single_user/__init__.py": "adedfaf5a9f1bf8154a4894aae24e6998b97d086182435a83d9a9dbb74cf9a72",
+    "experiments/fluid_tx_single_user/optimizer.py": "dbc3aecfa430c35a91da4c1b6e09c4255b08ba8e658fe59fd95df0b895b70017"
+  }
+}

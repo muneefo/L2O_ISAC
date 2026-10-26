@@ -1,0 +1,62 @@
+{
+  "nt": 4,
+  "nr": 3,
+  "rf_chains": 2,
+  "wavelength_m": 0.01,
+  "aperture_wavelengths": 1.5,
+  "min_spacing_wavelengths": 0.2,
+  "ula_spacing_wavelengths": 0.5,
+  "rho": 0.8,
+  "snr_db": 5.0,
+  "epsilon": 0.05,
+  "clutter_case_c": 1,
+  "communication_paths": 4,
+  "train_scenarios_per_case": 4,
+  "validation_scenarios_per_case": 4,
+  "test_scenarios_per_case": 4,
+  "split_seeds": {
+    "train": 906101,
+    "validation": 906102,
+    "test": 906103
+  },
+  "initialization_seed": 907100,
+  "derivative_budgets": [
+    6,
+    12
+  ],
+  "inner_step_grid": [
+    0.05
+  ],
+  "outer_step_grid": [
+    0.005
+  ],
+  "position_step_grid": [
+    0.02
+  ],
+  "tuning_iterations": 3,
+  "position_backtracks": 6,
+  "position_armijo": 0.0001,
+  "validation_attack_steps": 5,
+  "test_attack_budgets": [
+    2,
+    5
+  ],
+  "attack_random_restarts": 1,
+  "attack_adam_steps": 2,
+  "attack_step": 0.2,
+  "timing_repeats": 2,
+  "timing_warmup": 1,
+  "learning_seeds": [
+    101,
+    202,
+    303
+  ],
+  "learning_layers": 2,
+  "learning_epochs": 4,
+  "learning_batch_size": 32,
+  "learning_lr": 0.0002,
+  "learning_position_bounds": [
+    1e-05,
+    0.2
+  ]
+}

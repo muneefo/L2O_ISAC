@@ -7,7 +7,7 @@ import numpy as np
 import torch
 from l2o_isac.architecture_audit import read,write,sha,means,state_slice,tensor_metrics
 from l2o_isac.batched_attack import batched_attack
-from l2o_isac.attacks import union_attack,ERRORS
+from l2o_isac.attacks import union_attack,ERRORS,keep_best
 from l2o_isac.solver import SolverState,PGDA,NAMES
 from l2o_isac.physics import metrics
 from l2o_isac.audit_artifacts import residuals
@@ -25,8 +25,10 @@ def save(value,path):
 class Pilot:
     def __init__(self,config=ROOT/'configs/pilot.json',output=ROOT/'outputs/pilot'):
         self.spec=read(config);self.out=Path(output);self.out.mkdir(parents=True,exist_ok=True)
-        self.source=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
+        try:self.source=subprocess.check_output(['git','rev-parse','HEAD'],text=True,stderr=subprocess.DEVNULL).strip()
+        except subprocess.CalledProcessError:self.source='unversioned export; see saved source hashes'
         self.source_hashes={str(p):sha(p) for p in ROOT.glob('*.py')}
+        self._bf_choices=None;self._long_choices=None;self._plain_choices=None
 
     def log(self,msg):
         line=datetime.now(timezone.utc).isoformat()+' '+msg;print(line,flush=True)
@@ -90,12 +92,24 @@ class Pilot:
         write(path,{'cases':choices,'selection_split':'validation only','test_used':False,'frozen_utc':datetime.now(timezone.utc).isoformat(),'spec':self.spec})
 
     def design(self,case,scenario,raw,method,iterations,position_schedule=None,rho=None):
-        cfg=system(self.spec,case,rho);choice=read(self.out/'validation_choices.json')['cases'][case]
+        cfg=system(self.spec,case,rho)
+        if self._bf_choices is None:self._bf_choices=read(self.out/'validation_choices.json')['cases']
+        choice=self._bf_choices[case]
         geometry='random' if method=='Random' else 'ula';x=raw[geometry];initial=SolverState(**raw['random_initial' if geometry=='random' else 'initial'])
         bf=choice[geometry]['selected']
-        if method=='ULA_retuned':bf=read(self.out/'long_validation_choices.json')['cases'][case][str(iterations)]['selected']
+        if method=='StaticRandom':
+            static=read(self.out/'static_random_geometry.json')['positions_wavelengths']
+            x=torch.tensor(static,dtype=x.dtype).expand(len(scenario),-1).clone()
+            initial=SolverState(**raw['static_initial']) if 'static_initial' in raw else initialize(scenario,x,cfg,case,self.spec['initialization_seed']+['A','B','C'].index(case))
+            bf=read(self.out/'static_random_validation.json')['cases'][case][str(iterations)]['selected']
+        if method=='ULA_retuned':
+            if self._long_choices is None:self._long_choices=read(self.out/'long_validation_choices.json')['cases']
+            bf=self._long_choices[case][str(iterations)]['selected']
         step=choice['position']['selected']['step'] if method in ['Fluid','Fluid_plain'] else 0.
-        return solve(scenario,x,initial,cfg,self.spec,iterations,bf['inner'],bf['outer'],step,safeguard=method!='Fluid_plain',position_schedule=position_schedule)
+        if method=='Plain_tuned':
+            if self._plain_choices is None:self._plain_choices=read(self.out/'learning_constant_validation.json')['cases']
+            step=self._plain_choices[case]['selected']['step']
+        return solve(scenario,x,initial,cfg,self.spec,iterations,bf['inner'],bf['outer'],step,safeguard=method not in ['Fluid_plain','Plain_tuned'],position_schedule=position_schedule)
 
     @torch.no_grad()
     def calibrate_runtime(self):
@@ -216,29 +230,40 @@ class Pilot:
             choice=read(self.out/'validation_choices.json')['cases'][case]['ula']['selected']
             retuned=solve(sc,xrand,weights,cfg,self.spec,90,choice['inner'],choice['outer'])
             variants={'ULA_fixed_weights':(fixed['x'],weights),'Changed_same_weights':(xrand,weights),'Changed_retuned_weights':(xrand,retuned['state'])}
+            if case=='A':variants['Changed_analytic_MRT']=(xrand,initialize(sc,xrand,cfg,'A',raw['initialization_seed']))
             out={}
             for name,(x,state) in variants.items():
                 a=self.attack(sc,x,state,cfg)
+                final_metrics=a['metrics'][max(self.spec['test_attack_budgets'])]
+                if case=='A':
+                    batch=channels(sc,x,cfg);exact=single_stream_exact_errors(batch,state,cfg)
+                    final_metrics=tensor_metrics(batch,keep_best(batch,a['state'],exact,cfg),cfg)
                 out[name]={'positions':x,'state':vars(state),'nominal':tensor_metrics(channels(sc,x,cfg),replace(state,**{n:getattr(state,n)*0 for n in ERRORS}),cfg),
-                           'independent':a['metrics'][max(self.spec['test_attack_budgets'])]}
+                           'independent':final_metrics}
             save({'variants':out,'scope':'First test scenario, index0 fixed before inspection; illustration only, not evidence of average gain'},path)
 
     @torch.no_grad()
     def timing(self):
         result={}
+        previous=read(self.out/'timing.json')['cases'] if (self.out/'timing.json').exists() else {}
         for case in ['A','B','C']:
-            scenario,original=self.data(case,'test');indices=list(range(min(self.spec['timing_repeats'],len(scenario))));rows={}
+            scenario,original=self.data(case,'test');indices=list(range(min(self.spec['timing_repeats'],len(scenario))));rows=dict(previous.get(case,{}))
             def single(index):
                 raw={k:state_slice(SolverState(**v),slice(index,index+1)).__dict__ if k in ['initial','random_initial'] else v[index:index+1] if isinstance(v,torch.Tensor) else v for k,v in original.items()}
-                return scenario[index],raw
+                sc=scenario[index]
+                if (self.out/'static_random_geometry.json').exists():
+                    xx=torch.tensor(read(self.out/'static_random_geometry.json')['positions_wavelengths']).expand(1,-1)
+                    raw['static_initial']=vars(initialize(sc,xx,system(self.spec,case),case,self.spec['initialization_seed']+['A','B','C'].index(case)))
+                return sc,raw
             first,initial=single(0)
             for p in (self.out/case).glob('*.pt'):
                 r=torch.load(p,weights_only=True)
+                if p.stem in rows:continue
                 if 'iterations' not in r or r.get('method','').startswith('Learned') or r.get('method')=='Analytic_ULA':continue
                 for _ in range(self.spec['timing_warmup']):self.design(case,first,initial,r['method'],r['iterations'])
                 times=[]
                 for index in indices:
-                    sc,raw=single(index);times.append(self.design(case,sc,raw,r['method'],r['iterations'])['seconds']*1000)
+                    sc,raw=single(index);started=time.perf_counter();self.design(case,sc,raw,r['method'],r['iterations']);times.append((time.perf_counter()-started)*1000)
                 rows[p.stem]={'median_ms':float(np.median(times)),'p95_ms':float(np.quantile(times,.95)),'samples_ms':times,'scenario_indices':indices}
             result[case]=rows;self.log('Completed batch-one timing '+case)
         write(self.out/'timing.json',{'cases':result,'batch_size':1,'precision':'complex64/float32','threads':1,'warmups':self.spec['timing_warmup'],'timed_scenarios_per_method':self.spec['timing_repeats'],

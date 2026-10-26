@@ -119,8 +119,9 @@ def evaluate_one(pilot,case,settings,variant,seed,checkpoint):
 
 def main(argv=None):
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--config',type=Path,default=ROOT/'configs/pilot.json');p.add_argument('--output',type=Path,default=ROOT/'outputs/pilot')
-    p.add_argument('--settings',type=Path,default=ROOT/'configs/learning.json');a=p.parse_args(argv);torch.set_num_threads(1);torch.use_deterministic_algorithms(True)
+    p.add_argument('--settings',type=Path,default=ROOT/'configs/learning.json');p.add_argument('--retime-only',action='store_true');a=p.parse_args(argv);torch.set_num_threads(1);torch.use_deterministic_algorithms(True)
     pilot=Pilot(a.config,a.output);settings=read(a.settings)
+    if a.retime_only:retime_all(pilot,settings);return
     gate=read(pilot.out/'classical_gate.json')
     if not gate['passed'] or not gate['learned_position_investigation_justified']:raise RuntimeError('Classical geometry gate must pass before learning')
     choices=tune_plain(pilot,settings)
@@ -134,6 +135,26 @@ def main(argv=None):
             for variant in settings['variants']:
                 path=train_one(pilot,case,settings,variant,seed,step);evaluate_one(pilot,case,settings,variant,seed,path)
         pilot.shared_pool(case)
+
+
+
+
+
+@torch.no_grad()
+def retime_all(pilot,settings):
+    for case in ['A','B','C']:
+        scenario,raw=pilot.data(case,'test')
+        for seed in settings['seeds']:
+            for variant in settings['variants']:
+                path=pilot.out/case/(variant+'_seed'+str(seed)+'.pt');entry=torch.load(path,weights_only=True)
+                saved=torch.load(entry['model_checkpoint'],weights_only=True)
+                model=PositionSchedule(pilot,case,settings,saved['initial_step'],variant=='LearnedConstant');model.load_state_dict(saved['model'])
+                xx,ii=select_rows(raw,slice(0,1))
+                for _ in range(pilot.spec['timing_warmup']):model(scenario[:1],xx,ii)
+                times=[]
+                for index in range(min(pilot.spec['timing_repeats'],len(scenario))):
+                    xx,ii=select_rows(raw,slice(index,index+1));start=time.perf_counter();model(scenario[index],xx,ii);times.append((time.perf_counter()-start)*1000)
+                entry['timing']={'median_ms':float(np.median(times)),'p95_ms':float(np.quantile(times,.95)),'samples_ms':times,'scope':'Warm full model call, first15 paired test scenarios, one CPU thread, no concurrent training/attacks; no physical movement'};save(entry,path)
 
 
 if __name__=='__main__':main()

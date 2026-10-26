@@ -98,3 +98,10 @@ and PAV's active-face Jacobian. BF/MinNet **coefficients** stay fixed; their phy
 iterates still update. Full independent final evaluation is unchanged. A gain over
 a fixed initializer is not evidence for a layer schedule if equal-training scalar
 calibration explains it. Training/validation cost and selection epoch are retained.
+
+Random geometry controls are distinguished explicitly: `Random` is drawn
+independently per scenario and then held fixed during optimization; `StaticRandom`
+is one draw(seed909999) held fixed across every scenario and split. Both use the
+same full aperture/endpoints and minimum spacing. The latter is the primary fixed
+random-array comparator, independently validation-tuned at each reported budget.
+No random geometry is selected using test performance.

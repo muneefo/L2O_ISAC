@@ -1,0 +1,41 @@
+2026-10-26T16:12:33.050424+00:00 Saved new fixed spatial paths and immutable paired splits
+2026-10-26T16:12:33.115927+00:00 Validation choices A: {'ula': {'inner': 0.05, 'outer': 0.005, 'utility': 2.764624834060669}, 'random': {'inner': 0.05, 'outer': 0.005, 'utility': 2.764624834060669}, 'position': {'step': 0.02, 'utility': 2.764624834060669}}
+2026-10-26T16:12:33.183919+00:00 Validation choices B: {'ula': {'inner': 0.05, 'outer': 0.005, 'utility': 2.092721462249756}, 'random': {'inner': 0.05, 'outer': 0.005, 'utility': 2.221555709838867}, 'position': {'step': 0.02, 'utility': 2.1987953186035156}}
+2026-10-26T16:12:33.246823+00:00 Validation choices C: {'ula': {'inner': 0.05, 'outer': 0.005, 'utility': 1.4703418016433716}, 'random': {'inner': 0.05, 'outer': 0.005, 'utility': 1.434248685836792}, 'position': {'step': 0.02, 'utility': 1.535714030265808}}
+2026-10-26T16:12:39.109701+00:00 Validation runtime match A: Fluid20 vs ULA30
+2026-10-26T16:12:45.644925+00:00 Validation runtime match B: Fluid20 vs ULA30
+2026-10-26T16:12:53.938291+00:00 Validation runtime match C: Fluid20 vs ULA30
+2026-10-26T16:12:53.997293+00:00 A ULA budget6: independent=2.629767, counts=6
+2026-10-26T16:12:54.036376+00:00 A Random budget6: independent=2.629767, counts=6
+2026-10-26T16:12:54.078785+00:00 A Fluid budget6: independent=2.629767, counts=6
+2026-10-26T16:12:54.125707+00:00 A ULA budget12: independent=2.629766, counts=12
+2026-10-26T16:12:54.172772+00:00 A Random budget12: independent=2.629766, counts=12
+2026-10-26T16:12:54.209695+00:00 A Fluid budget12: independent=2.629767, counts=12
+2026-10-26T16:12:54.315724+00:00 A ULA runtime_match: independent=2.629767, counts=60
+2026-10-26T16:12:54.355925+00:00 A Fluid_plain learning_control: independent=2.629767, counts=6
+2026-10-26T16:12:54.560714+00:00 B ULA budget6: independent=2.526240, counts=6
+2026-10-26T16:12:54.600628+00:00 B Random budget6: independent=2.455539, counts=6
+2026-10-26T16:12:54.647422+00:00 B Fluid budget6: independent=2.550316, counts=6
+2026-10-26T16:12:54.680888+00:00 B ULA budget12: independent=2.573140, counts=12
+2026-10-26T16:12:54.722758+00:00 B Random budget12: independent=2.515663, counts=12
+2026-10-26T16:12:54.775720+00:00 B Fluid budget12: independent=2.624329, counts=12
+2026-10-26T16:12:54.877779+00:00 B ULA runtime_match: independent=2.713280, counts=60
+2026-10-26T16:12:54.924175+00:00 B Fluid_plain learning_control: independent=2.550316, counts=6
+2026-10-26T16:12:55.139215+00:00 C ULA budget6: independent=1.409665, counts=6
+2026-10-26T16:12:55.179779+00:00 C Random budget6: independent=1.543012, counts=6
+2026-10-26T16:12:55.222653+00:00 C Fluid budget6: independent=1.448713, counts=6
+2026-10-26T16:12:55.263565+00:00 C ULA budget12: independent=1.443051, counts=12
+2026-10-26T16:12:55.293022+00:00 C Random budget12: independent=1.574910, counts=12
+2026-10-26T16:12:55.332073+00:00 C Fluid budget12: independent=1.502792, counts=12
+2026-10-26T16:12:55.399673+00:00 C ULA runtime_match: independent=1.548159, counts=60
+2026-10-26T16:12:55.436230+00:00 C Fluid_plain learning_control: independent=1.448713, counts=6
+2026-10-26T16:12:57.717253+00:00 A ULA_retuned budget180: independent=2.629767
+2026-10-26T16:12:58.036060+00:00 A ULA_retuned budget360: independent=2.629767
+2026-10-26T16:12:58.081585+00:00 A Analytic_ULA control: independent=2.629767
+2026-10-26T16:12:58.474410+00:00 B ULA_retuned budget180: independent=2.752798
+2026-10-26T16:12:58.771689+00:00 B ULA_retuned budget360: independent=2.766107
+2026-10-26T16:12:59.135586+00:00 C ULA_retuned budget180: independent=1.567882
+2026-10-26T16:12:59.482793+00:00 C ULA_retuned budget360: independent=1.583761
+2026-10-26T16:13:01.987811+00:00 Completed batch-one timing A
+2026-10-26T16:13:03.493254+00:00 Completed batch-one timing B
+2026-10-26T16:13:04.970036+00:00 Completed batch-one timing C

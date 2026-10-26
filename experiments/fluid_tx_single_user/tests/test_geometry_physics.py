@@ -160,3 +160,13 @@ def test_single_stream_exact_candidate_validates_null_control():
     actual=metrics(batch,adverse,cfg);expected=analytic_case_a(s,cfg)
     for k in actual:torch.testing.assert_close(actual[k],expected[k],rtol=1e-12,atol=1e-12)
     assert max(all_residuals(x,adverse,s,cfg,spec).values())<1e-10
+
+
+def test_independent_attack_freezes_geometry_beams_and_spatial_paths():
+    from l2o_isac.batched_attack import batched_attack
+    spec,cfg,s,x,state=setup();saved_x=x.clone();saved_state=state.clone();saved={k:v.clone() for k,v in vars(s).items()}
+    result=batched_attack(channels(s,x,cfg),state,cfg,budgets=(10,),restarts=1,adam_steps=3)
+    torch.testing.assert_close(x,saved_x,rtol=0,atol=0)
+    for k,v in saved.items():torch.testing.assert_close(getattr(s,k),v,rtol=0,atol=0)
+    for n in NAMES[3:]:torch.testing.assert_close(getattr(result['state'],n),getattr(saved_state,n),rtol=0,atol=0)
+    assert max(all_residuals(x,result['state'],s,cfg,spec).values())<1e-10

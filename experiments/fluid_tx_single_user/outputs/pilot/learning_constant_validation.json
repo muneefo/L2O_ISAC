@@ -1,0 +1,96 @@
+{
+  "cases": {
+    "A": {
+      "selected": {
+        "step": 0.08,
+        "validation": 3.588949203491211
+      },
+      "grid": [
+        {
+          "step": 0.005,
+          "validation": 3.5888314247131348
+        },
+        {
+          "step": 0.02,
+          "validation": 3.5888938903808594
+        },
+        {
+          "step": 0.08,
+          "validation": 3.588949203491211
+        }
+      ]
+    },
+    "B": {
+      "selected": {
+        "step": 0.08,
+        "validation": 3.165117025375366
+      },
+      "grid": [
+        {
+          "step": 0.005,
+          "validation": 3.0192770957946777
+        },
+        {
+          "step": 0.02,
+          "validation": 3.11970853805542
+        },
+        {
+          "step": 0.08,
+          "validation": 3.165117025375366
+        }
+      ]
+    },
+    "C": {
+      "selected": {
+        "step": 0.08,
+        "validation": 2.8689651489257812
+      },
+      "grid": [
+        {
+          "step": 0.005,
+          "validation": 2.6770801544189453
+        },
+        {
+          "step": 0.02,
+          "validation": 2.797877788543701
+        },
+        {
+          "step": 0.08,
+          "validation": 2.8689651489257812
+        }
+      ]
+    }
+  },
+  "selection_split": "validation only",
+  "test_used": false,
+  "settings": {
+    "layers": 20,
+    "epochs": 4,
+    "batch_size": 32,
+    "seeds": [
+      101,
+      202,
+      303
+    ],
+    "optimizer": "Adam",
+    "lr": 0.002,
+    "step_bounds": [
+      1e-05,
+      0.2
+    ],
+    "training_attack_steps": 10,
+    "training_random_restarts": 0,
+    "validation_attack_steps": 50,
+    "validation_random_restarts": 1,
+    "constant_step_grid": [
+      0.005,
+      0.02,
+      0.08
+    ],
+    "variants": [
+      "LearnedConstant",
+      "LearnedSchedule"
+    ],
+    "scope": "Position-only newly trained scalar schedules; frozen validation-tuned classical MinNet/MaxNet; no original checkpoint transfer"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "positions_wavelengths": [
+    0.0,
+    0.5137988924980164,
+    1.3889141082763672,
+    2.0963261127471924,
+    2.4890739917755127,
+    2.8081278800964355,
+    3.1112098693847656,
+    3.5
+  ],
+  "seed": 909999,
+  "scope": "One independent draw, fixed for every train/validation/test channel and all three regimes; endpoints0,A"
+}

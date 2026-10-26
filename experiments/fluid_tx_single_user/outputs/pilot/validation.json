@@ -1,0 +1,1272 @@
+{
+  "baseline_files_verified_unchanged": 767,
+  "baseline_commit": "6e037b3095c0a389ca7656a88ac8a46a7247c9d5",
+  "method_checks": {
+    "A/Random_budget360": {
+      "numpy_max_absolute_errors": {
+        "comm": 4.66974679369514e-07,
+        "sense": 7.538177921873057e-07,
+        "objective": 5.186517419986103e-07
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "A/LearnedConstant_seed202": {
+      "numpy_max_absolute_errors": {
+        "comm": 4.961286452775937e-07,
+        "sense": 8.52887903413091e-07,
+        "objective": 5.076855380536927e-07
+      },
+      "max_residual": 1.430511474609375e-06,
+      "scenarios": 100
+    },
+    "A/Plain_tuned_control": {
+      "numpy_max_absolute_errors": {
+        "comm": 6.040936755269399e-07,
+        "sense": 6.634326883414587e-07,
+        "objective": 5.180464857090783e-07
+      },
+      "max_residual": 1.430511474609375e-06,
+      "scenarios": 100
+    },
+    "A/Fluid_budget60": {
+      "numpy_max_absolute_errors": {
+        "comm": 6.040936755269399e-07,
+        "sense": 6.634326883414587e-07,
+        "objective": 5.180464857090783e-07
+      },
+      "max_residual": 1.430511474609375e-06,
+      "scenarios": 100
+    },
+    "A/ULA_runtime_match": {
+      "numpy_max_absolute_errors": {
+        "comm": 4.5380933366701015e-07,
+        "sense": 7.799293531007834e-07,
+        "objective": 5.543584462586182e-07
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "A/Fluid_plain_learning_control": {
+      "numpy_max_absolute_errors": {
+        "comm": 6.040936755269399e-07,
+        "sense": 6.634326883414587e-07,
+        "objective": 5.180464857090783e-07
+      },
+      "max_residual": 1.430511474609375e-06,
+      "scenarios": 100
+    },
+    "A/Fluid_budget180": {
+      "numpy_max_absolute_errors": {
+        "comm": 5.194018068976902e-07,
+        "sense": 8.476462340922808e-07,
+        "objective": 5.58313026921553e-07
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "A/LearnedSchedule_seed202": {
+      "numpy_max_absolute_errors": {
+        "comm": 5.74633934213864e-07,
+        "sense": 6.870461577435094e-07,
+        "objective": 5.054378897639822e-07
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "A/LearnedSchedule_seed303": {
+      "numpy_max_absolute_errors": {
+        "comm": 5.229876549606161e-07,
+        "sense": 7.450163383992958e-07,
+        "objective": 6.548911226644805e-07
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "A/LearnedSchedule_seed101": {
+      "numpy_max_absolute_errors": {
+        "comm": 4.675066453962984e-07,
+        "sense": 7.046425585244265e-07,
+        "objective": 5.057477165948399e-07
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "A/LearnedConstant_seed303": {
+      "numpy_max_absolute_errors": {
+        "comm": 4.7618254095382895e-07,
+        "sense": 8.702331966148336e-07,
+        "objective": 6.70036961025744e-07
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "A/ULA_budget180": {
+      "numpy_max_absolute_errors": {
+        "comm": 4.2134968003537665e-07,
+        "sense": 6.857061665144215e-07,
+        "objective": 4.5725141717412043e-07
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "A/Analytic_ULA_control": {
+      "numpy_max_absolute_errors": {
+        "comm": 3.725780244323573e-07,
+        "sense": 7.727912452182295e-07,
+        "objective": 3.85305904515576e-07
+      },
+      "max_residual": 4.76837158203125e-07,
+      "scenarios": 100
+    },
+    "A/Random_budget180": {
+      "numpy_max_absolute_errors": {
+        "comm": 4.2804657018891135e-07,
+        "sense": 8.369834132437859e-07,
+        "objective": 5.049565143799839e-07
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "A/LearnedConstant_seed101": {
+      "numpy_max_absolute_errors": {
+        "comm": 5.737864441357488e-07,
+        "sense": 7.674612332309039e-07,
+        "objective": 5.00123928048879e-07
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "A/StaticRandom_budget180": {
+      "numpy_max_absolute_errors": {
+        "comm": 4.874983821068213e-07,
+        "sense": 7.053249326816058e-07,
+        "objective": 5.579254187537686e-07
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "A/ULA_budget360": {
+      "numpy_max_absolute_errors": {
+        "comm": 4.7675258940671483e-07,
+        "sense": 6.346960086389686e-07,
+        "objective": 6.177205849056122e-07
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "A/StaticRandom_budget60": {
+      "numpy_max_absolute_errors": {
+        "comm": 4.2002912037375495e-07,
+        "sense": 7.486898709885281e-07,
+        "objective": 5.463102832337086e-07
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "A/Fluid_budget360": {
+      "numpy_max_absolute_errors": {
+        "comm": 5.104323093085839e-07,
+        "sense": 7.650958329108448e-07,
+        "objective": 5.096331530118903e-07
+      },
+      "max_residual": 7.152557373046875e-07,
+      "scenarios": 100
+    },
+    "A/Random_budget60": {
+      "numpy_max_absolute_errors": {
+        "comm": 3.699682245006386e-07,
+        "sense": 7.314722330065138e-07,
+        "objective": 4.316312098850972e-07
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "A/ULA_retuned_budget180": {
+      "numpy_max_absolute_errors": {
+        "comm": 4.2134968003537665e-07,
+        "sense": 6.857061665144215e-07,
+        "objective": 4.5725141717412043e-07
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "A/StaticRandom_budget360": {
+      "numpy_max_absolute_errors": {
+        "comm": 4.258741523877063e-07,
+        "sense": 6.489909090134915e-07,
+        "objective": 5.067206609865593e-07
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "A/ULA_retuned_budget360": {
+      "numpy_max_absolute_errors": {
+        "comm": 4.7675258940671483e-07,
+        "sense": 6.346960086389686e-07,
+        "objective": 6.177205849056122e-07
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "A/ULA_budget60": {
+      "numpy_max_absolute_errors": {
+        "comm": 4.5380933366701015e-07,
+        "sense": 7.799293531007834e-07,
+        "objective": 5.543584462586182e-07
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "B/Random_budget360": {
+      "numpy_max_absolute_errors": {
+        "comm": 5.47749754886695e-07,
+        "sense": 6.476797747012597e-07,
+        "objective": 5.782029521839149e-07
+      },
+      "max_residual": 1.430511474609375e-06,
+      "scenarios": 100
+    },
+    "B/LearnedConstant_seed202": {
+      "numpy_max_absolute_errors": {
+        "comm": 5.686960218298509e-07,
+        "sense": 6.8391092611364e-07,
+        "objective": 5.246627718946684e-07
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "B/Plain_tuned_control": {
+      "numpy_max_absolute_errors": {
+        "comm": 4.854594584102756e-07,
+        "sense": 7.653564182419359e-07,
+        "objective": 5.900692210403236e-07
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "B/Fluid_budget60": {
+      "numpy_max_absolute_errors": {
+        "comm": 4.854594584102756e-07,
+        "sense": 7.653564182419359e-07,
+        "objective": 5.900692210403236e-07
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "B/ULA_runtime_match": {
+      "numpy_max_absolute_errors": {
+        "comm": 4.844414398519348e-07,
+        "sense": 6.234971285934421e-07,
+        "objective": 5.983996498315491e-07
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "B/Fluid_plain_learning_control": {
+      "numpy_max_absolute_errors": {
+        "comm": 4.854594584102756e-07,
+        "sense": 7.653564182419359e-07,
+        "objective": 5.900692210403236e-07
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "B/Fluid_budget180": {
+      "numpy_max_absolute_errors": {
+        "comm": 6.128327925125632e-07,
+        "sense": 8.534884079480776e-07,
+        "objective": 8.306127661228402e-07
+      },
+      "max_residual": 1.430511474609375e-06,
+      "scenarios": 100
+    },
+    "B/LearnedSchedule_seed202": {
+      "numpy_max_absolute_errors": {
+        "comm": 5.394667823566124e-07,
+        "sense": 7.788030709221516e-07,
+        "objective": 5.484591660831484e-07
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "B/LearnedSchedule_seed303": {
+      "numpy_max_absolute_errors": {
+        "comm": 5.603908443951866e-07,
+        "sense": 7.088710471947479e-07,
+        "objective": 5.899238342266244e-07
+      },
+      "max_residual": 1.430511474609375e-06,
+      "scenarios": 100
+    },
+    "B/LearnedSchedule_seed101": {
+      "numpy_max_absolute_errors": {
+        "comm": 4.988851545206785e-07,
+        "sense": 8.360498098269886e-07,
+        "objective": 5.298544136778105e-07
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "B/LearnedConstant_seed303": {
+      "numpy_max_absolute_errors": {
+        "comm": 5.779235516811809e-07,
+        "sense": 7.791925549227585e-07,
+        "objective": 5.630137200896002e-07
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "B/ULA_budget180": {
+      "numpy_max_absolute_errors": {
+        "comm": 5.224909132017785e-07,
+        "sense": 7.436531777038624e-07,
+        "objective": 5.391462725157226e-07
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "B/Random_budget180": {
+      "numpy_max_absolute_errors": {
+        "comm": 5.073847590963965e-07,
+        "sense": 8.592846558741485e-07,
+        "objective": 5.640740141643619e-07
+      },
+      "max_residual": 7.152557373046875e-07,
+      "scenarios": 100
+    },
+    "B/LearnedConstant_seed101": {
+      "numpy_max_absolute_errors": {
+        "comm": 5.742751172377325e-07,
+        "sense": 8.042139656438962e-07,
+        "objective": 5.596268630725376e-07
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "B/StaticRandom_budget180": {
+      "numpy_max_absolute_errors": {
+        "comm": 4.6350815408047197e-07,
+        "sense": 7.0747230118684e-07,
+        "objective": 5.472054960264927e-07
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "B/ULA_budget360": {
+      "numpy_max_absolute_errors": {
+        "comm": 5.483204437162215e-07,
+        "sense": 8.507460087514573e-07,
+        "objective": 5.641306963788395e-07
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "B/StaticRandom_budget60": {
+      "numpy_max_absolute_errors": {
+        "comm": 5.356192405159277e-07,
+        "sense": 7.200808900265088e-07,
+        "objective": 6.241763204073436e-07
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "B/Fluid_budget360": {
+      "numpy_max_absolute_errors": {
+        "comm": 5.241111931120201e-07,
+        "sense": 8.498917374311077e-07,
+        "objective": 5.979474053674494e-07
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "B/Random_budget60": {
+      "numpy_max_absolute_errors": {
+        "comm": 6.330531290288377e-07,
+        "sense": 7.373490840123509e-07,
+        "objective": 6.602581912318328e-07
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "B/ULA_retuned_budget180": {
+      "numpy_max_absolute_errors": {
+        "comm": 5.275333654353176e-07,
+        "sense": 9.338467763519986e-07,
+        "objective": 5.470943813534745e-07
+      },
+      "max_residual": 1.430511474609375e-06,
+      "scenarios": 100
+    },
+    "B/StaticRandom_budget360": {
+      "numpy_max_absolute_errors": {
+        "comm": 5.848791668761066e-07,
+        "sense": 7.779287685139025e-07,
+        "objective": 5.302918211214092e-07
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "B/ULA_retuned_budget360": {
+      "numpy_max_absolute_errors": {
+        "comm": 5.480025970783231e-07,
+        "sense": 7.160677331086163e-07,
+        "objective": 6.262053542371859e-07
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "B/ULA_budget60": {
+      "numpy_max_absolute_errors": {
+        "comm": 5.727605945082814e-07,
+        "sense": 7.206236327661486e-07,
+        "objective": 5.680303640787088e-07
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "C/Random_budget360": {
+      "numpy_max_absolute_errors": {
+        "comm": 5.543094228066536e-07,
+        "sense": 1.2361557297779768e-06,
+        "objective": 4.937912314595394e-07
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "C/LearnedConstant_seed202": {
+      "numpy_max_absolute_errors": {
+        "comm": 5.409311225612612e-07,
+        "sense": 1.1697782245079225e-06,
+        "objective": 6.085558035273664e-07
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "C/Plain_tuned_control": {
+      "numpy_max_absolute_errors": {
+        "comm": 5.409311225612612e-07,
+        "sense": 1.1697782245079225e-06,
+        "objective": 6.085558035273664e-07
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "C/Fluid_budget60": {
+      "numpy_max_absolute_errors": {
+        "comm": 5.409311225612612e-07,
+        "sense": 1.0682075801682345e-06,
+        "objective": 6.085558035273664e-07
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "C/ULA_runtime_match": {
+      "numpy_max_absolute_errors": {
+        "comm": 4.640883495277137e-07,
+        "sense": 1.199154987752138e-06,
+        "objective": 5.475454090131393e-07
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "C/Fluid_plain_learning_control": {
+      "numpy_max_absolute_errors": {
+        "comm": 5.409311225612612e-07,
+        "sense": 1.1697782245079225e-06,
+        "objective": 6.085558035273664e-07
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "C/Fluid_budget180": {
+      "numpy_max_absolute_errors": {
+        "comm": 4.744667196909802e-07,
+        "sense": 1.1404537958448202e-06,
+        "objective": 7.021137897744723e-07
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "C/LearnedSchedule_seed202": {
+      "numpy_max_absolute_errors": {
+        "comm": 5.160099099121851e-07,
+        "sense": 9.450196505333963e-07,
+        "objective": 4.5605963494566026e-07
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "C/LearnedSchedule_seed303": {
+      "numpy_max_absolute_errors": {
+        "comm": 5.409311225612612e-07,
+        "sense": 1.1697782245079225e-06,
+        "objective": 6.085558035273664e-07
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "C/LearnedSchedule_seed101": {
+      "numpy_max_absolute_errors": {
+        "comm": 5.409311225612612e-07,
+        "sense": 1.1697782245079225e-06,
+        "objective": 6.085558035273664e-07
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "C/LearnedConstant_seed303": {
+      "numpy_max_absolute_errors": {
+        "comm": 5.409311225612612e-07,
+        "sense": 1.1697782245079225e-06,
+        "objective": 6.085558035273664e-07
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "C/ULA_budget180": {
+      "numpy_max_absolute_errors": {
+        "comm": 4.904347616907501e-07,
+        "sense": 9.020164641881934e-07,
+        "objective": 5.40920574998438e-07
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "C/Random_budget180": {
+      "numpy_max_absolute_errors": {
+        "comm": 5.127103710478309e-07,
+        "sense": 1.375990471341737e-06,
+        "objective": 6.601407545048232e-07
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "C/LearnedConstant_seed101": {
+      "numpy_max_absolute_errors": {
+        "comm": 5.228089352549148e-07,
+        "sense": 9.477708731164824e-07,
+        "objective": 5.546797967603823e-07
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "C/StaticRandom_budget180": {
+      "numpy_max_absolute_errors": {
+        "comm": 5.764196324697934e-07,
+        "sense": 1.2525644623728738e-06,
+        "objective": 5.197175645399454e-07
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "C/ULA_budget360": {
+      "numpy_max_absolute_errors": {
+        "comm": 5.293446729837115e-07,
+        "sense": 9.407237553382686e-07,
+        "objective": 5.408429939457449e-07
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "C/StaticRandom_budget60": {
+      "numpy_max_absolute_errors": {
+        "comm": 4.719572346267853e-07,
+        "sense": 9.397851266079726e-07,
+        "objective": 5.403780733992392e-07
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "C/Fluid_budget360": {
+      "numpy_max_absolute_errors": {
+        "comm": 4.598664116173268e-07,
+        "sense": 1.3124388784646612e-06,
+        "objective": 5.231105220104837e-07
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "C/Random_budget60": {
+      "numpy_max_absolute_errors": {
+        "comm": 4.565317750504505e-07,
+        "sense": 1.1235320096503187e-06,
+        "objective": 5.207472248969225e-07
+      },
+      "max_residual": 1.430511474609375e-06,
+      "scenarios": 100
+    },
+    "C/ULA_retuned_budget180": {
+      "numpy_max_absolute_errors": {
+        "comm": 5.229719999277904e-07,
+        "sense": 1.0636653202666935e-06,
+        "objective": 5.181914572993662e-07
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "C/StaticRandom_budget360": {
+      "numpy_max_absolute_errors": {
+        "comm": 4.771682742266137e-07,
+        "sense": 1.3555540037124558e-06,
+        "objective": 6.352926549269e-07
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "C/ULA_retuned_budget360": {
+      "numpy_max_absolute_errors": {
+        "comm": 4.552534540458453e-07,
+        "sense": 1.0686231242118538e-06,
+        "objective": 5.451525262323287e-07
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "C/ULA_budget60": {
+      "numpy_max_absolute_errors": {
+        "comm": 5.24721574635123e-07,
+        "sense": 1.1429310520227887e-06,
+        "objective": 6.495220166158333e-07
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    }
+  },
+  "final_source_full_design_replay": {
+    "A/Random_budget360": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "A/LearnedConstant_seed202": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "A/Plain_tuned_control": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "A/Fluid_budget60": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "A/ULA_runtime_match": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "A/Fluid_plain_learning_control": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "A/Fluid_budget180": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "A/LearnedSchedule_seed202": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "A/LearnedSchedule_seed303": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "A/LearnedSchedule_seed101": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "A/LearnedConstant_seed303": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "A/ULA_budget180": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "A/Analytic_ULA_control": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "A/Random_budget180": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "A/LearnedConstant_seed101": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "A/StaticRandom_budget180": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "A/ULA_budget360": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "A/StaticRandom_budget60": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "A/Fluid_budget360": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "A/Random_budget60": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "A/ULA_retuned_budget180": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "A/StaticRandom_budget360": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "A/ULA_retuned_budget360": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "A/ULA_budget60": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "B/Random_budget360": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "B/LearnedConstant_seed202": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "B/Plain_tuned_control": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "B/Fluid_budget60": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "B/ULA_runtime_match": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "B/Fluid_plain_learning_control": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "B/Fluid_budget180": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "B/LearnedSchedule_seed202": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "B/LearnedSchedule_seed303": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "B/LearnedSchedule_seed101": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "B/LearnedConstant_seed303": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "B/ULA_budget180": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "B/Random_budget180": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "B/LearnedConstant_seed101": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "B/StaticRandom_budget180": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "B/ULA_budget360": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "B/StaticRandom_budget60": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "B/Fluid_budget360": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "B/Random_budget60": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "B/ULA_retuned_budget180": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "B/StaticRandom_budget360": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "B/ULA_retuned_budget360": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "B/ULA_budget60": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "C/Random_budget360": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "C/LearnedConstant_seed202": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "C/Plain_tuned_control": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "C/Fluid_budget60": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "C/ULA_runtime_match": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "C/Fluid_plain_learning_control": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "C/Fluid_budget180": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "C/LearnedSchedule_seed202": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "C/LearnedSchedule_seed303": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "C/LearnedSchedule_seed101": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "C/LearnedConstant_seed303": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "C/ULA_budget180": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "C/Random_budget180": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "C/LearnedConstant_seed101": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "C/StaticRandom_budget180": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "C/ULA_budget360": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "C/StaticRandom_budget60": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "C/Fluid_budget360": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "C/Random_budget60": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "C/ULA_retuned_budget180": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "C/StaticRandom_budget360": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "C/ULA_retuned_budget360": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    },
+    "C/ULA_budget60": {
+      "positions": 0.0,
+      "dh": 0.0,
+      "dt": 0.0,
+      "dr": 0.0,
+      "a": 0.0,
+      "d": 0.0,
+      "w": 0.0
+    }
+  },
+  "max_feasibility_residual": 1.430511474609375e-06,
+  "numerical_failures": 0,
+  "data_sha256": "5b6caa85a9085f5f5a531feb3c5af7490d39fbb27da4df8a4c846eb20adbe2e8",
+  "scope": "Independent signal-equation check of newly executed fluid workflow; no author-code/global worst-case certification"
+}

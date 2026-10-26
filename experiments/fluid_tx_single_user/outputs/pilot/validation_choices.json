@@ -1,0 +1,467 @@
+{
+  "cases": {
+    "A": {
+      "ula": {
+        "selected": {
+          "inner": 0.2,
+          "outer": 0.001,
+          "utility": 3.588361978530884
+        },
+        "grid": [
+          {
+            "inner": 0.01,
+            "outer": 0.001,
+            "utility": 3.5883569717407227
+          },
+          {
+            "inner": 0.01,
+            "outer": 0.005,
+            "utility": 3.578369617462158
+          },
+          {
+            "inner": 0.01,
+            "outer": 0.02,
+            "utility": 3.558448553085327
+          },
+          {
+            "inner": 0.05,
+            "outer": 0.001,
+            "utility": 3.5883607864379883
+          },
+          {
+            "inner": 0.05,
+            "outer": 0.005,
+            "utility": 3.5784544944763184
+          },
+          {
+            "inner": 0.05,
+            "outer": 0.02,
+            "utility": 3.5588865280151367
+          },
+          {
+            "inner": 0.2,
+            "outer": 0.001,
+            "utility": 3.588361978530884
+          },
+          {
+            "inner": 0.2,
+            "outer": 0.005,
+            "utility": 3.5784926414489746
+          },
+          {
+            "inner": 0.2,
+            "outer": 0.02,
+            "utility": 3.5590405464172363
+          }
+        ]
+      },
+      "random": {
+        "selected": {
+          "inner": 0.2,
+          "outer": 0.001,
+          "utility": 3.5883090496063232
+        },
+        "grid": [
+          {
+            "inner": 0.01,
+            "outer": 0.001,
+            "utility": 3.588303565979004
+          },
+          {
+            "inner": 0.01,
+            "outer": 0.005,
+            "utility": 3.5777111053466797
+          },
+          {
+            "inner": 0.01,
+            "outer": 0.02,
+            "utility": 3.5568249225616455
+          },
+          {
+            "inner": 0.05,
+            "outer": 0.001,
+            "utility": 3.588308095932007
+          },
+          {
+            "inner": 0.05,
+            "outer": 0.005,
+            "utility": 3.5778002738952637
+          },
+          {
+            "inner": 0.05,
+            "outer": 0.02,
+            "utility": 3.5572757720947266
+          },
+          {
+            "inner": 0.2,
+            "outer": 0.001,
+            "utility": 3.5883090496063232
+          },
+          {
+            "inner": 0.2,
+            "outer": 0.005,
+            "utility": 3.5778400897979736
+          },
+          {
+            "inner": 0.2,
+            "outer": 0.02,
+            "utility": 3.557433605194092
+          }
+        ]
+      },
+      "position": {
+        "selected": {
+          "step": 0.08,
+          "utility": 3.5887153148651123
+        },
+        "grid": [
+          {
+            "step": 0.005,
+            "utility": 3.588477373123169
+          },
+          {
+            "step": 0.02,
+            "utility": 3.5886178016662598
+          },
+          {
+            "step": 0.08,
+            "utility": 3.5887153148651123
+          }
+        ]
+      }
+    },
+    "B": {
+      "ula": {
+        "selected": {
+          "inner": 0.05,
+          "outer": 0.005,
+          "utility": 2.929682731628418
+        },
+        "grid": [
+          {
+            "inner": 0.01,
+            "outer": 0.001,
+            "utility": 2.8844752311706543
+          },
+          {
+            "inner": 0.01,
+            "outer": 0.005,
+            "utility": 2.9294955730438232
+          },
+          {
+            "inner": 0.01,
+            "outer": 0.02,
+            "utility": 2.9003376960754395
+          },
+          {
+            "inner": 0.05,
+            "outer": 0.001,
+            "utility": 2.8838963508605957
+          },
+          {
+            "inner": 0.05,
+            "outer": 0.005,
+            "utility": 2.929682731628418
+          },
+          {
+            "inner": 0.05,
+            "outer": 0.02,
+            "utility": 2.9034476280212402
+          },
+          {
+            "inner": 0.2,
+            "outer": 0.001,
+            "utility": 2.883451461791992
+          },
+          {
+            "inner": 0.2,
+            "outer": 0.005,
+            "utility": 2.9295759201049805
+          },
+          {
+            "inner": 0.2,
+            "outer": 0.02,
+            "utility": 2.903289556503296
+          }
+        ]
+      },
+      "random": {
+        "selected": {
+          "inner": 0.05,
+          "outer": 0.005,
+          "utility": 2.9608306884765625
+        },
+        "grid": [
+          {
+            "inner": 0.01,
+            "outer": 0.001,
+            "utility": 2.9087185859680176
+          },
+          {
+            "inner": 0.01,
+            "outer": 0.005,
+            "utility": 2.9607977867126465
+          },
+          {
+            "inner": 0.01,
+            "outer": 0.02,
+            "utility": 2.9373860359191895
+          },
+          {
+            "inner": 0.05,
+            "outer": 0.001,
+            "utility": 2.908078670501709
+          },
+          {
+            "inner": 0.05,
+            "outer": 0.005,
+            "utility": 2.9608306884765625
+          },
+          {
+            "inner": 0.05,
+            "outer": 0.02,
+            "utility": 2.9391539096832275
+          },
+          {
+            "inner": 0.2,
+            "outer": 0.001,
+            "utility": 2.9074881076812744
+          },
+          {
+            "inner": 0.2,
+            "outer": 0.005,
+            "utility": 2.96063232421875
+          },
+          {
+            "inner": 0.2,
+            "outer": 0.02,
+            "utility": 2.9392385482788086
+          }
+        ]
+      },
+      "position": {
+        "selected": {
+          "step": 0.08,
+          "utility": 3.1928582191467285
+        },
+        "grid": [
+          {
+            "step": 0.005,
+            "utility": 3.0621497631073
+          },
+          {
+            "step": 0.02,
+            "utility": 3.151925802230835
+          },
+          {
+            "step": 0.08,
+            "utility": 3.1928582191467285
+          }
+        ]
+      }
+    },
+    "C": {
+      "ula": {
+        "selected": {
+          "inner": 0.01,
+          "outer": 0.02,
+          "utility": 2.580061197280884
+        },
+        "grid": [
+          {
+            "inner": 0.01,
+            "outer": 0.001,
+            "utility": 2.4464633464813232
+          },
+          {
+            "inner": 0.01,
+            "outer": 0.005,
+            "utility": 2.5220961570739746
+          },
+          {
+            "inner": 0.01,
+            "outer": 0.02,
+            "utility": 2.580061197280884
+          },
+          {
+            "inner": 0.05,
+            "outer": 0.001,
+            "utility": 2.445211172103882
+          },
+          {
+            "inner": 0.05,
+            "outer": 0.005,
+            "utility": 2.5187132358551025
+          },
+          {
+            "inner": 0.05,
+            "outer": 0.02,
+            "utility": 2.5772178173065186
+          },
+          {
+            "inner": 0.2,
+            "outer": 0.001,
+            "utility": 2.444733142852783
+          },
+          {
+            "inner": 0.2,
+            "outer": 0.005,
+            "utility": 2.5190792083740234
+          },
+          {
+            "inner": 0.2,
+            "outer": 0.02,
+            "utility": 2.575864315032959
+          }
+        ]
+      },
+      "random": {
+        "selected": {
+          "inner": 0.01,
+          "outer": 0.02,
+          "utility": 2.596534013748169
+        },
+        "grid": [
+          {
+            "inner": 0.01,
+            "outer": 0.001,
+            "utility": 2.442903757095337
+          },
+          {
+            "inner": 0.01,
+            "outer": 0.005,
+            "utility": 2.5270028114318848
+          },
+          {
+            "inner": 0.01,
+            "outer": 0.02,
+            "utility": 2.596534013748169
+          },
+          {
+            "inner": 0.05,
+            "outer": 0.001,
+            "utility": 2.441272020339966
+          },
+          {
+            "inner": 0.05,
+            "outer": 0.005,
+            "utility": 2.523346185684204
+          },
+          {
+            "inner": 0.05,
+            "outer": 0.02,
+            "utility": 2.5895678997039795
+          },
+          {
+            "inner": 0.2,
+            "outer": 0.001,
+            "utility": 2.4405455589294434
+          },
+          {
+            "inner": 0.2,
+            "outer": 0.005,
+            "utility": 2.5223069190979004
+          },
+          {
+            "inner": 0.2,
+            "outer": 0.02,
+            "utility": 2.5875940322875977
+          }
+        ]
+      },
+      "position": {
+        "selected": {
+          "step": 0.08,
+          "utility": 2.8834428787231445
+        },
+        "grid": [
+          {
+            "step": 0.005,
+            "utility": 2.7319700717926025
+          },
+          {
+            "step": 0.02,
+            "utility": 2.8277595043182373
+          },
+          {
+            "step": 0.08,
+            "utility": 2.8834428787231445
+          }
+        ]
+      }
+    }
+  },
+  "selection_split": "validation only",
+  "test_used": false,
+  "frozen_utc": "2026-10-26T15:35:58.337794+00:00",
+  "spec": {
+    "nt": 8,
+    "nr": 8,
+    "rf_chains": 4,
+    "wavelength_m": 0.01,
+    "aperture_wavelengths": 3.5,
+    "min_spacing_wavelengths": 0.25,
+    "ula_spacing_wavelengths": 0.5,
+    "rho": 0.8,
+    "snr_db": 5.0,
+    "epsilon": 0.05,
+    "clutter_case_c": 1,
+    "communication_paths": 4,
+    "train_scenarios_per_case": 64,
+    "validation_scenarios_per_case": 32,
+    "test_scenarios_per_case": 100,
+    "split_seeds": {
+      "train": 906101,
+      "validation": 906102,
+      "test": 906103
+    },
+    "initialization_seed": 907100,
+    "derivative_budgets": [
+      60,
+      180,
+      360
+    ],
+    "inner_step_grid": [
+      0.01,
+      0.05,
+      0.2
+    ],
+    "outer_step_grid": [
+      0.001,
+      0.005,
+      0.02
+    ],
+    "position_step_grid": [
+      0.005,
+      0.02,
+      0.08
+    ],
+    "tuning_iterations": 30,
+    "position_backtracks": 6,
+    "position_armijo": 0.0001,
+    "validation_attack_steps": 50,
+    "test_attack_budgets": [
+      50,
+      200,
+      1000
+    ],
+    "attack_random_restarts": 5,
+    "attack_adam_steps": 50,
+    "attack_step": 0.2,
+    "timing_repeats": 15,
+    "timing_warmup": 3,
+    "learning_seeds": [
+      101,
+      202,
+      303
+    ],
+    "learning_layers": 20,
+    "learning_epochs": 4,
+    "learning_batch_size": 32,
+    "learning_lr": 0.0002,
+    "learning_position_bounds": [
+      1e-05,
+      0.2
+    ]
+  }
+}

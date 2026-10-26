@@ -1,0 +1,376 @@
+{
+  "cases": {
+    "A": {
+      "Fluid_budget12": {
+        "median_ms": 10.097202495671809,
+        "p95_ms": 10.154929841519333,
+        "samples_ms": [
+          10.03306100028567,
+          10.161343991057947
+        ],
+        "scenario_indices": [
+          0,
+          1
+        ]
+      },
+      "ULA_runtime_match": {
+        "median_ms": 39.00677149067633,
+        "p95_ms": 40.663050932926126,
+        "samples_ms": [
+          40.84708198206499,
+          37.166460999287665
+        ],
+        "scenario_indices": [
+          0,
+          1
+        ]
+      },
+      "Fluid_plain_learning_control": {
+        "median_ms": 3.8456495094578713,
+        "p95_ms": 3.8536986510735005,
+        "samples_ms": [
+          3.836706018773839,
+          3.8545930001419038
+        ],
+        "scenario_indices": [
+          0,
+          1
+        ]
+      },
+      "Fluid_budget6": {
+        "median_ms": 4.751625980134122,
+        "p95_ms": 4.792457177245524,
+        "samples_ms": [
+          4.796993976924568,
+          4.706257983343676
+        ],
+        "scenario_indices": [
+          0,
+          1
+        ]
+      },
+      "Random_budget12": {
+        "median_ms": 7.511142990551889,
+        "p95_ms": 7.895532093243673,
+        "samples_ms": [
+          7.084043987561017,
+          7.938241993542761
+        ],
+        "scenario_indices": [
+          0,
+          1
+        ]
+      },
+      "ULA_budget6": {
+        "median_ms": 3.670219492050819,
+        "p95_ms": 3.8341900406521745,
+        "samples_ms": [
+          3.4880299936048687,
+          3.8524089904967695
+        ],
+        "scenario_indices": [
+          0,
+          1
+        ]
+      },
+      "ULA_budget12": {
+        "median_ms": 7.314941001823172,
+        "p95_ms": 7.510770208318718,
+        "samples_ms": [
+          7.097352994605899,
+          7.532529009040445
+        ],
+        "scenario_indices": [
+          0,
+          1
+        ]
+      },
+      "ULA_retuned_budget180": {
+        "median_ms": 122.39598849555477,
+        "p95_ms": 132.35074044787325,
+        "samples_ms": [
+          111.33515299297869,
+          133.45682399813086
+        ],
+        "scenario_indices": [
+          0,
+          1
+        ]
+      },
+      "ULA_retuned_budget360": {
+        "median_ms": 283.6706820089603,
+        "p95_ms": 311.32725721545285,
+        "samples_ms": [
+          252.94115400174633,
+          314.40021001617424
+        ],
+        "scenario_indices": [
+          0,
+          1
+        ]
+      },
+      "Random_budget6": {
+        "median_ms": 4.882840003119782,
+        "p95_ms": 5.020184506429359,
+        "samples_ms": [
+          5.03544500679709,
+          4.730234999442473
+        ],
+        "scenario_indices": [
+          0,
+          1
+        ]
+      }
+    },
+    "B": {
+      "Fluid_budget12": {
+        "median_ms": 10.563906995230354,
+        "p95_ms": 10.864181198121514,
+        "samples_ms": [
+          10.897544998442754,
+          10.230268992017955
+        ],
+        "scenario_indices": [
+          0,
+          1
+        ]
+      },
+      "ULA_runtime_match": {
+        "median_ms": 42.78914000315126,
+        "p95_ms": 44.05986259953352,
+        "samples_ms": [
+          41.377226007170975,
+          44.201053999131545
+        ],
+        "scenario_indices": [
+          0,
+          1
+        ]
+      },
+      "Fluid_plain_learning_control": {
+        "median_ms": 3.561751509550959,
+        "p95_ms": 3.5713513556402177,
+        "samples_ms": [
+          3.551085013896227,
+          3.572418005205691
+        ],
+        "scenario_indices": [
+          0,
+          1
+        ]
+      },
+      "Fluid_budget6": {
+        "median_ms": 5.174354009795934,
+        "p95_ms": 5.245706008281559,
+        "samples_ms": [
+          5.095074011478573,
+          5.253634008113295
+        ],
+        "scenario_indices": [
+          0,
+          1
+        ]
+      },
+      "Random_budget12": {
+        "median_ms": 8.569860496209003,
+        "p95_ms": 8.810690137033816,
+        "samples_ms": [
+          8.837448986014351,
+          8.302272006403655
+        ],
+        "scenario_indices": [
+          0,
+          1
+        ]
+      },
+      "ULA_budget6": {
+        "median_ms": 4.471844498766586,
+        "p95_ms": 4.564503557048738,
+        "samples_ms": [
+          4.574799007968977,
+          4.368889989564195
+        ],
+        "scenario_indices": [
+          0,
+          1
+        ]
+      },
+      "ULA_budget12": {
+        "median_ms": 9.13486750505399,
+        "p95_ms": 9.257416443142574,
+        "samples_ms": [
+          8.998702018288895,
+          9.271032991819084
+        ],
+        "scenario_indices": [
+          0,
+          1
+        ]
+      },
+      "ULA_retuned_budget180": {
+        "median_ms": 131.13117750617675,
+        "p95_ms": 139.17741916666273,
+        "samples_ms": [
+          122.19090899452567,
+          140.07144601782784
+        ],
+        "scenario_indices": [
+          0,
+          1
+        ]
+      },
+      "ULA_retuned_budget360": {
+        "median_ms": 288.6781754932599,
+        "p95_ms": 306.9679120366345,
+        "samples_ms": [
+          268.35624600062147,
+          309.00010498589836
+        ],
+        "scenario_indices": [
+          0,
+          1
+        ]
+      },
+      "Random_budget6": {
+        "median_ms": 3.638953494373709,
+        "p95_ms": 3.773206044570543,
+        "samples_ms": [
+          3.7881229945924133,
+          3.4897839941550046
+        ],
+        "scenario_indices": [
+          0,
+          1
+        ]
+      }
+    },
+    "C": {
+      "Fluid_budget12": {
+        "median_ms": 12.653203986701556,
+        "p95_ms": 14.24972838285612,
+        "samples_ms": [
+          10.879287990974262,
+          14.427119982428849
+        ],
+        "scenario_indices": [
+          0,
+          1
+        ]
+      },
+      "ULA_runtime_match": {
+        "median_ms": 39.702429494354874,
+        "p95_ms": 40.401838859543204,
+        "samples_ms": [
+          38.92530797747895,
+          40.4795510112308
+        ],
+        "scenario_indices": [
+          0,
+          1
+        ]
+      },
+      "Fluid_plain_learning_control": {
+        "median_ms": 4.6646749979117885,
+        "p95_ms": 4.896558214386459,
+        "samples_ms": [
+          4.407026979606599,
+          4.922323016216978
+        ],
+        "scenario_indices": [
+          0,
+          1
+        ]
+      },
+      "Fluid_budget6": {
+        "median_ms": 5.388286997913383,
+        "p95_ms": 5.8730828008265235,
+        "samples_ms": [
+          4.84962499467656,
+          5.926949001150206
+        ],
+        "scenario_indices": [
+          0,
+          1
+        ]
+      },
+      "Random_budget12": {
+        "median_ms": 7.814140000846237,
+        "p95_ms": 8.367416803957894,
+        "samples_ms": [
+          8.428892004303634,
+          7.19938799738884
+        ],
+        "scenario_indices": [
+          0,
+          1
+        ]
+      },
+      "ULA_budget6": {
+        "median_ms": 3.9172929973574355,
+        "p95_ms": 3.9296013899729587,
+        "samples_ms": [
+          3.9309689891524613,
+          3.9036170055624098
+        ],
+        "scenario_indices": [
+          0,
+          1
+        ]
+      },
+      "ULA_budget12": {
+        "median_ms": 8.053365992964245,
+        "p95_ms": 8.687823689251672,
+        "samples_ms": [
+          7.348412997089326,
+          8.758318988839164
+        ],
+        "scenario_indices": [
+          0,
+          1
+        ]
+      },
+      "ULA_retuned_budget180": {
+        "median_ms": 136.33236751775257,
+        "p95_ms": 150.9224560664734,
+        "samples_ms": [
+          152.54357701633126,
+          120.12115801917389
+        ],
+        "scenario_indices": [
+          0,
+          1
+        ]
+      },
+      "ULA_retuned_budget360": {
+        "median_ms": 241.47378698398825,
+        "p95_ms": 242.92447538027773,
+        "samples_ms": [
+          243.08566297986545,
+          239.86191098811105
+        ],
+        "scenario_indices": [
+          0,
+          1
+        ]
+      },
+      "Random_budget6": {
+        "median_ms": 3.945285003283061,
+        "p95_ms": 4.0446468206937425,
+        "samples_ms": [
+          4.055687022628263,
+          3.8348829839378595
+        ],
+        "scenario_indices": [
+          0,
+          1
+        ]
+      }
+    }
+  },
+  "batch_size": 1,
+  "precision": "complex64/float32",
+  "threads": 1,
+  "warmups": 1,
+  "timed_scenarios_per_method": 2,
+  "scope": "Warm computation on paired first15 test scenarios, includes field reconstruction/PAV/backtracking; independent attacks and initialization excluded; no physical movement/RF/CSI timing"
+}

@@ -1,0 +1,12 @@
+{
+  "python": "3.12.14",
+  "torch": "2.14.1+cpu",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "cpu": "AMD EPYC 9V74 80-Core Processor",
+  "cpu_quota": "200000 100000",
+  "threads": 1,
+  "cuda_available": false,
+  "coordinates": "x=p/lambda in wavelengths; physical wavelength 0.01 meters",
+  "precision": "complex64/float32 experiments; complex128/float64 checks"
+}

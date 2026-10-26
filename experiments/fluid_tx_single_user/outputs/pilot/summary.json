@@ -1,0 +1,6487 @@
+{
+  "cases": {
+    "A": {
+      "Analytic_ULA_control": {
+        "nominal": {
+          "comm": 3.269500970840454,
+          "sense": 5.155276298522949,
+          "objective": 3.6466565132141113
+        },
+        "terminal": {
+          "comm": 3.269500970840454,
+          "sense": 5.155276298522949,
+          "objective": 3.6466565132141113
+        },
+        "shared_union": {
+          "comm": 3.1710143089294434,
+          "sense": 4.954744815826416,
+          "objective": 3.5277602672576904
+        },
+        "budgets": {
+          "50": {
+            "comm": 3.1710143089294434,
+            "sense": 4.954744815826416,
+            "objective": 3.5277602672576904
+          },
+          "200": {
+            "comm": 3.1710143089294434,
+            "sense": 4.954744815826416,
+            "objective": 3.5277602672576904
+          },
+          "1000": {
+            "comm": 3.1710143089294434,
+            "sense": 4.954744815826416,
+            "objective": 3.5277602672576904
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 0,
+          "position_projections": 0,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 1
+        },
+        "iterations": 0,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 4.76837158203125e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 0.0,
+          "dt_violation": 0.0,
+          "dr_violation": 0.0,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.0,
+        "attack_seconds": 3.5413641249760985,
+        "timing": null,
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "Fluid_budget180": {
+        "nominal": {
+          "comm": 3.2677526473999023,
+          "sense": 5.153496265411377,
+          "objective": 3.644901752471924
+        },
+        "terminal": {
+          "comm": 3.1691815853118896,
+          "sense": 4.952877044677734,
+          "objective": 3.5259206295013428
+        },
+        "shared_union": {
+          "comm": 3.1691808700561523,
+          "sense": 4.952876567840576,
+          "objective": 3.5259203910827637
+        },
+        "budgets": {
+          "50": {
+            "comm": 3.1691808700561523,
+            "sense": 4.952876567840576,
+            "objective": 3.5259203910827637
+          },
+          "200": {
+            "comm": 3.1691808700561523,
+            "sense": 4.952876567840576,
+            "objective": 3.5259203910827637
+          },
+          "1000": {
+            "comm": 3.1691808700561523,
+            "sense": 4.952876567840576,
+            "objective": 3.5259203910827637
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 180,
+          "position_projections": 60,
+          "position_metric_evaluations": 120,
+          "field_reconstructions": 300
+        },
+        "iterations": 60,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 9.5367431640625e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": 0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.4576640139857773,
+        "attack_seconds": 3.463857750000898,
+        "timing": {
+          "median_ms": 163.93302899086848,
+          "p95_ms": 174.93406881112605,
+          "samples_ms": [
+            141.93559798877686,
+            141.002029995434,
+            141.9311309873592,
+            142.83059400622733,
+            140.04709999426268,
+            163.58804897754453,
+            173.44459300511517,
+            165.89095199014992,
+            173.50654501933604,
+            169.9723660130985,
+            163.93302899086848,
+            172.21429699566215,
+            178.01914102165028,
+            173.61189500661567,
+            153.816061996622
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "Fluid_budget360": {
+        "nominal": {
+          "comm": 3.2646093368530273,
+          "sense": 5.150297164916992,
+          "objective": 3.6417465209960938
+        },
+        "terminal": {
+          "comm": 3.1658859252929688,
+          "sense": 4.949519634246826,
+          "objective": 3.5226123332977295
+        },
+        "shared_union": {
+          "comm": 3.1658849716186523,
+          "sense": 4.949519634246826,
+          "objective": 3.5226123332977295
+        },
+        "budgets": {
+          "50": {
+            "comm": 3.1658849716186523,
+            "sense": 4.949519634246826,
+            "objective": 3.5226123332977295
+          },
+          "200": {
+            "comm": 3.1658849716186523,
+            "sense": 4.949519634246826,
+            "objective": 3.5226123332977295
+          },
+          "1000": {
+            "comm": 3.1658849716186523,
+            "sense": 4.949519634246826,
+            "objective": 3.5226123332977295
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 360,
+          "position_projections": 120,
+          "position_metric_evaluations": 240,
+          "field_reconstructions": 600
+        },
+        "iterations": 120,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 7.152557373046875e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 2.9802322387695312e-08,
+          "left_violation": 0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.9656883110001218,
+        "attack_seconds": 3.731909218011424,
+        "timing": {
+          "median_ms": 295.89180400944315,
+          "p95_ms": 303.88728720427025,
+          "samples_ms": [
+            294.161683996208,
+            295.89180400944315,
+            290.98014600458555,
+            289.77101200143807,
+            293.602268997347,
+            289.1745030065067,
+            298.6118489934597,
+            287.9044479923323,
+            291.2946110009216,
+            308.36206799722277,
+            299.96206701616757,
+            297.4321310175583,
+            301.9695240072906,
+            300.269239989575,
+            295.94827198889107
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "Fluid_budget60": {
+        "nominal": {
+          "comm": 3.269235610961914,
+          "sense": 5.155005931854248,
+          "objective": 3.6463897228240967
+        },
+        "terminal": {
+          "comm": 3.170736074447632,
+          "sense": 4.954461574554443,
+          "objective": 3.5274813175201416
+        },
+        "shared_union": {
+          "comm": 3.1707353591918945,
+          "sense": 4.954460620880127,
+          "objective": 3.5274808406829834
+        },
+        "budgets": {
+          "50": {
+            "comm": 3.1707353591918945,
+            "sense": 4.954460620880127,
+            "objective": 3.5274808406829834
+          },
+          "200": {
+            "comm": 3.1707353591918945,
+            "sense": 4.954460620880127,
+            "objective": 3.5274808406829834
+          },
+          "1000": {
+            "comm": 3.1707353591918945,
+            "sense": 4.954460620880127,
+            "objective": 3.5274808406829834
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 60,
+          "position_projections": 20,
+          "position_metric_evaluations": 40,
+          "field_reconstructions": 100
+        },
+        "iterations": 20,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 1.430511474609375e-06,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": 0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.15574431800632738,
+        "attack_seconds": 3.4643107779847924,
+        "timing": {
+          "median_ms": 49.15343099855818,
+          "p95_ms": 51.452464290196076,
+          "samples_ms": [
+            48.15605201292783,
+            47.61935299029574,
+            47.94162799953483,
+            51.037608995102346,
+            48.37281900108792,
+            48.55593599495478,
+            50.59233700740151,
+            49.47574299876578,
+            50.40738999377936,
+            49.15343099855818,
+            49.12528800196014,
+            50.21695501636714,
+            50.443866988644004,
+            52.42045997874811,
+            47.66660698805936
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "Fluid_plain_learning_control": {
+        "nominal": {
+          "comm": 3.269235610961914,
+          "sense": 5.155005931854248,
+          "objective": 3.6463897228240967
+        },
+        "terminal": {
+          "comm": 3.170736074447632,
+          "sense": 4.954461574554443,
+          "objective": 3.5274813175201416
+        },
+        "shared_union": {
+          "comm": 3.1707353591918945,
+          "sense": 4.954460620880127,
+          "objective": 3.5274808406829834
+        },
+        "budgets": {
+          "50": {
+            "comm": 3.1707353591918945,
+            "sense": 4.954460620880127,
+            "objective": 3.5274808406829834
+          },
+          "200": {
+            "comm": 3.1707353591918945,
+            "sense": 4.954460620880127,
+            "objective": 3.5274808406829834
+          },
+          "1000": {
+            "comm": 3.1707353591918945,
+            "sense": 4.954460620880127,
+            "objective": 3.5274808406829834
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 60,
+          "position_projections": 20,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 60
+        },
+        "iterations": 20,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 1.430511474609375e-06,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": 0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.15221509101684205,
+        "attack_seconds": 3.4679434960125946,
+        "timing": {
+          "median_ms": 38.214898988371715,
+          "p95_ms": 39.56662120472174,
+          "samples_ms": [
+            38.60724100377411,
+            37.95731099671684,
+            40.14857599395327,
+            36.65066999383271,
+            36.24469801434316,
+            38.235960993915796,
+            38.31361900665797,
+            39.3172120093368,
+            38.231783983064815,
+            37.63090897700749,
+            37.70235599949956,
+            37.10433401283808,
+            38.214898988371715,
+            38.611106981988996,
+            37.2224320017267
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "LearnedConstant_seed101": {
+        "nominal": {
+          "comm": 3.269240617752075,
+          "sense": 5.1550116539001465,
+          "objective": 3.646394729614258
+        },
+        "terminal": {
+          "comm": 3.170741319656372,
+          "sense": 4.954466342926025,
+          "objective": 3.527486562728882
+        },
+        "shared_union": {
+          "comm": 3.170741081237793,
+          "sense": 4.954465866088867,
+          "objective": 3.5274858474731445
+        },
+        "budgets": {
+          "50": {
+            "comm": 3.170741081237793,
+            "sense": 4.954465866088867,
+            "objective": 3.5274858474731445
+          },
+          "200": {
+            "comm": 3.170741081237793,
+            "sense": 4.954465866088867,
+            "objective": 3.5274858474731445
+          },
+          "1000": {
+            "comm": 3.170741081237793,
+            "sense": 4.954465866088867,
+            "objective": 3.5274858474731445
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 60,
+          "position_projections": 20,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 60
+        },
+        "iterations": 20,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 9.5367431640625e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 2.9802322387695312e-08,
+          "left_violation": 0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.14642423199256882,
+        "attack_seconds": 3.957884748990182,
+        "timing": {
+          "median_ms": 41.30564598017372,
+          "p95_ms": 46.821414303849444,
+          "samples_ms": [
+            36.59123499528505,
+            37.3126839986071,
+            41.30564598017372,
+            36.31139299250208,
+            43.18275599507615,
+            40.30537701328285,
+            44.91347700241022,
+            42.51757301972248,
+            51.27326800720766,
+            44.31059799389914,
+            42.36438201041892,
+            39.15975900599733,
+            41.552587994374335,
+            41.236560995457694,
+            38.629490009043366
+          ],
+          "scope": "Warm full model call, first15 paired test scenarios, one CPU thread, no concurrent training/attacks; no physical movement"
+        },
+        "selected_epoch": 4,
+        "learned_parameter_count": 1
+      },
+      "LearnedConstant_seed202": {
+        "nominal": {
+          "comm": 3.269240617752075,
+          "sense": 5.1550116539001465,
+          "objective": 3.646394729614258
+        },
+        "terminal": {
+          "comm": 3.170741319656372,
+          "sense": 4.954466342926025,
+          "objective": 3.527486562728882
+        },
+        "shared_union": {
+          "comm": 3.1707406044006348,
+          "sense": 4.954465866088867,
+          "objective": 3.5274858474731445
+        },
+        "budgets": {
+          "50": {
+            "comm": 3.1707406044006348,
+            "sense": 4.954465866088867,
+            "objective": 3.5274858474731445
+          },
+          "200": {
+            "comm": 3.1707406044006348,
+            "sense": 4.954465866088867,
+            "objective": 3.5274858474731445
+          },
+          "1000": {
+            "comm": 3.1707406044006348,
+            "sense": 4.954465866088867,
+            "objective": 3.5274858474731445
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 60,
+          "position_projections": 20,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 60
+        },
+        "iterations": 20,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 1.430511474609375e-06,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": 0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.13275968600646593,
+        "attack_seconds": 3.5304756950063165,
+        "timing": {
+          "median_ms": 47.70751899923198,
+          "p95_ms": 62.20007779775187,
+          "samples_ms": [
+            41.00617399672046,
+            41.324012010591105,
+            42.1183799917344,
+            39.15125600178726,
+            38.019667990738526,
+            41.84272501152009,
+            51.085633982438594,
+            53.7431109987665,
+            50.09951701504178,
+            47.70751899923198,
+            42.22701402613893,
+            56.4265190041624,
+            55.7255870080553,
+            60.19183699390851,
+            66.88597300671972
+          ],
+          "scope": "Warm full model call, first15 paired test scenarios, one CPU thread, no concurrent training/attacks; no physical movement"
+        },
+        "selected_epoch": 4,
+        "learned_parameter_count": 1
+      },
+      "LearnedConstant_seed303": {
+        "nominal": {
+          "comm": 3.269240617752075,
+          "sense": 5.1550116539001465,
+          "objective": 3.646394729614258
+        },
+        "terminal": {
+          "comm": 3.170741319656372,
+          "sense": 4.954466342926025,
+          "objective": 3.527486562728882
+        },
+        "shared_union": {
+          "comm": 3.170741081237793,
+          "sense": 4.954465866088867,
+          "objective": 3.5274856090545654
+        },
+        "budgets": {
+          "50": {
+            "comm": 3.170741081237793,
+            "sense": 4.954465866088867,
+            "objective": 3.5274856090545654
+          },
+          "200": {
+            "comm": 3.170741081237793,
+            "sense": 4.954465866088867,
+            "objective": 3.5274856090545654
+          },
+          "1000": {
+            "comm": 3.170741081237793,
+            "sense": 4.954465866088867,
+            "objective": 3.5274856090545654
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 60,
+          "position_projections": 20,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 60
+        },
+        "iterations": 20,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 9.5367431640625e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": 0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.1405179580033291,
+        "attack_seconds": 3.7955376650206745,
+        "timing": {
+          "median_ms": 38.625854009296745,
+          "p95_ms": 56.73824970435816,
+          "samples_ms": [
+            39.418518979800865,
+            40.61895998893306,
+            54.435246012872085,
+            62.11192498449236,
+            40.12364300433546,
+            35.489925008732826,
+            36.55625198734924,
+            36.280907021136954,
+            38.13282001647167,
+            38.625854009296745,
+            38.05448199273087,
+            38.33346298779361,
+            39.41498399944976,
+            38.998956995783374,
+            38.60045602777973
+          ],
+          "scope": "Warm full model call, first15 paired test scenarios, one CPU thread, no concurrent training/attacks; no physical movement"
+        },
+        "selected_epoch": 4,
+        "learned_parameter_count": 1
+      },
+      "LearnedSchedule_seed101": {
+        "nominal": {
+          "comm": 3.269240617752075,
+          "sense": 5.1550116539001465,
+          "objective": 3.646394729614258
+        },
+        "terminal": {
+          "comm": 3.170741319656372,
+          "sense": 4.954466342926025,
+          "objective": 3.527486562728882
+        },
+        "shared_union": {
+          "comm": 3.170741081237793,
+          "sense": 4.954465866088867,
+          "objective": 3.5274856090545654
+        },
+        "budgets": {
+          "50": {
+            "comm": 3.170741081237793,
+            "sense": 4.954465866088867,
+            "objective": 3.5274856090545654
+          },
+          "200": {
+            "comm": 3.170741081237793,
+            "sense": 4.954465866088867,
+            "objective": 3.5274856090545654
+          },
+          "1000": {
+            "comm": 3.170741081237793,
+            "sense": 4.954465866088867,
+            "objective": 3.5274856090545654
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 60,
+          "position_projections": 20,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 60
+        },
+        "iterations": 20,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 9.5367431640625e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": 0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.15194504699320532,
+        "attack_seconds": 4.386502238019602,
+        "timing": {
+          "median_ms": 42.19869099324569,
+          "p95_ms": 51.989034307189286,
+          "samples_ms": [
+            48.95186598878354,
+            43.495466001331806,
+            40.47648300183937,
+            38.108654000097886,
+            42.19869099324569,
+            51.50345401489176,
+            42.5279880000744,
+            40.01127200899646,
+            40.610497002489865,
+            40.271234000101686,
+            43.32944701309316,
+            53.12205498921685,
+            40.099606005242094,
+            44.36635100864805,
+            40.80785400583409
+          ],
+          "scope": "Warm full model call, first15 paired test scenarios, one CPU thread, no concurrent training/attacks; no physical movement"
+        },
+        "selected_epoch": 4,
+        "learned_parameter_count": 20
+      },
+      "LearnedSchedule_seed202": {
+        "nominal": {
+          "comm": 3.269240617752075,
+          "sense": 5.1550116539001465,
+          "objective": 3.646394729614258
+        },
+        "terminal": {
+          "comm": 3.170741319656372,
+          "sense": 4.954466342926025,
+          "objective": 3.527486562728882
+        },
+        "shared_union": {
+          "comm": 3.170741081237793,
+          "sense": 4.954465866088867,
+          "objective": 3.5274856090545654
+        },
+        "budgets": {
+          "50": {
+            "comm": 3.170741081237793,
+            "sense": 4.954465866088867,
+            "objective": 3.5274856090545654
+          },
+          "200": {
+            "comm": 3.170741081237793,
+            "sense": 4.954465866088867,
+            "objective": 3.5274856090545654
+          },
+          "1000": {
+            "comm": 3.170741081237793,
+            "sense": 4.954465866088867,
+            "objective": 3.5274856090545654
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 60,
+          "position_projections": 20,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 60
+        },
+        "iterations": 20,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 1.1920928955078125e-06,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 2.9802322387695312e-08,
+          "left_violation": 0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.1303649189940188,
+        "attack_seconds": 3.7210006279929075,
+        "timing": {
+          "median_ms": 39.93222399731167,
+          "p95_ms": 44.64148079860024,
+          "samples_ms": [
+            42.267284996341914,
+            39.93201398407109,
+            38.91456898418255,
+            36.55135401641019,
+            38.4450200072024,
+            43.246081011602655,
+            40.571537014329806,
+            39.93222399731167,
+            43.904354999540374,
+            46.3614409964066,
+            39.33975999825634,
+            40.658277983311564,
+            39.82874899520539,
+            42.62224098783918,
+            39.3990509910509
+          ],
+          "scope": "Warm full model call, first15 paired test scenarios, one CPU thread, no concurrent training/attacks; no physical movement"
+        },
+        "selected_epoch": 4,
+        "learned_parameter_count": 20
+      },
+      "LearnedSchedule_seed303": {
+        "nominal": {
+          "comm": 3.269240617752075,
+          "sense": 5.1550116539001465,
+          "objective": 3.646394729614258
+        },
+        "terminal": {
+          "comm": 3.170741319656372,
+          "sense": 4.954466342926025,
+          "objective": 3.527486562728882
+        },
+        "shared_union": {
+          "comm": 3.1707406044006348,
+          "sense": 4.954465866088867,
+          "objective": 3.5274856090545654
+        },
+        "budgets": {
+          "50": {
+            "comm": 3.1707406044006348,
+            "sense": 4.954465866088867,
+            "objective": 3.5274858474731445
+          },
+          "200": {
+            "comm": 3.1707406044006348,
+            "sense": 4.954465866088867,
+            "objective": 3.5274858474731445
+          },
+          "1000": {
+            "comm": 3.1707406044006348,
+            "sense": 4.954465866088867,
+            "objective": 3.5274858474731445
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 60,
+          "position_projections": 20,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 60
+        },
+        "iterations": 20,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 9.5367431640625e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": 0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.13207186298677698,
+        "attack_seconds": 3.5319368159980513,
+        "timing": {
+          "median_ms": 37.98481699777767,
+          "p95_ms": 39.490268705412745,
+          "samples_ms": [
+            39.07892701681703,
+            38.01848800503649,
+            40.45006597880274,
+            36.49580100318417,
+            37.34264898230322,
+            37.98481699777767,
+            39.060890005202964,
+            36.58345399890095,
+            38.61819201847538,
+            38.320443010888994,
+            36.7832749907393,
+            37.8250669746194,
+            36.61549201933667,
+            36.54988299240358,
+            38.71439700014889
+          ],
+          "scope": "Warm full model call, first15 paired test scenarios, one CPU thread, no concurrent training/attacks; no physical movement"
+        },
+        "selected_epoch": 4,
+        "learned_parameter_count": 20
+      },
+      "Plain_tuned_control": {
+        "nominal": {
+          "comm": 3.269235610961914,
+          "sense": 5.155005931854248,
+          "objective": 3.6463897228240967
+        },
+        "terminal": {
+          "comm": 3.170736074447632,
+          "sense": 4.954461574554443,
+          "objective": 3.5274813175201416
+        },
+        "shared_union": {
+          "comm": 3.1707353591918945,
+          "sense": 4.954460620880127,
+          "objective": 3.5274808406829834
+        },
+        "budgets": {
+          "50": {
+            "comm": 3.1707353591918945,
+            "sense": 4.954460620880127,
+            "objective": 3.5274808406829834
+          },
+          "200": {
+            "comm": 3.1707353591918945,
+            "sense": 4.954460620880127,
+            "objective": 3.5274808406829834
+          },
+          "1000": {
+            "comm": 3.1707353591918945,
+            "sense": 4.954460620880127,
+            "objective": 3.5274808406829834
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 60,
+          "position_projections": 20,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 60
+        },
+        "iterations": 20,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 1.430511474609375e-06,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": 0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.1314191870042123,
+        "attack_seconds": 3.8170147509954404,
+        "timing": {
+          "median_ms": 41.70619300566614,
+          "p95_ms": 50.013100396608934,
+          "samples_ms": [
+            40.94472399447113,
+            42.816026019863784,
+            42.64796298230067,
+            46.064296999247745,
+            50.52227200940251,
+            41.70619300566614,
+            39.18742301175371,
+            49.79488399112597,
+            46.176105010090396,
+            48.933579004369676,
+            39.10189401358366,
+            36.32523599662818,
+            36.13429699908011,
+            37.25968499202281,
+            36.61165799712762
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "Random_budget180": {
+        "nominal": {
+          "comm": 3.264054536819458,
+          "sense": 5.149721622467041,
+          "objective": 3.641188144683838
+        },
+        "terminal": {
+          "comm": 3.165304183959961,
+          "sense": 4.948915958404541,
+          "objective": 3.522026777267456
+        },
+        "shared_union": {
+          "comm": 3.165303945541382,
+          "sense": 4.948915481567383,
+          "objective": 3.522026777267456
+        },
+        "budgets": {
+          "50": {
+            "comm": 3.165303945541382,
+            "sense": 4.948915481567383,
+            "objective": 3.522026777267456
+          },
+          "200": {
+            "comm": 3.165303945541382,
+            "sense": 4.948915481567383,
+            "objective": 3.522026777267456
+          },
+          "1000": {
+            "comm": 3.165303945541382,
+            "sense": 4.948915481567383,
+            "objective": 3.522026777267456
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 180,
+          "position_projections": 0,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 180
+        },
+        "iterations": 90,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 9.5367431640625e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.2222241010167636,
+        "attack_seconds": 3.5181843619793653,
+        "timing": {
+          "median_ms": 114.01364501216449,
+          "p95_ms": 144.56950249441428,
+          "samples_ms": [
+            111.91519000567496,
+            114.58416600362398,
+            114.31951698614284,
+            113.60150401014835,
+            114.01364501216449,
+            116.64147899136879,
+            120.53497799206525,
+            112.72014398127794,
+            189.9765389971435,
+            103.92855099053122,
+            104.74796799826436,
+            109.23671899945475,
+            111.35905000264756,
+            125.10934399324469,
+            119.07900602091104
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "Random_budget360": {
+        "nominal": {
+          "comm": 3.2556726932525635,
+          "sense": 5.141178607940674,
+          "objective": 3.6327736377716064
+        },
+        "terminal": {
+          "comm": 3.156514883041382,
+          "sense": 4.939950466156006,
+          "objective": 3.513201951980591
+        },
+        "shared_union": {
+          "comm": 3.1565141677856445,
+          "sense": 4.939950466156006,
+          "objective": 3.513201951980591
+        },
+        "budgets": {
+          "50": {
+            "comm": 3.1565141677856445,
+            "sense": 4.939950466156006,
+            "objective": 3.513201951980591
+          },
+          "200": {
+            "comm": 3.1565141677856445,
+            "sense": 4.939950466156006,
+            "objective": 3.513201951980591
+          },
+          "1000": {
+            "comm": 3.1565141677856445,
+            "sense": 4.939950466156006,
+            "objective": 3.513201951980591
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 360,
+          "position_projections": 0,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 360
+        },
+        "iterations": 180,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 9.5367431640625e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.4034448850143235,
+        "attack_seconds": 3.796702796011232,
+        "timing": {
+          "median_ms": 217.53948199329898,
+          "p95_ms": 234.17501659423579,
+          "samples_ms": [
+            221.9106460106559,
+            214.89402200677432,
+            216.49429501849227,
+            215.36991000175476,
+            216.10695097479038,
+            209.61374702164903,
+            217.53948199329898,
+            218.25823601102456,
+            222.60341100627556,
+            217.14834199519828,
+            217.11152599891648,
+            221.3957189815119,
+            230.30292498879135,
+            235.70509898127057,
+            233.5192669997923
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "Random_budget60": {
+        "nominal": {
+          "comm": 3.2686617374420166,
+          "sense": 5.154420852661133,
+          "objective": 3.6458137035369873
+        },
+        "terminal": {
+          "comm": 3.1701345443725586,
+          "sense": 4.953846454620361,
+          "objective": 3.5268771648406982
+        },
+        "shared_union": {
+          "comm": 3.1701343059539795,
+          "sense": 4.953845977783203,
+          "objective": 3.526876449584961
+        },
+        "budgets": {
+          "50": {
+            "comm": 3.1701343059539795,
+            "sense": 4.953845977783203,
+            "objective": 3.526876449584961
+          },
+          "200": {
+            "comm": 3.1701343059539795,
+            "sense": 4.953845977783203,
+            "objective": 3.526876449584961
+          },
+          "1000": {
+            "comm": 3.1701343059539795,
+            "sense": 4.953845977783203,
+            "objective": 3.526876449584961
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 60,
+          "position_projections": 0,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 60
+        },
+        "iterations": 30,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 9.5367431640625e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.07215361398993991,
+        "attack_seconds": 3.809077368990984,
+        "timing": {
+          "median_ms": 36.36352700414136,
+          "p95_ms": 38.43764139455743,
+          "samples_ms": [
+            35.531403991626576,
+            35.95028299605474,
+            37.10898102144711,
+            34.931206988403574,
+            37.610197003232315,
+            36.333630996523425,
+            39.63919699890539,
+            37.84846601774916,
+            37.92268899269402,
+            37.685871007852256,
+            36.36352700414136,
+            34.144399978686124,
+            35.650089994305745,
+            36.401663994183764,
+            36.115983995841816
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "StaticRandom_budget180": {
+        "nominal": {
+          "comm": 3.2640576362609863,
+          "sense": 5.149736404418945,
+          "objective": 3.6411938667297363
+        },
+        "terminal": {
+          "comm": 3.1653072834014893,
+          "sense": 4.948934555053711,
+          "objective": 3.5220324993133545
+        },
+        "shared_union": {
+          "comm": 3.165306329727173,
+          "sense": 4.9489336013793945,
+          "objective": 3.5220324993133545
+        },
+        "budgets": {
+          "50": {
+            "comm": 3.165306329727173,
+            "sense": 4.9489336013793945,
+            "objective": 3.5220324993133545
+          },
+          "200": {
+            "comm": 3.165306329727173,
+            "sense": 4.9489336013793945,
+            "objective": 3.5220324993133545
+          },
+          "1000": {
+            "comm": 3.165306329727173,
+            "sense": 4.9489336013793945,
+            "objective": 3.5220324993133545
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 180,
+          "position_projections": 0,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 180
+        },
+        "iterations": 90,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 9.5367431640625e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.17508732198621146,
+        "attack_seconds": 3.498714404995553,
+        "timing": {
+          "median_ms": 184.84911799896508,
+          "p95_ms": 217.3400800093077,
+          "samples_ms": [
+            199.03719698777422,
+            193.212662008591,
+            216.26989301876165,
+            186.50590200559236,
+            219.83718298724853,
+            212.670650013024,
+            184.53464898630045,
+            127.79079700703733,
+            137.56973601994105,
+            162.56862398586236,
+            139.99111799057573,
+            165.49515898805112,
+            118.81342699052766,
+            184.84911799896508,
+            204.7824340115767
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "StaticRandom_budget360": {
+        "nominal": {
+          "comm": 3.2556204795837402,
+          "sense": 5.141154766082764,
+          "objective": 3.6327273845672607
+        },
+        "terminal": {
+          "comm": 3.1564602851867676,
+          "sense": 4.939931869506836,
+          "objective": 3.5131542682647705
+        },
+        "shared_union": {
+          "comm": 3.1564600467681885,
+          "sense": 4.9399309158325195,
+          "objective": 3.5131542682647705
+        },
+        "budgets": {
+          "50": {
+            "comm": 3.1564600467681885,
+            "sense": 4.9399309158325195,
+            "objective": 3.5131542682647705
+          },
+          "200": {
+            "comm": 3.1564600467681885,
+            "sense": 4.9399309158325195,
+            "objective": 3.5131542682647705
+          },
+          "1000": {
+            "comm": 3.1564600467681885,
+            "sense": 4.9399309158325195,
+            "objective": 3.5131542682647705
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 360,
+          "position_projections": 0,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 360
+        },
+        "iterations": 180,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 9.5367431640625e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.3395709629985504,
+        "attack_seconds": 3.608334819000447,
+        "timing": {
+          "median_ms": 361.435449012788,
+          "p95_ms": 437.0757025142666,
+          "samples_ms": [
+            334.92088998900726,
+            372.2450480272528,
+            444.40283000585623,
+            433.93550501787104,
+            375.6141070043668,
+            421.33337300037965,
+            354.40772501169704,
+            361.435449012788,
+            387.7291750104632,
+            337.52289300900884,
+            339.7551199886948,
+            405.79315900686197,
+            354.6212110086344,
+            289.4446260179393,
+            262.9872660036199
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "StaticRandom_budget60": {
+        "nominal": {
+          "comm": 3.268665075302124,
+          "sense": 5.154425621032715,
+          "objective": 3.645817279815674
+        },
+        "terminal": {
+          "comm": 3.170137882232666,
+          "sense": 4.953852653503418,
+          "objective": 3.5268807411193848
+        },
+        "shared_union": {
+          "comm": 3.170137405395508,
+          "sense": 4.953851699829102,
+          "objective": 3.5268802642822266
+        },
+        "budgets": {
+          "50": {
+            "comm": 3.170137405395508,
+            "sense": 4.953851699829102,
+            "objective": 3.5268802642822266
+          },
+          "200": {
+            "comm": 3.170137405395508,
+            "sense": 4.953851699829102,
+            "objective": 3.5268802642822266
+          },
+          "1000": {
+            "comm": 3.170137405395508,
+            "sense": 4.953851699829102,
+            "objective": 3.5268802642822266
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 60,
+          "position_projections": 0,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 60
+        },
+        "iterations": 30,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 1.1920928955078125e-06,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 2.9802322387695312e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.06691244599642232,
+        "attack_seconds": 3.476622871996369,
+        "timing": {
+          "median_ms": 48.21788799017668,
+          "p95_ms": 75.32810370903462,
+          "samples_ms": [
+            48.21788799017668,
+            40.29471901594661,
+            56.6690230043605,
+            74.08287600264885,
+            48.8544279942289,
+            69.39730999874882,
+            35.5481409933418,
+            39.205225999467075,
+            41.720328998053446,
+            45.71244999533519,
+            41.643472999567166,
+            72.33762400574051,
+            47.66913899220526,
+            64.75696098641492,
+            78.23363502393477
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "ULA_budget180": {
+        "nominal": {
+          "comm": 3.2639904022216797,
+          "sense": 5.149654388427734,
+          "objective": 3.6411237716674805
+        },
+        "terminal": {
+          "comm": 3.1652376651763916,
+          "sense": 4.948845386505127,
+          "objective": 3.521958827972412
+        },
+        "shared_union": {
+          "comm": 3.165236711502075,
+          "sense": 4.948844909667969,
+          "objective": 3.521958827972412
+        },
+        "budgets": {
+          "50": {
+            "comm": 3.165236711502075,
+            "sense": 4.948844909667969,
+            "objective": 3.521958827972412
+          },
+          "200": {
+            "comm": 3.165236711502075,
+            "sense": 4.948844909667969,
+            "objective": 3.521958827972412
+          },
+          "1000": {
+            "comm": 3.165236711502075,
+            "sense": 4.948844909667969,
+            "objective": 3.521958827972412
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 180,
+          "position_projections": 0,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 180
+        },
+        "iterations": 90,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 9.5367431640625e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.17124303101445548,
+        "attack_seconds": 3.64818491198821,
+        "timing": {
+          "median_ms": 111.6781790042296,
+          "p95_ms": 126.2520500953542,
+          "samples_ms": [
+            110.09591398760676,
+            109.47564800153486,
+            118.52316098520532,
+            108.61786399618722,
+            110.99769300199114,
+            114.58334099734202,
+            109.22226600814611,
+            111.6781790042296,
+            112.24384300294332,
+            122.76034700335003,
+            129.25854098284617,
+            124.14257600903511,
+            124.9635540007148,
+            107.50317401834764,
+            109.77800498949364
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "ULA_budget360": {
+        "nominal": {
+          "comm": 3.2555062770843506,
+          "sense": 5.141002655029297,
+          "objective": 3.63260555267334
+        },
+        "terminal": {
+          "comm": 3.1563403606414795,
+          "sense": 4.939764976501465,
+          "objective": 3.5130252838134766
+        },
+        "shared_union": {
+          "comm": 3.1563401222229004,
+          "sense": 4.939764499664307,
+          "objective": 3.5130252838134766
+        },
+        "budgets": {
+          "50": {
+            "comm": 3.1563401222229004,
+            "sense": 4.939764499664307,
+            "objective": 3.5130252838134766
+          },
+          "200": {
+            "comm": 3.1563401222229004,
+            "sense": 4.939764499664307,
+            "objective": 3.5130252838134766
+          },
+          "1000": {
+            "comm": 3.1563401222229004,
+            "sense": 4.939764499664307,
+            "objective": 3.5130252838134766
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 360,
+          "position_projections": 0,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 360
+        },
+        "iterations": 180,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 9.5367431640625e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.3567158789956011,
+        "attack_seconds": 3.747656599007314,
+        "timing": {
+          "median_ms": 234.78260700358078,
+          "p95_ms": 286.03133621800225,
+          "samples_ms": [
+            245.43219699990004,
+            288.47850402235053,
+            284.9825500161387,
+            269.60487200994976,
+            248.76295300782658,
+            249.04387598508038,
+            234.78260700358078,
+            231.88328399555758,
+            233.3979279792402,
+            250.22966499091126,
+            233.4694360033609,
+            221.9991470046807,
+            223.9337649953086,
+            230.4826120089274,
+            220.17234098166227
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "ULA_budget60": {
+        "nominal": {
+          "comm": 3.2686524391174316,
+          "sense": 5.154410362243652,
+          "objective": 3.6458041667938232
+        },
+        "terminal": {
+          "comm": 3.1701242923736572,
+          "sense": 4.953835964202881,
+          "objective": 3.5268666744232178
+        },
+        "shared_union": {
+          "comm": 3.170123815536499,
+          "sense": 4.953835487365723,
+          "objective": 3.5268659591674805
+        },
+        "budgets": {
+          "50": {
+            "comm": 3.170123815536499,
+            "sense": 4.953835487365723,
+            "objective": 3.5268659591674805
+          },
+          "200": {
+            "comm": 3.170123815536499,
+            "sense": 4.953835487365723,
+            "objective": 3.5268659591674805
+          },
+          "1000": {
+            "comm": 3.170123815536499,
+            "sense": 4.953835487365723,
+            "objective": 3.5268659591674805
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 60,
+          "position_projections": 0,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 60
+        },
+        "iterations": 30,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 9.5367431640625e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.06712284698733129,
+        "attack_seconds": 4.316314483003225,
+        "timing": {
+          "median_ms": 38.01051099435426,
+          "p95_ms": 39.97998039412778,
+          "samples_ms": [
+            38.90726299141534,
+            36.45350199076347,
+            34.413084998959675,
+            41.5402649960015,
+            37.90810701320879,
+            36.2472310080193,
+            36.35349101386964,
+            36.62499101483263,
+            36.539221997372806,
+            39.125753013649955,
+            39.14861800149083,
+            38.79891999531537,
+            38.53732501738705,
+            38.01051099435426,
+            39.31128699332476
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "ULA_retuned_budget180": {
+        "nominal": {
+          "comm": 3.2639904022216797,
+          "sense": 5.149654388427734,
+          "objective": 3.6411237716674805
+        },
+        "terminal": {
+          "comm": 3.1652376651763916,
+          "sense": 4.948845386505127,
+          "objective": 3.521958827972412
+        },
+        "shared_union": {
+          "comm": 3.165236711502075,
+          "sense": 4.948844909667969,
+          "objective": 3.521958827972412
+        },
+        "budgets": {
+          "50": {
+            "comm": 3.165236711502075,
+            "sense": 4.948844909667969,
+            "objective": 3.521958827972412
+          },
+          "200": {
+            "comm": 3.165236711502075,
+            "sense": 4.948844909667969,
+            "objective": 3.521958827972412
+          },
+          "1000": {
+            "comm": 3.165236711502075,
+            "sense": 4.948844909667969,
+            "objective": 3.521958827972412
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 180,
+          "position_projections": 0,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 180
+        },
+        "iterations": 90,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 9.5367431640625e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.2131349660048727,
+        "attack_seconds": 3.9772542210121173,
+        "timing": {
+          "median_ms": 110.31335400184616,
+          "p95_ms": 147.0883444068022,
+          "samples_ms": [
+            110.31335400184616,
+            110.80384399974719,
+            111.75221399753354,
+            118.03501099348068,
+            154.4250570004806,
+            143.94403900951147,
+            108.04301901953295,
+            107.05131501890719,
+            126.90165400272235,
+            109.63529199943878,
+            110.62168999342248,
+            109.94164299336262,
+            106.84916900936514,
+            105.23706799722277,
+            108.67801800486632
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "ULA_retuned_budget360": {
+        "nominal": {
+          "comm": 3.2555062770843506,
+          "sense": 5.141002655029297,
+          "objective": 3.63260555267334
+        },
+        "terminal": {
+          "comm": 3.1563403606414795,
+          "sense": 4.939764976501465,
+          "objective": 3.5130252838134766
+        },
+        "shared_union": {
+          "comm": 3.1563401222229004,
+          "sense": 4.939764499664307,
+          "objective": 3.5130252838134766
+        },
+        "budgets": {
+          "50": {
+            "comm": 3.1563401222229004,
+            "sense": 4.939764499664307,
+            "objective": 3.5130252838134766
+          },
+          "200": {
+            "comm": 3.1563401222229004,
+            "sense": 4.939764499664307,
+            "objective": 3.5130252838134766
+          },
+          "1000": {
+            "comm": 3.1563401222229004,
+            "sense": 4.939764499664307,
+            "objective": 3.5130252838134766
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 360,
+          "position_projections": 0,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 360
+        },
+        "iterations": 180,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 9.5367431640625e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.4817041830101516,
+        "attack_seconds": 3.9474056900071446,
+        "timing": {
+          "median_ms": 227.63093298999593,
+          "p95_ms": 237.47977580933366,
+          "samples_ms": [
+            223.75640898826532,
+            230.88459999416955,
+            230.01011199085042,
+            224.67362199677154,
+            243.24022000655532,
+            229.1007090243511,
+            235.01101401052438,
+            225.66645999904722,
+            228.34722400875762,
+            223.01141600473784,
+            220.1663739979267,
+            220.9725599968806,
+            224.72764400299639,
+            227.63093298999593,
+            228.51775100571103
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "ULA_runtime_match": {
+        "nominal": {
+          "comm": 3.2686524391174316,
+          "sense": 5.154410362243652,
+          "objective": 3.6458041667938232
+        },
+        "terminal": {
+          "comm": 3.1701242923736572,
+          "sense": 4.953835964202881,
+          "objective": 3.5268666744232178
+        },
+        "shared_union": {
+          "comm": 3.170123815536499,
+          "sense": 4.953835487365723,
+          "objective": 3.5268659591674805
+        },
+        "budgets": {
+          "50": {
+            "comm": 3.170123815536499,
+            "sense": 4.953835487365723,
+            "objective": 3.5268659591674805
+          },
+          "200": {
+            "comm": 3.170123815536499,
+            "sense": 4.953835487365723,
+            "objective": 3.5268659591674805
+          },
+          "1000": {
+            "comm": 3.170123815536499,
+            "sense": 4.953835487365723,
+            "objective": 3.5268659591674805
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 60,
+          "position_projections": 0,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 60
+        },
+        "iterations": 30,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 9.5367431640625e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.0649272610025946,
+        "attack_seconds": 4.095671728020534,
+        "timing": {
+          "median_ms": 36.410517001058906,
+          "p95_ms": 37.99309129244648,
+          "samples_ms": [
+            38.47655400750227,
+            35.99140598089434,
+            36.952836002456024,
+            36.114079994149506,
+            37.695395993068814,
+            36.346150998724625,
+            35.33544600941241,
+            37.05373700358905,
+            37.29657400981523,
+            35.0634960050229,
+            36.13115698681213,
+            36.410517001058906,
+            34.70932101481594,
+            37.785892985993996,
+            36.67990301619284
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      }
+    },
+    "B": {
+      "Fluid_budget180": {
+        "nominal": {
+          "comm": 3.226025342941284,
+          "sense": 4.289872169494629,
+          "objective": 3.4387950897216797
+        },
+        "terminal": {
+          "comm": 3.1237411499023438,
+          "sense": 4.050268173217773,
+          "objective": 3.309046745300293
+        },
+        "shared_union": {
+          "comm": 3.1235954761505127,
+          "sense": 4.050183296203613,
+          "objective": 3.308913230895996
+        },
+        "budgets": {
+          "50": {
+            "comm": 3.1235954761505127,
+            "sense": 4.050183296203613,
+            "objective": 3.308913230895996
+          },
+          "200": {
+            "comm": 3.1235954761505127,
+            "sense": 4.050183296203613,
+            "objective": 3.308913230895996
+          },
+          "1000": {
+            "comm": 3.1235954761505127,
+            "sense": 4.050183296203613,
+            "objective": 3.308913230895996
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 180,
+          "position_projections": 60,
+          "position_metric_evaluations": 120,
+          "field_reconstructions": 300
+        },
+        "iterations": 60,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 1.430511474609375e-06,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 1.1920928955078125e-07
+        },
+        "design_batch_seconds": 0.4690421470149886,
+        "attack_seconds": 3.8247882629802916,
+        "timing": {
+          "median_ms": 181.03404599241912,
+          "p95_ms": 241.12919740146026,
+          "samples_ms": [
+            239.86908100778237,
+            186.85743198147975,
+            159.28042100858875,
+            172.83053099527024,
+            157.41783098201267,
+            244.06946898670867,
+            208.81018598447554,
+            194.85489398357458,
+            173.16858199774288,
+            165.47164000803605,
+            177.42968897800893,
+            180.63259101472795,
+            181.03404599241912,
+            208.49988298141398,
+            214.7001909906976
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "Fluid_budget360": {
+        "nominal": {
+          "comm": 3.2013373374938965,
+          "sense": 4.447539329528809,
+          "objective": 3.450577974319458
+        },
+        "terminal": {
+          "comm": 3.0959081649780273,
+          "sense": 4.209691047668457,
+          "objective": 3.318664789199829
+        },
+        "shared_union": {
+          "comm": 3.0958871841430664,
+          "sense": 4.209681510925293,
+          "objective": 3.31864595413208
+        },
+        "budgets": {
+          "50": {
+            "comm": 3.0958871841430664,
+            "sense": 4.209681510925293,
+            "objective": 3.31864595413208
+          },
+          "200": {
+            "comm": 3.0958871841430664,
+            "sense": 4.209681510925293,
+            "objective": 3.31864595413208
+          },
+          "1000": {
+            "comm": 3.0958871841430664,
+            "sense": 4.209681510925293,
+            "objective": 3.31864595413208
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 360,
+          "position_projections": 120,
+          "position_metric_evaluations": 240,
+          "field_reconstructions": 600
+        },
+        "iterations": 120,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 9.5367431640625e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 1.1920928955078125e-07
+        },
+        "design_batch_seconds": 0.9381965119973756,
+        "attack_seconds": 3.492487773997709,
+        "timing": {
+          "median_ms": 316.1946399777662,
+          "p95_ms": 371.1108143994352,
+          "samples_ms": [
+            389.8911690048408,
+            344.95676698861644,
+            363.0620909971185,
+            337.7740019932389,
+            329.3757200008258,
+            308.309535990702,
+            316.1946399777662,
+            308.6076660256367,
+            297.8397829865571,
+            296.0966240207199,
+            311.5007209999021,
+            321.49440501234494,
+            352.74766699876636,
+            312.0956879865844,
+            310.0596769945696
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "Fluid_budget60": {
+        "nominal": {
+          "comm": 3.21921443939209,
+          "sense": 3.949718713760376,
+          "objective": 3.3653154373168945
+        },
+        "terminal": {
+          "comm": 3.119255304336548,
+          "sense": 3.70957612991333,
+          "objective": 3.2373197078704834
+        },
+        "shared_union": {
+          "comm": 3.1185457706451416,
+          "sense": 3.708706855773926,
+          "objective": 3.2365779876708984
+        },
+        "budgets": {
+          "50": {
+            "comm": 3.1185457706451416,
+            "sense": 3.708706855773926,
+            "objective": 3.2365779876708984
+          },
+          "200": {
+            "comm": 3.1185457706451416,
+            "sense": 3.708706855773926,
+            "objective": 3.2365779876708984
+          },
+          "1000": {
+            "comm": 3.1185457706451416,
+            "sense": 3.708706855773926,
+            "objective": 3.2365779876708984
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 60,
+          "position_projections": 20,
+          "position_metric_evaluations": 40,
+          "field_reconstructions": 100
+        },
+        "iterations": 20,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 9.5367431640625e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 1.1920928955078125e-07
+        },
+        "design_batch_seconds": 0.14432469898019917,
+        "attack_seconds": 3.371387039020192,
+        "timing": {
+          "median_ms": 52.954496000893414,
+          "p95_ms": 59.3851404992165,
+          "samples_ms": [
+            55.995201983023435,
+            57.34033300541341,
+            64.15635798475705,
+            56.325762008782476,
+            51.646203006384894,
+            55.756232992280275,
+            56.355656997766346,
+            52.536236005835235,
+            51.58787500113249,
+            51.03074398357421,
+            50.414666009601206,
+            52.954496000893414,
+            53.32221099524759,
+            52.17274799360894,
+            50.16349599463865
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "Fluid_plain_learning_control": {
+        "nominal": {
+          "comm": 3.21921443939209,
+          "sense": 3.949718713760376,
+          "objective": 3.3653154373168945
+        },
+        "terminal": {
+          "comm": 3.119255304336548,
+          "sense": 3.70957612991333,
+          "objective": 3.2373197078704834
+        },
+        "shared_union": {
+          "comm": 3.1185457706451416,
+          "sense": 3.708706855773926,
+          "objective": 3.2365779876708984
+        },
+        "budgets": {
+          "50": {
+            "comm": 3.1185457706451416,
+            "sense": 3.708706855773926,
+            "objective": 3.2365779876708984
+          },
+          "200": {
+            "comm": 3.1185457706451416,
+            "sense": 3.708706855773926,
+            "objective": 3.2365779876708984
+          },
+          "1000": {
+            "comm": 3.1185457706451416,
+            "sense": 3.708706855773926,
+            "objective": 3.2365779876708984
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 60,
+          "position_projections": 20,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 60
+        },
+        "iterations": 20,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 9.5367431640625e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 1.1920928955078125e-07
+        },
+        "design_batch_seconds": 0.19763981498545036,
+        "attack_seconds": 3.936193776986329,
+        "timing": {
+          "median_ms": 49.25021901726723,
+          "p95_ms": 61.05614559492096,
+          "samples_ms": [
+            61.03206999250688,
+            47.90734298876487,
+            50.51764097879641,
+            51.75024000345729,
+            48.36612500366755,
+            49.778134998632595,
+            59.760081989225,
+            45.68390399799682,
+            48.55704298825003,
+            61.11232200055383,
+            49.25021901726723,
+            43.52478199871257,
+            47.1340469957795,
+            47.10599401732907,
+            50.52555201109499
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "LearnedConstant_seed101": {
+        "nominal": {
+          "comm": 3.221982955932617,
+          "sense": 3.9610812664031982,
+          "objective": 3.369802951812744
+        },
+        "terminal": {
+          "comm": 3.122077703475952,
+          "sense": 3.7204673290252686,
+          "objective": 3.241755723953247
+        },
+        "shared_union": {
+          "comm": 3.121352195739746,
+          "sense": 3.7196075916290283,
+          "objective": 3.24100399017334
+        },
+        "budgets": {
+          "50": {
+            "comm": 3.121352195739746,
+            "sense": 3.7196075916290283,
+            "objective": 3.24100399017334
+          },
+          "200": {
+            "comm": 3.121352195739746,
+            "sense": 3.7196075916290283,
+            "objective": 3.24100399017334
+          },
+          "1000": {
+            "comm": 3.121352195739746,
+            "sense": 3.7196075916290283,
+            "objective": 3.24100399017334
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 60,
+          "position_projections": 20,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 60
+        },
+        "iterations": 20,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 1.1920928955078125e-06,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 2.9802322387695312e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 1.1920928955078125e-07
+        },
+        "design_batch_seconds": 0.12982068199198693,
+        "attack_seconds": 3.5132350439962465,
+        "timing": {
+          "median_ms": 37.44223900139332,
+          "p95_ms": 39.11802388320211,
+          "samples_ms": [
+            37.23412498948164,
+            37.44223900139332,
+            36.22664502472617,
+            36.974474001908675,
+            38.870822987519205,
+            37.39920401130803,
+            38.36275698267855,
+            35.84997801226564,
+            37.94374500284903,
+            36.66214199620299,
+            39.6948259731289,
+            37.86511599901132,
+            37.761130020953715,
+            37.656061991583556,
+            37.0102169981692
+          ],
+          "scope": "Warm full model call, first15 paired test scenarios, one CPU thread, no concurrent training/attacks; no physical movement"
+        },
+        "selected_epoch": 4,
+        "learned_parameter_count": 1
+      },
+      "LearnedConstant_seed202": {
+        "nominal": {
+          "comm": 3.222027540206909,
+          "sense": 3.961301565170288,
+          "objective": 3.369882583618164
+        },
+        "terminal": {
+          "comm": 3.1221230030059814,
+          "sense": 3.7206761837005615,
+          "objective": 3.241833448410034
+        },
+        "shared_union": {
+          "comm": 3.1213974952697754,
+          "sense": 3.7198190689086914,
+          "objective": 3.241081953048706
+        },
+        "budgets": {
+          "50": {
+            "comm": 3.1213974952697754,
+            "sense": 3.7198190689086914,
+            "objective": 3.241081953048706
+          },
+          "200": {
+            "comm": 3.1213974952697754,
+            "sense": 3.7198190689086914,
+            "objective": 3.241081953048706
+          },
+          "1000": {
+            "comm": 3.1213974952697754,
+            "sense": 3.7198190689086914,
+            "objective": 3.241081953048706
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 60,
+          "position_projections": 20,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 60
+        },
+        "iterations": 20,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 1.1920928955078125e-06,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 1.1920928955078125e-07
+        },
+        "design_batch_seconds": 0.18264359000022523,
+        "attack_seconds": 4.226184976985678,
+        "timing": {
+          "median_ms": 37.87011298118159,
+          "p95_ms": 48.05279090360272,
+          "samples_ms": [
+            40.01089298981242,
+            46.93041800055653,
+            50.67166101071052,
+            36.655432981206104,
+            37.15204101172276,
+            38.659182988340035,
+            37.802311999257654,
+            36.42288199625909,
+            38.426323008025065,
+            36.82695102179423,
+            36.951869988115504,
+            39.33082800358534,
+            37.95426100259647,
+            37.55238497979008,
+            37.87011298118159
+          ],
+          "scope": "Warm full model call, first15 paired test scenarios, one CPU thread, no concurrent training/attacks; no physical movement"
+        },
+        "selected_epoch": 4,
+        "learned_parameter_count": 1
+      },
+      "LearnedConstant_seed303": {
+        "nominal": {
+          "comm": 3.2220168113708496,
+          "sense": 3.9612481594085693,
+          "objective": 3.369863271713257
+        },
+        "terminal": {
+          "comm": 3.122112512588501,
+          "sense": 3.720625877380371,
+          "objective": 3.2418155670166016
+        },
+        "shared_union": {
+          "comm": 3.121387004852295,
+          "sense": 3.7197675704956055,
+          "objective": 3.241063117980957
+        },
+        "budgets": {
+          "50": {
+            "comm": 3.121387004852295,
+            "sense": 3.7197675704956055,
+            "objective": 3.241063117980957
+          },
+          "200": {
+            "comm": 3.121387004852295,
+            "sense": 3.7197675704956055,
+            "objective": 3.241063117980957
+          },
+          "1000": {
+            "comm": 3.121387004852295,
+            "sense": 3.7197675704956055,
+            "objective": 3.241063117980957
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 60,
+          "position_projections": 20,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 60
+        },
+        "iterations": 20,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 9.5367431640625e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 1.1920928955078125e-07
+        },
+        "design_batch_seconds": 0.12774678898858838,
+        "attack_seconds": 4.066932259011082,
+        "timing": {
+          "median_ms": 37.16412899666466,
+          "p95_ms": 39.73111670347862,
+          "samples_ms": [
+            36.97512499638833,
+            36.708862986415625,
+            37.56675700424239,
+            37.16412899666466,
+            37.601788993924856,
+            37.15841000666842,
+            35.80216600676067,
+            37.34838799573481,
+            37.72674797801301,
+            36.01184202125296,
+            37.83242797362618,
+            36.60476498771459,
+            39.63986301096156,
+            39.94404198601842,
+            36.489771999185905
+          ],
+          "scope": "Warm full model call, first15 paired test scenarios, one CPU thread, no concurrent training/attacks; no physical movement"
+        },
+        "selected_epoch": 4,
+        "learned_parameter_count": 1
+      },
+      "LearnedSchedule_seed101": {
+        "nominal": {
+          "comm": 3.2219808101654053,
+          "sense": 3.961054801940918,
+          "objective": 3.369795799255371
+        },
+        "terminal": {
+          "comm": 3.1220755577087402,
+          "sense": 3.7204408645629883,
+          "objective": 3.241748571395874
+        },
+        "shared_union": {
+          "comm": 3.121350049972534,
+          "sense": 3.7195823192596436,
+          "objective": 3.2409965991973877
+        },
+        "budgets": {
+          "50": {
+            "comm": 3.121350049972534,
+            "sense": 3.7195823192596436,
+            "objective": 3.2409965991973877
+          },
+          "200": {
+            "comm": 3.121350049972534,
+            "sense": 3.7195823192596436,
+            "objective": 3.2409965991973877
+          },
+          "1000": {
+            "comm": 3.121350049972534,
+            "sense": 3.7195823192596436,
+            "objective": 3.2409965991973877
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 60,
+          "position_projections": 20,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 60
+        },
+        "iterations": 20,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 1.1920928955078125e-06,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 2.9802322387695312e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 1.1920928955078125e-07
+        },
+        "design_batch_seconds": 0.12663904399960302,
+        "attack_seconds": 4.21463597897673,
+        "timing": {
+          "median_ms": 38.54531201068312,
+          "p95_ms": 43.93550639506429,
+          "samples_ms": [
+            37.51991601893678,
+            41.530754999257624,
+            40.17390901572071,
+            37.76561701670289,
+            38.882832013769075,
+            38.43346398207359,
+            37.09866100689396,
+            38.19502500118688,
+            38.54531201068312,
+            36.96891397703439,
+            38.776851986767724,
+            39.08818101626821,
+            40.44834300293587,
+            37.95579299912788,
+            49.54659298527986
+          ],
+          "scope": "Warm full model call, first15 paired test scenarios, one CPU thread, no concurrent training/attacks; no physical movement"
+        },
+        "selected_epoch": 4,
+        "learned_parameter_count": 20
+      },
+      "LearnedSchedule_seed202": {
+        "nominal": {
+          "comm": 3.22202205657959,
+          "sense": 3.9612698554992676,
+          "objective": 3.3698718547821045
+        },
+        "terminal": {
+          "comm": 3.122117519378662,
+          "sense": 3.7206461429595947,
+          "objective": 3.241823196411133
+        },
+        "shared_union": {
+          "comm": 3.121392011642456,
+          "sense": 3.7197883129119873,
+          "objective": 3.2410714626312256
+        },
+        "budgets": {
+          "50": {
+            "comm": 3.121392011642456,
+            "sense": 3.7197883129119873,
+            "objective": 3.2410714626312256
+          },
+          "200": {
+            "comm": 3.121392011642456,
+            "sense": 3.7197883129119873,
+            "objective": 3.2410714626312256
+          },
+          "1000": {
+            "comm": 3.121392011642456,
+            "sense": 3.7197883129119873,
+            "objective": 3.2410714626312256
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 60,
+          "position_projections": 20,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 60
+        },
+        "iterations": 20,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 9.5367431640625e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 1.1920928955078125e-07
+        },
+        "design_batch_seconds": 0.20944899698952213,
+        "attack_seconds": 5.271428587002447,
+        "timing": {
+          "median_ms": 37.625896016834304,
+          "p95_ms": 38.298727717483416,
+          "samples_ms": [
+            35.70752200903371,
+            37.7627220004797,
+            38.00047101685777,
+            37.52046701265499,
+            36.93498301436193,
+            36.374098010128364,
+            36.895153985824436,
+            37.625896016834304,
+            37.011409003753215,
+            37.65522997127846,
+            37.787700013723224,
+            35.90483000152744,
+            38.15956102334894,
+            37.70343298674561,
+            38.62345000379719
+          ],
+          "scope": "Warm full model call, first15 paired test scenarios, one CPU thread, no concurrent training/attacks; no physical movement"
+        },
+        "selected_epoch": 4,
+        "learned_parameter_count": 20
+      },
+      "LearnedSchedule_seed303": {
+        "nominal": {
+          "comm": 3.2220146656036377,
+          "sense": 3.9612369537353516,
+          "objective": 3.369858980178833
+        },
+        "terminal": {
+          "comm": 3.122109889984131,
+          "sense": 3.7206151485443115,
+          "objective": 3.2418107986450195
+        },
+        "shared_union": {
+          "comm": 3.121384620666504,
+          "sense": 3.719756841659546,
+          "objective": 3.2410593032836914
+        },
+        "budgets": {
+          "50": {
+            "comm": 3.121384620666504,
+            "sense": 3.719756841659546,
+            "objective": 3.2410593032836914
+          },
+          "200": {
+            "comm": 3.121384620666504,
+            "sense": 3.719756841659546,
+            "objective": 3.2410593032836914
+          },
+          "1000": {
+            "comm": 3.121384620666504,
+            "sense": 3.719756841659546,
+            "objective": 3.2410593032836914
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 60,
+          "position_projections": 20,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 60
+        },
+        "iterations": 20,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 1.430511474609375e-06,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 2.9802322387695312e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 1.1920928955078125e-07
+        },
+        "design_batch_seconds": 0.16151456799707375,
+        "attack_seconds": 4.119042890990386,
+        "timing": {
+          "median_ms": 37.26023397757672,
+          "p95_ms": 38.68652041128371,
+          "samples_ms": [
+            37.69339801510796,
+            36.729454004671425,
+            36.308328999439254,
+            38.406303006922826,
+            35.928646015236154,
+            39.3403610214591,
+            36.64645800017752,
+            38.09718700358644,
+            37.20827601500787,
+            36.96079200017266,
+            37.79377898899838,
+            38.23884000303224,
+            37.26023397757672,
+            37.31816200888716,
+            36.268748983275145
+          ],
+          "scope": "Warm full model call, first15 paired test scenarios, one CPU thread, no concurrent training/attacks; no physical movement"
+        },
+        "selected_epoch": 4,
+        "learned_parameter_count": 20
+      },
+      "Plain_tuned_control": {
+        "nominal": {
+          "comm": 3.21921443939209,
+          "sense": 3.949718713760376,
+          "objective": 3.3653154373168945
+        },
+        "terminal": {
+          "comm": 3.119255304336548,
+          "sense": 3.70957612991333,
+          "objective": 3.2373197078704834
+        },
+        "shared_union": {
+          "comm": 3.1185457706451416,
+          "sense": 3.708706855773926,
+          "objective": 3.2365779876708984
+        },
+        "budgets": {
+          "50": {
+            "comm": 3.1185457706451416,
+            "sense": 3.708706855773926,
+            "objective": 3.2365779876708984
+          },
+          "200": {
+            "comm": 3.1185457706451416,
+            "sense": 3.708706855773926,
+            "objective": 3.2365779876708984
+          },
+          "1000": {
+            "comm": 3.1185457706451416,
+            "sense": 3.708706855773926,
+            "objective": 3.2365779876708984
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 60,
+          "position_projections": 20,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 60
+        },
+        "iterations": 20,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 9.5367431640625e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 1.1920928955078125e-07
+        },
+        "design_batch_seconds": 0.12931559901335277,
+        "attack_seconds": 4.089932239003247,
+        "timing": {
+          "median_ms": 42.42811998119578,
+          "p95_ms": 54.12095439387485,
+          "samples_ms": [
+            41.67687598965131,
+            44.67063202173449,
+            40.444237005431205,
+            42.42811998119578,
+            40.91780100134201,
+            42.501279996940866,
+            39.59380398737267,
+            43.80051902262494,
+            43.61874598544091,
+            42.84857300808653,
+            56.617768976138905,
+            53.050891001475975,
+            37.8682519949507,
+            37.993751000612974,
+            42.40815999219194
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "Random_budget180": {
+        "nominal": {
+          "comm": 2.897517442703247,
+          "sense": 4.133317470550537,
+          "objective": 3.1446774005889893
+        },
+        "terminal": {
+          "comm": 2.7791061401367188,
+          "sense": 3.890885591506958,
+          "objective": 3.0014617443084717
+        },
+        "shared_union": {
+          "comm": 2.7790822982788086,
+          "sense": 3.8908493518829346,
+          "objective": 3.0014357566833496
+        },
+        "budgets": {
+          "50": {
+            "comm": 2.7790825366973877,
+            "sense": 3.8908493518829346,
+            "objective": 3.0014357566833496
+          },
+          "200": {
+            "comm": 2.7790822982788086,
+            "sense": 3.8908493518829346,
+            "objective": 3.0014357566833496
+          },
+          "1000": {
+            "comm": 2.7790822982788086,
+            "sense": 3.8908493518829346,
+            "objective": 3.0014357566833496
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 180,
+          "position_projections": 0,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 180
+        },
+        "iterations": 90,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 7.152557373046875e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.21348718798253685,
+        "attack_seconds": 3.6817548089893535,
+        "timing": {
+          "median_ms": 145.1491349725984,
+          "p95_ms": 167.64095189864747,
+          "samples_ms": [
+            116.61917800665833,
+            129.41423899610527,
+            132.97695299843326,
+            136.10494998283684,
+            168.7760250060819,
+            158.7838320119772,
+            167.15449199546129,
+            149.3111120071262,
+            151.3249140116386,
+            152.82209400902502,
+            145.97574700019322,
+            145.1491349725984,
+            141.4857349882368,
+            136.28365698968992,
+            130.77682198490947
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "Random_budget360": {
+        "nominal": {
+          "comm": 2.865619421005249,
+          "sense": 4.2201948165893555,
+          "objective": 3.1365344524383545
+        },
+        "terminal": {
+          "comm": 2.743483781814575,
+          "sense": 3.9738636016845703,
+          "objective": 2.9895596504211426
+        },
+        "shared_union": {
+          "comm": 2.7434821128845215,
+          "sense": 3.973850965499878,
+          "objective": 2.989555597305298
+        },
+        "budgets": {
+          "50": {
+            "comm": 2.7434821128845215,
+            "sense": 3.973851203918457,
+            "objective": 2.989555597305298
+          },
+          "200": {
+            "comm": 2.7434821128845215,
+            "sense": 3.973850965499878,
+            "objective": 2.989555597305298
+          },
+          "1000": {
+            "comm": 2.7434821128845215,
+            "sense": 3.973850965499878,
+            "objective": 2.989555597305298
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 360,
+          "position_projections": 0,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 360
+        },
+        "iterations": 180,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 1.430511474609375e-06,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 2.9802322387695312e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.44686369999544695,
+        "attack_seconds": 4.029193765018135,
+        "timing": {
+          "median_ms": 241.1963540071156,
+          "p95_ms": 290.01827488827985,
+          "samples_ms": [
+            228.65375198307447,
+            228.75044800457545,
+            237.15929899481125,
+            245.5859880137723,
+            231.03842898854055,
+            250.94760398496874,
+            247.12855499819852,
+            226.26403698814102,
+            228.36420498788357,
+            228.54394500609487,
+            241.1963540071156,
+            251.1189230135642,
+            269.6076869906392,
+            304.25237797317095,
+            283.9179449947551
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "Random_budget60": {
+        "nominal": {
+          "comm": 2.9563894271850586,
+          "sense": 3.8625197410583496,
+          "objective": 3.13761568069458
+        },
+        "terminal": {
+          "comm": 2.8430609703063965,
+          "sense": 3.62227201461792,
+          "objective": 2.998903274536133
+        },
+        "shared_union": {
+          "comm": 2.842778205871582,
+          "sense": 3.6221261024475098,
+          "objective": 2.998647451400757
+        },
+        "budgets": {
+          "50": {
+            "comm": 2.842778205871582,
+            "sense": 3.6221261024475098,
+            "objective": 2.998647451400757
+          },
+          "200": {
+            "comm": 2.842778205871582,
+            "sense": 3.6221261024475098,
+            "objective": 2.998647451400757
+          },
+          "1000": {
+            "comm": 2.842778205871582,
+            "sense": 3.6221261024475098,
+            "objective": 2.998647451400757
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 60,
+          "position_projections": 0,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 60
+        },
+        "iterations": 30,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 1.1920928955078125e-06,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.08466070200665854,
+        "attack_seconds": 3.5441553779819515,
+        "timing": {
+          "median_ms": 38.351900002453476,
+          "p95_ms": 41.832259207149036,
+          "samples_ms": [
+            37.32772500370629,
+            38.201123010367155,
+            36.88047098694369,
+            42.94352600118145,
+            39.27461200510152,
+            38.60982900368981,
+            37.54208900500089,
+            38.26555999694392,
+            41.35600200970657,
+            39.83218298526481,
+            38.16632000962272,
+            38.560545013751835,
+            38.351900002453476,
+            38.29887000028975,
+            39.04735000105575
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "StaticRandom_budget180": {
+        "nominal": {
+          "comm": 2.90202260017395,
+          "sense": 4.100644588470459,
+          "objective": 3.141747236251831
+        },
+        "terminal": {
+          "comm": 2.7848403453826904,
+          "sense": 3.8560101985931396,
+          "objective": 2.999074697494507
+        },
+        "shared_union": {
+          "comm": 2.7848379611968994,
+          "sense": 3.856009006500244,
+          "objective": 2.999072313308716
+        },
+        "budgets": {
+          "50": {
+            "comm": 2.7848379611968994,
+            "sense": 3.856009006500244,
+            "objective": 2.999072313308716
+          },
+          "200": {
+            "comm": 2.7848379611968994,
+            "sense": 3.856009006500244,
+            "objective": 2.999072313308716
+          },
+          "1000": {
+            "comm": 2.7848379611968994,
+            "sense": 3.856009006500244,
+            "objective": 2.999072313308716
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 180,
+          "position_projections": 0,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 180
+        },
+        "iterations": 90,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 9.5367431640625e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.18327418898115866,
+        "attack_seconds": 3.2678195379849058,
+        "timing": {
+          "median_ms": 136.96662700385787,
+          "p95_ms": 171.5021084994077,
+          "samples_ms": [
+            117.56774201057851,
+            143.96615399164148,
+            113.8220329885371,
+            136.96662700385787,
+            159.17119500227273,
+            200.27423999272287,
+            114.2472049978096,
+            118.20662600803189,
+            118.2673680013977,
+            150.0005730194971,
+            156.00753301987424,
+            118.50686898105778,
+            119.1556960111484,
+            138.57374200597405,
+            137.28048600023612
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "StaticRandom_budget360": {
+        "nominal": {
+          "comm": 2.954892635345459,
+          "sense": 3.8828482627868652,
+          "objective": 3.1404836177825928
+        },
+        "terminal": {
+          "comm": 2.841980218887329,
+          "sense": 3.6432430744171143,
+          "objective": 3.002232551574707
+        },
+        "shared_union": {
+          "comm": 2.8418233394622803,
+          "sense": 3.643101215362549,
+          "objective": 3.0020787715911865
+        },
+        "budgets": {
+          "50": {
+            "comm": 2.8418233394622803,
+            "sense": 3.643101215362549,
+            "objective": 3.0020787715911865
+          },
+          "200": {
+            "comm": 2.8418233394622803,
+            "sense": 3.643101215362549,
+            "objective": 3.0020787715911865
+          },
+          "1000": {
+            "comm": 2.8418233394622803,
+            "sense": 3.643101215362549,
+            "objective": 3.0020787715911865
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 360,
+          "position_projections": 0,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 360
+        },
+        "iterations": 180,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 9.5367431640625e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.3731858500104863,
+        "attack_seconds": 3.667777354014106,
+        "timing": {
+          "median_ms": 252.14012898504734,
+          "p95_ms": 311.8709119153209,
+          "samples_ms": [
+            246.49587599560618,
+            267.7259759802837,
+            252.51266101258807,
+            310.1747470209375,
+            291.58789897337556,
+            246.0983360069804,
+            315.8286300022155,
+            245.6681280164048,
+            252.6729679957498,
+            263.43537398497574,
+            248.89094798709266,
+            252.14012898504734,
+            236.91409401362762,
+            225.73500499129295,
+            219.95158199570142
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "StaticRandom_budget60": {
+        "nominal": {
+          "comm": 2.9617040157318115,
+          "sense": 3.833242177963257,
+          "objective": 3.1360116004943848
+        },
+        "terminal": {
+          "comm": 2.8493423461914062,
+          "sense": 3.5946457386016846,
+          "objective": 2.9984030723571777
+        },
+        "shared_union": {
+          "comm": 2.849081516265869,
+          "sense": 3.5944442749023438,
+          "objective": 2.9981539249420166
+        },
+        "budgets": {
+          "50": {
+            "comm": 2.849081516265869,
+            "sense": 3.5944442749023438,
+            "objective": 2.9981539249420166
+          },
+          "200": {
+            "comm": 2.849081516265869,
+            "sense": 3.5944442749023438,
+            "objective": 2.9981539249420166
+          },
+          "1000": {
+            "comm": 2.849081516265869,
+            "sense": 3.5944442749023438,
+            "objective": 2.9981539249420166
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 60,
+          "position_projections": 0,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 60
+        },
+        "iterations": 30,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 1.1920928955078125e-06,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 2.9802322387695312e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.06377009500283748,
+        "attack_seconds": 3.3020132910169195,
+        "timing": {
+          "median_ms": 42.31393299414776,
+          "p95_ms": 51.28988510696217,
+          "samples_ms": [
+            39.58462699665688,
+            42.31393299414776,
+            43.43246002099477,
+            42.95653200824745,
+            40.883587003918365,
+            41.7393859825097,
+            42.31710801832378,
+            41.236368007957935,
+            50.00838200794533,
+            54.280059004668146,
+            45.06231800769456,
+            38.801857008365914,
+            47.35808999976143,
+            40.56063902680762,
+            41.11790002207272
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "ULA_budget180": {
+        "nominal": {
+          "comm": 2.877272844314575,
+          "sense": 4.0043721199035645,
+          "objective": 3.1026928424835205
+        },
+        "terminal": {
+          "comm": 2.759608268737793,
+          "sense": 3.7620177268981934,
+          "objective": 2.960089921951294
+        },
+        "shared_union": {
+          "comm": 2.759577751159668,
+          "sense": 3.7619802951812744,
+          "objective": 2.9600582122802734
+        },
+        "budgets": {
+          "50": {
+            "comm": 2.759577751159668,
+            "sense": 3.7619802951812744,
+            "objective": 2.9600582122802734
+          },
+          "200": {
+            "comm": 2.759577751159668,
+            "sense": 3.7619802951812744,
+            "objective": 2.9600582122802734
+          },
+          "1000": {
+            "comm": 2.759577751159668,
+            "sense": 3.7619802951812744,
+            "objective": 2.9600582122802734
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 180,
+          "position_projections": 0,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 180
+        },
+        "iterations": 90,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 9.5367431640625e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.18984697601990774,
+        "attack_seconds": 3.6575052840053104,
+        "timing": {
+          "median_ms": 137.9696849908214,
+          "p95_ms": 223.83826158766163,
+          "samples_ms": [
+            134.23614299972542,
+            154.04808698804118,
+            137.9696849908214,
+            165.6494390044827,
+            137.14318702113815,
+            127.1726069971919,
+            139.39285100786947,
+            197.2662769840099,
+            210.1322299859021,
+            255.81900199176744,
+            150.9113369975239,
+            124.16057399241254,
+            129.87106799846515,
+            122.62916300096549,
+            120.33631399390288
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "ULA_budget360": {
+        "nominal": {
+          "comm": 2.8414742946624756,
+          "sense": 4.09722900390625,
+          "objective": 3.092625379562378
+        },
+        "terminal": {
+          "comm": 2.7191576957702637,
+          "sense": 3.8452649116516113,
+          "objective": 2.9443793296813965
+        },
+        "shared_union": {
+          "comm": 2.7191543579101562,
+          "sense": 3.845261335372925,
+          "objective": 2.944375514984131
+        },
+        "budgets": {
+          "50": {
+            "comm": 2.7191543579101562,
+            "sense": 3.845261335372925,
+            "objective": 2.944375514984131
+          },
+          "200": {
+            "comm": 2.7191543579101562,
+            "sense": 3.845261335372925,
+            "objective": 2.944375514984131
+          },
+          "1000": {
+            "comm": 2.7191543579101562,
+            "sense": 3.845261335372925,
+            "objective": 2.944375514984131
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 360,
+          "position_projections": 0,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 360
+        },
+        "iterations": 180,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 1.1920928955078125e-06,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.40398177900351584,
+        "attack_seconds": 3.683216232981067,
+        "timing": {
+          "median_ms": 244.9723120080307,
+          "p95_ms": 292.966027505463,
+          "samples_ms": [
+            256.0716540028807,
+            255.9115829935763,
+            251.43107297481038,
+            256.76716200541705,
+            294.7811170015484,
+            234.82200197759084,
+            235.68481698748656,
+            266.7380430211779,
+            237.2639950190205,
+            244.9723120080307,
+            231.57254001125693,
+            292.18813200714067,
+            229.84939100570045,
+            223.98135901312344,
+            240.0020549830515
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "ULA_budget60": {
+        "nominal": {
+          "comm": 2.94191837310791,
+          "sense": 3.7467737197875977,
+          "objective": 3.1028892993927
+        },
+        "terminal": {
+          "comm": 2.829179048538208,
+          "sense": 3.5152814388275146,
+          "objective": 2.9663991928100586
+        },
+        "shared_union": {
+          "comm": 2.8289690017700195,
+          "sense": 3.5150527954101562,
+          "objective": 2.9661855697631836
+        },
+        "budgets": {
+          "50": {
+            "comm": 2.8289690017700195,
+            "sense": 3.5150527954101562,
+            "objective": 2.9661855697631836
+          },
+          "200": {
+            "comm": 2.8289690017700195,
+            "sense": 3.5150527954101562,
+            "objective": 2.9661855697631836
+          },
+          "1000": {
+            "comm": 2.8289690017700195,
+            "sense": 3.5150527954101562,
+            "objective": 2.9661855697631836
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 60,
+          "position_projections": 0,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 60
+        },
+        "iterations": 30,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 1.1920928955078125e-06,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.07838597698719241,
+        "attack_seconds": 3.8218741769960616,
+        "timing": {
+          "median_ms": 35.86024200194515,
+          "p95_ms": 37.32236901123542,
+          "samples_ms": [
+            35.50509599153884,
+            37.77212600107305,
+            36.24608399695717,
+            36.06477100402117,
+            35.86024200194515,
+            36.75475099589676,
+            35.5709370051045,
+            37.12961601559073,
+            34.2715359875001,
+            35.093496000627056,
+            35.69437199621461,
+            34.84955700696446,
+            36.096970026846975,
+            35.65242898184806,
+            36.819308006670326
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "ULA_retuned_budget180": {
+        "nominal": {
+          "comm": 2.956264019012451,
+          "sense": 3.6265761852264404,
+          "objective": 3.0903263092041016
+        },
+        "terminal": {
+          "comm": 2.8443527221679688,
+          "sense": 3.397939443588257,
+          "objective": 2.9550702571868896
+        },
+        "shared_union": {
+          "comm": 2.8439507484436035,
+          "sense": 3.397500991821289,
+          "objective": 2.9546608924865723
+        },
+        "budgets": {
+          "50": {
+            "comm": 2.8439507484436035,
+            "sense": 3.397500991821289,
+            "objective": 2.9546608924865723
+          },
+          "200": {
+            "comm": 2.8439507484436035,
+            "sense": 3.397500991821289,
+            "objective": 2.9546608924865723
+          },
+          "1000": {
+            "comm": 2.8439507484436035,
+            "sense": 3.397500991821289,
+            "objective": 2.9546608924865723
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 180,
+          "position_projections": 0,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 180
+        },
+        "iterations": 90,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 1.430511474609375e-06,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.2060187819879502,
+        "attack_seconds": 3.7922022550192196,
+        "timing": {
+          "median_ms": 121.34614901151508,
+          "p95_ms": 151.48633611097466,
+          "samples_ms": [
+            145.17274001264013,
+            148.24634001706727,
+            159.04632699675858,
+            116.6218230209779,
+            145.4346950049512,
+            129.29808400804177,
+            121.34614901151508,
+            118.15123999258503,
+            125.13161898823455,
+            120.32156498753466,
+            121.97163197561167,
+            114.7402849746868,
+            118.92845298280008,
+            116.54223399818875,
+            114.56772501696832
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "ULA_retuned_budget360": {
+        "nominal": {
+          "comm": 2.934253454208374,
+          "sense": 3.7940380573272705,
+          "objective": 3.106210708618164
+        },
+        "terminal": {
+          "comm": 2.820998430252075,
+          "sense": 3.56087064743042,
+          "objective": 2.968973159790039
+        },
+        "shared_union": {
+          "comm": 2.820863962173462,
+          "sense": 3.560701847076416,
+          "objective": 2.9688315391540527
+        },
+        "budgets": {
+          "50": {
+            "comm": 2.820863962173462,
+            "sense": 3.560701847076416,
+            "objective": 2.9688315391540527
+          },
+          "200": {
+            "comm": 2.820863962173462,
+            "sense": 3.560701847076416,
+            "objective": 2.9688315391540527
+          },
+          "1000": {
+            "comm": 2.820863962173462,
+            "sense": 3.560701847076416,
+            "objective": 2.9688315391540527
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 360,
+          "position_projections": 0,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 360
+        },
+        "iterations": 180,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 9.5367431640625e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.4028046669845935,
+        "attack_seconds": 3.473993263003649,
+        "timing": {
+          "median_ms": 249.52440499328077,
+          "p95_ms": 284.591008091229,
+          "samples_ms": [
+            249.52440499328077,
+            260.5989699950442,
+            269.8827730200719,
+            273.7302480090875,
+            278.79052999196574,
+            298.12545698951,
+            241.87013498158194,
+            245.07026700302958,
+            261.59692599321716,
+            229.31252801208757,
+            266.90668598166667,
+            234.66917799669318,
+            243.93641200731508,
+            222.97187300864607,
+            215.84846900077537
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "ULA_runtime_match": {
+        "nominal": {
+          "comm": 2.922778606414795,
+          "sense": 3.8497555255889893,
+          "objective": 3.1081738471984863
+        },
+        "terminal": {
+          "comm": 2.8088512420654297,
+          "sense": 3.6150166988372803,
+          "objective": 2.9700844287872314
+        },
+        "shared_union": {
+          "comm": 2.808732032775879,
+          "sense": 3.614875078201294,
+          "objective": 2.9699602127075195
+        },
+        "budgets": {
+          "50": {
+            "comm": 2.808732032775879,
+            "sense": 3.614875078201294,
+            "objective": 2.9699602127075195
+          },
+          "200": {
+            "comm": 2.808732032775879,
+            "sense": 3.614875078201294,
+            "objective": 2.9699602127075195
+          },
+          "1000": {
+            "comm": 2.808732032775879,
+            "sense": 3.614875078201294,
+            "objective": 2.9699602127075195
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 90,
+          "position_projections": 0,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 90
+        },
+        "iterations": 45,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 1.1920928955078125e-06,
+          "receive_norm": 5.960464477539063e-08,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.10236223399988376,
+        "attack_seconds": 4.0171759099757764,
+        "timing": {
+          "median_ms": 63.38694199803285,
+          "p95_ms": 143.17060191242484,
+          "samples_ms": [
+            57.393121998757124,
+            60.0285769905895,
+            63.38694199803285,
+            69.127792987274,
+            172.42360400268808,
+            130.63360101659782,
+            90.19320699735545,
+            72.24412800860591,
+            58.75423501129262,
+            59.99472600524314,
+            62.66790800145827,
+            62.94738900032826,
+            62.62146899825893,
+            68.77264598733746,
+            74.83048402355053
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      }
+    },
+    "C": {
+      "Fluid_budget180": {
+        "nominal": {
+          "comm": 2.95381236076355,
+          "sense": 3.7300055027008057,
+          "objective": 3.10905122756958
+        },
+        "terminal": {
+          "comm": 2.8435680866241455,
+          "sense": 3.439768075942993,
+          "objective": 2.962808132171631
+        },
+        "shared_union": {
+          "comm": 2.840869665145874,
+          "sense": 3.1363883018493652,
+          "objective": 2.899973154067993
+        },
+        "budgets": {
+          "50": {
+            "comm": 2.840869665145874,
+            "sense": 3.136389970779419,
+            "objective": 2.8999738693237305
+          },
+          "200": {
+            "comm": 2.840869665145874,
+            "sense": 3.1363883018493652,
+            "objective": 2.899973154067993
+          },
+          "1000": {
+            "comm": 2.840869665145874,
+            "sense": 3.1363883018493652,
+            "objective": 2.899973154067993
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 180,
+          "position_projections": 221,
+          "position_metric_evaluations": 281,
+          "field_reconstructions": 461
+        },
+        "iterations": 60,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 9.5367431640625e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": 0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 1.1920928955078125e-07
+        },
+        "design_batch_seconds": 1.2136642720142845,
+        "attack_seconds": 5.362522973999148,
+        "timing": {
+          "median_ms": 160.70792399113998,
+          "p95_ms": 224.48679980298033,
+          "samples_ms": [
+            199.7883289877791,
+            198.31906800391153,
+            158.72306100209244,
+            148.48507798160426,
+            151.86211201944388,
+            154.11714298534207,
+            270.597007998731,
+            166.03694300283678,
+            170.07047700462863,
+            204.72528200480156,
+            156.53190002194606,
+            160.70792399113998,
+            154.2458370095119,
+            165.3843790118117,
+            155.40058899205178
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "Fluid_budget360": {
+        "nominal": {
+          "comm": 2.956235885620117,
+          "sense": 3.923100471496582,
+          "objective": 3.149609088897705
+        },
+        "terminal": {
+          "comm": 2.8442394733428955,
+          "sense": 3.691371202468872,
+          "objective": 3.0136661529541016
+        },
+        "shared_union": {
+          "comm": 2.8438689708709717,
+          "sense": 3.329191207885742,
+          "objective": 2.9409334659576416
+        },
+        "budgets": {
+          "50": {
+            "comm": 2.8438689708709717,
+            "sense": 3.329191207885742,
+            "objective": 2.9409334659576416
+          },
+          "200": {
+            "comm": 2.8438689708709717,
+            "sense": 3.329191207885742,
+            "objective": 2.9409334659576416
+          },
+          "1000": {
+            "comm": 2.8438689708709717,
+            "sense": 3.329191207885742,
+            "objective": 2.9409334659576416
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 360,
+          "position_projections": 440,
+          "position_metric_evaluations": 560,
+          "field_reconstructions": 920
+        },
+        "iterations": 120,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 9.5367431640625e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": 0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 1.1920928955078125e-07
+        },
+        "design_batch_seconds": 2.1500945420120843,
+        "attack_seconds": 4.704312262008898,
+        "timing": {
+          "median_ms": 300.8349619922228,
+          "p95_ms": 378.3279102208325,
+          "samples_ms": [
+            291.89581802347675,
+            290.2083910012152,
+            293.1250420224387,
+            303.63060801755637,
+            300.8349619922228,
+            305.74595800135285,
+            297.3818019963801,
+            284.1742110031191,
+            293.29686099663377,
+            298.2368319935631,
+            327.75778000359423,
+            302.80235401005484,
+            360.5479890247807,
+            419.81439301162027,
+            351.70154500519857
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "Fluid_budget60": {
+        "nominal": {
+          "comm": 2.974992036819458,
+          "sense": 3.316506862640381,
+          "objective": 3.043294668197632
+        },
+        "terminal": {
+          "comm": 2.9109933376312256,
+          "sense": 3.0722601413726807,
+          "objective": 2.943247079849243
+        },
+        "shared_union": {
+          "comm": 2.864349126815796,
+          "sense": 2.7434136867523193,
+          "objective": 2.8401620388031006
+        },
+        "budgets": {
+          "50": {
+            "comm": 2.864349126815796,
+            "sense": 2.7434144020080566,
+            "objective": 2.8401622772216797
+          },
+          "200": {
+            "comm": 2.864349126815796,
+            "sense": 2.7434136867523193,
+            "objective": 2.8401620388031006
+          },
+          "1000": {
+            "comm": 2.864349126815796,
+            "sense": 2.7434136867523193,
+            "objective": 2.8401620388031006
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 60,
+          "position_projections": 64,
+          "position_metric_evaluations": 84,
+          "field_reconstructions": 144
+        },
+        "iterations": 20,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 9.5367431640625e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 0.0,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 1.1920928955078125e-07
+        },
+        "design_batch_seconds": 0.330815496010473,
+        "attack_seconds": 4.682126144005451,
+        "timing": {
+          "median_ms": 47.247479000361636,
+          "p95_ms": 49.87116660049651,
+          "samples_ms": [
+            46.91225299029611,
+            46.42025101929903,
+            46.6619849903509,
+            47.209051001118496,
+            49.311983020743355,
+            47.27144498610869,
+            47.48257400933653,
+            46.52283599716611,
+            46.875267988070846,
+            47.247479000361636,
+            46.86671501258388,
+            50.03906998899765,
+            47.41645400645211,
+            48.20081702200696,
+            49.79920800542459
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "Fluid_plain_learning_control": {
+        "nominal": {
+          "comm": 2.974538564682007,
+          "sense": 3.2657833099365234,
+          "objective": 3.032787561416626
+        },
+        "terminal": {
+          "comm": 2.910433292388916,
+          "sense": 2.9971630573272705,
+          "objective": 2.92777943611145
+        },
+        "shared_union": {
+          "comm": 2.8637735843658447,
+          "sense": 2.696122407913208,
+          "objective": 2.8302431106567383
+        },
+        "budgets": {
+          "50": {
+            "comm": 2.8637735843658447,
+            "sense": 2.6961231231689453,
+            "objective": 2.8302435874938965
+          },
+          "200": {
+            "comm": 2.8637735843658447,
+            "sense": 2.696122407913208,
+            "objective": 2.8302431106567383
+          },
+          "1000": {
+            "comm": 2.8637735843658447,
+            "sense": 2.696122407913208,
+            "objective": 2.8302431106567383
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 60,
+          "position_projections": 20,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 60
+        },
+        "iterations": 20,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 9.5367431640625e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 0.0,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 1.1920928955078125e-07
+        },
+        "design_batch_seconds": 0.1622183469880838,
+        "attack_seconds": 4.857861181022599,
+        "timing": {
+          "median_ms": 37.811905989656225,
+          "p95_ms": 39.37265518179629,
+          "samples_ms": [
+            37.811905989656225,
+            39.51339298509993,
+            37.719867017585784,
+            36.26940899994224,
+            38.681578007526696,
+            37.379984016297385,
+            36.765558004844934,
+            39.301784010604024,
+            36.96948601282202,
+            37.56775800138712,
+            38.10464800335467,
+            39.17812698637135,
+            39.312338980380446,
+            37.39169199252501,
+            38.20979598094709
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "LearnedConstant_seed101": {
+        "nominal": {
+          "comm": 2.973801612854004,
+          "sense": 3.2529807090759277,
+          "objective": 3.029637336730957
+        },
+        "terminal": {
+          "comm": 2.9097402095794678,
+          "sense": 2.9908432960510254,
+          "objective": 2.9259607791900635
+        },
+        "shared_union": {
+          "comm": 2.862776756286621,
+          "sense": 2.6823673248291016,
+          "objective": 2.8266947269439697
+        },
+        "budgets": {
+          "50": {
+            "comm": 2.862776756286621,
+            "sense": 2.682368278503418,
+            "objective": 2.826694965362549
+          },
+          "200": {
+            "comm": 2.862776756286621,
+            "sense": 2.6823673248291016,
+            "objective": 2.8266947269439697
+          },
+          "1000": {
+            "comm": 2.862776756286621,
+            "sense": 2.6823673248291016,
+            "objective": 2.8266947269439697
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 60,
+          "position_projections": 20,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 60
+        },
+        "iterations": 20,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 9.5367431640625e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 0.0,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 1.1920928955078125e-07
+        },
+        "design_batch_seconds": 0.14449797698762268,
+        "attack_seconds": 4.549378530005924,
+        "timing": {
+          "median_ms": 39.61625701049343,
+          "p95_ms": 41.54019190755207,
+          "samples_ms": [
+            38.76217899960466,
+            39.04780000448227,
+            37.83696299069561,
+            40.04021600121632,
+            38.899606006452814,
+            37.26332899532281,
+            41.27610000432469,
+            40.700031007872894,
+            38.26431802008301,
+            41.424094000831246,
+            40.28360400116071,
+            41.811087023233995,
+            41.04823697707616,
+            39.43286000867374,
+            39.61625701049343
+          ],
+          "scope": "Warm full model call, first15 paired test scenarios, one CPU thread, no concurrent training/attacks; no physical movement"
+        },
+        "selected_epoch": 4,
+        "learned_parameter_count": 1
+      },
+      "LearnedConstant_seed202": {
+        "nominal": {
+          "comm": 2.974538564682007,
+          "sense": 3.2657833099365234,
+          "objective": 3.032787561416626
+        },
+        "terminal": {
+          "comm": 2.910433292388916,
+          "sense": 2.9971630573272705,
+          "objective": 2.92777943611145
+        },
+        "shared_union": {
+          "comm": 2.8637735843658447,
+          "sense": 2.696122407913208,
+          "objective": 2.8302431106567383
+        },
+        "budgets": {
+          "50": {
+            "comm": 2.8637735843658447,
+            "sense": 2.6961231231689453,
+            "objective": 2.8302435874938965
+          },
+          "200": {
+            "comm": 2.8637735843658447,
+            "sense": 2.696122407913208,
+            "objective": 2.8302431106567383
+          },
+          "1000": {
+            "comm": 2.8637735843658447,
+            "sense": 2.696122407913208,
+            "objective": 2.8302431106567383
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 60,
+          "position_projections": 20,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 60
+        },
+        "iterations": 20,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 9.5367431640625e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 0.0,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 1.1920928955078125e-07
+        },
+        "design_batch_seconds": 0.15676008199807256,
+        "attack_seconds": 5.0873313329939265,
+        "timing": {
+          "median_ms": 38.49044899106957,
+          "p95_ms": 40.36263859306928,
+          "samples_ms": [
+            40.785600984236225,
+            37.212431023363024,
+            36.955663992557675,
+            38.29561499878764,
+            39.21778700896539,
+            39.72040399094112,
+            37.21907100407407,
+            40.18136899685487,
+            37.46362100355327,
+            37.1841489977669,
+            39.54798399354331,
+            38.49044899106957,
+            38.921589992241934,
+            38.86445300304331,
+            37.47345501324162
+          ],
+          "scope": "Warm full model call, first15 paired test scenarios, one CPU thread, no concurrent training/attacks; no physical movement"
+        },
+        "selected_epoch": 0,
+        "learned_parameter_count": 1
+      },
+      "LearnedConstant_seed303": {
+        "nominal": {
+          "comm": 2.974538564682007,
+          "sense": 3.2657833099365234,
+          "objective": 3.032787561416626
+        },
+        "terminal": {
+          "comm": 2.910433292388916,
+          "sense": 2.9971630573272705,
+          "objective": 2.92777943611145
+        },
+        "shared_union": {
+          "comm": 2.8637735843658447,
+          "sense": 2.696122407913208,
+          "objective": 2.8302431106567383
+        },
+        "budgets": {
+          "50": {
+            "comm": 2.8637735843658447,
+            "sense": 2.6961231231689453,
+            "objective": 2.8302435874938965
+          },
+          "200": {
+            "comm": 2.8637735843658447,
+            "sense": 2.696122407913208,
+            "objective": 2.8302431106567383
+          },
+          "1000": {
+            "comm": 2.8637735843658447,
+            "sense": 2.696122407913208,
+            "objective": 2.8302431106567383
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 60,
+          "position_projections": 20,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 60
+        },
+        "iterations": 20,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 9.5367431640625e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 0.0,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 1.1920928955078125e-07
+        },
+        "design_batch_seconds": 0.1556365299911704,
+        "attack_seconds": 5.420842382009141,
+        "timing": {
+          "median_ms": 39.063803997123614,
+          "p95_ms": 40.22462769644335,
+          "samples_ms": [
+            39.1041949915234,
+            39.063803997123614,
+            38.371629983885214,
+            37.828791013453156,
+            37.330108985770494,
+            40.043832996161655,
+            38.42773399082944,
+            38.70061598718166,
+            38.86835899902508,
+            39.48547999607399,
+            40.646481997100636,
+            37.14292700169608,
+            39.35084698605351,
+            39.39727702527307,
+            39.785362023394555
+          ],
+          "scope": "Warm full model call, first15 paired test scenarios, one CPU thread, no concurrent training/attacks; no physical movement"
+        },
+        "selected_epoch": 0,
+        "learned_parameter_count": 1
+      },
+      "LearnedSchedule_seed101": {
+        "nominal": {
+          "comm": 2.974538564682007,
+          "sense": 3.2657833099365234,
+          "objective": 3.032787561416626
+        },
+        "terminal": {
+          "comm": 2.910433292388916,
+          "sense": 2.9971630573272705,
+          "objective": 2.92777943611145
+        },
+        "shared_union": {
+          "comm": 2.8637735843658447,
+          "sense": 2.696122407913208,
+          "objective": 2.8302431106567383
+        },
+        "budgets": {
+          "50": {
+            "comm": 2.8637735843658447,
+            "sense": 2.6961231231689453,
+            "objective": 2.8302435874938965
+          },
+          "200": {
+            "comm": 2.8637735843658447,
+            "sense": 2.696122407913208,
+            "objective": 2.8302431106567383
+          },
+          "1000": {
+            "comm": 2.8637735843658447,
+            "sense": 2.696122407913208,
+            "objective": 2.8302431106567383
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 60,
+          "position_projections": 20,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 60
+        },
+        "iterations": 20,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 9.5367431640625e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 0.0,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 1.1920928955078125e-07
+        },
+        "design_batch_seconds": 0.14108009901246987,
+        "attack_seconds": 4.882868865999626,
+        "timing": {
+          "median_ms": 40.062579995719716,
+          "p95_ms": 43.485858794883825,
+          "samples_ms": [
+            40.20454498822801,
+            40.04663700470701,
+            38.76805800246075,
+            43.26594198937528,
+            41.340046998811886,
+            39.00740901008248,
+            41.340636991662905,
+            38.96080900449306,
+            40.062579995719716,
+            38.469266990432516,
+            38.189105020137504,
+            40.40785098914057,
+            43.9989980077371,
+            42.47236397350207,
+            39.480031991843134
+          ],
+          "scope": "Warm full model call, first15 paired test scenarios, one CPU thread, no concurrent training/attacks; no physical movement"
+        },
+        "selected_epoch": 0,
+        "learned_parameter_count": 20
+      },
+      "LearnedSchedule_seed202": {
+        "nominal": {
+          "comm": 2.9737508296966553,
+          "sense": 3.253023624420166,
+          "objective": 3.0296056270599365
+        },
+        "terminal": {
+          "comm": 2.909524440765381,
+          "sense": 3.0033998489379883,
+          "objective": 2.92829966545105
+        },
+        "shared_union": {
+          "comm": 2.862729549407959,
+          "sense": 2.6813361644744873,
+          "objective": 2.826450824737549
+        },
+        "budgets": {
+          "50": {
+            "comm": 2.862729549407959,
+            "sense": 2.6813368797302246,
+            "objective": 2.826451063156128
+          },
+          "200": {
+            "comm": 2.862729549407959,
+            "sense": 2.6813361644744873,
+            "objective": 2.826450824737549
+          },
+          "1000": {
+            "comm": 2.862729549407959,
+            "sense": 2.6813361644744873,
+            "objective": 2.826450824737549
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 60,
+          "position_projections": 20,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 60
+        },
+        "iterations": 20,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 1.1920928955078125e-06,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 0.0,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 0.0,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 1.1920928955078125e-07
+        },
+        "design_batch_seconds": 0.15750381900579669,
+        "attack_seconds": 4.710270534007577,
+        "timing": {
+          "median_ms": 38.37289201328531,
+          "p95_ms": 41.64182328968309,
+          "samples_ms": [
+            37.946719996398315,
+            37.318621994927526,
+            38.93321598297916,
+            38.2837780052796,
+            38.336657016770914,
+            38.47467599553056,
+            37.15201001614332,
+            38.37289201328531,
+            39.14060001261532,
+            42.71028298535384,
+            41.18391199153848,
+            37.61005197884515,
+            38.786294986493886,
+            38.9150689879898,
+            36.978059011744335
+          ],
+          "scope": "Warm full model call, first15 paired test scenarios, one CPU thread, no concurrent training/attacks; no physical movement"
+        },
+        "selected_epoch": 3,
+        "learned_parameter_count": 20
+      },
+      "LearnedSchedule_seed303": {
+        "nominal": {
+          "comm": 2.974538564682007,
+          "sense": 3.2657833099365234,
+          "objective": 3.032787561416626
+        },
+        "terminal": {
+          "comm": 2.910433292388916,
+          "sense": 2.9971630573272705,
+          "objective": 2.92777943611145
+        },
+        "shared_union": {
+          "comm": 2.8637735843658447,
+          "sense": 2.696122407913208,
+          "objective": 2.8302431106567383
+        },
+        "budgets": {
+          "50": {
+            "comm": 2.8637735843658447,
+            "sense": 2.6961231231689453,
+            "objective": 2.8302435874938965
+          },
+          "200": {
+            "comm": 2.8637735843658447,
+            "sense": 2.696122407913208,
+            "objective": 2.8302431106567383
+          },
+          "1000": {
+            "comm": 2.8637735843658447,
+            "sense": 2.696122407913208,
+            "objective": 2.8302431106567383
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 60,
+          "position_projections": 20,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 60
+        },
+        "iterations": 20,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 9.5367431640625e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 0.0,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 1.1920928955078125e-07
+        },
+        "design_batch_seconds": 0.22168881699326448,
+        "attack_seconds": 6.423227069986751,
+        "timing": {
+          "median_ms": 39.11966801388189,
+          "p95_ms": 40.11718820547685,
+          "samples_ms": [
+            40.18866099067964,
+            39.14854201138951,
+            37.96861201408319,
+            38.01447100704536,
+            39.11966801388189,
+            38.74137799721211,
+            36.99975099880248,
+            39.484447974245995,
+            39.32752201217227,
+            39.8478860151954,
+            38.543508999282494,
+            39.21141699538566,
+            38.74383200309239,
+            39.087179000489414,
+            40.08655701181851
+          ],
+          "scope": "Warm full model call, first15 paired test scenarios, one CPU thread, no concurrent training/attacks; no physical movement"
+        },
+        "selected_epoch": 0,
+        "learned_parameter_count": 20
+      },
+      "Plain_tuned_control": {
+        "nominal": {
+          "comm": 2.974538564682007,
+          "sense": 3.2657833099365234,
+          "objective": 3.032787561416626
+        },
+        "terminal": {
+          "comm": 2.910433292388916,
+          "sense": 2.9971630573272705,
+          "objective": 2.92777943611145
+        },
+        "shared_union": {
+          "comm": 2.8637735843658447,
+          "sense": 2.696122407913208,
+          "objective": 2.8302431106567383
+        },
+        "budgets": {
+          "50": {
+            "comm": 2.8637735843658447,
+            "sense": 2.6961231231689453,
+            "objective": 2.8302435874938965
+          },
+          "200": {
+            "comm": 2.8637735843658447,
+            "sense": 2.696122407913208,
+            "objective": 2.8302431106567383
+          },
+          "1000": {
+            "comm": 2.8637735843658447,
+            "sense": 2.696122407913208,
+            "objective": 2.8302431106567383
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 60,
+          "position_projections": 20,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 60
+        },
+        "iterations": 20,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 9.5367431640625e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 0.0,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 1.1920928955078125e-07
+        },
+        "design_batch_seconds": 0.14416726300260052,
+        "attack_seconds": 4.770486323017394,
+        "timing": {
+          "median_ms": 36.41588002210483,
+          "p95_ms": 37.24336259183474,
+          "samples_ms": [
+            37.03816799679771,
+            36.691185989184305,
+            36.41588002210483,
+            36.10048399423249,
+            36.48887001327239,
+            36.15260301739909,
+            36.19943399098702,
+            35.77725699869916,
+            36.41354601131752,
+            36.40183902462013,
+            35.96668198588304,
+            36.68271398055367,
+            37.72214998025447,
+            36.84467700077221,
+            36.66038898518309
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "Random_budget180": {
+        "nominal": {
+          "comm": 2.716085195541382,
+          "sense": 3.4672226905822754,
+          "objective": 2.8663129806518555
+        },
+        "terminal": {
+          "comm": 2.5859122276306152,
+          "sense": 3.1289215087890625,
+          "objective": 2.6945137977600098
+        },
+        "shared_union": {
+          "comm": 2.5855519771575928,
+          "sense": 2.9350426197052,
+          "objective": 2.6554501056671143
+        },
+        "budgets": {
+          "50": {
+            "comm": 2.5855519771575928,
+            "sense": 2.9350433349609375,
+            "objective": 2.6554501056671143
+          },
+          "200": {
+            "comm": 2.5855519771575928,
+            "sense": 2.9350426197052,
+            "objective": 2.6554501056671143
+          },
+          "1000": {
+            "comm": 2.5855519771575928,
+            "sense": 2.9350426197052,
+            "objective": 2.6554501056671143
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 180,
+          "position_projections": 0,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 180
+        },
+        "iterations": 90,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 9.5367431640625e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.23239957098849118,
+        "attack_seconds": 4.492965946003096,
+        "timing": {
+          "median_ms": 113.83170500630513,
+          "p95_ms": 117.70712461147923,
+          "samples_ms": [
+            111.3134259940125,
+            114.74887799704447,
+            113.40327799553052,
+            112.3508999880869,
+            113.83170500630513,
+            113.11701699742116,
+            117.05436601187102,
+            114.15276900515892,
+            117.03533699619584,
+            119.23022801056504,
+            112.3045600252226,
+            114.01361899334006,
+            114.19165800907649,
+            113.66944000474177,
+            112.40415199426934
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "Random_budget360": {
+        "nominal": {
+          "comm": 2.699597120285034,
+          "sense": 3.6747286319732666,
+          "objective": 2.8946237564086914
+        },
+        "terminal": {
+          "comm": 2.568202018737793,
+          "sense": 3.412628412246704,
+          "objective": 2.7370874881744385
+        },
+        "shared_union": {
+          "comm": 2.5681569576263428,
+          "sense": 3.124537467956543,
+          "objective": 2.6794333457946777
+        },
+        "budgets": {
+          "50": {
+            "comm": 2.568157434463501,
+            "sense": 3.124537944793701,
+            "objective": 2.6794333457946777
+          },
+          "200": {
+            "comm": 2.5681569576263428,
+            "sense": 3.124537467956543,
+            "objective": 2.6794333457946777
+          },
+          "1000": {
+            "comm": 2.5681569576263428,
+            "sense": 3.124537467956543,
+            "objective": 2.6794333457946777
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 360,
+          "position_projections": 0,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 360
+        },
+        "iterations": 180,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 1.1920928955078125e-06,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.5031238000083249,
+        "attack_seconds": 4.437165681010811,
+        "timing": {
+          "median_ms": 217.11330601829104,
+          "p95_ms": 230.41291980480307,
+          "samples_ms": [
+            220.94608697807416,
+            244.60704802186228,
+            217.253298003925,
+            216.94281901000068,
+            213.49338698200881,
+            217.11330601829104,
+            220.5245509976521,
+            214.2926910019014,
+            224.32972199749202,
+            214.5051319967024,
+            219.67869700165465,
+            211.6441369871609,
+            213.72947198688053,
+            215.9956409886945,
+            219.19459599303082
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "Random_budget60": {
+        "nominal": {
+          "comm": 2.7480294704437256,
+          "sense": 2.9916346073150635,
+          "objective": 2.796750545501709
+        },
+        "terminal": {
+          "comm": 2.6386852264404297,
+          "sense": 2.60707950592041,
+          "objective": 2.632364273071289
+        },
+        "shared_union": {
+          "comm": 2.621445655822754,
+          "sense": 2.45096492767334,
+          "objective": 2.5873498916625977
+        },
+        "budgets": {
+          "50": {
+            "comm": 2.621445655822754,
+            "sense": 2.450965166091919,
+            "objective": 2.5873498916625977
+          },
+          "200": {
+            "comm": 2.621445655822754,
+            "sense": 2.45096492767334,
+            "objective": 2.5873498916625977
+          },
+          "1000": {
+            "comm": 2.621445655822754,
+            "sense": 2.45096492767334,
+            "objective": 2.5873498916625977
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 60,
+          "position_projections": 0,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 60
+        },
+        "iterations": 30,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 1.430511474609375e-06,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.09128841600613669,
+        "attack_seconds": 4.714783981005894,
+        "timing": {
+          "median_ms": 41.2626379984431,
+          "p95_ms": 43.4753185021691,
+          "samples_ms": [
+            41.9918280094862,
+            43.31298099714331,
+            40.77401998802088,
+            41.07162999571301,
+            42.83296698122285,
+            43.854106013895944,
+            42.08269499940798,
+            39.39593298127875,
+            40.47505001653917,
+            41.2626379984431,
+            42.18022199347615,
+            39.35905601247214,
+            41.81362900999375,
+            40.012192010181025,
+            39.46721999091096
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "StaticRandom_budget180": {
+        "nominal": {
+          "comm": 2.708430290222168,
+          "sense": 3.394258499145508,
+          "objective": 2.8455960750579834
+        },
+        "terminal": {
+          "comm": 2.57820200920105,
+          "sense": 3.04868745803833,
+          "objective": 2.6722989082336426
+        },
+        "shared_union": {
+          "comm": 2.5778229236602783,
+          "sense": 2.882394790649414,
+          "objective": 2.638737201690674
+        },
+        "budgets": {
+          "50": {
+            "comm": 2.5778229236602783,
+            "sense": 2.882394790649414,
+            "objective": 2.638737201690674
+          },
+          "200": {
+            "comm": 2.5778229236602783,
+            "sense": 2.882394790649414,
+            "objective": 2.638737201690674
+          },
+          "1000": {
+            "comm": 2.5778229236602783,
+            "sense": 2.882394790649414,
+            "objective": 2.638737201690674
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 180,
+          "position_projections": 0,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 180
+        },
+        "iterations": 90,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 1.1920928955078125e-06,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 2.9802322387695312e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.23224494297755882,
+        "attack_seconds": 4.872559501993237,
+        "timing": {
+          "median_ms": 122.65344097977504,
+          "p95_ms": 141.37408670212608,
+          "samples_ms": [
+            115.111588005675,
+            112.84616100601852,
+            130.7457800139673,
+            118.00677498104051,
+            122.65344097977504,
+            118.71790597797371,
+            120.07462201290764,
+            118.15640001441352,
+            119.20335399918258,
+            141.3107569969725,
+            141.52185601415113,
+            135.90350400772877,
+            133.02896899404004,
+            134.78327399934642,
+            130.34448999678716
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "StaticRandom_budget360": {
+        "nominal": {
+          "comm": 2.692267656326294,
+          "sense": 3.708707809448242,
+          "objective": 2.8955557346343994
+        },
+        "terminal": {
+          "comm": 2.560353994369507,
+          "sense": 3.4386096000671387,
+          "objective": 2.7360053062438965
+        },
+        "shared_union": {
+          "comm": 2.5602786540985107,
+          "sense": 3.160940170288086,
+          "objective": 2.6804111003875732
+        },
+        "budgets": {
+          "50": {
+            "comm": 2.5602786540985107,
+            "sense": 3.160940170288086,
+            "objective": 2.6804111003875732
+          },
+          "200": {
+            "comm": 2.5602786540985107,
+            "sense": 3.160940170288086,
+            "objective": 2.6804111003875732
+          },
+          "1000": {
+            "comm": 2.5602786540985107,
+            "sense": 3.160940170288086,
+            "objective": 2.6804111003875732
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 360,
+          "position_projections": 0,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 360
+        },
+        "iterations": 180,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 9.5367431640625e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 2.9802322387695312e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.5165884509915486,
+        "attack_seconds": 4.81509607899352,
+        "timing": {
+          "median_ms": 232.76090700528584,
+          "p95_ms": 289.5061028917553,
+          "samples_ms": [
+            304.8286289849784,
+            260.2481319918297,
+            245.08235399844125,
+            225.91674499562941,
+            227.2640969895292,
+            227.5152850197628,
+            226.74042702419683,
+            228.60830501304008,
+            224.0249419992324,
+            232.76090700528584,
+            228.065595991211,
+            282.93930599465966,
+            269.331282004714,
+            249.42816401016898,
+            246.94238498341292
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "StaticRandom_budget60": {
+        "nominal": {
+          "comm": 2.750068426132202,
+          "sense": 2.9102203845977783,
+          "objective": 2.7820990085601807
+        },
+        "terminal": {
+          "comm": 2.6245203018188477,
+          "sense": 2.484015703201294,
+          "objective": 2.596419334411621
+        },
+        "shared_union": {
+          "comm": 2.6238527297973633,
+          "sense": 2.3993353843688965,
+          "objective": 2.578949213027954
+        },
+        "budgets": {
+          "50": {
+            "comm": 2.6238527297973633,
+            "sense": 2.3993358612060547,
+            "objective": 2.578949213027954
+          },
+          "200": {
+            "comm": 2.6238527297973633,
+            "sense": 2.3993356227874756,
+            "objective": 2.578949213027954
+          },
+          "1000": {
+            "comm": 2.6238527297973633,
+            "sense": 2.3993353843688965,
+            "objective": 2.578949213027954
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 60,
+          "position_projections": 0,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 60
+        },
+        "iterations": 30,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 1.1920928955078125e-06,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.07853037299355492,
+        "attack_seconds": 4.52939587799483,
+        "timing": {
+          "median_ms": 41.39457599376328,
+          "p95_ms": 43.86746098753065,
+          "samples_ms": [
+            41.26797500066459,
+            41.39457599376328,
+            43.42052200809121,
+            42.84680698765442,
+            41.93588299676776,
+            39.69698600121774,
+            40.62719899229705,
+            43.71024898136966,
+            41.83715401450172,
+            44.23428900190629,
+            42.48399002244696,
+            40.0844209943898,
+            40.266876021632925,
+            41.11766899586655,
+            39.90798399900086
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "ULA_budget180": {
+        "nominal": {
+          "comm": 2.6806716918945312,
+          "sense": 3.4973134994506836,
+          "objective": 2.8439998626708984
+        },
+        "terminal": {
+          "comm": 2.5496606826782227,
+          "sense": 3.1398744583129883,
+          "objective": 2.667703628540039
+        },
+        "shared_union": {
+          "comm": 2.5491974353790283,
+          "sense": 2.9452009201049805,
+          "objective": 2.6283981800079346
+        },
+        "budgets": {
+          "50": {
+            "comm": 2.5491974353790283,
+            "sense": 2.9452009201049805,
+            "objective": 2.6283981800079346
+          },
+          "200": {
+            "comm": 2.5491974353790283,
+            "sense": 2.9452009201049805,
+            "objective": 2.6283981800079346
+          },
+          "1000": {
+            "comm": 2.5491974353790283,
+            "sense": 2.9452009201049805,
+            "objective": 2.6283981800079346
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 180,
+          "position_projections": 0,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 180
+        },
+        "iterations": 90,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 1.1920928955078125e-06,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.27869198098778725,
+        "attack_seconds": 4.816156094981125,
+        "timing": {
+          "median_ms": 112.55713299033232,
+          "p95_ms": 115.796516413684,
+          "samples_ms": [
+            113.3288069977425,
+            113.54596499586478,
+            112.50032798852772,
+            111.81266000494361,
+            111.97827101568691,
+            109.29658499662764,
+            110.72607198730111,
+            117.33133500092663,
+            115.13873701915145,
+            110.47310000867583,
+            113.45937399892136,
+            113.50524300360121,
+            112.55713299033232,
+            113.38427098235115,
+            112.39127299631946
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "ULA_budget360": {
+        "nominal": {
+          "comm": 2.668529987335205,
+          "sense": 3.6876325607299805,
+          "objective": 2.8723506927490234
+        },
+        "terminal": {
+          "comm": 2.5356063842773438,
+          "sense": 3.4047601222991943,
+          "objective": 2.7094368934631348
+        },
+        "shared_union": {
+          "comm": 2.5355417728424072,
+          "sense": 3.145319938659668,
+          "objective": 2.6574976444244385
+        },
+        "budgets": {
+          "50": {
+            "comm": 2.5355417728424072,
+            "sense": 3.145319938659668,
+            "objective": 2.6574976444244385
+          },
+          "200": {
+            "comm": 2.5355417728424072,
+            "sense": 3.145319938659668,
+            "objective": 2.6574976444244385
+          },
+          "1000": {
+            "comm": 2.5355417728424072,
+            "sense": 3.145319938659668,
+            "objective": 2.6574976444244385
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 360,
+          "position_projections": 0,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 360
+        },
+        "iterations": 180,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 9.5367431640625e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.5292087539855856,
+        "attack_seconds": 4.982309090992203,
+        "timing": {
+          "median_ms": 254.26400298601948,
+          "p95_ms": 267.6113930036081,
+          "samples_ms": [
+            249.67143099638633,
+            247.9373910173308,
+            267.37473500543274,
+            268.1635949993506,
+            255.25307600037195,
+            267.3047040007077,
+            266.7571279744152,
+            263.46649500192143,
+            255.55424997583032,
+            247.66318200272508,
+            233.33768799784593,
+            247.79153100098483,
+            254.26400298601948,
+            249.45860498701222,
+            242.40904199541546
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "ULA_budget60": {
+        "nominal": {
+          "comm": 2.718007802963257,
+          "sense": 3.0591671466827393,
+          "objective": 2.7862398624420166
+        },
+        "terminal": {
+          "comm": 2.6085944175720215,
+          "sense": 2.693554639816284,
+          "objective": 2.6255862712860107
+        },
+        "shared_union": {
+          "comm": 2.591414451599121,
+          "sense": 2.5089404582977295,
+          "objective": 2.5749197006225586
+        },
+        "budgets": {
+          "50": {
+            "comm": 2.591414451599121,
+            "sense": 2.5089404582977295,
+            "objective": 2.5749197006225586
+          },
+          "200": {
+            "comm": 2.591414451599121,
+            "sense": 2.5089404582977295,
+            "objective": 2.5749197006225586
+          },
+          "1000": {
+            "comm": 2.591414451599121,
+            "sense": 2.5089404582977295,
+            "objective": 2.5749197006225586
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 60,
+          "position_projections": 0,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 60
+        },
+        "iterations": 30,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 9.5367431640625e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.07533974701073021,
+        "attack_seconds": 4.648855409002863,
+        "timing": {
+          "median_ms": 40.809175989124924,
+          "p95_ms": 48.90529539843554,
+          "samples_ms": [
+            43.43381500802934,
+            40.86581099545583,
+            40.835805993992835,
+            39.21531199011952,
+            37.63395600253716,
+            41.03834100533277,
+            39.22866200446151,
+            39.512530027423054,
+            37.8757510043215,
+            40.687632019398734,
+            40.809175989124924,
+            45.832773990696296,
+            44.211849017301574,
+            39.997011015657336,
+            56.07451201649383
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "ULA_retuned_budget180": {
+        "nominal": {
+          "comm": 2.688685655593872,
+          "sense": 3.4075589179992676,
+          "objective": 2.832460403442383
+        },
+        "terminal": {
+          "comm": 2.5579912662506104,
+          "sense": 3.0372531414031982,
+          "objective": 2.653843879699707
+        },
+        "shared_union": {
+          "comm": 2.557981491088867,
+          "sense": 2.880392551422119,
+          "objective": 2.6224637031555176
+        },
+        "budgets": {
+          "50": {
+            "comm": 2.557981491088867,
+            "sense": 2.880392551422119,
+            "objective": 2.6224637031555176
+          },
+          "200": {
+            "comm": 2.557981491088867,
+            "sense": 2.880392551422119,
+            "objective": 2.6224637031555176
+          },
+          "1000": {
+            "comm": 2.557981491088867,
+            "sense": 2.880392551422119,
+            "objective": 2.6224637031555176
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 180,
+          "position_projections": 0,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 180
+        },
+        "iterations": 90,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 1.1920928955078125e-06,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.22194079600740224,
+        "attack_seconds": 4.467363018979086,
+        "timing": {
+          "median_ms": 116.8252720090095,
+          "p95_ms": 125.69676219718531,
+          "samples_ms": [
+            120.96899197786115,
+            126.45525700645521,
+            125.37169299321249,
+            118.36050800047815,
+            112.80232400167733,
+            115.93507998622954,
+            116.26767099369317,
+            111.60892399493605,
+            123.72295698150992,
+            116.8252720090095,
+            116.59019801300019,
+            116.54452900984325,
+            114.62526099057868,
+            121.26654898747802,
+            119.5912419934757
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "ULA_retuned_budget360": {
+        "nominal": {
+          "comm": 2.671616792678833,
+          "sense": 3.674473285675049,
+          "objective": 2.8721883296966553
+        },
+        "terminal": {
+          "comm": 2.538986921310425,
+          "sense": 3.3765180110931396,
+          "objective": 2.7064931392669678
+        },
+        "shared_union": {
+          "comm": 2.5389833450317383,
+          "sense": 3.1450395584106445,
+          "objective": 2.6601946353912354
+        },
+        "budgets": {
+          "50": {
+            "comm": 2.5389833450317383,
+            "sense": 3.1450395584106445,
+            "objective": 2.6601946353912354
+          },
+          "200": {
+            "comm": 2.5389833450317383,
+            "sense": 3.1450395584106445,
+            "objective": 2.6601946353912354
+          },
+          "1000": {
+            "comm": 2.5389833450317383,
+            "sense": 3.1450395584106445,
+            "objective": 2.6601946353912354
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 360,
+          "position_projections": 0,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 360
+        },
+        "iterations": 180,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 1.1920928955078125e-06,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 1.4901161193847656e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.44746338299592026,
+        "attack_seconds": 4.475544098997489,
+        "timing": {
+          "median_ms": 243.0677399970591,
+          "p95_ms": 267.50987539999187,
+          "samples_ms": [
+            236.70741700334474,
+            246.02404900360852,
+            239.92439897847362,
+            234.86867299652658,
+            236.32073300541379,
+            241.9163720041979,
+            272.02687598764896,
+            265.5740180052817,
+            250.36421499680728,
+            245.74107301305048,
+            243.0677399970591,
+            241.11445300513878,
+            244.6341020113323,
+            248.310467984993,
+            232.6998010103125
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      },
+      "ULA_runtime_match": {
+        "nominal": {
+          "comm": 2.700237512588501,
+          "sense": 3.235470771789551,
+          "objective": 2.807284355163574
+        },
+        "terminal": {
+          "comm": 2.5743520259857178,
+          "sense": 2.841970443725586,
+          "objective": 2.627875566482544
+        },
+        "shared_union": {
+          "comm": 2.5712761878967285,
+          "sense": 2.6973352432250977,
+          "objective": 2.5964879989624023
+        },
+        "budgets": {
+          "50": {
+            "comm": 2.5712761878967285,
+            "sense": 2.6973352432250977,
+            "objective": 2.5964879989624023
+          },
+          "200": {
+            "comm": 2.5712761878967285,
+            "sense": 2.6973352432250977,
+            "objective": 2.5964879989624023
+          },
+          "1000": {
+            "comm": 2.5712761878967285,
+            "sense": 2.6973352432250977,
+            "objective": 2.5964879989624023
+          }
+        },
+        "counts": {
+          "full_analytic_calls": 90,
+          "position_projections": 0,
+          "position_metric_evaluations": 0,
+          "field_reconstructions": 90
+        },
+        "iterations": 45,
+        "max_residuals": {
+          "analog_modulus": 1.1920928955078125e-07,
+          "transmit_power": 9.5367431640625e-07,
+          "receive_norm": 1.1920928955078125e-07,
+          "dh_violation": 1.4901161193847656e-08,
+          "dt_violation": 2.9802322387695312e-08,
+          "dr_violation": 1.4901161193847656e-08,
+          "left_violation": -0.0,
+          "right_violation": 0.0,
+          "spacing_violation": 0.0
+        },
+        "design_batch_seconds": 0.11165725500904955,
+        "attack_seconds": 4.726688989001559,
+        "timing": {
+          "median_ms": 55.866840993985534,
+          "p95_ms": 57.812093911343254,
+          "samples_ms": [
+            54.37538100522943,
+            52.78941901633516,
+            56.978287000674754,
+            57.61048101703636,
+            54.46748901158571,
+            55.866840993985534,
+            58.28252399805933,
+            56.115095008863136,
+            55.26960999122821,
+            56.83736497303471,
+            55.28898900956847,
+            55.26345100952312,
+            55.99269998492673,
+            55.877395992865786,
+            55.34849900868721
+          ],
+          "scenario_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "selected_epoch": null,
+        "learned_parameter_count": null
+      }
+    }
+  },
+  "geometry_comparisons": {
+    "A": {
+      "fluid_vs_fixed": {
+        "mean": -0.005148305892944336,
+        "channel_95pct": [
+          -0.005699482083320618,
+          -0.0045683450698852535
+        ],
+        "std": 0.002866606859109395,
+        "samples": 100
+      },
+      "fluid_vs_static_random": {
+        "mean": 0.009457914829254151,
+        "channel_95pct": [
+          0.008404056131839753,
+          0.010548492550849914
+        ],
+        "std": 0.005676575288815492,
+        "samples": 100
+      },
+      "fixed_reference": "Analytic_ULA_control"
+    },
+    "B": {
+      "fluid_vs_fixed": {
+        "mean": 0.34981453776359556,
+        "channel_95pct": [
+          0.32990197256207465,
+          0.3702767136394977
+        ],
+        "std": 0.10620047471372128,
+        "samples": 100
+      },
+      "fluid_vs_static_random": {
+        "mean": 0.3165670347213745,
+        "channel_95pct": [
+          0.28843044859170913,
+          0.34385644787549974
+        ],
+        "std": 0.14579331585546906,
+        "samples": 100
+      },
+      "fixed_reference": "ULA_retuned_budget360"
+    },
+    "C": {
+      "fluid_vs_fixed": {
+        "mean": 0.2807388198375702,
+        "channel_95pct": [
+          0.25566603472828864,
+          0.30510634699463846
+        ],
+        "std": 0.12789492440125338,
+        "samples": 100
+      },
+      "fluid_vs_static_random": {
+        "mean": 0.26052240014076233,
+        "channel_95pct": [
+          0.22334502652287483,
+          0.29750426670908925
+        ],
+        "std": 0.18981279990119554,
+        "samples": 100
+      },
+      "fixed_reference": "ULA_retuned_budget360"
+    }
+  },
+  "learning": {
+    "A": {
+      "constant_utility": 3.5274858474731445,
+      "schedule_utility": 3.5274858474731445,
+      "schedule_minus_constant": {
+        "mean": -3.178914624868412e-09,
+        "channel_95pct": [
+          -2.4636587170334678e-08,
+          1.8278757993428487e-08
+        ],
+        "std": 1.1005128432080298e-07,
+        "samples": 100
+      },
+      "schedule_minus_fixed_plain": {
+        "mean": 5.176862087310497e-06,
+        "channel_95pct": [
+          3.983179744333044e-06,
+          6.384114441237543e-06
+        ],
+        "std": 6.08641365442058e-06,
+        "samples": 100
+      },
+      "constant_per_seed": [
+        3.5274853706359863,
+        3.5274853706359863,
+        3.5274853706359863
+      ],
+      "schedule_per_seed": [
+        3.5274853706359863,
+        3.5274853706359863,
+        3.5274853706359863
+      ],
+      "schedule_minus_constant_per_seed": [
+        7.1525572131747595e-09,
+        -2.8610228852699038e-08,
+        1.1920929132713809e-08
+      ],
+      "training_seed_gain_sd": 2.215283601003648e-08,
+      "selected_epochs": {
+        "LearnedConstant": [
+          4,
+          4,
+          4
+        ],
+        "LearnedSchedule": [
+          4,
+          4,
+          4
+        ]
+      },
+      "scope": "Paired channel interval conditional on trained runs; seed means/SD separate; not300 independent channels"
+    },
+    "B": {
+      "constant_utility": 3.241049289703369,
+      "schedule_utility": 3.241042375564575,
+      "schedule_minus_constant": {
+        "mean": -7.1624914587431475e-06,
+        "channel_95pct": [
+          -9.989052967394941e-06,
+          -4.874060528795354e-06
+        ],
+        "std": 1.3265894080694426e-05,
+        "samples": 100
+      },
+      "schedule_minus_fixed_plain": {
+        "mean": 0.0044641578601113,
+        "channel_95pct": [
+          0.002984492258491173,
+          0.0063581168906762285
+        ],
+        "std": 0.008933674380997333,
+        "samples": 100
+      },
+      "constant_per_seed": [
+        3.2410035133361816,
+        3.241081953048706,
+        3.241063117980957
+      ],
+      "schedule_per_seed": [
+        3.2409963607788086,
+        3.2410712242126465,
+        3.2410590648651123
+      ],
+      "schedule_minus_constant_per_seed": [
+        -6.970167305553332e-06,
+        -1.0503530575078912e-05,
+        -4.013776560896076e-06
+      ],
+      "training_seed_gain_sd": 3.2491489037056454e-06,
+      "selected_epochs": {
+        "LearnedConstant": [
+          4,
+          4,
+          4
+        ],
+        "LearnedSchedule": [
+          4,
+          4,
+          4
+        ]
+      },
+      "scope": "Paired channel interval conditional on trained runs; seed means/SD separate; not300 independent channels"
+    },
+    "C": {
+      "constant_utility": 2.8290605545043945,
+      "schedule_utility": 2.828979015350342,
+      "schedule_minus_constant": {
+        "mean": -8.13853769477646e-05,
+        "channel_95pct": [
+          -0.002061806564280687,
+          0.00200267372547728
+        ],
+        "std": 0.010148355253694563,
+        "samples": 100
+      },
+      "schedule_minus_fixed_plain": {
+        "mean": -0.001264171948332944,
+        "channel_95pct": [
+          -0.004848229968926332,
+          0.0018521541800436351
+        ],
+        "std": 0.016889134929581186,
+        "samples": 100
+      },
+      "constant_per_seed": [
+        2.826694965362549,
+        2.8302435874938965,
+        2.8302435874938965
+      ],
+      "schedule_per_seed": [
+        2.8302435874938965,
+        2.826450824737549,
+        2.8302435874938965
+      ],
+      "schedule_minus_constant_per_seed": [
+        0.003548359964042902,
+        -0.003792515955865383,
+        0.0
+      ],
+      "training_seed_gain_sd": 0.0036711145658046007,
+      "selected_epochs": {
+        "LearnedConstant": [
+          4,
+          0,
+          0
+        ],
+        "LearnedSchedule": [
+          0,
+          3,
+          0
+        ]
+      },
+      "scope": "Paired channel interval conditional on trained runs; seed means/SD separate; not300 independent channels"
+    }
+  },
+  "scenarios_per_case": 100,
+  "scope": "Fresh known spatial-field scenarios; independent implementation, no global robustness/publication/hardware-latency claim"
+}

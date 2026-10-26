@@ -1,0 +1,20 @@
+.......F...                                                              [100%]
+=================================== FAILURES ===================================
+_ test_complete_iterations_feasibility_disabled_position_equivalence_and_freezing _
+
+    def test_complete_iterations_feasibility_disabled_position_equivalence_and_freezing():
+        spec,cfg,s,x,state=setup();initial=state.clone();batch=channels(s,x,cfg)
+        fixed=solve(s,x,state,cfg,spec,4,.05,.005,return_states=True)
+        reference=PGDA(cfg,iterations=4,mu=[.05]*3+[.005]*3).double()(batch,state)[0]
+>       for n in NAMES:torch.testing.assert_close(getattr(fixed['state'],n),getattr(reference,n),rtol=0,atol=0)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Tensor-likes are not equal!
+E       
+E       Mismatched elements: 12 / 12 (100.0%)
+E       Greatest absolute difference: 1.004438435332189e-09 at index (1, 0, 1)
+E       Greatest relative difference: 1.4966812399094532e-08 at index (2, 0, 1)
+
+experiments/fluid_tx_single_user/tests/test_geometry_physics.py:114: AssertionError
+=========================== short test summary info ============================
+FAILED experiments/fluid_tx_single_user/tests/test_geometry_physics.py::test_complete_iterations_feasibility_disabled_position_equivalence_and_freezing
+1 failed, 10 passed in 3.70s

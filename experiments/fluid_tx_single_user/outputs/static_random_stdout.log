@@ -1,0 +1,9 @@
+2026-10-26T16:07:33.524520+00:00 A StaticRandom budget60: independent=3.526880
+2026-10-26T16:07:37.213374+00:00 A StaticRandom budget180: independent=3.522032
+2026-10-26T16:07:41.178742+00:00 A StaticRandom budget360: independent=3.513154
+2026-10-26T16:07:45.507179+00:00 B StaticRandom budget60: independent=2.998154
+2026-10-26T16:07:48.973774+00:00 B StaticRandom budget180: independent=2.999072
+2026-10-26T16:07:53.029627+00:00 B StaticRandom budget360: independent=3.002079
+2026-10-26T16:07:58.448867+00:00 C StaticRandom budget60: independent=2.578949
+2026-10-26T16:08:03.569492+00:00 C StaticRandom budget180: independent=2.638737
+2026-10-26T16:08:08.925185+00:00 C StaticRandom budget360: independent=2.680411

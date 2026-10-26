@@ -1,0 +1,164 @@
+2026-10-26T15:35:47.866401+00:00 Saved new fixed spatial paths and immutable paired splits
+2026-10-26T15:35:51.050131+00:00 Validation choices A: {'ula': {'inner': 0.2, 'outer': 0.001, 'utility': 3.588361978530884}, 'random': {'inner': 0.2, 'outer': 0.001, 'utility': 3.5883090496063232}, 'position': {'step': 0.08, 'utility': 3.5887153148651123}}
+2026-10-26T15:35:54.379993+00:00 Validation choices B: {'ula': {'inner': 0.05, 'outer': 0.005, 'utility': 2.929682731628418}, 'random': {'inner': 0.05, 'outer': 0.005, 'utility': 2.9608306884765625}, 'position': {'step': 0.08, 'utility': 3.1928582191467285}}
+2026-10-26T15:35:58.337606+00:00 Validation choices C: {'ula': {'inner': 0.01, 'outer': 0.02, 'utility': 2.580061197280884}, 'random': {'inner': 0.01, 'outer': 0.02, 'utility': 2.596534013748169}, 'position': {'step': 0.08, 'utility': 2.8834428787231445}}
+2026-10-26T15:36:04.127195+00:00 Validation runtime match A: Fluid20 vs ULA30
+2026-10-26T15:36:09.902668+00:00 Validation runtime match B: Fluid20 vs ULA45
+2026-10-26T15:36:15.557759+00:00 Validation runtime match C: Fluid20 vs ULA45
+2026-10-26T15:36:58.661101+00:00 A ULA budget60: independent=3.526866, counts=60
+2026-10-26T15:37:02.547485+00:00 A Random budget60: independent=3.526876, counts=60
+2026-10-26T15:37:06.172298+00:00 A Fluid budget60: independent=3.527481, counts=60
+2026-10-26T15:37:09.999810+00:00 A ULA budget180: independent=3.521959, counts=180
+2026-10-26T15:37:13.745132+00:00 A Random budget180: independent=3.522027, counts=180
+2026-10-26T15:37:17.671481+00:00 A Fluid budget180: independent=3.525920, counts=180
+2026-10-26T15:37:21.781992+00:00 A ULA budget360: independent=3.513025, counts=360
+2026-10-26T15:37:25.988740+00:00 A Random budget360: independent=3.513202, counts=360
+2026-10-26T15:37:30.691302+00:00 A Fluid budget360: independent=3.522612, counts=360
+2026-10-26T15:37:34.856698+00:00 A ULA runtime_match: independent=3.526866, counts=60
+2026-10-26T15:37:38.481523+00:00 A Fluid_plain learning_control: independent=3.527481, counts=60
+2026-10-26T15:37:42.595456+00:00 B ULA budget60: independent=2.966186, counts=60
+2026-10-26T15:37:46.229022+00:00 B Random budget60: independent=2.998647, counts=60
+2026-10-26T15:37:49.749276+00:00 B Fluid budget60: independent=3.236578, counts=60
+2026-10-26T15:37:53.601262+00:00 B ULA budget180: independent=2.960058, counts=180
+2026-10-26T15:37:57.501562+00:00 B Random budget180: independent=3.001436, counts=180
+2026-10-26T15:38:01.800273+00:00 B Fluid budget180: independent=3.308913, counts=180
+2026-10-26T15:38:05.892142+00:00 B ULA budget360: independent=2.944376, counts=360
+2026-10-26T15:38:10.373959+00:00 B Random budget360: independent=2.989556, counts=360
+2026-10-26T15:38:14.809545+00:00 B Fluid budget360: independent=3.318646, counts=360
+2026-10-26T15:38:18.935014+00:00 B ULA runtime_match: independent=2.969960, counts=90
+2026-10-26T15:38:23.074439+00:00 B Fluid_plain learning_control: independent=3.236578, counts=60
+2026-10-26T15:38:27.993453+00:00 C ULA budget60: independent=2.574920, counts=60
+2026-10-26T15:38:32.805445+00:00 C Random budget60: independent=2.587350, counts=60
+2026-10-26T15:38:37.823746+00:00 C Fluid budget60: independent=2.840162, counts=60
+2026-10-26T15:38:42.924147+00:00 C ULA budget180: independent=2.628398, counts=180
+2026-10-26T15:38:47.655158+00:00 C Random budget180: independent=2.655450, counts=180
+2026-10-26T15:38:54.238459+00:00 C Fluid budget180: independent=2.899973, counts=180
+2026-10-26T15:38:59.757286+00:00 C ULA budget360: independent=2.657498, counts=360
+2026-10-26T15:39:04.703697+00:00 C Random budget360: independent=2.679433, counts=360
+2026-10-26T15:39:11.563820+00:00 C Fluid budget360: independent=2.940933, counts=360
+2026-10-26T15:39:16.409869+00:00 C ULA runtime_match: independent=2.596488, counts=90
+2026-10-26T15:39:21.435580+00:00 C Fluid_plain learning_control: independent=2.830243, counts=60
+2026-10-26T15:42:19.588706+00:00 A ULA_retuned budget180: independent=3.521959
+2026-10-26T15:42:24.034499+00:00 A ULA_retuned budget360: independent=3.513025
+2026-10-26T15:42:27.592379+00:00 A Analytic_ULA control: independent=3.527760
+2026-10-26T15:42:32.017307+00:00 B ULA_retuned budget180: independent=2.954661
+2026-10-26T15:42:35.908059+00:00 B ULA_retuned budget360: independent=2.968832
+2026-10-26T15:42:40.866478+00:00 C ULA_retuned budget180: independent=2.622464
+2026-10-26T15:42:45.803525+00:00 C ULA_retuned budget360: independent=2.660195
+2026-10-26T15:50:31.680365+00:00 A Plain_tuned control: independent=3.527481
+2026-10-26T15:50:32.655870+00:00 Position training A LearnedConstant seed=101 epoch=1: validation=3.588951
+2026-10-26T15:50:33.386034+00:00 Position training A LearnedConstant seed=101 epoch=2: validation=3.588951
+2026-10-26T15:50:34.087531+00:00 Position training A LearnedConstant seed=101 epoch=3: validation=3.588953
+2026-10-26T15:50:34.938442+00:00 Position training A LearnedConstant seed=101 epoch=4: validation=3.588953
+2026-10-26T15:50:39.076717+00:00 A LearnedConstant seed101: independent=3.527486
+2026-10-26T15:50:40.970862+00:00 Position training A LearnedSchedule seed=101 epoch=1: validation=3.588951
+2026-10-26T15:50:41.706228+00:00 Position training A LearnedSchedule seed=101 epoch=2: validation=3.588951
+2026-10-26T15:50:42.486215+00:00 Position training A LearnedSchedule seed=101 epoch=3: validation=3.588953
+2026-10-26T15:50:43.231413+00:00 Position training A LearnedSchedule seed=101 epoch=4: validation=3.588953
+2026-10-26T15:50:47.811694+00:00 A LearnedSchedule seed101: independent=3.527486
+2026-10-26T15:50:49.791631+00:00 Position training A LearnedConstant seed=202 epoch=1: validation=3.588950
+2026-10-26T15:50:50.677592+00:00 Position training A LearnedConstant seed=202 epoch=2: validation=3.588951
+2026-10-26T15:50:51.407981+00:00 Position training A LearnedConstant seed=202 epoch=3: validation=3.588953
+2026-10-26T15:50:52.103174+00:00 Position training A LearnedConstant seed=202 epoch=4: validation=3.588953
+2026-10-26T15:50:55.795765+00:00 A LearnedConstant seed202: independent=3.527486
+2026-10-26T15:50:57.423915+00:00 Position training A LearnedSchedule seed=202 epoch=1: validation=3.588950
+2026-10-26T15:50:58.171320+00:00 Position training A LearnedSchedule seed=202 epoch=2: validation=3.588951
+2026-10-26T15:50:58.860657+00:00 Position training A LearnedSchedule seed=202 epoch=3: validation=3.588953
+2026-10-26T15:50:59.589805+00:00 Position training A LearnedSchedule seed=202 epoch=4: validation=3.588953
+2026-10-26T15:51:03.469463+00:00 A LearnedSchedule seed202: independent=3.527486
+2026-10-26T15:51:05.108743+00:00 Position training A LearnedConstant seed=303 epoch=1: validation=3.588950
+2026-10-26T15:51:05.768821+00:00 Position training A LearnedConstant seed=303 epoch=2: validation=3.588951
+2026-10-26T15:51:06.468356+00:00 Position training A LearnedConstant seed=303 epoch=3: validation=3.588953
+2026-10-26T15:51:07.176524+00:00 Position training A LearnedConstant seed=303 epoch=4: validation=3.588953
+2026-10-26T15:51:11.141793+00:00 A LearnedConstant seed303: independent=3.527486
+2026-10-26T15:51:12.717276+00:00 Position training A LearnedSchedule seed=303 epoch=1: validation=3.588950
+2026-10-26T15:51:13.479983+00:00 Position training A LearnedSchedule seed=303 epoch=2: validation=3.588951
+2026-10-26T15:51:14.213400+00:00 Position training A LearnedSchedule seed=303 epoch=3: validation=3.588953
+2026-10-26T15:51:14.906130+00:00 Position training A LearnedSchedule seed=303 epoch=4: validation=3.588953
+2026-10-26T15:51:18.600139+00:00 A LearnedSchedule seed303: independent=3.527486
+2026-10-26T15:51:24.620099+00:00 B Plain_tuned control: independent=3.236578
+2026-10-26T15:51:25.577205+00:00 Position training B LearnedConstant seed=101 epoch=1: validation=3.166117
+2026-10-26T15:51:26.518542+00:00 Position training B LearnedConstant seed=101 epoch=2: validation=3.167082
+2026-10-26T15:51:27.237956+00:00 Position training B LearnedConstant seed=101 epoch=3: validation=3.168009
+2026-10-26T15:51:27.957025+00:00 Position training B LearnedConstant seed=101 epoch=4: validation=3.168902
+2026-10-26T15:51:31.630540+00:00 B LearnedConstant seed101: independent=3.241004
+2026-10-26T15:51:33.199384+00:00 Position training B LearnedSchedule seed=101 epoch=1: validation=3.166117
+2026-10-26T15:51:33.911596+00:00 Position training B LearnedSchedule seed=101 epoch=2: validation=3.167082
+2026-10-26T15:51:34.601708+00:00 Position training B LearnedSchedule seed=101 epoch=3: validation=3.168003
+2026-10-26T15:51:35.295614+00:00 Position training B LearnedSchedule seed=101 epoch=4: validation=3.168893
+2026-10-26T15:51:39.669445+00:00 B LearnedSchedule seed101: independent=3.240997
+2026-10-26T15:51:41.873925+00:00 Position training B LearnedConstant seed=202 epoch=1: validation=3.166132
+2026-10-26T15:51:42.762127+00:00 Position training B LearnedConstant seed=202 epoch=2: validation=3.167118
+2026-10-26T15:51:43.546213+00:00 Position training B LearnedConstant seed=202 epoch=3: validation=3.168081
+2026-10-26T15:51:44.324532+00:00 Position training B LearnedConstant seed=202 epoch=4: validation=3.168977
+2026-10-26T15:51:48.764411+00:00 B LearnedConstant seed202: independent=3.241082
+2026-10-26T15:51:50.865418+00:00 Position training B LearnedSchedule seed=202 epoch=1: validation=3.166130
+2026-10-26T15:51:51.757176+00:00 Position training B LearnedSchedule seed=202 epoch=2: validation=3.167113
+2026-10-26T15:51:52.751987+00:00 Position training B LearnedSchedule seed=202 epoch=3: validation=3.168073
+2026-10-26T15:51:53.956603+00:00 Position training B LearnedSchedule seed=202 epoch=4: validation=3.168966
+2026-10-26T15:51:59.471963+00:00 B LearnedSchedule seed202: independent=3.241071
+2026-10-26T15:52:01.915064+00:00 Position training B LearnedConstant seed=303 epoch=1: validation=3.166127
+2026-10-26T15:52:02.705893+00:00 Position training B LearnedConstant seed=303 epoch=2: validation=3.167115
+2026-10-26T15:52:03.525445+00:00 Position training B LearnedConstant seed=303 epoch=3: validation=3.168075
+2026-10-26T15:52:04.406450+00:00 Position training B LearnedConstant seed=303 epoch=4: validation=3.168958
+2026-10-26T15:52:08.630656+00:00 B LearnedConstant seed303: independent=3.241063
+2026-10-26T15:52:10.551329+00:00 Position training B LearnedSchedule seed=303 epoch=1: validation=3.166126
+2026-10-26T15:52:11.395849+00:00 Position training B LearnedSchedule seed=303 epoch=2: validation=3.167113
+2026-10-26T15:52:12.248591+00:00 Position training B LearnedSchedule seed=303 epoch=3: validation=3.168072
+2026-10-26T15:52:13.064927+00:00 Position training B LearnedSchedule seed=303 epoch=4: validation=3.168953
+2026-10-26T15:52:17.535027+00:00 B LearnedSchedule seed303: independent=3.241059
+2026-10-26T15:52:23.854852+00:00 C Plain_tuned control: independent=2.830243
+2026-10-26T15:52:24.885045+00:00 Position training C LearnedConstant seed=101 epoch=1: validation=2.866125
+2026-10-26T15:52:25.693434+00:00 Position training C LearnedConstant seed=101 epoch=2: validation=2.848345
+2026-10-26T15:52:26.528491+00:00 Position training C LearnedConstant seed=101 epoch=3: validation=2.862074
+2026-10-26T15:52:27.282686+00:00 Position training C LearnedConstant seed=101 epoch=4: validation=2.872601
+2026-10-26T15:52:32.008182+00:00 C LearnedConstant seed101: independent=2.826695
+2026-10-26T15:52:33.665566+00:00 Position training C LearnedSchedule seed=101 epoch=1: validation=2.858672
+2026-10-26T15:52:34.383284+00:00 Position training C LearnedSchedule seed=101 epoch=2: validation=2.858967
+2026-10-26T15:52:35.115578+00:00 Position training C LearnedSchedule seed=101 epoch=3: validation=2.861536
+2026-10-26T15:52:35.852670+00:00 Position training C LearnedSchedule seed=101 epoch=4: validation=2.858036
+2026-10-26T15:52:40.905014+00:00 C LearnedSchedule seed101: independent=2.830243
+2026-10-26T15:52:42.710382+00:00 Position training C LearnedConstant seed=202 epoch=1: validation=2.857887
+2026-10-26T15:52:43.532893+00:00 Position training C LearnedConstant seed=202 epoch=2: validation=2.855996
+2026-10-26T15:52:44.371321+00:00 Position training C LearnedConstant seed=202 epoch=3: validation=2.857234
+2026-10-26T15:52:45.184325+00:00 Position training C LearnedConstant seed=202 epoch=4: validation=2.860319
+2026-10-26T15:52:50.461869+00:00 C LearnedConstant seed202: independent=2.830243
+2026-10-26T15:52:52.258746+00:00 Position training C LearnedSchedule seed=202 epoch=1: validation=2.852403
+2026-10-26T15:52:53.028378+00:00 Position training C LearnedSchedule seed=202 epoch=2: validation=2.856392
+2026-10-26T15:52:53.781290+00:00 Position training C LearnedSchedule seed=202 epoch=3: validation=2.869584
+2026-10-26T15:52:54.498428+00:00 Position training C LearnedSchedule seed=202 epoch=4: validation=2.852581
+2026-10-26T15:52:59.398105+00:00 C LearnedSchedule seed202: independent=2.826451
+2026-10-26T15:53:01.345885+00:00 Position training C LearnedConstant seed=303 epoch=1: validation=2.867017
+2026-10-26T15:53:02.189606+00:00 Position training C LearnedConstant seed=303 epoch=2: validation=2.848519
+2026-10-26T15:53:02.997823+00:00 Position training C LearnedConstant seed=303 epoch=3: validation=2.857165
+2026-10-26T15:53:03.807244+00:00 Position training C LearnedConstant seed=303 epoch=4: validation=2.856997
+2026-10-26T15:53:09.420027+00:00 C LearnedConstant seed303: independent=2.830243
+2026-10-26T15:53:12.138674+00:00 Position training C LearnedSchedule seed=303 epoch=1: validation=2.852632
+2026-10-26T15:53:13.412460+00:00 Position training C LearnedSchedule seed=303 epoch=2: validation=2.845340
+2026-10-26T15:53:14.568254+00:00 Position training C LearnedSchedule seed=303 epoch=3: validation=2.858871
+2026-10-26T15:53:15.786612+00:00 Position training C LearnedSchedule seed=303 epoch=4: validation=2.865208
+2026-10-26T15:53:22.484222+00:00 C LearnedSchedule seed303: independent=2.830243
+2026-10-26T15:53:24.622560+00:00 Classical tradeoff A rho=0.2 complete
+2026-10-26T15:53:33.481856+00:00 Classical tradeoff A rho=0.5 complete
+2026-10-26T15:53:42.643993+00:00 Classical tradeoff A rho=0.8 complete
+2026-10-26T15:53:52.111327+00:00 Classical tradeoff B rho=0.2 complete
+2026-10-26T15:54:01.421678+00:00 Classical tradeoff B rho=0.5 complete
+2026-10-26T15:54:10.592176+00:00 Classical tradeoff B rho=0.8 complete
+2026-10-26T15:54:22.313449+00:00 Classical tradeoff C rho=0.2 complete
+2026-10-26T15:54:33.873466+00:00 Classical tradeoff C rho=0.5 complete
+2026-10-26T15:54:46.426513+00:00 Classical tradeoff C rho=0.8 complete
+2026-10-26T15:58:56.086026+00:00 Completed batch-one timing A
+2026-10-26T15:59:32.306139+00:00 Completed batch-one timing B
+2026-10-26T16:00:05.179886+00:00 Completed batch-one timing C
+2026-10-26T16:07:33.524520+00:00 A StaticRandom budget60: independent=3.526880
+2026-10-26T16:07:37.213374+00:00 A StaticRandom budget180: independent=3.522032
+2026-10-26T16:07:41.178742+00:00 A StaticRandom budget360: independent=3.513154
+2026-10-26T16:07:45.507179+00:00 B StaticRandom budget60: independent=2.998154
+2026-10-26T16:07:48.973774+00:00 B StaticRandom budget180: independent=2.999072
+2026-10-26T16:07:53.029627+00:00 B StaticRandom budget360: independent=3.002079
+2026-10-26T16:07:58.448867+00:00 C StaticRandom budget60: independent=2.578949
+2026-10-26T16:08:03.569492+00:00 C StaticRandom budget180: independent=2.638737
+2026-10-26T16:08:08.925185+00:00 C StaticRandom budget360: independent=2.680411
+2026-10-26T16:12:58.066975+00:00 Completed batch-one timing A
+2026-10-26T16:13:06.053833+00:00 Completed batch-one timing B
+2026-10-26T16:13:13.649836+00:00 Completed batch-one timing C

@@ -1,0 +1,38 @@
+{
+  "baseline_files_unchanged": 767,
+  "cases": {
+    "A": {
+      "scenarios": 100,
+      "mean_fluid_minus_fixed": 0.009586992673575878,
+      "paired_channel_95pct": [
+        0.008487427816726267,
+        0.010665390593931078
+      ],
+      "max_residual": 1.430511474609375e-06,
+      "analytic_fixed_ula_mean": 3.5277602672576904,
+      "fluid_minus_analytic": -0.005148306023329496
+    },
+    "B": {
+      "scenarios": 100,
+      "mean_fluid_minus_fixed": 0.3498145043849945,
+      "paired_channel_95pct": [
+        0.32940707728266716,
+        0.3714686118066311
+      ],
+      "max_residual": 1.430511474609375e-06
+    },
+    "C": {
+      "scenarios": 100,
+      "mean_fluid_minus_fixed": 0.28073880076408386,
+      "paired_channel_95pct": [
+        0.25618245974183085,
+        0.30503099262714384
+      ],
+      "max_residual": 1.430511474609375e-06
+    }
+  },
+  "scope": "Classical pilot gate; approximate independent search except solvable case-A control",
+  "geometry_signal_observed": true,
+  "passed": true,
+  "learned_position_investigation_justified": true
+}
