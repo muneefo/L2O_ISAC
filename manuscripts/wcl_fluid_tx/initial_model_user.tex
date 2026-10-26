@@ -1,0 +1,312 @@
+% Standalone manuscript section. Compile with pdfLaTeX.
+% To insert into an existing paper, copy from \section through the appendix,
+% adapting bibliography keys and removing the standalone preamble.
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,bm}
+\usepackage[hidelinks]{hyperref}
+\newcommand{\Fa}{\mathbf F_a}
+\newcommand{\Fd}{\mathbf F_d}
+\newcommand{\pos}{\mathbf p}
+\newcommand{\dd}{\mathrm d}
+\title{Single-User, Single-Target Robust Hybrid ISAC\\with Fluid Transmit Antennas}
+\author{}
+\date{}
+\begin{document}
+\maketitle
+\noindent\textbf{Scope.} This proposed model retains the robust hybrid-beamforming
+formulation of \cite{wang2026}, specializes it to one user and one target, and
+replaces only the fixed transmit ULA coordinates by adjustable one-dimensional
+fluid-antenna coordinates. The radar receive array remains a fixed ULA.
+Continuous spatial reconfiguration is motivated by \cite{zhou2024}; we do not
+adopt that paper's different sensing objective or fluid user antenna.
+
+\section{System Model}
+\subsection{Network and antenna geometry}
+Consider a downlink integrated sensing and communication (ISAC) system with a
+dual-function base station (BS), one fixed single-antenna communication user,
+one point-like target, and $J\geq0$ clutter sources. The BS employs $N_t$ fluid
+transmit antennas, $L$ RF chains, and $N_r$ fixed radar receive antennas.
+We consider narrowband far-field operation. Antenna locations are configured
+before a transmission block and held fixed during that block. The array
+aperture is small relative to propagation distances, so path angles and gains
+are held fixed as candidate transmit positions are evaluated.
+
+Let $\pos=[p_1,\ldots,p_{N_t}]^T\in\mathbb R^{N_t}$ collect the transmit
+coordinates on an aperture of length $A$. Label the antennas in spatial order
+and define
+\begin{equation}
+ \mathcal P=\left\{\pos:\ 0\leq p_1,\quad
+ p_{n+1}-p_n\geq d_{\min},\ n=1,\ldots,N_t-1,\quad p_{N_t}\leq A\right\}.
+ \label{eq:positions}
+\end{equation}
+Here $d_{\min}>0$ is the minimum antenna separation. The necessary and
+sufficient condition for this geometric set to be nonempty is
+$A\geq(N_t-1)d_{\min}$. This ordered one-dimensional set is convex;
+the complete optimization problem will nevertheless be nonconvex.
+We assume accurate position control and neglect mutual coupling in this
+initial model. The receive ULA has spacing $d_r$.
+
+\subsection{Position-dependent transmit response}
+Let $\lambda$ be the wavelength, $k_0=2\pi/\lambda$, and $\theta$ denote an
+angle measured from array broadside. Following the phase convention in
+\cite{wang2026}, the nominal transmit steering vector is
+\begin{equation}
+ \widehat{\mathbf a}_t(\theta;\pos)
+ =\left[e^{-jk_0p_1\sin\theta},\ldots,
+ e^{-jk_0p_{N_t}\sin\theta}\right]^T.
+ \label{eq:txsteering}
+\end{equation}
+Indeed, the relative path-length term at antenna $n$ is $p_n\sin\theta$;
+multiplication by $k_0$ gives its relative phase. For the fixed receive ULA,
+\begin{equation}
+ \widehat{\mathbf a}_r(\theta)
+ =\left[1,e^{-jk_0d_r\sin\theta},\ldots,
+ e^{-jk_0(N_r-1)d_r\sin\theta}\right]^T.
+ \label{eq:rxsteering}
+\end{equation}
+Setting $p_n=(n-1)d$ in \eqref{eq:txsteering} recovers the original transmit
+ULA with spacing $d$. Thus the fixed-array geometry is a special case whenever
+it satisfies \eqref{eq:positions}.
+
+\subsection{Position-dependent communication channel}
+To evaluate different geometries consistently, model the nominal communication
+channel through $K_c$ propagation paths:
+\begin{equation}
+ \widehat{\mathbf h}^{H}(\pos)
+ =\sum_{k=1}^{K_c}\beta_k
+ \widehat{\mathbf a}_t^T(\vartheta_k;\pos),
+ \qquad \widehat{\mathbf h}(\pos)\in\mathbb C^{N_t}.
+ \label{eq:commchannel}
+\end{equation}
+Here $\beta_k$ includes the complex path gain at the aperture reference and
+$\vartheta_k$ is its departure angle. Consequently,
+$[\widehat{\mathbf h}^{H}(\pos)]_n=
+\sum_k\beta_ke^{-jk_0p_n\sin\vartheta_k}$.
+The gains and angles are fixed within each scenario; channels must not be
+independently redrawn after position updates. The actual channel is
+\begin{equation}
+ \mathbf h(\pos)=\widehat{\mathbf h}(\pos)+\bm\delta_h.
+ \label{eq:herror}
+\end{equation}
+This spatial construction is the channel-model addition required to make
+fluid positioning meaningful; the received-signal structure remains unchanged.
+
+\subsection{Hybrid transmit signal}
+Let $z_c$ and $z_s$ denote the zero-mean communication symbol and dedicated
+sensing symbol. Assume
+\begin{equation}
+ \mathbb E|z_c|^2=\mathbb E|z_s|^2=1,
+ \qquad \mathbb E[z_cz_s^*]=0.
+\end{equation}
+The analog beamformer is $\Fa\in\mathbb C^{N_t\times L}$ and the digital
+beamformer is $\Fd=[\mathbf f_c,\mathbf f_s]\in\mathbb C^{L\times2}$.
+For the initial two-stream implementation, choose $2\leq L\leq N_t$.
+The transmitted signal is
+\begin{equation}
+ \mathbf x=\Fa\mathbf f_cz_c+\Fa\mathbf f_sz_s
+ =\Fa\Fd\mathbf z,\qquad \mathbf z=[z_c,z_s]^T.
+ \label{eq:transmit}
+\end{equation}
+Writing $\mathbf v_c=\Fa\mathbf f_c$ and $\mathbf v_s=\Fa\mathbf f_s$,
+the transmit covariance and average radiated power follow as
+\begin{align}
+ \mathbf R_x&=\mathbb E[\mathbf x\mathbf x^H]
+ =\mathbf v_c\mathbf v_c^H+\mathbf v_s\mathbf v_s^H
+ =\Fa\Fd\Fd^H\Fa^H,\label{eq:covariance}\\
+ \mathbb E\|\mathbf x\|_2^2
+ &=\operatorname{Tr}(\mathbf R_x)=\|\Fa\Fd\|_F^2.
+ \label{eq:power}
+\end{align}
+The cross terms vanish by the uncorrelated-stream assumption. We retain the
+original constraints $|[\Fa]_{n,\ell}|=1$ and
+$\|\Fa\Fd\|_F^2=P_{\mathrm{BS}}$.
+
+\subsection{Communication received signal and rate}
+With noise $n_c\sim\mathcal{CN}(0,\sigma_c^2)$, the user receives
+\begin{equation}
+ y_c=\mathbf h^H(\pos)\mathbf x+n_c
+ =\underbrace{\mathbf h^H(\pos)\Fa\mathbf f_cz_c}_{\text{desired signal}}
+ +\underbrace{\mathbf h^H(\pos)\Fa\mathbf f_sz_s}_{\text{sensing interference}}
+ +n_c.
+ \label{eq:commreceived}
+\end{equation}
+The independent unit-power streams give desired and interfering powers
+$|\mathbf h^H\Fa\mathbf f_c|^2$ and $|\mathbf h^H\Fa\mathbf f_s|^2$,
+respectively. Thus,
+\begin{equation}
+ \mathrm{SINR}_c=
+ \frac{|\mathbf h^H(\pos)\Fa\mathbf f_c|^2}
+ {|\mathbf h^H(\pos)\Fa\mathbf f_s|^2+\sigma_c^2},
+ \qquad \gamma_c=\log(1+\mathrm{SINR}_c).
+ \label{eq:commsinr}
+\end{equation}
+There is no inter-user interference. As in the reference model, the user treats
+the dedicated sensing stream as interference. We use natural logarithms
+throughout, giving the communication metric in nats/s/Hz; replacing both
+communication and sensing logarithms by $\log_2$ scales both metrics by the
+same constant. The standard achievable-rate interpretation assumes suitable
+Gaussian signaling and interference treatment.
+
+\subsection{Radar echoes and sensing metric}
+Index the target by $l=0$ and clutter sources by $l=1,\ldots,J$. Retain the
+bounded steering-response model of \cite{wang2026}:
+\begin{align}
+ \mathbf a_{t,l}(\pos)&=
+ \widehat{\mathbf a}_t(\theta_l;\pos)+\bm\delta_{t,l},\\
+ \mathbf a_{r,l}&=\widehat{\mathbf a}_r(\theta_l)+\bm\delta_{r,l}.
+\end{align}
+The round-trip channel becomes
+\begin{equation}
+ \mathbf H_l(\pos)=\alpha_l\mathbf a_{r,l}\mathbf a_{t,l}^T(\pos)
+ \in\mathbb C^{N_r\times N_t},\qquad l=0,\ldots,J,
+ \label{eq:radarchannel}
+\end{equation}
+where $\alpha_l$ contains the reflection and round-trip propagation gain.
+The receive ULA and the transpose convention are unchanged from the reference.
+The echo vector and filter output are
+\begin{align}
+ \mathbf y_r&=\mathbf H_0(\pos)\mathbf x
+ +\sum_{j=1}^{J}\mathbf H_j(\pos)\mathbf x+\mathbf n_r,\\
+ y_s&=\mathbf w^H\mathbf y_r,\qquad
+ \mathbf n_r\sim\mathcal{CN}(\mathbf0,\sigma_r^2\mathbf I_{N_r}),
+ \quad \|\mathbf w\|_2^2=1.
+\end{align}
+The effective echo model neglects residual transmitter self-interference and
+does not explicitly resolve delay or Doppler. The desired target power is
+\begin{align}
+ P_0&=\mathbb E|\mathbf w^H\mathbf H_0\mathbf x|^2
+ =\mathbf w^H\mathbf H_0\mathbf R_x\mathbf H_0^H\mathbf w\\
+ &=\|\mathbf w^H\mathbf H_0\Fa\Fd\|_2^2
+ =|\mathbf w^H\mathbf H_0\mathbf v_c|^2
+  +|\mathbf w^H\mathbf H_0\mathbf v_s|^2.
+\end{align}
+Both streams therefore illuminate the target. Retaining the reference's
+sum-of-powers treatment of effective clutter contributions gives
+\begin{equation}
+ \mathrm{SINR}_s=
+ \frac{\|\mathbf w^H\mathbf H_0(\pos)\Fa\Fd\|_2^2}
+ {\sum_{j=1}^{J}\|\mathbf w^H\mathbf H_j(\pos)\Fa\Fd\|_2^2
+  +\sigma_r^2\|\mathbf w\|_2^2},
+ \qquad \gamma_s=\log(1+\mathrm{SINR}_s).
+ \label{eq:sensingsinr}
+\end{equation}
+Here $\gamma_s$ is the inherited MI-based sensing metric, rather than a new
+claim about exact parameter-estimation mutual information. The expression
+retains the reference approximation that effective echo cross-correlations
+are negligible. Independent source streams alone do not guarantee this:
+coherent clutter would additionally contribute terms
+$\mathbf w^H\mathbf H_j\mathbf R_x\mathbf H_k^H\mathbf w$ for $j\ne k$.
+We preserve the original metric to isolate the effect of fluid positioning.
+
+\subsection{Uncertainty sets}
+Keep the uncertainty balls unchanged in form:
+\begin{align}
+ \mathcal A_h&=\{\bm\delta_h\in\mathbb C^{N_t}:
+ \|\bm\delta_h\|_2\leq\epsilon_h\sqrt{N_t}\},\\
+ \mathcal A_t&=\prod_{l=0}^{J}\{\bm\delta_{t,l}\in\mathbb C^{N_t}:
+ \|\bm\delta_{t,l}\|_2\leq\epsilon_t\sqrt{N_t}\},\\
+ \mathcal A_r&=\prod_{l=0}^{J}\{\bm\delta_{r,l}\in\mathbb C^{N_r}:
+ \|\bm\delta_{r,l}\|_2\leq\epsilon_r\sqrt{N_r}\}.
+\end{align}
+Write $\bm\Delta_t=\{\bm\delta_{t,l}\}_{l=0}^{J}$ and
+$\bm\Delta_r=\{\bm\delta_{r,l}\}_{l=0}^{J}$.
+The radii are specified model parameters in the initial comparison.
+They are kept identical for fixed and fluid arrays. These are unstructured
+response-error sets; their elements need not correspond to a single physical
+angle error. No separate antenna-position error is introduced at this stage.
+
+\subsection{Joint robust optimization}
+For a prescribed tradeoff $0<\rho<1$, the proposed extension is
+\begin{equation}
+\begin{aligned}
+ \underset{\pos,\Fa,\Fd,\mathbf w}{\operatorname{maximize}}\quad
+ &\rho\min_{\bm\delta_h\in\mathcal A_h}\gamma_c
+ +(1-\rho)\min_{\substack{\bm\Delta_t\in\mathcal A_t\\
+                          \bm\Delta_r\in\mathcal A_r}}\gamma_s\\
+ \text{subject to}\quad
+ &|[\Fa]_{n,\ell}|=1,\quad\forall n,\ell,\\
+ &\|\Fa\Fd\|_F^2=P_{\mathrm{BS}},\qquad\|\mathbf w\|_2^2=1,\\
+ &\pos\in\mathcal P.
+\end{aligned}
+\label{eq:problem}
+\end{equation}
+Relative to the single-user, single-target specialization of \cite{wang2026},
+the only new design block is $\pos$. The received-signal formulas, uncertainty
+sets, hybrid constraints, and weighted robust objective retain their original
+structure. Position dependence enters through \eqref{eq:commchannel} and
+\eqref{eq:radarchannel}. Fixing $p_n=(n-1)d$ recovers the fixed-array geometry
+under the same spatial channel construction. This does not by itself reproduce
+an unrelated position-independent channel-generation distribution.
+
+\appendix
+\section{Additional Derivatives Introduced by Fluid Positions}
+The following derivatives hold for fixed beamformers and fixed additive
+uncertainty realizations. Let $\mathbf e_n$ be the $n$th coordinate vector
+and let a prime denote differentiation with respect to real coordinate $p_n$.
+From \eqref{eq:txsteering},
+\begin{equation}
+ \mathbf a'_{t,l,n}
+ =-jk_0\sin\theta_l\,
+ [\widehat{\mathbf a}_t(\theta_l;\pos)]_n\mathbf e_n.
+\end{equation}
+Only the nominal response is differentiated, because the additive errors
+are held fixed in this partial derivative. Similarly,
+\begin{align}
+ (\mathbf h^H)'_n
+ &=\sum_{k=1}^{K_c}\beta_k(-jk_0\sin\vartheta_k)
+ e^{-jk_0p_n\sin\vartheta_k}\mathbf e_n^T,\\
+ \mathbf H'_{l,n}
+ &=\alpha_l\mathbf a_{r,l}(\mathbf a'_{t,l,n})^T.
+\end{align}
+For any differentiable complex scalar $b(p_n)$,
+\begin{equation}
+ \frac{\partial |b|^2}{\partial p_n}
+ =2\operatorname{Re}\{b^*b'\}.
+\end{equation}
+Define $b_c=\mathbf h^H\mathbf v_c$, $b_s=\mathbf h^H\mathbf v_s$,
+$N_c=|b_c|^2$, and $D_c=|b_s|^2+\sigma_c^2$. Then
+\begin{align}
+ N'_{c,n}&=2\operatorname{Re}\{b_c^*(\mathbf h^H)'_n\mathbf v_c\},\\
+ D'_{c,n}&=2\operatorname{Re}\{b_s^*(\mathbf h^H)'_n\mathbf v_s\},\\
+ \frac{\partial\gamma_c}{\partial p_n}
+ &=\frac{D_cN'_{c,n}-N_cD'_{c,n}}{D_c(D_c+N_c)}.
+\end{align}
+For sensing, put $\mathbf q_l=\mathbf w^H\mathbf H_l\Fa\Fd$ and
+$\mathbf q'_{l,n}=\mathbf w^H\mathbf H'_{l,n}\Fa\Fd$. Define
+$N_s=\|\mathbf q_0\|_2^2$ and
+$D_s=\sum_{j=1}^{J}\|\mathbf q_j\|_2^2+\sigma_r^2\|\mathbf w\|_2^2$.
+It follows that
+\begin{align}
+ N'_{s,n}&=2\operatorname{Re}\{\mathbf q'_{0,n}\mathbf q_0^H\},\\
+ D'_{s,n}&=2\operatorname{Re}\left\{\sum_{j=1}^{J}
+ \mathbf q'_{j,n}\mathbf q_j^H\right\},\\
+ \frac{\partial\gamma_s}{\partial p_n}
+ &=\frac{D_sN'_{s,n}-N_sD'_{s,n}}{D_s(D_s+N_s)}.
+\end{align}
+Thus the fixed-error outer utility gradient is
+\begin{equation}
+ \frac{\partial\gamma}{\partial p_n}
+ =\rho\frac{\partial\gamma_c}{\partial p_n}
+ +(1-\rho)\frac{\partial\gamma_s}{\partial p_n}.
+\end{equation}
+For base-two logarithms, divide these utility derivatives by $\ln 2$.
+Using an approximately minimized error realization in these expressions gives
+the position-update direction of an alternating PGDA scheme; it is not an
+automatic certificate of the exact derivative of the globally minimized
+robust objective. The inherited beamforming/error gradients keep their
+algebraic structure, evaluated with the position-dependent channels.
+
+\begin{thebibliography}{2}
+\bibitem{wang2026}
+L. Wang, S. A. Vorobyov, and E. Ollila,
+``L2O robust hybrid beamforming for ISAC,''
+\emph{IEEE Transactions on Wireless Communications}, 2026,
+doi: \href{https://doi.org/10.1109/TWC.2026.3702925}{10.1109/TWC.2026.3702925}.
+\bibitem{zhou2024}
+L. Zhou, J. Yao, M. Jin, T. Wu, and K.-K. Wong,
+``Fluid antenna-assisted ISAC systems,''
+\emph{IEEE Wireless Communications Letters}, vol. 13, no. 12, 2024,
+doi: \href{https://doi.org/10.1109/LWC.2024.3476148}{10.1109/LWC.2024.3476148}.
+\end{thebibliography}
+\end{document}

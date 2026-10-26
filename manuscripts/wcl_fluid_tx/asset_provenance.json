@@ -1,0 +1,9 @@
+{
+  "data_commit": "dd842239b2afbda03d9b3b6d6742c4e07ef5dc81",
+  "inputs_sha256": {
+    "experiments/fluid_tx_single_user/outputs/pilot/summary.json": "f3350f732dab1aaa5fa59f0b9b45e08106ffdd86cd0f36a1f413a5ed4887bd3a",
+    "experiments/fluid_tx_single_user/outputs/pilot/tradeoff_summary.json": "7abf6b768d04b8b6dd3102cd84de805c64d750abf31a5b2d7c9a6d5ecf10430c",
+    "experiments/fluid_tx_single_user/outputs/pilot/validation.json": "163b31237892471c13fc89b527cdf91a5a6eb3c7a7bdd7a154482e34b0d19b23"
+  },
+  "note": "Reported utilities use shared-union independent attacks. No new training or test tuning."
+}
