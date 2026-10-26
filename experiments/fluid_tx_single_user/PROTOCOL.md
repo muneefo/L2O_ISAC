@@ -75,3 +75,26 @@ must be labeled as such. Compare with its fixed-step no-backtracking initializer
 validation-tuned no-backtracking baseline and safeguarded classical curves at equal
 budgets; removing backtracking is not a learning speedup. No larger NN or joint BF
 fine-tuning is included. Preserve losses or negative findings and training costs.
+
+Case A additionally supplies a closed-form feasible error candidate for its single
+active stream to every final candidate pool. This validates the null control and
+prevents incomplete generic attacks from appearing as geometry gain. Generic attack
+budget curves remain saved separately. No such exact-minimum claim is made for B/C.
+
+Stronger controls: separately retune fixed ULA at90/180 iterations on validation
+before comparing its longer attainable performance. Case A also includes the
+feasible analytic fixed-ULA MRT/MRC initialization as a no-iteration reference.
+Its gradient calls are0 but initializer computation is not claimed as zero latency.
+Finite inherited PGDA can move away from this optimum; such losses or fluid recovery
+are optimizer effects, not an intrinsic geometry advantage in the aligned case.
+
+Learning control: per regime, initialize from a separately validation-tuned constant
+position step with backtracking disabled. Compare a one-scalar learned constant
+against a20-scalar layer schedule using identical batches, four Adam epochs, eight
+updates, learning rate.002, independent stop-gradient10-step training attacks and
+independent50-step validation selection (initialization eligible). The exact shared
+physical unroll is differentiated, including geometry-dependent BF/error updates
+and PAV's active-face Jacobian. BF/MinNet **coefficients** stay fixed; their physical
+iterates still update. Full independent final evaluation is unchanged. A gain over
+a fixed initializer is not evidence for a layer schedule if equal-training scalar
+calibration explains it. Training/validation cost and selection epoch are retained.

@@ -152,3 +152,11 @@ def test_read_only_existing_checkpoint_regression():
     with torch.no_grad():state,trace,_=model(batch,initial,eps=raw['predicted_eps'])
     for n in NAMES:torch.testing.assert_close(getattr(state,n),raw['trained'][n],rtol=0,atol=0)
     torch.testing.assert_close(torch.stack([v['objective'] for v in trace]),raw['objective_trace'],rtol=0,atol=0)
+
+
+def test_single_stream_exact_candidate_validates_null_control():
+    from experiments.fluid_tx_single_user.spatial import single_stream_exact_errors
+    spec,cfg,s,x,state=setup('A');batch=channels(s,x,cfg);adverse=single_stream_exact_errors(batch,state,cfg)
+    actual=metrics(batch,adverse,cfg);expected=analytic_case_a(s,cfg)
+    for k in actual:torch.testing.assert_close(actual[k],expected[k],rtol=1e-12,atol=1e-12)
+    assert max(all_residuals(x,adverse,s,cfg,spec).values())<1e-10

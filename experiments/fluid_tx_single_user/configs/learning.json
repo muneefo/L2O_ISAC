@@ -1,0 +1,9 @@
+{
+  "layers":20,"epochs":4,"batch_size":32,"seeds":[101,202,303],
+  "optimizer":"Adam","lr":0.002,"step_bounds":[0.00001,0.2],
+  "training_attack_steps":10,"training_random_restarts":0,
+  "validation_attack_steps":50,"validation_random_restarts":1,
+  "constant_step_grid":[0.005,0.02,0.08],
+  "variants":["LearnedConstant","LearnedSchedule"],
+  "scope":"Position-only newly trained scalar schedules; frozen validation-tuned classical MinNet/MaxNet; no original checkpoint transfer"
+}

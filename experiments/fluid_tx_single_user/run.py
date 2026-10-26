@@ -11,7 +11,7 @@ from l2o_isac.attacks import union_attack,ERRORS
 from l2o_isac.solver import SolverState,PGDA,NAMES
 from l2o_isac.physics import metrics
 from l2o_isac.audit_artifacts import residuals
-from .spatial import Scenario,system,make_scenarios,channels,ula_positions,random_positions,initialize,analytic_case_a
+from .spatial import Scenario,system,make_scenarios,channels,ula_positions,random_positions,initialize,analytic_case_a,single_stream_exact_errors
 from .optimizer import solve,all_residuals
 from .geometry import geometry_residuals,steering
 
@@ -92,7 +92,9 @@ class Pilot:
     def design(self,case,scenario,raw,method,iterations,position_schedule=None,rho=None):
         cfg=system(self.spec,case,rho);choice=read(self.out/'validation_choices.json')['cases'][case]
         geometry='random' if method=='Random' else 'ula';x=raw[geometry];initial=SolverState(**raw['random_initial' if geometry=='random' else 'initial'])
-        bf=choice[geometry]['selected'];step=choice['position']['selected']['step'] if method in ['Fluid','Fluid_plain'] else 0.
+        bf=choice[geometry]['selected']
+        if method=='ULA_retuned':bf=read(self.out/'long_validation_choices.json')['cases'][case][str(iterations)]['selected']
+        step=choice['position']['selected']['step'] if method in ['Fluid','Fluid_plain'] else 0.
         return solve(scenario,x,initial,cfg,self.spec,iterations,bf['inner'],bf['outer'],step,safeguard=method!='Fluid_plain',position_schedule=position_schedule)
 
     @torch.no_grad()
@@ -143,12 +145,59 @@ class Pilot:
             self.shared_pool(case)
 
     @torch.no_grad()
+    def store_extra(self,case,method,label,result,iterations):
+        scenario,_=self.data(case,'test');cfg=system(self.spec,case);x,state=result['x'],result['state'];batch=channels(scenario,x,cfg)
+        res=all_residuals(x,state,scenario,cfg,self.spec)
+        if max(res.values())>1e-5:raise FloatingPointError('Extra design infeasible')
+        attacked=self.attack(scenario,x,state,cfg);nominal=replace(state,**{n:getattr(state,n)*0 for n in ERRORS})
+        payload={'positions':x,'state':vars(state),'attacked_state':vars(attacked['state']),'attack_budget_metrics':attacked['metrics'],
+          'nominal':tensor_metrics(batch,nominal,cfg),'terminal':tensor_metrics(batch,state,cfg),'max_residuals':res,
+          'hardware_per_scenario':residuals(state,batch,cfg),'geometry_per_scenario':geometry_residuals(x,self.spec['aperture_wavelengths'],self.spec['min_spacing_wavelengths']),
+          'counts':result['counts'],'design_batch_seconds':result['seconds'],'attack_seconds':attacked['seconds'],
+          'attack_logical_start_gradient_calls':attacked['logical_start_error_gradient_calls'],'attack_tensor_gradient_calls':attacked['tensor_error_gradient_calls'],
+          'iterations':iterations,'method':method,'label':label,'source_sha256':self.source_hashes,'data_sha256':sha(self.out/'scenarios.pt'),'spec':self.spec,
+          'objective_trace':torch.stack([v['objective'] for v in result['trace']])}
+        if case=='A':payload['analytic_robust_optimum']=analytic_case_a(scenario,cfg)
+        save(payload,self.out/case/(method+'_'+label+'.pt'))
+        self.log(f'{case} {method} {label}: independent={attacked["metrics"][max(self.spec["test_attack_budgets"])]["objective"].mean():.6f}')
+
+    @torch.no_grad()
+    def support_baselines(self):
+        path=self.out/'long_validation_choices.json'
+        if not path.exists():
+            choices={}
+            for case in ['A','B','C']:
+                cfg=system(self.spec,case);scenario,raw=self.data(case,'validation');choices[case]={}
+                for iterations in [90,180]:
+                    grid=[]
+                    for mi,mo in itertools.product(self.spec['inner_step_grid'],self.spec['outer_step_grid']):
+                        r=solve(scenario,raw['ula'],SolverState(**raw['initial']),cfg,self.spec,iterations,mi,mo)
+                        attack=self.attack(scenario,r['x'],r['state'],cfg,budgets=[self.spec['validation_attack_steps']],validation=True)
+                        grid.append({'inner':mi,'outer':mo,'utility':attack['metrics'][self.spec['validation_attack_steps']]['objective'].mean().item()})
+                    choices[case][str(iterations)]={'selected':max(grid,key=lambda q:q['utility']),'grid':grid}
+            write(path,{'cases':choices,'selection_split':'validation only','test_used':False,'purpose':'Stronger per-budget fixed-ULA controls'})
+        for case in ['A','B','C']:
+            scenario,raw=self.data(case,'test');cfg=system(self.spec,case)
+            for iterations in [90,180]:
+                label='budget'+str(2*iterations)
+                if not (self.out/case/('ULA_retuned_'+label+'.pt')).exists():
+                    self.store_extra(case,'ULA_retuned',label,self.design(case,scenario,raw,'ULA_retuned',iterations),iterations)
+            if case=='A' and not (self.out/case/'Analytic_ULA_control.pt').exists():
+                state=SolverState(**raw['initial']);batch=channels(scenario,raw['ula'],cfg)
+                r={'x':raw['ula'],'state':state,'trace':[metrics(batch,state,cfg)],'counts':{'full_analytic_calls':0,'position_projections':0,'position_metric_evaluations':0,'field_reconstructions':1},'seconds':0.}
+                self.store_extra(case,'Analytic_ULA','control',r,0)
+            self.shared_pool(case)
+
+    @torch.no_grad()
     def shared_pool(self,case):
         cfg=system(self.spec,case);scenario,_=self.data(case,'test');entries={};candidates=[]
         for p in (self.out/case).glob('*.pt'):
             r=torch.load(p,weights_only=True)
             if 'attacked_state' not in r:continue
             entries[p]=(r,SolverState(**r['state']));candidates.extend([SolverState(**r['attacked_state']),SolverState(**r['state'])])
+            if case=='A':
+                st=SolverState(**r['state']);assert torch.count_nonzero((st.a@st.d)[...,1:])==0
+                candidates.append(single_stream_exact_errors(channels(scenario,r['positions'],cfg),st,cfg))
         # Positions differ between methods: reuse uncertainty vectors, but rebuild
         # nominal channels for the recipient's frozen positions before evaluating.
         for p,(r,design) in entries.items():
@@ -185,7 +234,7 @@ class Pilot:
             first,initial=single(0)
             for p in (self.out/case).glob('*.pt'):
                 r=torch.load(p,weights_only=True)
-                if 'iterations' not in r or r.get('method','').startswith('Learned'):continue
+                if 'iterations' not in r or r.get('method','').startswith('Learned') or r.get('method')=='Analytic_ULA':continue
                 for _ in range(self.spec['timing_warmup']):self.design(case,first,initial,r['method'],r['iterations'])
                 times=[]
                 for index in indices:
@@ -198,11 +247,12 @@ class Pilot:
 
 def main(argv=None):
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--config',type=Path,default=ROOT/'configs/pilot.json');p.add_argument('--output',type=Path,default=ROOT/'outputs/pilot')
-    p.add_argument('--stage',choices=['prepare','tune','evaluate','diagnostics','timing','all'],default='all');a=p.parse_args(argv)
+    p.add_argument('--stage',choices=['prepare','tune','evaluate','diagnostics','support','timing','all'],default='all');a=p.parse_args(argv)
     torch.set_num_threads(1);torch.use_deterministic_algorithms(True);pilot=Pilot(a.config,a.output);pilot.prepare()
     try:
         if a.stage in ['tune','all']:pilot.tune();pilot.calibrate_runtime()
         if a.stage in ['evaluate','all']:pilot.evaluate()
+        if a.stage in ['support','all']:pilot.support_baselines()
         if a.stage in ['diagnostics','all']:pilot.diagnostics()
         if a.stage in ['timing','all']:pilot.timing()
     except Exception as exc:pilot.log('FAILED '+type(exc).__name__+': '+str(exc));raise

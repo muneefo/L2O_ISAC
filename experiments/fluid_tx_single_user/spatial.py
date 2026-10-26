@@ -97,3 +97,23 @@ def analytic_case_a(scenario,cfg):
     v=scenario.alpha[:,0].abs().square()*cfg.power*cfg.nt*cfg.nr/cfg.noise_sense
     s=torch.log1p(v*(1-scenario.eps[:,1]).clamp_min(0).square()*(1-scenario.eps[:,2]).clamp_min(0).square())
     return {'comm':c,'sense':s,'objective':cfg.rho*c+(1-cfg.rho)*s}
+
+
+def single_stream_exact_errors(batch,state,cfg):
+    """Closed-form feasible minima for case A's one active transmit stream.
+
+    Adds a validation candidate; not used as a certificate outside this case.
+    """
+    p=(state.a@state.d)[...,0];pn=p.norm(dim=-1,keepdim=True)
+    tiny=torch.finfo(p.real.dtype).tiny
+    def phase(z):return z/z.abs().clamp_min(tiny)
+    c=(batch.h[:,0].conj()*p).sum(-1,keepdim=True)
+    radius=batch.eps[:,0,None]*math.sqrt(cfg.nt);amount=torch.minimum(radius,c.abs()/pn.clamp_min(tiny))
+    dh=-amount*phase(c).conj()*p/pn.clamp_min(tiny)
+    t=(batch.at[:,0]*p).sum(-1,keepdim=True)
+    radius=batch.eps[:,1,None]*math.sqrt(cfg.nt);amount=torch.minimum(radius,t.abs()/pn.clamp_min(tiny))
+    dt=-amount*phase(t)*p.conj()/pn.clamp_min(tiny)
+    w=state.w[:,0];wn=w.norm(dim=-1,keepdim=True);r=(w.conj()*batch.ar[:,0]).sum(-1,keepdim=True)
+    radius=batch.eps[:,2,None]*math.sqrt(cfg.nr);amount=torch.minimum(radius,r.abs()/wn.clamp_min(tiny))
+    dr=-amount*phase(r)*w/wn.clamp_min(tiny)
+    return replace(state,dh=dh[:,None,:],dt=dt[:,None,:],dr=dr[:,None,:])
