@@ -1,0 +1,3 @@
+Validation tuned A BF={'inner': 0.2, 'outer': 0.001, 'utility': 3.5418519973754883} plain={'position': 0.08, 'utility': 3.5420007705688477}
+Validation tuned B BF={'inner': 0.05, 'outer': 0.005, 'utility': 2.868384838104248} plain={'position': 0.08, 'utility': 3.1736745834350586}
+Validation tuned C BF={'inner': 0.2, 'outer': 0.02, 'utility': 2.5849664211273193} plain={'position': 0.08, 'utility': 2.8402931690216064}

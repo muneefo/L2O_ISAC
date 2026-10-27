@@ -1,0 +1,212 @@
+{
+  "A/FluidL2O_s403": {
+    "updates": 40,
+    "differentiated_layers_per_update": 20,
+    "differentiated_batch_forward_full_six_block_helper_calls": 2400,
+    "training_batch_size": 32,
+    "wall_seconds_including_epoch_validation": 12.373916967975674,
+    "wall_scope": "Excludes initial validation and model/grid setup; includes each epoch validation. Backward time included; the helper-call count counts forward analytic calls, not backward derivative operations.",
+    "parameter_count": 280,
+    "checkpoint_selection": "Inherited Eq22 validation loss; initialization eligible"
+  },
+  "A/FixedL2O_s402": {
+    "updates": 40,
+    "differentiated_layers_per_update": 20,
+    "differentiated_batch_forward_full_six_block_helper_calls": 1600,
+    "training_batch_size": 32,
+    "wall_seconds_including_epoch_validation": 5.525470995984506,
+    "wall_scope": "Excludes initial validation and model/grid setup; includes each epoch validation. Backward time included; the helper-call count counts forward analytic calls, not backward derivative operations.",
+    "parameter_count": 240,
+    "checkpoint_selection": "Inherited Eq22 validation loss; initialization eligible"
+  },
+  "A/FluidNoPositionMomentum_s401": {
+    "updates": 40,
+    "differentiated_layers_per_update": 20,
+    "differentiated_batch_forward_full_six_block_helper_calls": 2400,
+    "training_batch_size": 32,
+    "wall_seconds_including_epoch_validation": 12.742667685990455,
+    "wall_scope": "Excludes initial validation and model/grid setup; includes each epoch validation. Backward time included; the helper-call count counts forward analytic calls, not backward derivative operations.",
+    "parameter_count": 260,
+    "checkpoint_selection": "Inherited Eq22 validation loss; initialization eligible"
+  },
+  "A/FixedL2O_s401": {
+    "updates": 40,
+    "differentiated_layers_per_update": 20,
+    "differentiated_batch_forward_full_six_block_helper_calls": 1600,
+    "training_batch_size": 32,
+    "wall_seconds_including_epoch_validation": 5.476931522978703,
+    "wall_scope": "Excludes initial validation and model/grid setup; includes each epoch validation. Backward time included; the helper-call count counts forward analytic calls, not backward derivative operations.",
+    "parameter_count": 240,
+    "checkpoint_selection": "Inherited Eq22 validation loss; initialization eligible"
+  },
+  "A/FixedL2O_s403": {
+    "updates": 40,
+    "differentiated_layers_per_update": 20,
+    "differentiated_batch_forward_full_six_block_helper_calls": 1600,
+    "training_batch_size": 32,
+    "wall_seconds_including_epoch_validation": 6.153995428001508,
+    "wall_scope": "Excludes initial validation and model/grid setup; includes each epoch validation. Backward time included; the helper-call count counts forward analytic calls, not backward derivative operations.",
+    "parameter_count": 240,
+    "checkpoint_selection": "Inherited Eq22 validation loss; initialization eligible"
+  },
+  "A/FluidL2O_s401": {
+    "updates": 40,
+    "differentiated_layers_per_update": 20,
+    "differentiated_batch_forward_full_six_block_helper_calls": 2400,
+    "training_batch_size": 32,
+    "wall_seconds_including_epoch_validation": 12.87212687099236,
+    "wall_scope": "Excludes initial validation and model/grid setup; includes each epoch validation. Backward time included; the helper-call count counts forward analytic calls, not backward derivative operations.",
+    "parameter_count": 280,
+    "checkpoint_selection": "Inherited Eq22 validation loss; initialization eligible"
+  },
+  "A/FluidL2O_s402": {
+    "updates": 40,
+    "differentiated_layers_per_update": 20,
+    "differentiated_batch_forward_full_six_block_helper_calls": 2400,
+    "training_batch_size": 32,
+    "wall_seconds_including_epoch_validation": 12.387771943962434,
+    "wall_scope": "Excludes initial validation and model/grid setup; includes each epoch validation. Backward time included; the helper-call count counts forward analytic calls, not backward derivative operations.",
+    "parameter_count": 280,
+    "checkpoint_selection": "Inherited Eq22 validation loss; initialization eligible"
+  },
+  "B/FluidL2O_s403": {
+    "updates": 40,
+    "differentiated_layers_per_update": 20,
+    "differentiated_batch_forward_full_six_block_helper_calls": 2400,
+    "training_batch_size": 32,
+    "wall_seconds_including_epoch_validation": 11.445493760955287,
+    "wall_scope": "Excludes initial validation and model/grid setup; includes each epoch validation. Backward time included; the helper-call count counts forward analytic calls, not backward derivative operations.",
+    "parameter_count": 280,
+    "checkpoint_selection": "Inherited Eq22 validation loss; initialization eligible"
+  },
+  "B/FixedL2O_s402": {
+    "updates": 40,
+    "differentiated_layers_per_update": 20,
+    "differentiated_batch_forward_full_six_block_helper_calls": 1600,
+    "training_batch_size": 32,
+    "wall_seconds_including_epoch_validation": 6.293842221988598,
+    "wall_scope": "Excludes initial validation and model/grid setup; includes each epoch validation. Backward time included; the helper-call count counts forward analytic calls, not backward derivative operations.",
+    "parameter_count": 240,
+    "checkpoint_selection": "Inherited Eq22 validation loss; initialization eligible"
+  },
+  "B/FluidNoPositionMomentum_s401": {
+    "updates": 40,
+    "differentiated_layers_per_update": 20,
+    "differentiated_batch_forward_full_six_block_helper_calls": 2400,
+    "training_batch_size": 32,
+    "wall_seconds_including_epoch_validation": 11.67312618001597,
+    "wall_scope": "Excludes initial validation and model/grid setup; includes each epoch validation. Backward time included; the helper-call count counts forward analytic calls, not backward derivative operations.",
+    "parameter_count": 260,
+    "checkpoint_selection": "Inherited Eq22 validation loss; initialization eligible"
+  },
+  "B/FixedL2O_s401": {
+    "updates": 40,
+    "differentiated_layers_per_update": 20,
+    "differentiated_batch_forward_full_six_block_helper_calls": 1600,
+    "training_batch_size": 32,
+    "wall_seconds_including_epoch_validation": 5.988612954039127,
+    "wall_scope": "Excludes initial validation and model/grid setup; includes each epoch validation. Backward time included; the helper-call count counts forward analytic calls, not backward derivative operations.",
+    "parameter_count": 240,
+    "checkpoint_selection": "Inherited Eq22 validation loss; initialization eligible"
+  },
+  "B/FixedL2O_s403": {
+    "updates": 40,
+    "differentiated_layers_per_update": 20,
+    "differentiated_batch_forward_full_six_block_helper_calls": 1600,
+    "training_batch_size": 32,
+    "wall_seconds_including_epoch_validation": 5.567906788986875,
+    "wall_scope": "Excludes initial validation and model/grid setup; includes each epoch validation. Backward time included; the helper-call count counts forward analytic calls, not backward derivative operations.",
+    "parameter_count": 240,
+    "checkpoint_selection": "Inherited Eq22 validation loss; initialization eligible"
+  },
+  "B/FluidL2O_s401": {
+    "updates": 40,
+    "differentiated_layers_per_update": 20,
+    "differentiated_batch_forward_full_six_block_helper_calls": 2400,
+    "training_batch_size": 32,
+    "wall_seconds_including_epoch_validation": 12.429310081963195,
+    "wall_scope": "Excludes initial validation and model/grid setup; includes each epoch validation. Backward time included; the helper-call count counts forward analytic calls, not backward derivative operations.",
+    "parameter_count": 280,
+    "checkpoint_selection": "Inherited Eq22 validation loss; initialization eligible"
+  },
+  "B/FluidL2O_s402": {
+    "updates": 40,
+    "differentiated_layers_per_update": 20,
+    "differentiated_batch_forward_full_six_block_helper_calls": 2400,
+    "training_batch_size": 32,
+    "wall_seconds_including_epoch_validation": 12.134173602069495,
+    "wall_scope": "Excludes initial validation and model/grid setup; includes each epoch validation. Backward time included; the helper-call count counts forward analytic calls, not backward derivative operations.",
+    "parameter_count": 280,
+    "checkpoint_selection": "Inherited Eq22 validation loss; initialization eligible"
+  },
+  "C/FluidL2O_s403": {
+    "updates": 40,
+    "differentiated_layers_per_update": 20,
+    "differentiated_batch_forward_full_six_block_helper_calls": 2400,
+    "training_batch_size": 32,
+    "wall_seconds_including_epoch_validation": 12.689567614957923,
+    "wall_scope": "Excludes initial validation and model/grid setup; includes each epoch validation. Backward time included; the helper-call count counts forward analytic calls, not backward derivative operations.",
+    "parameter_count": 280,
+    "checkpoint_selection": "Inherited Eq22 validation loss; initialization eligible"
+  },
+  "C/FixedL2O_s402": {
+    "updates": 40,
+    "differentiated_layers_per_update": 20,
+    "differentiated_batch_forward_full_six_block_helper_calls": 1600,
+    "training_batch_size": 32,
+    "wall_seconds_including_epoch_validation": 5.943814972008113,
+    "wall_scope": "Excludes initial validation and model/grid setup; includes each epoch validation. Backward time included; the helper-call count counts forward analytic calls, not backward derivative operations.",
+    "parameter_count": 240,
+    "checkpoint_selection": "Inherited Eq22 validation loss; initialization eligible"
+  },
+  "C/FluidNoPositionMomentum_s401": {
+    "updates": 40,
+    "differentiated_layers_per_update": 20,
+    "differentiated_batch_forward_full_six_block_helper_calls": 2400,
+    "training_batch_size": 32,
+    "wall_seconds_including_epoch_validation": 11.642452038970077,
+    "wall_scope": "Excludes initial validation and model/grid setup; includes each epoch validation. Backward time included; the helper-call count counts forward analytic calls, not backward derivative operations.",
+    "parameter_count": 260,
+    "checkpoint_selection": "Inherited Eq22 validation loss; initialization eligible"
+  },
+  "C/FixedL2O_s401": {
+    "updates": 40,
+    "differentiated_layers_per_update": 20,
+    "differentiated_batch_forward_full_six_block_helper_calls": 1600,
+    "training_batch_size": 32,
+    "wall_seconds_including_epoch_validation": 5.8544319499633275,
+    "wall_scope": "Excludes initial validation and model/grid setup; includes each epoch validation. Backward time included; the helper-call count counts forward analytic calls, not backward derivative operations.",
+    "parameter_count": 240,
+    "checkpoint_selection": "Inherited Eq22 validation loss; initialization eligible"
+  },
+  "C/FixedL2O_s403": {
+    "updates": 40,
+    "differentiated_layers_per_update": 20,
+    "differentiated_batch_forward_full_six_block_helper_calls": 1600,
+    "training_batch_size": 32,
+    "wall_seconds_including_epoch_validation": 5.9753157119848765,
+    "wall_scope": "Excludes initial validation and model/grid setup; includes each epoch validation. Backward time included; the helper-call count counts forward analytic calls, not backward derivative operations.",
+    "parameter_count": 240,
+    "checkpoint_selection": "Inherited Eq22 validation loss; initialization eligible"
+  },
+  "C/FluidL2O_s401": {
+    "updates": 40,
+    "differentiated_layers_per_update": 20,
+    "differentiated_batch_forward_full_six_block_helper_calls": 2400,
+    "training_batch_size": 32,
+    "wall_seconds_including_epoch_validation": 11.88527296698885,
+    "wall_scope": "Excludes initial validation and model/grid setup; includes each epoch validation. Backward time included; the helper-call count counts forward analytic calls, not backward derivative operations.",
+    "parameter_count": 280,
+    "checkpoint_selection": "Inherited Eq22 validation loss; initialization eligible"
+  },
+  "C/FluidL2O_s402": {
+    "updates": 40,
+    "differentiated_layers_per_update": 20,
+    "differentiated_batch_forward_full_six_block_helper_calls": 2400,
+    "training_batch_size": 32,
+    "wall_seconds_including_epoch_validation": 11.545527696056524,
+    "wall_scope": "Excludes initial validation and model/grid setup; includes each epoch validation. Backward time included; the helper-call count counts forward analytic calls, not backward derivative operations.",
+    "parameter_count": 280,
+    "checkpoint_selection": "Inherited Eq22 validation loss; initialization eligible"
+  }
+}

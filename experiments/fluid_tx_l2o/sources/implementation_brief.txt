@@ -1,0 +1,168 @@
+You are implementing a focused extension of “L2O Robust Hybrid Beamforming for ISAC,” DOI: 10.1109/TWC.2026.3702925.
+
+Retain the original L2O framework and introduce continuous fluid transmit-antenna positions. Do not replace it with an architecture tournament or make trust-region uncertainty solvers the main method. This instruction supersedes those directions in any earlier attached handoff.
+1. Goal and scope
+Develop and evaluate an adapted unfolded optimizer for:
+- One fixed single-antenna communication user.
+- One sensing target and configurable clutter.
+- Continuously adjustable, one-dimensional BS transmit positions.
+- The original hybrid transmit architecture.
+- A separate fixed radar receive ULA.
+Preserve the original communication/sensing metrics, bounded uncertainty model, weighted robust objective, and hardware constraints, specialized consistently to the single-user/single-target case.
+
+Do not introduce discrete port selection, user-side fluid antennas, RIS, CRB, new QoS constraints, phase quantization, or position errors.
+
+The research questions are:
+1. Does optimized transmit geometry improve the communication–sensing tradeoff over optimized fixed arrays?
+2. Does the adapted L2O method obtain better independently evaluated robust utility within a measured online computation budget than classical optimization?
+Do not assume positive results or publication novelty.
+2. Inspect and isolate
+Read repository instructions and inspect the existing reproduction before editing.
+
+Create a separate workflow, such as:
+experiments/fluid_tx_l2o/
+
+Preserve existing code, checkpoints, datasets, outputs, and user changes. Reuse validated functions without unnecessary refactoring.
+
+Create STATUS.md recording available sources, completed checks, executed commands, measured findings, and unresolved issues. If the repository is unavailable, request its location; do not pretend a reproduction exists.
+3. Verify the inherited formulation
+Read the original paper and map its notation, gradients, constraints, and training losses to the implementation.
+
+Document exactly what is retained, specialized, and added. Preserve the original logarithm base and uncertainty-radius normalization. Report discrepancies rather than silently correcting or reproducing them.
+
+A necessary change is the spatial communication-channel model: antenna movement must change channels consistently. If the original reproduction uses position-independent random channel vectors, establish a fresh fixed-ULA baseline under the same spatial channel law as the fluid methods.
+4. Continuous transmit geometry
+Define
+\[
+\mathbf p=[p_1,\ldots,p_{N_t}]^T,
+\]
+with
+\[
+0\le p_1,\qquad
+p_{n+1}-p_n\ge d_{\min},\qquad
+p_{N_t}\le A.
+\]
+Reject infeasible configurations. Choose aperture and spacing that leave genuine positioning freedom.
+
+Use
+\[
+[\widehat{\mathbf a}_t(\theta;\mathbf p)]_n
+=
+e^{-j(2\pi/\lambda)p_n\sin\theta}.
+\]
+Recover the fixed ULA through \(p_n=(n-1)d\). Document physical units and angle conventions.
+
+Use the scenario-fixed spatial channel
+\[
+\widehat{\mathbf h}^{H}(\mathbf p)
+=
+\sum_{k=1}^{K_c}\beta_k
+\widehat{\mathbf a}_t^T(\vartheta_k;\mathbf p).
+\]
+Hold path gains and angles fixed while positions change. Never redraw independent channels after movement.
+
+Retain radar channels
+\[
+\mathbf H_l(\mathbf p)
+=
+\alpha_l
+(\widehat{\mathbf a}_{r,l}+\boldsymbol\delta_{r,l})
+(\widehat{\mathbf a}_{t,l}(\mathbf p)+\boldsymbol\delta_{t,l})^T.
+\]
+Keep the bilinear perturbation term. Preserve the inherited clutter-power approximation and state its assumptions.
+5. Adapt the unfolded architecture
+Retain the original MinNet–MaxNet roles and beamforming/error update structure as far as mathematically compatible.
+
+Add:
+1. Spatial-response reconstruction from current positions.
+2. A position-update block inside the outer maximization.
+3. Exact enforcement of aperture and minimum spacing.
+A proposed macro-layer is:
+Rebuild spatial channels
+→ MinNet adverse-error updates
+→ MaxNet beamforming/filter updates
+→ Position update and geometry projection
+→ Pass state to the next layer
+
+Specify whether updates are simultaneous or sequential and where each gradient is evaluated.
+
+For the position block, investigate
+\[
+\widetilde{\mathbf p}^{k+1}
+=
+\mathbf p^k+
+\mu_p^k\nabla_{\mathbf p}u+
+\eta_p^k(\mathbf p^k-\mathbf p^{k-1}),
+\qquad
+\mathbf p^{k+1}
+=
+\Pi_{\mathcal P}(\widetilde{\mathbf p}^{k+1}).
+\]
+Start classical validation with zero position momentum. The partial position gradient holds adverse errors fixed; do not call it the exact gradient of a globally minimized robust objective.
+
+Initially supply common uncertainty radii and use a fixed unfolding depth. EpsNet and RecNet are optional later additions requiring separate justification. Do not claim size generalization without testing it.
+6. Derivations and feasibility
+Derive the new position gradients from
+\[
+\frac{\partial[\widehat{\mathbf a}_t]_n}{\partial p_n}
+=
+-j\frac{2\pi}{\lambda}\sin\theta
+[\widehat{\mathbf a}_t]_n.
+\]
+Propagate them through communication and radar channels and both utility components. Verify complex conjugation carefully.
+
+Implement Euclidean position projection using bounded isotonic regression or a validated convex QP. Coordinate clipping alone is insufficient.
+
+Enforce analog unit modulus, effective transmit power using the updated analog matrix, and receive-filter normalization. Handle zero denominators explicitly.
+7. Validate before training
+Required checks include:
+- ULA steering recovery and repeatable spatial channels.
+- Independent reference calculations of communication/sensing metrics.
+- Float64 finite-difference position-gradient checks.
+- Projection feasibility, idempotence, and agreement with a tiny independent QP.
+- Full-iteration hardware, power, filter, uncertainty, and spacing residuals.
+- Position-disabled equivalence to the fixed-array implementation.
+- No unintended changes to frozen variables.
+- Finite outputs, reproducibility, and differentiation through the geometry projection.
+Use aligned LOS without clutter as a control where optimized geometry may offer no intrinsic gain.
+
+Run relevant reproduction regression checks; do not rerun full original-paper training unnecessarily.
+8. Train the adapted L2O method
+Train specifically for the new spatial single-user/single-target problem.
+
+Do not assume existing checkpoints transfer across dimensions or channel distributions. Any transferred initialization must be documented and compared with an appropriate control.
+
+Train the coupled beamforming, uncertainty, and position update settings—not only position-step scalars. Use the verified inherited training procedure initially; document any justified change.
+
+Record datasets, splits, seeds, losses, optimizer settings, initialization, learned parameter counts, training cost, and gradient-propagation conventions.
+
+Use independent training, validation, and locked test sets. Keep final test data out of architecture and hyperparameter selection.
+9. Required comparisons
+Evaluate:
+1. Fixed ULA with classical optimization.
+2. Fluid positions with classical joint optimization.
+3. Fixed ULA with adapted single-user L2O.
+4. Fluid positions with the proposed L2O extension.
+Add fixed random geometry and a training-optimized nonuniform geometry frozen at test time where affordable.
+
+Match antenna count, allowed aperture, RF chains, transmit power, propagation scenarios, uncertainty sets, and evaluation protocol.
+
+Include aligned LOS, separated-direction multipath, and multipath-plus-clutter regimes. Compare both matched-runtime performance and longer-budget attainable performance.
+
+Evaluate final designs using the same independent multi-start uncertainty search with best-so-far retention. Freeze positions and beamformers during attacks. Report the lowest utility found as an estimate, not a certified global worst case. An independently validated exact evaluator may be added as a reference if compatible, without replacing the main architecture.
+10. Deliverables and claims
+Deliver:
+- Isolated runnable code, tests, configurations, and checkpoints.
+- Raw paired scenario results and feasibility residuals.
+- Robust utility versus total online runtime, including all online computations.
+- Separate communication and sensing results.
+- Common-reference beampatterns and position plots.
+- Ablations for position updates, learning, and position momentum.
+- Editable system-model and unfolded-architecture diagrams.
+- Updated letter source and compiled, visually checked PDF.
+- Reproducible commands and a claim-to-evidence table.
+Clearly attribute the inherited L2O architecture. Frame our contribution as its substantive extension to continuous fluid transmit positioning and joint learned optimization.
+
+Read the closest MA/FAS–ISAC learning papers for appropriate comparisons. Do not claim that adding fluid antennas or learning position updates is inherently novel.
+
+Proceed through implementation, validation, training, evaluation, and evidence-based manuscript revision. Do not stop after producing another plan, and do not fabricate results if resource limits prevent completion.

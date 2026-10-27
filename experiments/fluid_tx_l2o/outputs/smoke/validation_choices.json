@@ -1,0 +1,256 @@
+{
+  "cases": {
+    "A": {
+      "fixed": {
+        "3": {
+          "selected": {
+            "inner": 0.01,
+            "outer": 0.001,
+            "utility": 2.472189426422119
+          },
+          "grid": [
+            {
+              "inner": 0.01,
+              "outer": 0.001,
+              "utility": 2.472189426422119
+            }
+          ]
+        },
+        "6": {
+          "selected": {
+            "inner": 0.01,
+            "outer": 0.001,
+            "utility": 2.472189426422119
+          },
+          "grid": [
+            {
+              "inner": 0.01,
+              "outer": 0.001,
+              "utility": 2.472189426422119
+            }
+          ]
+        }
+      },
+      "fluid": {
+        "2": {
+          "selected": {
+            "position": 0.02,
+            "utility": 2.472189426422119
+          },
+          "grid": [
+            {
+              "position": 0.02,
+              "utility": 2.472189426422119
+            }
+          ]
+        },
+        "3": {
+          "selected": {
+            "position": 0.02,
+            "utility": 2.472189426422119
+          },
+          "grid": [
+            {
+              "position": 0.02,
+              "utility": 2.472189426422119
+            }
+          ]
+        },
+        "4": {
+          "selected": {
+            "position": 0.02,
+            "utility": 2.472189426422119
+          },
+          "grid": [
+            {
+              "position": 0.02,
+              "utility": 2.472189426422119
+            }
+          ]
+        }
+      },
+      "plain": {
+        "selected": {
+          "position": 0.02,
+          "utility": 2.472189426422119
+        },
+        "grid": [
+          {
+            "position": 0.02,
+            "utility": 2.472189426422119
+          }
+        ]
+      }
+    },
+    "B": {
+      "fixed": {
+        "3": {
+          "selected": {
+            "inner": 0.01,
+            "outer": 0.001,
+            "utility": 1.781757116317749
+          },
+          "grid": [
+            {
+              "inner": 0.01,
+              "outer": 0.001,
+              "utility": 1.781757116317749
+            }
+          ]
+        },
+        "6": {
+          "selected": {
+            "inner": 0.01,
+            "outer": 0.001,
+            "utility": 1.7843413352966309
+          },
+          "grid": [
+            {
+              "inner": 0.01,
+              "outer": 0.001,
+              "utility": 1.7843413352966309
+            }
+          ]
+        }
+      },
+      "fluid": {
+        "2": {
+          "selected": {
+            "position": 0.02,
+            "utility": 1.8315538167953491
+          },
+          "grid": [
+            {
+              "position": 0.02,
+              "utility": 1.8315538167953491
+            }
+          ]
+        },
+        "3": {
+          "selected": {
+            "position": 0.02,
+            "utility": 1.8470628261566162
+          },
+          "grid": [
+            {
+              "position": 0.02,
+              "utility": 1.8470628261566162
+            }
+          ]
+        },
+        "4": {
+          "selected": {
+            "position": 0.02,
+            "utility": 1.8586325645446777
+          },
+          "grid": [
+            {
+              "position": 0.02,
+              "utility": 1.8586325645446777
+            }
+          ]
+        }
+      },
+      "plain": {
+        "selected": {
+          "position": 0.02,
+          "utility": 1.8470628261566162
+        },
+        "grid": [
+          {
+            "position": 0.02,
+            "utility": 1.8470628261566162
+          }
+        ]
+      }
+    },
+    "C": {
+      "fixed": {
+        "3": {
+          "selected": {
+            "inner": 0.01,
+            "outer": 0.001,
+            "utility": 1.4533061981201172
+          },
+          "grid": [
+            {
+              "inner": 0.01,
+              "outer": 0.001,
+              "utility": 1.4533061981201172
+            }
+          ]
+        },
+        "6": {
+          "selected": {
+            "inner": 0.01,
+            "outer": 0.001,
+            "utility": 1.4548709392547607
+          },
+          "grid": [
+            {
+              "inner": 0.01,
+              "outer": 0.001,
+              "utility": 1.4548709392547607
+            }
+          ]
+        }
+      },
+      "fluid": {
+        "2": {
+          "selected": {
+            "position": 0.02,
+            "utility": 1.473478078842163
+          },
+          "grid": [
+            {
+              "position": 0.02,
+              "utility": 1.473478078842163
+            }
+          ]
+        },
+        "3": {
+          "selected": {
+            "position": 0.02,
+            "utility": 1.4835742712020874
+          },
+          "grid": [
+            {
+              "position": 0.02,
+              "utility": 1.4835742712020874
+            }
+          ]
+        },
+        "4": {
+          "selected": {
+            "position": 0.02,
+            "utility": 1.4931353330612183
+          },
+          "grid": [
+            {
+              "position": 0.02,
+              "utility": 1.4931353330612183
+            }
+          ]
+        }
+      },
+      "plain": {
+        "selected": {
+          "position": 0.02,
+          "utility": 1.4835742712020874
+        },
+        "grid": [
+          {
+            "position": 0.02,
+            "utility": 1.4835742712020874
+          }
+        ]
+      }
+    }
+  },
+  "selection_split": "validation only",
+  "test_used": false,
+  "source_sha256": {
+    "experiments/fluid_tx_l2o/model.py": "fff69773e452c2134b4cb753d56c1bae9b6128b061b7ba1cc3a108a83300e1ea",
+    "experiments/fluid_tx_l2o/run.py": "d05c4c88630b14290cc722eedbdb28220f6108d87399ea0cc35c295641e60c9e"
+  }
+}

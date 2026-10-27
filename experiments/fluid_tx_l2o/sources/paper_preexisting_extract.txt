@@ -1,0 +1,1436 @@
+18778                                                                               IEEE TRANSACTIONS ON WIRELESS COMMUNICATIONS, VOL. 25, 2026
+
+
+
+
+            L2O Robust Hybrid Beamforming for ISAC
+                    Lei Wang , Graduate Student Member, IEEE, Sergiy A. Vorobyov , Fellow, IEEE,
+                                       and Esa Ollila , Senior Member, IEEE
+
+
+    Abstract—Robust hybrid beamforming for integrated sensing                      To generate directional beams as well as meet cost and
+and communications (ISAC) system under bounded uncertainties                    power constraints, hybrid beamforming (HBF) architectures
+is investigated using learning to optimize (L2O) techniques.                    are typically deployed at the base station (BS) [1], [3], [4].
+Specifically, the robust hybrid beamforming design is initially
+formulated as an optimization problem aimed at jointly maxi-                    Model-based HBF designs for ISAC systems have garnered
+mizes the worst-case communication sum-rate and the worst-case                  considerable interest in the recent works [5], [6], [7], [8], [9],
+sensing mutual information, considering the uncertainties in                    [10], [11]. For instance, considering HBF design for orthog-
+communication channel and transmit/receive steering vectors.                    onal frequency division multiplexing (OFDM)-ISAC system,
+Projected gradient descent and ascent (PGDA) algorithm with                     the authors of [9] have proposed to jointly optimize the spec-
+momentum is then developed for solving the formulated opti-
+mization problem. To enhance the performance of the PGDA                        tral efficiency (SE) of communication and spatial spectrum
+algorithm, we propose to use one of L2O techniques, i.e.,                       matching error (SSME) of radar. Taking signal-independent
+algorithm unrolling, to transform the developed PGDA into                       interference and signal-dependent clutter into account, the
+a trainable neural network by learning its hyperparameters                      authors of [5] have studied the corresponding ISAC beamform-
+(i.e., step sizes and momentum coefficients) directly from data.                ing optimization problem by employing distance-majorization
+To overcome the limitations of fixed-layer unrolled PGDA, we
+further devise a recurrent network-augmented unrolled PGDA                      algorithm. To cancel the interference in sensing, the authors of
+architecture, providing the flexibility of training the unrolled                [6] have proposed a three-step communication-centric hybrid
+PGDA network with finite layers and testing it with infinite                    beamforming scheme using a dedicated subcarrier allocation
+layers. Furthermore, to enable adaptability to varying channel                  strategy.
+conditions, we design a neural network, called EpsNet, to learn                    Recently, deep learning (DL) has been widely applied to
+the uncertainty bounds dynamically. Numerical results demon-
+strate that the unrolled PGDA networks outperform the standard                  beamforming designs [12], [13], [14], [15], [16], [17], [18].
+PGDA benchmark both in performance and convergence, effec-                      In [14], the authors have devised a two-timescale deep neural
+tively addressing the newly introduced problem of robust hybrid                 networks (DNNs) consisting of a long-term DNN tailored
+beamforming design for ISAC system.                                             to optimizing analog precoder and a short-term DNN ded-
+  Index Terms—Learning to optimize (L2O), integrated sensing                    icated to optimizing digital precoder. The authors of [13]
+and communications (ISAC), hybrid beamforming, robustness,                      have designed a twin-convolutional neural networks (CNNs)
+projected gradient, algorithm unrolling.                                        to jointly perform antenna selection and hybrid beamformer
+                                                                                design in millimeter-wave communications. The authors of
+                          I. I NTRODUCTION                                      [17] have proposed a Wolpertinger policy-enhanced reinforce-
+                                                                                ment learning framework to design the transmit beamformer
+T     HE future sixth-generation (6G) systems will be required
+      to meet the objectives of high-capacity communications
+and high-accuracy sensing to support the various emerging
+                                                                                in automotive radar ISAC systems.
+                                                                                   However, most existing NN-based ISAC beamforming
+applications, such as autonomous driving, Internet of Things                    methods adopt end-to-end architectures where physical con-
+(IoT) networks, smart city and autonomous aerial vehicles                       straints are typically incorporated via loss function penalties or
+(AAVs) networks [1], [2]. This necessitates the development                     output normalization, rather than being structurally embedded
+of integrated sensing and communications (ISAC) framework,                      into the network architecture itself. Also, the black-box nature
+which aims to enhance spectrum efficiency, reduce hardware                      of conventional neural networks (i.e., a lack of interpretability)
+cost, and enable mutual benefits for both communications and                    makes them hard to deploy in practical scenarios [19]. To
+sensing functionalities. Recently, ISAC has attracted signifi-                  eliminate this issue, learning to optimize (L2O) technique has
+cant research interest from both academia and industry.                         been proposed to make neural networks interpretable [20].
+                                                                                L2O is an emerging technique that fuses traditional model-
+   Received 14 July 2025; revised 12 December 2025, 12 March 2026, and          based optimization algorithms with DL architectures, reducing
+2 May 2026; accepted 9 June 2026. Date of publication 18 June 2026; date of
+current version 19 June 2026. This work was supported in part by the Research
+                                                                                the need for laborious hand-engineering by utilizing DL’s
+Council of Finland under Grant 359848 and Grant 357715 and in part by the       automatic tuning capabilities [21]. In the context of beamform-
+Finnish Doctoral Program Network in Artificial Intelligence (AI-DOC) under      ing design, there are myriads of L2O (especially algorithm
+Grant VN/3137/2024-OKM-6. The associate editor coordinating the review          unrolling)-based works [1], [22], [23], [24], [25], [26], [27].
+of this article and approving it for publication was B. Zheng. (Corresponding
+author: Sergiy A. Vorobyov.)                                                    For instance, the authors of [22] have developed a general
+   The authors are with the Department of Information and Commu-                framework for iterative algorithm induced deep-unfolding neu-
+nications Engineering, Aalto University, 02150 Espoo, Finland (e-mail:
+lei.wang@aalto.fi; sergiy.vorobyov@aalto.fi; esa.ollila@aalto.fi).
+                                                                                ral network (IAIDNN) and further devised an IAIDNN-based
+   Digital Object Identifier 10.1109/TWC.2026.3702925                           weighted minimum mean-square error (WMMSE) algorithm
+
+                              © 2026 The Authors. This work is licensed under a Creative Commons Attribution 4.0 License.
+                                         For more information, see https://creativecommons.org/licenses/by/4.0/
+WANG et al.: L2O ROBUST HYBRID BEAMFORMING FOR ISAC                                                                            18779
+
+
+
+for precoding design. In [23], the authors have adapted             forming weights). The main contributions of our work are
+deep unfolding to hybrid beamforming design to reduce the           summarized as follows.
+computational complexity stemming from searching optimum
+                                                                      • First-order optimizer with momentum for robust
+precoders in low-dimensional manifold while maintaining
+                                                                        hybrid ISAC beamforming: We formulate a hybrid
+the near-optimum performance. The authors of [24] have
+                                                                        beamforming optimization problem that jointly maximize
+developed a ManNet-based analog beamformer for a fully-
+                                                                        the worst-case communication sum-rate (SR) and worst-
+connected structure by unrolling projected gradient descent
+                                                                        case sensing mutual information (MI) with bounded
+(PGD) algorithm, and have devised a subManNet-based ana-
+                                                                        uncertainties in communication channel and trans-
+log beamformer for a sub-connected structure. In [25], the
+                                                                        mit/receive steering vectors. Projected gradient descent
+authors have proposed to unroll projected gradient ascent
+                                                                        and ascent (PGDA) algorithm is then developed for
+(PGA) algorithm and projected mirror proximal algorithm to
+                                                                        solving the optimization problem. To accelerate the con-
+design hybrid beamformer under the assumptions of perfect
+                                                                        vergence, momentum is added to the first-order iterative
+and imperfect channel state information (CSI), respectively.
+                                                                        optimizer.
+In [26], power-aware modular hybrid beamforming design by
+                                                                      • L2O-based design: To enhance the performance and
+unrolling PGA algorithm with momentum has been proposed
+                                                                        convergence of the hyperparameter-dependent PGDA
+to achieve the balance between power efficiency and system
+                                                                        algorithm, we leverage DL’s automated hyperparameter
+performance. To further reduce the computational burden, the
+                                                                        tuning capabilities. Specifically, we resort to algorithm
+authors of [27] have proposed an approximation of the iterative
+                                                                        unrolling technique [19] to transform the developed
+PGDA procedure and developed the Learned Approximated
+                                                                        PGDA algorithm into a multi-layer feedforward network,
+PGA (LAPGA) framework to compensate for the resulting
+                                                                        coined unrolled PGDA, allowing data-driven learning of
+approximation error. The authors of [1] have devised a mod-
+                                                                        step sizes and momentum coefficients.
+ified PGA algorithm for ISAC hybrid beamforming design
+                                                                      • Flexible unrolled network design: A key limitation of
+and developed an efficient unrolled PGA algorithm to tune
+                                                                        unrolled PGDA is its fixed number of layers, which pre-
+its hyperparameters. Yet research on algorithm unrolling-based
+                                                                        vents it from supporting variable-depth configurations. To
+ISAC beamforming algorithms remains in its early stages.
+                                                                        address this, we propose a recurrent unrolled PGDA net-
+   In practice, unavoidable errors arise due to imperfections in
+                                                                        work, coined RecNet, by appending a recurrent module
+estimation, quantization, array calibration, distorted antenna
+                                                                        to the well-designed unrolled structure, thereby enhancing
+array shape, etc. [28], [29], [30]. These errors have to be
+                                                                        the flexibility of the overall architecture.
+taken into account. To this end, several robust beamforming
+                                                                      • Learnable uncertainty bound: Unlike the most existing
+designs have been proposed for ISAC [31], [32], [33], [34].
+                                                                        works which depend on the predefined uncertainty bound,
+For example, the work [33] has considered the errors in com-
+                                                                        which is typically unavailable in practical scenarios, we
+munication channel, detection channel, and radar round-trip
+                                                                        design a specialized neural network, coined EpsNet,
+channel in a covert ISAC system and proposed an alternating
+                                                                        that learns the uncertainty bounds directly from channel
+double-checking algorithm to jointly optimize the transceiver
+                                                                        characteristics, enabling adaptability to varying channel
+beamformer and radar waveform, while [34] has studied the
+                                                                        conditions.
+robust joint transmit and receive beamforming design problem
+for ISAC system in a secondary communication of a cognitive            Compared to our previously published conference paper
+network. However, aforementioned works necessitate the pre-         [35], the present work provides several extensions: (i) com-
+defined uncertainty bounds, which are unavailable in practice.      plete derivations of the algorithms are included; (ii) a more
+   To our knowledge, no existing L2O-based hybrid beam-             practical scenario is considered, incorporating bounded uncer-
+forming method addresses this exact robust ISAC beamform-           tainties in both the communication channel and the transmit
+ing formulation. The existing methods assume: (i) perfect           steering vector; (iii) momentum terms are introduced to accel-
+CSI knowledge [1], [22], [24]; (ii) communication-only or           erate the convergence of the PGDA algorithm; (iv) a recurrent
+sensing-only scenarios [22], [23], [24], [26]; (iii) non-robust     network-inspired neural architecture is proposed to enhance
+optimization objectives [22], [23], [24], [26]. Therefore, exist-   the flexibility of unrolled PGDA; and (v) a dedicated neural
+ing learning-based methods are inapplicable to our robust           network is devised for learning the uncertainty bounds.
+ISAC settings. With this motivation, in this work, the robust          The rest of this work is organized as follows. In Section II,
+hybrid beamforming design using the L2O technique for ISAC          we introduce the system model of robust HBF for ISAC
+system under bounded uncertainties in communication and             system and formulate the corresponding optimization problem.
+sensing functionalities is proposed. Specifically, our frame-       In Section III, we develop a PGDA algorithm to solve the
+work involves the following three aspects: (i) we maximize the      formulated problem, while the designs of three networks con-
+composition of worst-case communication sum-rate and worst-         sisting of EpsNet, unrolled PGDA, and RecNet are propsosed
+case sensing mutual information over bounded uncertainty            in Section IV. Section V and VI report our numerical results
+sets; (ii) we simultaneously consider modeling uncertainties        and conclusions, respectively.
+in communication CSI, transmit and receive steering vectors;           Notations: Throughout this paper, we use boldface lower-
+(iii) the problem has an inherent min-max structure that            case and boldface uppercase letters for column vectors and
+requires specialized algorithmic treatment (inner minimization      matrices, respectively. The superscripts (·)T , (·)H , and (·)∗
+over uncertainty sets and outer maximization over beam-             represent the transpose, conjugate transpose, and conjugate
+18780                                                                                  IEEE TRANSACTIONS ON WIRELESS COMMUNICATIONS, VOL. 25, 2026
+
+
+                                                                                                 M +T
+operations, respectively, while kak2 and kAkF denote the                                         X
+                                                                                             +            hH
+                                                                                                           m Fa fd,k zk + nm , m = 1, . . . , M,           (2)
+l2 -norm and Frobenius norm of vector a and matrix A,
+                                                                                                 k=M +1
+respectively. The statistical expectation operator is represented
+by E{·}, while CN (a, B) stands for the complex Gaussian                           where hm ∈ CNt ×1 denotes the communication channel from
+                                                                                                                                2
+distribution with mean a and covariance matrix B. Moreover,                        BS to the mth user, and nm ∼ CN (0, σm         ) is the complex
+                                                                                                                                        2
+tr(·) denotes the trace operation, | · | indicates the magnitude                   additive white Gaussian noise (AWGN) with σm             being the
+of a complex number, and [A]i,j refers to the (i, j)th element                                           th
+                                                                                   noise power at the m user equipment.
+of matrix A.                                                                          Accordingly, the instantaneous communication signal-to-
+                                                                                   interference-plus-noise ratio (SINR) of the mth user is given
+                          II. S YSTEM M ODEL                                       by
+   We consider a downlink ISAC system composed of a                                                              |hH Fa fd,m |2
+                                                                                              SINRcm = M +T m                             .       (3)
+dual-function radar-communication BS, M single-antenna                                                      X                   2
+communication users, T point-like targets, and J interfer-                                                          hH
+                                                                                                                     m Fa fd,k    + σm2
+
+ences.1 The BS (equipped with Nt -antenna transmit uniform                                                   k=1, k6=m
+linear array (ULA) and Nr -antenna receive ULA) is used                              The achievable sum-rate (SR) is then expressed as
+to transmit communication data symbols to users and also
+                                                                                                                M
+transmit radar probing waveforms to sense the surrounding                                                       X
+                                                                                                        γc =          log(1 + SINRcm ).                    (4)
+targets.
+                                                                                                               m=1
+
+A. Transmit Signal Model
+                                                                                   C. Sensing Performance Metric
+   The transmit signal can be represented as [7]:
+                                                                                     At the BS, the echo signal from the tth target is processed
+                       x = Fa Fcd zc + Fa Fsd zs ,                          (1)    using a receive filter wt ∈ CNr ×1 , and the output is given as
+where zc = [z1 , . . . , zM ]T ∈ CM ×1 denotes communication                                    T
+                                                                                                X                                  J
+                                                                                                                                   X
+data symbols which are assumed to satisfy zc ∼ CN (0, IM ),                         yts = wtH         αt ar (θt )aT           H
+                                                                                                                  t (θt )x + wt          αj ar (θj )aT
+                                                                                                                                                     t (θj )x
+while zs = [zM +1 , . . . , zM +T ]T ∈ CT ×1 represents the                                     t=1                                j=1
+radar waveforms which are assumed to be zero-mean and                                     + wtH nt , t = 1, . . . , T,                                     (5)
+uncorrelated with each other, thereby yielding E{zs zH   s } = IT
+[37]. We also assume that the communication data sym-                              where αt and αj denote respectively the reflection coefficients
+bols are uncorrelated with the radar waveforms. Additionally,                      of the tth target and the j th interference source. The noise
+Fa ∈ CNt ×L denotes analog beamforming matrix with L                               vector satisfies nt ∼ CN (0, σt2 INr ).
+being the number of RF chains, while Fcd ∈ CL×M and                                   In addition, at (θ) = [1, . . . , e−j2π(Nt −1)d sin θ/λ ]T ∈
+                                                                                     Nt ×1
+Fsd ∈ CL×T denote digital beamforming matrices for com-                            C       and ar (θ) = [1, . . . , e−j2π(Nr −1)d sin θ/λ ]T ∈ CNr ×1
+munications and sensing, given by Fcd = [fd,1 , . . . , fd,M ] and                 are the transmit and receive steering vectors, respectively,
+Fsd = [fd,M +1 , . . . , fd,M +T ], respectively. The matrices Fcd                 where d is the inter-antenna spacing, and λ is the signal
+and Fsd are then combined into one matrix Fd = [Fcd , Fsd ].                       wavelength.
+   In (1), the same analog beamformer but different digital                           The instantaneous sensing SINR for the tth target is
+beamformers among dual functionalities are used. Indeed,                           expressed as
+in practical mmWave or massive MIMO implementations,                                                                  kwtH Ht Fa Fd k22
+the analog beamforming network realized via phase shifters                                 SINRst =       TX
+                                                                                                           +J
+                                                                                                                                                      ,    (6)
+is shared among all transmitted signals due to the limited                                                          kwtH Hl Fa Fd k22 + σt2 kwt k22
+number of RF chains. Therefore, both the communication                                                  l=1, l6=t
+and sensing signals have to pass through the same analog
+                                                                                                                                Nr ×Nt
+beamforming matrix Fa , which determines the common spatial                        where Ht = αt ar (θt )aT       t (θt ) ∈ C          and Hl =
+                                                                                               T           Nr ×Nt
+directionality of the transmitted beams at the RF domain. The                      αl ar (θl )at (θl ) ∈ C         denote the radar round-trip chan-
+digital beamformers Fcd and Fsd operate at the baseband level,                     nels.
+where the system has higher flexibility and degrees of freedom                        Sensing MI, a commonly-used sensing performance met-
+to separately tailor the communication and radar signals.                          ric, quantifies how much environmental information can
+                                                                                   be extracted from the received signal [38]. The MI-based
+B. Communication Performance Metric                                                approach offers greater efficiency and reduced complexity
+                                                                                   when compared to methods that rely on Cramér-Rao lower
+  The signal received by the mth communication user is
+                                                                                   bounds [39]. Moreover, using MI metric for beamforming
+expressed as
+                                                                                   design can effectively reduce echo interference from environ-
+                                     M
+     c
+                                     X                                             mental scatterers [40]. Hence, we choose the upper bound MI
+    ym = hH
+          m Fa fd,m zm +                      hH
+                                               m Fa fd,k zk                        for multi-target scenario as the sensing performance metric
+                                  k=1, k6=m
+                                                                                   in this work. The upper bound becomes tight when the cross-
+  1 In our context, interference is considered to be the clutter, returning from   correlation among target reflections is eliminated, meaning that
+natural objects, such as vegetation, soil, rocks, and the sea [36].                the signals reflected from different targets are independent of
+WANG et al.: L2O ROBUST HYBRID BEAMFORMING FOR ISAC                                                                                                     18781
+
+
+
+each other [41]. In practical applications, since complete elim-                    robust beamforming framework. Also, this modeling approach
+ination of cross-correlation is challenging, an approximation                       has been validated and used in robust beamforming [28],
+is employed by constraining the absolute value of cross-                            communication system [30], and ISAC system [33], [34].
+correlation to be smaller than a sufficiently low threshold [41].
+Also, the upper bound is aligned with detection and estima-
+                                                                                    E. Problem Formulation
+tion quality since eliminating or suppressing cross-correlation
+pattern leads to sharper mainlobes and lower sidelobes, which                         We aim to maximize the composition of worst-case com-
+directly enhances angle resolution and target separability. This                    munication SR and worst-case sensing MI over the bounded
+improves detection probability and target parameter estimation                      uncertainty sets. The corresponding optimization problem is
+accuracy. Thus, the sensing performance metric is given by                          expressed as
+[41]                                                                                                                               
+                          T
+                        X
+                                                                                           max        ρ min γc + (1 − ρ) min γs                      (10a)
+                   γs =      log(1 + SINRst ).                (7)                        Fa ,Fd ,wt       δ h,m ∈Ah                 δ t,l ∈At
+                              t=1                                                                                                   δ r,l ∈Ar
+
+                                                                                           s.t. |[Fa ]m,n | = 1,                                       (10b)
+D. Uncertainty Model
+                                                                                                  kwt k22 = 1,                                         (10c)
+   In practice, due to uncertainties arising from estimation                                               2
+                                                                                                  kFa Fd kF = Pt ,                                     (10d)
+and quantization errors, the communication CSI is difficult
+to obtain perfectly at the BS [30]. In addition, uncertainties                      where ρ denotes the weight factor, and Pt is the power
+also exists in transmit and receive steering vectors, arising                       budget of BS. The problem (10) is non-convex due to the
+from look direction, signal pointing errors, imperfect array                        unit-modulus constraint (10b), unit-norm constraint (10c), and
+calibration and distorted antenna array shape [28]. These                           coupled Fa and Fd in (10a) and in (10d).
+factors must be taken into account in the design. Hence,                               In problem (10), the analog beamformer Fa is subject to a
+the actual communication channel and transmit and receive                           unit-modulus constraint (10b), which restricts each element to
+steering vectors2 can be modeled as                                                 lie on the complex unit circle. This is a continuous non-convex
+                           hm = ĥm + δ h,m ,                              (8a)     constraint rather than a discrete integer constraint.3 More-
+                                                                                    over, we adopt the worst-case robust formulation rather than
+                           at,l = ât,l + δ t,l ,                          (8b)     an expectation-based formulation for the following reasons:
+                           ar,l = âr,l + δ r,l ,                          (8c)     (i) The uncertainty in the communication channels arises from
+                                                                                    estimation and quantization errors [30], and the uncertainties in
+where ĥm , ât,l , and âr,l are the presumed channel, transmit
+                                                                                    the transmit/receive steering vectors arise from look direction,
+and receive steering vectors, while δ h,m , δ t,l , and δ r,l are the
+                                                                                    signal pointing errors, imperfect array calibration and distorted
+corresponding errors, bounded by εh , εt , and εr , i.e.,
+                                                                                  antenna array shape [28]. The exact statistical distributions
+                                     1                                              for these uncertainties are unknown in general or difficult to
+        δ h,m ∈ Ah , δ h,m √ kδ h,m k2 ≤ εh ,                    (9a)
+                                     Nt                                             model accurately. Therefore, an expectation-based metric may
+                                                                                    not reflect the true nature of the uncertainty. (ii) The worst-case
+                                                   
+                                   1
+          δ t,l ∈ At , δ t,l √ kδ t,l k2 ≤ εt ,                  (9b)               formulation ensures that the designed hybrid beamformers can
+                                   Nt
+                                                                                  guarantee a minimum level of performance under all possible
+                                   1
+          δ r,l ∈ Ar , δ r,l √ kδ r,l k2 ≤ εr .                  (9c)               channel and steering vector realizations within the bounded
+                                   Nr                                               uncertainty sets. (iii) The uncertainty model in (8) and (9)
+   It should be emphasized that the unified uncertainty model                       defines deterministic norm-bounded sets rather than random
+adopted in this work refers to a unified robust optimization                        variables with known distributions. Under this bounded-
+treatment rather than an assumption that the communication                          uncertainty assumption, it is natural to use the worst-case
+channel and sensing steering vectors have identical physical                        performance criterion, rather than the expectation. (iv) The
+uncertainty sources or error characteristics. In practice, the                      Euclidean-norm bounded deterministic uncertainty set used in
+choice of uncertainty model depends on the available side                           our robust formulation is a special case of the Wasserstein
+information: stochastic models can be used when error statis-                       distributionally robust (DR) uncertainty set with Euclidean-
+tics are available, and deterministic norm-bounded models are                       norm cost function [43]. Thus, the resulting worst-case robust
+appropriate when an upper bound on the error magnitude is                           beamformer is mathematically equivalent to a special case of
+known. Therefore, the norm-bounded model adopted in this                            the Wasserstein DR solution.
+work provides a tractable worst-case robust formulation that
+is agnostic to the detailed physical uncertainty sources. The                                            III. PGDA A LGORITHM
+communication channel, transmit steering vector, and receive
+steering vector are characterized by separate uncertainty sets                        We first address the inner minimization problem over
+and separate radii, but are handled consistently within the same                    uncertainty sets using PGD, and then address the outer maxi-
+                                                                                    mization problem using PGA.
+  2 For the ease of notation, in the following part, a (θ ) and a (θ ) are
+                                                          t l           r l
+simplified as at,l and ar,l , respectively. Also, the error-free radar round-trip      3 Thus, our hybrid beamforming optimization problem does not explicitly
+channel is expressed as Ĥl = αl âr,l âT
+                                         t,l .                                      involve mixed integer programming [42].
+18782                                                                                             IEEE TRANSACTIONS ON WIRELESS COMMUNICATIONS, VOL. 25, 2026
+
+
+
+    1) PGD-Based Optimization Over the Uncertainty Sets Ah ,                                where ηa , ηd , and ηw are the momentum coefficients for Fa ,
+At , and Ar : The gradient steps for updating the errors δ h,m ,                            Fd , and wt .
+δ t,l , and δ r,l at the iteration i + 1 are given by                                          The resulting updates are then projected onto the constraint
+          (i+1)
+                                                                                            sets defined in (10b), (10c), and (10d) to ensure feasibility:
+                        (i)      (i)
+        δ̃ h,m = δ h,m − µh ∇δh,m γc                             (i)
+                                                                        ,           (11a)                                  h         i
+                                                   δ h,m =δ h,m                                                                (i+1)
+                                                                                                           h        i        F̂a
+          (i+1)                                                                                                                        m,n
+        δ̃ t,l
+                        (i)    (i)
+                    = δ t,l − µt ∇δt,l γs                    ,                      (11b)                    F(i+1)
+                                                                                                              a          = h         i     ,          (16a)
+                                                       (i)
+                                              δ t,l =δ t,l                                                           m,n       (i+1)
+                                                                                                                             F̂a
+          (i+1)         (i)                                                                                                                        m,n
+        δ̃ r,l      = δ r,l − µ(i)
+                               r ∇δ r,l γs             (i)
+                                                             ,                      (11c)                                                 √     (i+1)
+                                              δ r,l =δ r,l                                                              (i+1)              Pt F̂d
+                                                                                                                      Fd         =                             ,     (16b)
+                                                                                                                                         (i+1) (i+1)
+where µh , µt , and µr are the step sizes. The gradients                                                                                Fa    F̂d
+                                                                                                                                                           F
+∇δh,m γc , ∇δt,l γs , and ∇δr,l γs are provided in Appendix                                                                               (i+1)
+A.After completing the gradient steps, momentum is intro-                                                             (i+1)             ŵt
+                                                                                                                     wt     =             (i+1)
+                                                                                                                                                       .              (16c)
+duced to accelerate the convergence. Specifically,                                                                                     kŵt       k2
+          (i+1)      (i+1)
+                                                
+                           (i)    (i)      (i−1)
+       δ̂ h,m = δ̃ h,m + ηh δ h,m − δ h,m ,           (12a)
+                                                                                            Algorithm 1 PGDA for Robust Hybrid ISAC Beamforming
+          (i+1)      (i+1)
+                                              
+                           (i)    (i)    (i−1)
+       δ̂ t,l = δ̃ t,l + ηt δ t,l − δ t,l        ,    (12b)                                  1: Input: Communication channel ĥm , sensing channel Ĥl ;
+          (i+1)      (i+1)                                                                      Initialize: Random δ h,m , δ t,l , δ r,l , Fa , Fd , and wt . Set
+                                              
+                                  (i)    (i−1)                                               2:
+       δ̂ r,l = δ̃ r,l + ηr(i) δ r,l − δ r,l     ,    (12c)
+                                                                                                step sizes µh , µt , µr , µa , µd , µw , momentum coefficients
+where ηh , ηt , and ηr are the momentum coefficients for δ h,m ,                                ηh , ηt , ηr , ηa , ηd , ηw , and the number of iterations IB ;
+                                                             (i+1)          (i+1)            3: for i = 2, . . . , IB + 1 do
+δ t,l , and δ r,l . The resulting solutions, δ̂ h,m , δ̂ t,l                        , and
+   (i+1)
+                                                                                             4:     Inner minimization over δ h,m , δ t,l , and δ r,l
+δ̂ r,l , are then projected to satisfy the constraints (9) as                                                                                         (i+1)
+                                                                                             5:        Take gradient steps via (11) to update δ̃ h,m ,
+                                                                                                          (i+1)            (i+1)
+                                 ε √N
+                                                     
+                                                                                             6:         δ̃ t,l    , and δ̃ r,l     ;
+                                                        (i+1)
+                                                      
+                   (i+1)                h      t                                                                                                                   (i+1)
+                 δ h,m = min             (i+1)
+                                                 , 1 δ̂ h,m ,                       (13a)    7:         Add momentum terms via (12) to update δ̂ h,m ,
+                                    kδ̂ h,m k2     
+                                                                                                          (i+1)            (i+1)
+                                                                                             8:      δ̂ t,l , and δ̂ r,l ;
+                              ε √N
+                                              
+                                                (i+1)                                                                                              (i+1)
+                   (i+1)           t     t                                                   9:      Perform projection steps via (13) to update δ h,m ,
+                 δ t,l = min       (i+1)
+                                           , 1 δ̂ t,l ,                             (13b)               (i+1)          (i+1)
+                              kδ̂       k2                                                10:      δ t,l , and δ r,l ;
+                              t,l                                                          11:    Outer maximization over Fa , Fd , and wt
+                              ε √N
+                                                
+                                                 (i+1)                                                                                       (i+1)
+                    (i+1)
+                 δ r,l = min
+                                   r     r
+                                            , 1   δ̂    .                           (13c)   12:      Take gradient steps via (14) to update F̃a     ,
+                                                                                                         (i+1)          (i+1)
+                              kδ̂ (i+1) k       r,l                                       13:      F̃d       , and w̃t      ;
+                                        r,l    2                                                                                                 (i+1)
+                                                                                            14:      Add momentum terms via (15) to update F̂a          ,
+   2) PGA-Based Optimization of Fa , Fd , and wt : Once the                                 15:      F̂d
+                                                                                                         (i+1)
+                                                                                                               , and ŵt
+                                                                                                                        (i+1)
+                                                                                                                              ;
+updates of δ h,m , δ t,l , and δ r,l are completed, their values are                        16:      Perform projection steps via (16) to update Fa
+                                                                                                                                                     (i+1)
+                                                                                                                                                           ,
+substituted into (8), and the updates of Fa , Fd , and wt are                                            (i+1)          (i+1)
+                                                                                            17:      Fd        , and wt       ;
+calculated using PGA.
+                                                                                            18: end for
+   The gradient steps for updating Fa , Fd , and wt at the                                                 (IB +1)    (I +1)     (I +1)
+                                                                                            19: return Fa          , Fd B , and wt B
+iteration i + 1 are given by
+
+                  F̃(i+1) = F(i)  (i)                                                          The overall procedure of the PGDA algorithm for solving
+                    a        a + µa ∇Fa γ                         (i)
+                                                                        ,           (14a)
+                                                     Fa =Fa                                 problem (10) is summarized in Algorithm 1. This algorithm
+                    (i+1)      (i)      (i)                                                 is capable of optimizing hybrid transmit beamformer and
+                  F̃d       = Fd + µd ∇Fd γ                       (i)
+                                                                        ,           (14b)
+                                                      Fd =Fd                                receive filter within predefined IB iterations.4 However, the
+                    (i+1)      (i)
+                  w̃t       = wt + µ(i)
+                                    w ∇wt γ                       (i)
+                                                                        ,           (14c)   primary challenge in Algorithm 1, as well as in most iterative
+                                                      w=wt                                  optimization methods, lies in determining the optimal values
+where µa , µd , and µw are the step sizes, and γ = ργc + (1 −                               for their hyperparameters (i.e., step sizes and momentum
+ρ)γs . The gradients of γ with respect to Fa , Fd , and wt are                              coefficients in our context), which can significantly affect the
+provided in Appendix B.                                                                     performance and convergence of the algorithm [44]. Proper
+   After completing the gradient steps, momentum is again                                   tuning of these hyperparameters is therefore essential. While
+introduced to accelerate the convergence. Specifically,                                     traditional methods, such as line search and backtracking, can
+                                                
+                                                                                               4 In iterative algorithms, convergence is typically evaluated through a
+        F̂(i+1)
+          a     = F̃a(i+1) + ηa(i) F(i)    (i−1)
+                                      a − Fa       ,     (15a)
+                                                                                          stopping criterion determined by error tolerance thresholds. Nevertheless, this
+          (i+1)      (i+1)     (i)    (i)  (i−1)                                            criterion becomes inapplicable to unrolled networks due to their inherent
+        F̂d     = F̃d      + η d Fd − Fd           ,     (15b)                              architectural nature of a fixed number of layers encapsulated in the unrolled
+          (i+1)      (i+1)
+                                   
+                                       (i)  (i−1)
+                                                                                           networks. This predetermined depth configuration inherently imposes a rigid
+                               (i)
+        ŵt     = w̃t      + ηw      wt − wt         ,   (15c)                              termination point.
+WANG et al.: L2O ROBUST HYBRID BEAMFORMING FOR ISAC                                                                                                 18783
+
+
+
+
+Fig. 1. The architecture of the proposed network. (a) EpsNet; (b) MinNet; (c) MaxNet; (d) RecNet. The parameters labeled with red fonts in MaxNet and
+MinNet are learnable. BN, FC, and SP represent batch-normalization layer, fully-connected layer, and SoftPlus function, respectively. Also, ∇ and P denote
+the gradient and projection operators, respectively.
+
+
+
+be used for this purpose, they often introduce significant com-                 In contrast to the ReLU function, the SoftPlus function
+putational complexity [25]. To address this limitation, we use                maintains a non-zero gradient, which facilitates continuous
+an algorithm unrolling approach to learn the hyperparameters                  gradient propagation throughout the network.
+directly from data [19], as will be elaborated in Section IV.                   2) Training: For training EpsNet, root mean square error
+                                                                              (RMSE) is employed to serve as a metric for evaluating the
+                  IV. T HE P ROPOSED N ETWORK                                 proximity of the estimated uncertainty bounds to the true
+  In this section, we first design a neural network, coined                   uncertainty bounds. Thus, the loss function is expressed as
+EpsNet, to learn the uncertainty bounds εh , εt , and εr . Next,                                                                      1
+we propose to unroll the developed PGDA algorithm into                                  1                                              2
+                                                                                Lε =       (ε̂h − εh )2 + (ε̂t − εt )2 + (ε̂r − εr )2     , (18)
+a multi-layer network, called unrolled PGDA. To further                                 3
+enhance the flexibility of the proposed unrolled PGDA, we                     where ε̂h , ε̂t , and ε̂r are the estimated uncertainty bounds,
+devise a recurrent network appended after the unrolled PGDA,                  which will be used for updating δ h , δ t , and δ r in unrolled
+coined recurrent unrolled PGDA.                                               PGDA, while εh , εt , and εr are the true ones. It should be
+                                                                              noted that although such ground-truth uncertainty bounds are
+A. EpsNet
+                                                                              generally unavailable in practical real-world scenarios, they are
+   1) Architecture: The architecture comprises an input layer,                explicitly obtainable in our simulated environment by delib-
+a batch normalization (BN) layer, fully connected (FC) layers,                erate design. This design permits direct supervisory control
+and activation layers employing SoftPlus functions, as shown                  over the uncertainty bounds learning process and facilitates
+in Fig. 1 (a). Specifically, first, the complex-valued communi-               rigorous quantitative assessment of the model’s capabilities to
+cation channel hm and sensing channel5 Hm are respectively                    accurately learn the true uncertainty bounds.
+transformed into real-value quantities before being fed into
+the input layer of the model. Then, the BN layer normalizes
+the input features to stabilize and accelerate the training                   B. Unrolled PGDA
+process. This is followed by FC layers, which integrate feature                  In this subsection, we propose an L2O approach to hybrid
+information from preceding layers. The SoftPlus activation                    beamforming optimization that harnesses deep learning’s
+function is employed to ensure the positivity of the uncertainty              capability to automatically tune hyperparameters. Our method
+bounds, serving as a smooth and differentiable alternative to                 is capable of dynamically adjusting iteration-specific param-
+the ReLU function. The SoftPlus function is defined as [45]                   eters, enabling learning-based optimization of hybrid beam-
+                                                                              formers within a fixed number of predetermined layers.
+               SoftPlus(x) = log(1 + ex ), ∀x ∈ R.                    (17)
+                                                                              Specifically, our design leverages the algorithm unrolling tech-
+  5 For sensing channel, additional Flatten(·) operation is needed.           nique [19], [20]. The core idea of this approach is to transform
+18784                                                                                       IEEE TRANSACTIONS ON WIRELESS COMMUNICATIONS, VOL. 25, 2026
+
+
+
+an iterative algorithm with a fixed number of iterations into a                         Algorithm 2 Learning Hyperparameters of Unrolled PGDA
+multi-layer feedforward network architecture [19], [20]. Since                           1: Input: Data set D;
+the performance of the first-order optimizers such as PGDA                               2: Initialize: Set initial values of learnable step size matrix
+is significantly influenced by the values of the hyperparame-                               Θ and momentum coefficient matrix Φ, number of epochs
+ters, we unroll the developed PGDA optimizer with multiple                                  E, learning rates ζΘ and ζΦ ;
+iterations into a multi-layer feedforward network. The hyper-                            3: for e = 0 to E − 1 do
+                                                                                                                                          B−1
+parameters (i.e., step sizes and momentum coefficients in our                            4:    Randomly split D into B batches {Db }b=0       ;
+context) are treated as learnable parameters of the network and                          5:    for b = 0 to B − 1 do
+are optimized via end-to-end training. The resulting structure                           6:       Compute beamformers via PGDA algorithm with
+is referred to as the unrolled PGDA.                                                     7:       IU layers;
+   1) Architecture: The unrolled PGDA consists of MinNet                                 8:       Compute average loss of the batch via (22);
+and MaxNet, as illustrated in Fig. 1 (b) and (c).6                                       9:       Update Θ ← Θ − ζΘ 5Θ L(Θ, Φ);
+   The MinNet is designed to update inner optimization vari-                            10:       Update Φ ← Φ − ζΦ 5Φ L(Θ, Φ);
+ables δ h,m , δ t,l , and δ r,l by mimicking the steps (11), (12), and                  11:    end for
+(13) in PGDA algorithm. Unlike the PGDA algorithm, MinNet                               12: end for
+introduces learnable step sizes and momentum coefficients                               13: return Θ and Φ
+to enhance the inner minimization process. The learnable
+parameters for the ith layer of MinNet are denoted as
+            h                     i          h               i
+                (i)     (i)                    (i)  (i)
+     µiin , µh , µt , µ(i)     r    , η iin , ηh , ηt , ηr(i) .   (19)                  C. Recurrent Unrolled PGDA
+
+  Similarly, MaxNet updates the outer optimization variables
+                                                                                           A key limitation of the proposed unrolled PGDA framework
+Fa , Fd , and wt by following the same PGDA-inspired steps
+                                                                                        lies in the rigidity of using a fixed number of layers, which
+(14), (15), and (16), also incorporating learnable parameters.
+                                                                                        constrains the network’s adaptability and design flexibility. To
+The learnable parameters for the ith layer of MaxNet are
+                                                                                        achieve greater performance or perform additional processing
+denoted as
+                                                                                        steps after training the unrolled PGDA network, complete
+            h                i        h               i
+    µiout , µ(i)
+                   (i)   (i)    i       (i)  (i)  (i)                                   retraining of the network is typically necessary. Inspired
+              a , µd , µw , η out , ηa , ηd , ηw        . (20)
+                                                                                        by [46], we propose a recurrent unrolled PGDA network,
+  Thus, the total learnable parameters of IU -layer unrolled                            coined RecNet, as shown in Fig. 1 (d), where a recurrent
+PGDA can be represented as                                                              network is used to share parameters across different layers,
+                                                                                        enabling the aforementioned unrolled PGDA to be extended
+               Θ = [µ1 , . . . , µIU ], Φ = [η 1 , . . . , η IU ]              (21)     to a flexible number of layers, thereby providing greater
+                     T                      T                                       adaptability compared to the unrolled networks. The proposed
+with µi = µiin , µiout and η i = η iin , η iout .                                       recurrent unrolled PGDA network operates in two phases.
+    2) Training: To facilitate the training, we directly adopt                          Initially, the PGDA algorithm is unrolled into an IU -layer
+the negative objective as the loss function. As a result,                               deep neural network. Subsequently, a recurrent network is
+minimizing the training loss precisely reflects an increase in                          devised to learn parameter updating rules in subsequent layers.
+the weighted sum of sensing MI and communication SR.                                    The advantage of recurrent unrolled PGDA is that it allows
+Furthermore, the outputs of all intermediate layers have to be                          the unrolled PGDA to support a varying numbers of layers
+considered, meaning the loss function should also enforce the                           while maintaining performance, thereby eliminating the need
+requirement that both hybrid transmit beamformer and receive                            for retraining.
+filter progressively improve throughout the iterative process                              During the training phase, an I¯U -layer recurrent network is
+[25], [26]. Specifically, the loss function is given by [25]                            appended after an IU -layer unrolled PGDA network, where
+                                                                                        I¯U is the number of layers for determining the parameters
+                              |D| I
+                  1 XX      U
+                                       s,(d)         (i)  (i)                           of the recurrent network. When i ≥ IU , in the (IU + i)th
+L(Θ, Φ) = −                   γ(h(d)
+                                  m , Hl     , F(i)
+                                                a , Fd , wt ),                          layer of the recurrent network, we follow the same calculation
+               IU |D|
+                      d=1 i=1
+                                                           (22)                         procedures as Algorithm 1 and update the step size vector µi
+where D is the data set containing communication and sensing                            and momentum coefficient vector η i by
+channel realizations.
+  We then tune the hyperparameter matrices Θ and Φ via:
+                                                                                                        µi = βµi−1 ,     η i = φη i−1 ,            (24)
+                      Θ? , Φ? = arg min L(Θ, Φ).                               (23)
+                                           Θ,Φ
+
+The resulting           training      procedure         is    summarized          in
+Algorithm 2.                                                                            where β and φ are the common parameters shared by the
+                                                                                        layers of the recurrent network.
+  6 For brevity, we only depict the architecture for ε , δ
+                                                            h    h,m , and Fa , while
+                                                                                           In this paper, since only two parameters (i.e., β and φ) need
+the architectures for εt , εr , δ t,l , δ r,l , Fd , and wt are similar.                to be determined, we employ a grid search [46] to optimize
+WANG et al.: L2O ROBUST HYBRID BEAMFORMING FOR ISAC                                                                                             18785
+
+
+
+
+Fig. 2. A flowchart on training procedure.
+
+
+Algorithm 3 Determining Optimal β and φ                                               (i) Input communication and radar channel information; ii)
+ 1: Input: Data set D;                                                           Use trained EpsNet to predict uncertainty bounds ε̂h , ε̂t , and
+ 2: Initialize: Searching intervals [βs , βe ] and [φs , φe ],                   ε̂r ;
+    number of grids Gβ and Gφ , number of layers I¯U ;                                (iii) Apply the learned unrolled PGDA layers with learned
+ 3: Take the well-trained IU -layer unrolled PGDA model;                         step sizes and momentum coefficients;
+ 4: Freeze all parameters of the unrolled PGDA model and                              (iv) If additional refinement iterations are desired, apply the
+    select the parameters of the last layer, denoted as µ(IU )                   recurrence rule µi = β ? µi−1 and η i = φ? η i−1 , where β ?
+    and η (IU ) ;                                                                and φ? are the optimal parameters obtained from RecNet grid
+ 5: for β ∈ [βs , βe ] do                                                        search;
+ 6:    for φ ∈ [φs , φe ] do                                                          (v) Output analog beamformer Fa , digital beamformer Fd ,
+ 7:       for i ∈ [IU + 1, IU + I¯U ] do                                         and receive filter wt .
+ 8:          Update µ(i) and η (i) via (24);
+ 9:          Perform Lines 4-17 of Algorithm 1;                                  E. Convergence and Computational Complexity Analysis
+10:          Compute loss L(β, φ) via (22);                                         First, we perform convergence analysis. The proposed
+11:       end for                                                                PGDA algorithm addresses a min-max optimization prob-
+12:    end for                                                                   lem with inner minimization (PGD) and outer maximization
+13: end for
+                                                                                 (PGA). The algorithm first minimizes the objective over uncer-
+14: Choose the optimal (β ? , φ? ) pair such that L(β, φ) is
+                                                                                 tainty sets Ah , At , and Ar , which are convex and compact
+    minimum;                                                                     (bounded by εh , εt , and εr , respectively as shown in (9)).
+15: return β ? , φ?
+                                                                                 The algorithm then maximizes the objective over beamform-
+                                                                                 ing variables Fa , Fd , and wt subject to constraints (10b)-
+                                                                                 (10d). The reasons for the algorithm to exhibit monotonic
+them.7 The procedure for determining the optimal β and φ is                      convergence to a stable solution are that: (i) The functions γc
+summarized in Algorithm 3.                                                       and γs in the objective are continuous and differentiable with
+                                                                                 respect to optimization variables, and the min-max problem
+                                                                                 is solved through alternating minimization and maximization
+D. Overall Training and Testing Procedure                                        steps, where each sub-problem has a well-defined solution
+                                                                                 within its constraint set; (ii) In each step, projection operations
+   The full training process is shown in Fig. 2 and summarized
+                                                                                 ensure feasibility and yield non-increasing objective values for
+as follows.
+                                                                                 inner optimization directions, while producing non-decreasing
+   Stage 1: Train EpsNet. The communication and radar
+                                                                                 objective values for outer optimization directions; (iii) The
+channel information is fed into EpsNet, which outputs the
+                                                                                 momentum terms accelerate convergence without violating
+learned uncertainty bounds ε̂h , ε̂t , and ε̂r ;
+                                                                                 the descent/ascent property. However, due to the non-convex
+   Stage 2: Train U-PGDA. The output of EpsNet is fixed and
+                                                                                 nature of problem (10), the PGDA algorithm is guaranteed to
+fed into the U-PGDA. U-PGDA is then trained, and step sizes
+                                                                                 converge to a stationary point rather than a global optimum
+and momentum coefficients are learned from data;
+                                                                                 [47]. The solution is stationary in the sense that it satisfies
+   Stage 3: Perform RecNet grid search. All learned U-PGDA
+                                                                                 Karush–Kuhn–Tucker (KKT) conditions. The unrolled version
+parameters are fixed, and grid search over the shared recurrent
+                                                                                 further improves this by learning better hyperparameters that
+scaling factors (β, φ) is performed.
+                                                                                 enhance convergence speed.
+   At inference phase, no learning or grid search is required.
+                                                                                    Next, we perform computational complexity analysis. We
+The procedure is summarized as follows.
+                                                                                 quantify the computational complexity by evaluating a single
+                                                                                 iteration (layer) of PGDA (unrolled PGDA). Each iteration
+   7 Here, a single β and φ are used to respectively update the six step sizes
+                                                                                 (layer) consists of an inner minimization and an outer maxi-
+in µ and the six momentum coefficients in η, which can be regarded as a
+coarse update. A more fine-grained alternative would involve using distinct β    mization stages. The computational complexity of both stages
+and φ values to update each individual step size and momentum coefficient,       is mainly dominated by the gradient computation. Therefore,
+which may enhance the performance. However, this approach would incur            when analyzing the complexity of each iteration (layer), we
+substantially higher complexity. To strike a balance between performance and
+complexity, we adopt the coarse update strategy in this paper. More efficient    focus primarily on the gradient computation steps involved in
+update rules can be explored in future work.                                     both the inner minimization and outer maximization.
+18786                                                                   IEEE TRANSACTIONS ON WIRELESS COMMUNICATIONS, VOL. 25, 2026
+
+
+
+   First of all, we focus on the complexity of gradient
+computation in inner minimization, i.e., (11a), (11b), and
+(11c). First, the complexity of computing gradient in (11a)
+is quantified as O(max{Nt2 L, Nt2 M }). Next, we evaluate the
+complexity of computing gradient in (11b), which is O(T (T +
+J) max{Nt2 Nr , Nt Nr2 }). Similarly, the complexity of com-
+puting gradient in (11c) is O(T (T + J) max{Nt2 Nr , Nt Nr2 }).
+   Secondly, we focus on the complexity of outer maximiza-
+tion. The complexities for computing gradient in (14a), (14b),
+and (14c) are O(max{Nt3 M, Nt3 T }), O({Nt2 LM, Nt2 LT }),
+and O(T (T + J) max{Nr Nt2 , Nr2 Nt }), respectively. Com-
+pared to the complexities of the gradient steps, the complexi-
+ties of adding momentum terms and performing projection are
+low, and can be ignored.
+                                                                   Fig. 3. The objective value versus the number of iterations / layers with Nt =
+   In our considered ISAC system, the number of transmit           Nr ∈ {16, 32}.
+(or receive) antennas Nt (or Nr ) is typically larger than the
+number of communication users (M ), the number of sensing
+targets (T ), the number of interference sources (J), and the      decay rate of 0.98. The number of epochs is set as E = 10,
+number of RF chains (L). Hence, the overall complexity             and the batch size is 250.
+of PGDA algorithm with predefined IB iterations can be                After the unrolled PGDA network is well-trained, we deter-
+expressed as CPGDA = O(IB max{max{Nt3 M, Nt3 T }, T (T +           mine the optimal β and φ. The starting values of the search
+J) max{Nr Nt2 , Nr2 Nt }}), while the complexity of unrolled       intervals for β and φ are βs = φs = 0.01 while the ending
+PGDA with predefined IU layers in the testing phase is             values are βe = φe = 0.99. A uniform grid is used with
+given by CU-PGDA = O(IU max{max{Nt3 M, Nt3 T }, T (T +             grid size of Gβ = Gφ = 10. The number of layers for
+J) max{Nr Nt2 , Nr2 Nt }}). Thus, the saving in computations       determining the optimal β and φ is set as I¯U = 5, while the
+for unrolled PGDA is of factor of IU − IB , which can be up        numbers of layers for testing are set as 5 and 10, respectively.
+to two orders as will be shown in the next section.                Unless otherwise stated, the error bound values are set as
+                                                                   εh = εt = εr = 0.05, and the weight factor is set as ρ = 0.8.
+               V. N UMERICAL E VALUATIONS                          Both the fixed momentum coefficients of the PGDA and the
+  In this section, we present numerical results to evaluate the    initial momentum coefficients of the unrolled PGDA algorithm
+proposed PGDA algorithms for robust HBF design. We begin           are set to the same value: ηa = ηd = ηw = ηh = ηt = ηr =
+by describing the simulation setup, followed by the evaluation     η = 0.01. Also, for inner minimization, both the fixed step
+of the performance and complexity.                                 sizes of the PGDA benchmark and the initial step sizes of the
+                                                                   unrolled PGDA algorithm are set to µh = µt = µr = 0.0025.
+                                                                   Similarly, for the outer maximization, the fixed step sizes of
+A. Simulation Setup                                                the PGDA and the initial step sizes of the unrolled PGDA are
+   We set M = 4, T = 2, J = 2, Nt ∈ {16, 32},                      set as µa = µd = µw = 0.001.
+Nr ∈ {16, 32}, L = 8. The noise variances are set                     For brevity, in the following parts, the proposed benchmark
+      2
+as σm     = σt2 = σ 2 = 1. Unless otherwise stated, the           PGDA is named as ‘B - PGDA’, the proposed unrolled PGDA
+signal-to-noise ratio (SNR) is set as 10 log10 σP2t = 5 dB.        as ‘U - PGDA’, and the proposed recurrent unrolled PGDA
+The presumed channel vectors {ĥm }M     m=1 are drawn from        as ‘RU - PGDA’. In addition, the notation ’(a, b)’ in the
+a zero-mean complex Gaussian distribution with covariance          figures indicates that ‘a’ is the number of layers used for
+matrix INt . Meanwhile, the reflection coefficients {αt }Tt=1      training unrolled networks, while ‘b’ is the number of layers or
+and {αj }Jj=1 are sampled from zero-mean complex Gaussian          iterations used for testing B-PGDA, U-PGDA, and RU-PGDA.
+distributions with variances of 2 dB and 3 dB, respectively.       Note that for the benchmark PGDA, training is not required,
+The sizes of data sets for training, validation, and testing are   and a hyphen (’-’) is used instead.
+5000, 1000, and 1000, respectively. The proposed networks
+are implemented in Python and PyTorch library.
+   We adopt cascaded joint training of the EpsNet and unrolled     B. Convergence Evaluation
+PGDA network in an end-to-end fashion. For training EpsNet,           We first evaluate the convergence of the proposed PGDA
+stochastic gradient descent (SGD) optimizer with a learning        algorithms. Two configurations, Nt = Nr = 16 and Nt =
+rate of 0.05 is used. Also, the number of nodes in the hidden      Nr = 32, are considered. The objective function value versus
+layers of the fully connected network for learning εh , εt ,       the number of layers/iterations is depicted in Fig. 3. It can be
+and εr are respectively set as [128, 64], [128, 64, 32], and       observed that, as the number of antenna elements increases
+[128, 64, 32], while the number of nodes in the output layers      from 16 to 32, both the B-PGDA and U-PGDA stabilize
+are all set to 1. During the training phase of the unrolled        at separate constant values. These results indicate that the
+PGDA, we use stochastic gradient descent (SGD) optimizer           proposed PGDA variants exhibit strong convergence properties
+with an initial learning rate of 0.0001 and an exponential         and good scalability. Moreover, the U-PGDA consistently
+WANG et al.: L2O ROBUST HYBRID BEAMFORMING FOR ISAC                                                                                    18787
+
+
+
+
+Fig. 4. Performance comparison between the unrolled PGDA and the recurrent
+unrolled PGDA with Nt = Nr = 16.                                             Fig. 5. The objective value versus ε with Nt = Nr = 16.
+
+
+achieves larger objective values than the B-PGDA despite
+using significantly fewer layers than the number of iterations in
+B-PGDA. This demonstrates the effectiveness of the algorithm
+unrolling technique in facilitating optimizing both the hybrid
+transmit beamformer and receive filter. The reason for the pro-
+posed U-PGDA network to outperform the B-PGDA algorithm
+is that the B-PGDA algorithm may easily get trapped in local
+optima when solving the non-convex problem (10). However,
+the proposed U-PGDA networks can learn update rules from
+data, thereby adapting effectively to the underlying objective
+function. This capacity allows the U-PGDA to escape local
+optima more effectively than the B-PGDA.
+
+C. Flexibility Evaluation                                                    Fig. 6. A calibration curve.
+
+   We proceed to evaluating the flexibility of the recurrent
+                                                                                                             TABLE I
+unrolled PGDA. We set Nt = Nr = 16. Two setups of
+                                                                                                     P ERFORMANCE OF E PS N ET
+(15, 15) and (20, 20) layers for U-PGDA and two setups of
+(15, 20) and (15, 25) layers for RU-PGDA are considered.
+During the testing phase, using the optimal values of β and φ
+obtained through Algorithm 3, RU-PGDA is implemented by
+appending 5 and 10 additional layers to the 15-layer U-PGDA,
+resulting in RU-PGDA architectures with a total of 20 and 25
+layers, respectively. As shown in Fig. 4, for both setups, the
+RU-PGDA network extends the U-PGDA network (trained
+with 15 layers) to different depths (20 and 25 layers during
+testing) while maintaining performance. In fact, it can even                 (15, 25) layers for RU-PGDA are considered. Also, we add a
+achieve a slight improvement, though a performance gap                       non-robust counterpart where perfect communication channel
+remains when compared to the U-PGDA network trained and                      information and steering vectors (without errors) are assumed.
+tested with 20 layers (i.e., (20,20) setup). Additionally, it                In this case, the proposed U-PGDA reduced to U-PGA. As
+eliminates the need for retraining the U-PGDA network.                       shown in Fig. 5, as the uncertainty bound value ε increases,
+                                                                             the curves of U-PGDA and RU-PGDA exhibit significantly
+                                                                             lower slopes, particularly when ε ≥ 0.01, compared to that of
+D. Robustness Evaluation                                                     the PGDA algorithm. This demonstrates that the U-PGDA and
+    Next, the objective value versus the error bound value                   RU-PGDA are less sensitive to increased level of uncertainties
+is evaluated. Here, we set εh = εt = εr = ε, which                           compared to the B-PGDA algorithm, further confirming the
+varies from 0.001 to 0.05. First, we evaluate the performance                superior robustness of the U-PGDA and RU-PGDA over the
+of EpsNet. Table I presents the learned uncertainty bounds                   B-PGDA. This is because U-PGDA networks can adapt their
+ε̂h , ε̂t , and ε̂r , along with the corresponding RMSE values.              update rules from data when faced with the increased level
+These results demonstrate that EpsNet is capable of achieving                of uncertainties, unlike the B-PGDA. Moreover, we provide a
+high predictive accuracy. Next, we evaluate the robustness of                calibration curve showing how system performance changes
+U-PGDA and RU-PGDA. In this case, two setups of (15, 15)                     when EpsNet underestimates and overestimates uncertainty
+and (20, 20) layers for U-PGDA and two setups of (15, 20) and                bounds. As shown in Fig. 6, the objective value exhibits
+18788                                                                             IEEE TRANSACTIONS ON WIRELESS COMMUNICATIONS, VOL. 25, 2026
+
+
+
+
+Fig. 7. The objective value in different settings of η versus the number of   Fig. 9. Performance comparison between the B-PGDA and U-PGDA under
+layers with Nt = Nr = 16.                                                     different numbers of users and targets with Nt = Nr = 16.
+
+
+
+
+Fig. 8. The trade-off between communication SR and sensing MI with ρ ∈        Fig. 10. Performance comparison between the proposed algorithms and
+[0.1, 0.9] and Nt = Nr = 16.                                                  different baselines with Nt = Nr = 16.
+
+
+distinct behaviors in underestimation (shaded red) versus                     the weight factor varying from 0.1 to 0.9. From Fig. 8, we
+overestimation (shaded blue) regions. The optimal calibration                 can observe that by selecting an appropriate weight factor
+occurs at scaling factor of 1.0 (perfect estimation), achieving               ρ, all the proposed PGDA schemes achieve an effective
+the peak objective value.                                                     trade-off between communication and sensing performance.
+                                                                              Specifically, as ρ decreases from 0.9 to 0.6, there is a minor
+E. Ablation Study                                                             degradation in communication performance but a notable
+                                                                              improvement in sensing performance. In contrast, a further
+   Next, we present concrete evidence highlighting the critical
+                                                                              decrease in ρ, particularly from 0.3 to 0.1, yields only a
+role of the momentum term, the key component of the
+                                                                              marginal gain in sensing performance while causing a sub-
+U-PGDA network, in accelerating the convergence. To this
+                                                                              stantial decline in communication performance.
+end, we slightly modify the architecture of the U-PGDA
+network, resulting in two benchmarks: (i) a version without
+the momentum term (i.e., η = 0), and (ii) a version                           G. Performance on Different Scenarios
+where the momentum coefficients are fixed and not learned
+during training. As illustrated in Fig. 7, the architecture                      Fig. 9 shows the performance comparison between the
+incorporating fixed momentum coefficients converges more                      B-PGDA and U-PGDA with the configuration of Nt = Nr =
+effectively than its counterpart without a momentum term.                     16 under three scenarios of M = T = 2, M = T = 4,
+Moreover, using learnable momentum coefficients further                       and M = T = 6. We can observe that U-PGDA consistently
+improves convergence, highlighting the significant role of                    outperforms B-PGDA under these scenarios. Increasing the
+the momentum term, particularly in its learnable form, in                     number of users and targets from M = T = 2 to M = T = 6
+accelerating the PGDA algorithms.                                             yields significant performance gains for both algorithms. The
+                                                                              highest performance is achieved by U-PGDA with M = T =
+                                                                              6, which reaches an objective value of approximately 5.9 at
+F. ISAC Trade-off Evaluation                                                  6 dB SNR, distinctly surpassing the B-PGDA counterpart.
+  Fig. 8 shows the trade-off between communication SR and                     This demonstrates scalability of both methods with system
+sensing MI with the configuration of Nt = Nr = 16 and                         dimensionality.
+WANG et al.: L2O ROBUST HYBRID BEAMFORMING FOR ISAC                                                                                      18789
+
+
+
+                          TABLE II                                  increases. While CNN and DNN baselines perform slightly
+            P ERFORMANCE AND RUNTIME C OMPARISON                    better than the PGDA variants at the lowest SNR (−6 dB),
+                                                                    they are quickly surpassed, reaching a maximum objective
+                                                                    value only of approximately 3.2 at 6 dB. In contrast, U-PGDA
+                                                                    achieves a peak value exceeding 5.0 at the same SNR. This
+                                                                    implies that the proposed U-PGDA and B-PGDA algorithms
+                                                                    possess significantly superior performance compared to the
+                                                                    baselines, particularly in high SNR regime.
+
+                                                                    I. Complexity Evaluation
+                                                                       Lastly, we evaluate the runtime of the B-PGDA, U-PGDA
+                                                                    and RU-PGDA. In this setup,8 B-PGDA is evaluated using
+H. Comparison to Baselines                                          180 iterations. The U-PGDA network is both trained and
+  We compare the proposed methods with the following                tested with 15 and 20 layers, while the RU-PGDA net-
+baselines:                                                          work is trained with 15 layers and tested with 20 and 25
+                                                                    layers. Table II demonstrates that U-PGDA and RU-PGDA
+  • Successive convex approximation (SCA) [48]: The orig-
+                                                                    networks consistently outperform the B-PGDA across both
+    inal robust ISAC hybrid beamforming optimization
+                                                                    N = 16 and N = 32 configurations, delivering superior
+    problem (10) is approximated into a series of convex
+                                                                    results with substantially reduced runtime. This underscores
+    subproblems, and the optimization variables are alter-
+                                                                    the remarkable efficiency of our proposed unrolled archi-
+    nately updated. In SCA implementation, we first obtain
+                                                                    tecture in simultaneously enhancing the performance while
+    the lower bounds of the worst-case SINRs for com-
+                                                                    minimizing the computational cost. Compared to the (15, 25)-
+    munication and sensing using the triangle inequality
+                                                                    layer configuration, the (15, 15)-layer configuration delivers
+    and the Cauchy-Schwarz inequality, and the resulting
+                                                                    slightly lower performance but offers less runtime. In the
+    lower-bound objective functions are then approximated
+                                                                    RU-PGDA network, the (15, 20)-layer configuration achieves
+    to convex functions. Finally, the optimization variables
+                                                                    performance comparable to the (15, 25)-layer setup, while
+    are alternately optimized until convergence to a stationary
+                                                                    reducing runtime. Therefore, selecting between U-PGDA and
+    solution. The convergence tolerance and maximum num-
+                                                                    RU-GDA networks involves balancing performance gains
+    ber of iterations are set to 10−6 and 2000, respectively.
+                                                                    against runtime efficiency.
+  • Deep neural network (DNN) [49]: The DNN-based
+    beamforming architecture maps channel information to
+    beamforming matrices. In DNN implementation, the first                        VI. C ONCLUSION AND D ISCUSSION
+    layer is fed with real-valued channel information, fol-            A robust hybrid beamforming design for the ISAC system
+    lowed by six hidden layers with 128, 256, 512, 256, 128         that maximizes the worst-case communication SR and the
+    and 128 units, respectively. ReLU activation function is        worst-case sensing MI under bounded uncertainties of com-
+    used after each hidden layer. The output layer is the           munication channel and transmit/receive steering vectors was
+    vectorized beamformer. For training, Adam optimizer             proposed. To solve the corresponding optimization problem,
+    with learning rate of 0.0001 is used, and batch size and        we developed a benchmark scheme using the PGDA algo-
+    number of epochs are set to 250 and 30, respectively.           rithm with momentum. By incorporating algorithm unrolling,
+  • Convolutional neural network (CNN) [50]: The CNN-               we developed a U-PGDA network, where step sizes and
+    based beamforming architecture maps channel informa-            momentum coefficients are learned from data. In addition, by
+    tion to beamforming matrices by exploiting the spatial          appending a recurrent module, we devised a variable-depth
+    structure of the channel matrices. In CNN implementa-           RU-PGDA network, providing the flexibility to learn parame-
+    tion, the first layer is the input layer fed with real-valued   ters across a varying number of layers without compromising
+    channel information, followed by three convolutional            performance and eliminating the need for retraining the U-
+    layers with filter size 3 × 3. Then, three fully connected      PGDA network. Moreover, a specialized network was devised
+    layers with 1024, 512 and 256 units are used. Also,             to learn the uncertainty bounds. Numerical results demonstrate
+    dropout layer with probability of 0.1 and ReLU activation       the superior convergence and performance of U-PGDA and
+    function are used after each fully connected layers. The        RU-PGDA compared to the benchmark method.
+    CNN outputs the vectorized beamformer. A similar archi-            Although this work adopts a model-driven L2O frame-
+    tecture can be found in [50]. For training, same as DNN         work for deterministic worst-case robust ISAC beamforming,
+    implementation, we use Adam optimizer with learning             deep reinforcement learning (DRL)-based approaches remain
+    rate of 0.0001 and batch size of 250. The number of             a promising alternative paradigm. For instance, mixed-action
+    epochs is set to 30.                                            DRL-based methods [51] could be extended to the robust
+Fig. 10 illustrates the performance comparison between the          ISAC setting. Investigating hybrid frameworks that combine
+proposed algorithms and different baselines versus SNR vary-        algorithm unrolling with reinforcement learning for adaptive
+ing from −6 dB to 6 dB. It is observed that among all five            8 The runtime is tested on a computer with Inter(R) Core(TM) Ultra 7 155H
+evaluated schemes, the system performance improves as SNR           processor with 32 GB RAM.
+18790                                                                       IEEE TRANSACTIONS ON WIRELESS COMMUNICATIONS, VOL. 25, 2026
+
+
+
+robustness under dynamic environments constitutes an inter-              Using the properties in (26) and (28), we obtain
+esting and valuable direction for future research.
+                                                                           ∂(δ H           H
+                                                                               h,m Fa F̄d Fa ĥm )
+                                                                                                   = Fa F̄d FH
+                                                                                                             a ĥm ,                              (36)
+                                                                                   δ ∗h,m
+                             A PPENDIX
+                                                                         ∂(δ H           H
+                                                                             h,m Fa F̄d Fa δ h,m )
+  Before deriving the gradients, we present the following                            ∗             = Fa F̄d FH
+                                                                                                             a δ h,m ,                            (37)
+properties [52] that will be used in the subsequent subsections.                 ∂δ h,m
+                                                                           ∂(ĥH         H
+                                                                               m Fa F̄d Fa δ h,m )   ∂(ĥH         H
+                                                                                                         m Fa F̄d Fa ĥm )
+                    ∂(tr(ZAZH B))                                                     ∗            =           ∗                        = 0. (38)
+                                    = BZA,                      (25)              ∂δ h,m                   ∂δ h,m
+                          ∂Z∗
+                    ∂(zH Az)                                             Substituting (36), (37), (38) into (35) yields
+                               = Az,                            (26)
+                       ∂z∗
+                    ∂(zT Az∗ )                                                           Fa F̄d FH
+                                                                                                 a (ĥm + δ h,m )     Fa F̄d FH
+                                                                                                                              a hm
+                                = AT z,                         (27)    ∇δh,m γc1 =                    2          =                    .
+                       ∂z∗
+                                                                                              H
+                                                                                          khm Fa Fd k2 + σm  2      khm Fa Fd k22 + σm
+                                                                                                                      H              2
+
+                    ∂(zH a)    ∂(aT z∗ )                                 Similarly, ∇δh,m γc2 is derived as
+                             =           = a,                   (28)
+                     ∂z∗         ∂z∗
+                           2       H                                                                                  H
+                    ∂(kxk2 )    ∂(x x)                                                                      Fa F̄d,
+                                                                                                                   m Fa hm
+                         ∗
+                             =           = x,                   (29)                     ∇δh,m γc2 =                          ,                   (39)
+                      ∂x          ∂x∗                                                                     khH          2    2
+                                                                                                                    m k2 + σm
+                                                                                                            m Fa Fd,
+                    xH Ax = tr(AxxH ).                          (30)
+                                                                                              H
+                                                                       where F̄d,m = Fd,m Fd,m .
+                                                                                               
+                                                                         2) Gradient of γs With Respect to δ t,l : Here, we derive the
+A. Gradients of γc With Respect to δ h,m , and γs With                 gradient of γs with respect to δ t,l .
+Respect to δ t,l and δ r,l                                               Note that (7) can be rewritten as
+  1) Gradient of γc With Respect to δ h,m : First, we focus                      T       TX
+                                                                                          +J
+                                                                                                                            !
+                                                                                X
+on calculating the gradient of γc with respect to δ h,m . Write           γs =      log          H            2    2
+                                                                                              kwt Hl Fa Fd k2 + σt kwt k2 2
+PM +T         H          2      H           2
+  k=1, k6=m |hm Fa fd,k | = khm Fa Fd, m k2 , where Fd, m is                   t=1          l=1
+                             th
+obtained by replacing the m column of Fd by an all-zero
+                                                                                 |                              {z                      }
+                                                                                                                γs1
+vector. Then note that (4) can be rewritten as                                                                                              
+                                                                                     T
+                                                                                     X              TX
+                                                                                                     +J
+              M
+              X      khH Fa Fd k22 + σm 2                                       −          log               kwtH Hl Fa Fd k22 + σt2 kwt k22  .
+        γc =     log Hm                        1    2
+                                    2 + σ 2 = γc − γc           (31)                 t=1           l=1,l6=t
+             m=1
+                    khm F a F d,
+                               m k 2     m                                          |                                {z                      }
+                                                                                                                      γs2
+               PM
+with γc1 =                     H         2     2
+                  m=1 log(khm Fa Fd k2 + σm ) and γc
+                                                           2
+                                                              =                                                                                   (40)
+PM            H            2     2
+       log(kh m F a F d,m k2 + σ m ). From (31), the gradient of
+  m=1                                                                  Expanding the term kwtH Hl Fa Fd k22 in (40) by substituting
+γc with respect to δ h,m can be expressed as
+                                                                       Hl = αl ar,l aT
+                                                                                     t,l and at,l = ât,l + δ t,l yields
+                 ∇δh,m γc = ∇δh,m γc1 − ∇δh,m γc2 .             (32)                                                      H ∗ H
+                                                                         kwtH Hl Fa Fd k22 = |αl |2 wtH ar,l aT
+                                                                                                              t,l Fa F̄d Fa at,l ar,l wt
+First, we derive the first term ∇δh,m γc1 . Expanding the term            = |αl |2 aT           H ∗ H           H
+                                                                                    t,l Fa F̄d Fa at,l ar,l wt wt ar,l
+khH         2
+   m Fa Fd k2 in (31) by substituting hm = ĥm + δ h,m yields             = |αl |2 (âT           H ∗         T           H ∗
+                                                                                      t,l Fa F̄d Fa ât,l + ât,l Fa F̄d Fa δ t,l
+                                                                                           H ∗                     H ∗
+        khH        2      H     H            H
+          m Fa Fd k2 = (ĥm + δ h,m )Fa F̄d Fa (ĥm + δ h,m )               + δT                       T                     H
+                                                                               t,l Fa F̄d Fa ât,l + δ t,l Fa F̄d Fa δ t,l )ar,l Wt ar,l ,        (41)
+        = ĥH         H         H         H
+            m Fa F̄d Fa ĥm + ĥm Fa F̄d Fa δ h,m                      where Wt = wt wtH .
+          + δH            H         H           H
+              h,m Fa F̄d Fa ĥm + δ h,m Fa F̄d Fa δ h,m ,       (33)     From (40), the gradient of γs with respect to δ t,l can be
+                                                                       expressed as
+where F̄d = Fd FH d.
+  Then ∇δh,m γc1 can be expressed as                                                        ∇δt,l γs = ∇δt,l γs1 − ∇δt,l γs2 .                    (42)
+
+                                    ∂(khH          2   2
+                                                          
+         1            1                  m Fa Fd k2 + σm )                Since the gradients of γs with respect to δ t,l for targets and
+ ∇δh,m γc =                                                  .
+             khH         2
+                m Fa Fd k2 + σm
+                               2            ∂δ ∗h,m                    interferences are different, we split at,l into two parts. One
+                                                           (34)        part is for targets (i.e., l ∈ {1, . . . , T }), while the other is for
+  Substituting (33) into (34) yields (35) shown at the bottom          the interferences (i.e., l ∈ {T + 1, . . . , T + J}).
+of the page.                                                              First, we focus on the target part (i.e., l ∈ {1, . . . , T }).
+
+
+                                                                                     H                     H
+                                                                                                                                      !
+                   1                   ∂(ĥH         H         H         H                       H                     H          2
+                                           m Fa F̄d Fa ĥm + ĥm Fa F̄d Fa δ h,m + δ h,m Fa F̄d Fa ĥm + δ h,m Fa F̄d Fa δ h,m + σm )
+∇δh,m γc1 =
+            khH      2    2
+              m a d k2 + σm
+                F F                                                               ∂δ ∗h,m
+                                                                                                                                    (35)
+WANG et al.: L2O ROBUST HYBRID BEAMFORMING FOR ISAC                                                                                                18791
+
+
+
+  Note that                                                                         For l ∈ {1, . . . , T }, the gradient of γs1 with respect to δ r,l ,
+                                       T
+                                                                                  denoted by ∇δr,l γs1 , is derived as
+                                    1 X ∂kwtH Hl Fa Fd k22
+                ∇δt,l γs1 =                                                (43)                                 T
+                                              ∂δ ∗t,l
+                                                                                                                                       
+                                    a t=1                                                               1    1 X ∂ kwtH Hl Fa Fd k22
+                                                                                             ∇δr,l γs =                                  .       (52)
+          PT +J                                                                                              a t=1         ∂δ ∗r,l
+with a = l=1 kwtH Hl Fa Fd k22 +σt2 kwt k22 . Substituting (41)
+into (43) yields (44) shown at the bottom of the page.                              Substituting (51) into (52) yields (53) shown at the bottom
+   Using the properties in (27) and (28), we obtain                               of the page.
+                                                                                    Using (26) and (28), we obtain
+                     H ∗
+     ∂(δ T
+         t,l Fa F̄d Fa δ t,l )
+                  ∗            = (Fa F̄d FH  T
+                                          a ) δ t,l ,                      (45)                   ∂(δ H
+                                                                                                      r,l Wt âr,l )
+              ∂δ t,l                                                                                                 = Wt âr,l ,                  (54)
+                                                                                                       ∂δ ∗r,l
+                      H ∗
+     ∂(âT
+         t,l Fa F̄d Fa δ t,l )
+                               = (Fa F̄d FH    T
+                                           a ) ât,l ,                     (46)                   ∂(δ H
+                                                                                                      r,l Wt δ r,l )
+              ∂δ ∗t,l                                                                                                = Wt δ r,l ,                  (55)
+                                                                                                       ∂δ ∗r,l
+     ∂(âT            H ∗
+         t,l Fa F̄d Fa ât,l )   ∂(δ T           H ∗
+                                     t,l Fa F̄d Fa ât,l )
+                  ∗            =              ∗            = 0.            (47)                   ∂(âH
+                                                                                                      r,l Wt âr,l )   ∂(âH
+                                                                                                                           r,l Wt δ r,l )
+              ∂δ t,l                      ∂δ t,l                                                           ∗         =                    = 0.     (56)
+                                                                                                       ∂δ r,l               ∂δ ∗r,l
+  Substituting (45), (46), (47) into (44) yields                                    Substituting (54), (55), (56) into (53) yields
+                           T                                                                                       T
+                   1       X
+                                                                                                              1X ∗
+    ∇δt,l γs1 =        a         |αl |2 (Fa F̄d FH  T      H
+                                                 a ) at,l ar,l Wt ar,l .   (48)                 ∇δr,l γs1 =        α Wt Hl Fa F̄d FH  ∗
+                                                                                                                                   a at,l .        (57)
+                           t=1                                                                                a t=1 l
+
+  Similarly, ∇δt,l γs2 is derived as                                                Similarly, ∇δr,l γs2 is derived as
+                       T                                                                                       T
+               1 X                                                                                          1 X ∗                          ∗
+ ∇δt,l γs2 =          |αl |2 (Fa F̄d FH  T      H
+                                      a ) at,l ar,l Wt(t6=l) ar,l , (49)
+                                                                                              ∇δr,l γs2 =         α Wt(t6=l) Hl Fa F̄d FH
+                                                                                                                                        a at,l .   (58)
+               a0 t=1                                                                                       a0 t=1 l
+                PT +J                                                               For l ∈ {T + 1, . . . , T + J}, the expression of ∇δr,l γs1 is
+where a0 = l=1,l6=t kwtH Hl Fa Fd k22 + σt2 kwt k22 .
+                                                                                  the same as the case of l ∈ {1, . . . , T }, while the expression
+   Second, for the interference part (i.e., l ∈ {T + 1, . . . , T +
+                                                                                  of ∇δr,l γs2 is different, and is derived as
+J}), the expression of ∇δt,l γs1 is the same as the case of
+l ∈ {1, . . . , T }. But for the expression of ∇δt,l γs2 , there is a                                              T
+                                                                                                              1 X ∗                    ∗
+slight difference. Following the similar derivation procedure                                   ∇δr,l γs2 =         α Wt Hl Fa F̄d FH
+                                                                                                                                    a at,l .       (59)
+as the case of l ∈ {1, . . . , T }, ∇δt,l γs2 in the case of l ∈                                              a0 t=1 l
+{T + 1, . . . , T + J} is derived as
+                           T
+                                                                                  B. Gradients of γ With Respect to Fa , Fd , and wt
+                   1 X
+    ∇δt,l γs2 =           |αl |2 (Fa F̄d FH  T      H
+                                          a ) at,l ar,l Wt ar,l .          (50)     The gradients of γ with respect to Fa and Fd can be
+                   a0 t=1
+                                                                                  calculated as
+   3) Gradient of γs With Respect to δ r,l : Expanding the term                                    ∇Fa γ = ρ∇Fa γc + (1 − ρ)∇Fa γs ,               (60)
+kwtH Hl Fa Fd k22 in (40) by substituting Hl = αl ar,l aTt,l and                                   ∇Fd γ = ρ∇Fd γc + (1 − ρ)∇Fd γs .               (61)
+ar,l = âr,l + δ r,l yields
+                                                 H ∗ H
+                                                                                     It is worth noting that although the gradients of γc with
+kwtH Hl Fa Fd k22 = |αl |2 wtH ar,l aT
+                                     t,l Fa F̄d Fa at,l ar,l wt                   respect to Fa and Fd are provided in [1], the gradients of γs
+                                      H ∗
+= |αl |2 aH       H       T
+          r,l wt wt ar,l at,l Fa F̄d Fa at,l                                      with respect to Fa , Fd , and wt were not reported. To make
+= |αl |2 (âH                H                H                H                  paper self-contained, and for deriving the gradients of γ with
+            r,l Wt âr,l + âr,l Wt δ r,l + δ r,l Wt âr,l + δ r,l Wt δ r,l )
+                  H ∗
+                                                                                  respect to Fa , Fd , and wt , we provide the derivation of ∇Fa γc
+   · aT
+      t,l Fa F̄d Fa at,l .                                                 (51)   and ∇Fd γc as well [1].
+
+                                                                                                                 
+                     T ∂ |α |2 (âT F F̄ FH â∗ + âT F F̄ FH δ ∗ + δ T F F̄ FH â∗ + δ T F F̄ FH δ ∗ )aH W a
+                   1 X     l      t,l a d a   t,l   t,l a d a   t,l   t,l a d a   t,l   t,l a d a   t,l r,l t r,l
+     ∇δt,l γs1 =                                                                                                                                   (44)
+                   a t=1                                                            ∂δ ∗t,l
+
+                                                                                                                               
+                                 T ∂ |α |2 (âH W â        H                H                H              T           H ∗
+                              1 X      l      r,l t r,l + âr,l Wt δ r,l + δ r,l Wt âr,l + δ r,l Wt δ r,l )at,l Fa F̄d Fa at,l
+                  ∇δr,l γs1 =                                                                                                                      (53)
+                              a t=1                                         ∂δ ∗r,l
+18792                                                                                   IEEE TRANSACTIONS ON WIRELESS COMMUNICATIONS, VOL. 25, 2026
+
+
+                                                                                                   T
+  First, we derive ∇Fa γc . Using the property in (30), equation                            ∂γs   X            FHa Gt Fa Fd
+                                                                                   ∇Fd γs =   ∗ =              H G F ) + σ 2 kw k2
+(31) can be rewritten as                                                                    ∂Fd       tr(F̄  F
+                                                                                                            d a    t a      t  t 2
+                                                                                                  t=1
+                     M                                                                                            T                 0
+                     X                                                                                                         FH
+                                                                                                                                a Gt Fa Fd
+                            log(tr(Fa F̄d FH          2
+                                                                                                                  X
+           γc =                            a H̄m ) + σm )                                                   −                     0        2      2
+                                                                                                                                                    . (68)
+                     m=1                                                                                          t=1
+                                                                                                                      tr(F̄d FH
+                                                                                                                              a Gt Fa ) + σt kwt k2
+                       M
+                       X
+                                                H          2                        Finally, we focus on deriving the gradients of γ with respect
+                    −          log(tr(Fa F̄d,
+                                             m Fa H̄m ) + σm ),           (62)
+                                                                                 to wt . Note that (40) can be rewritten as
+                         m=1
+                                                                                                        T
+where H̄m = hm hH m.
+                                                                                                        X
+                                                                                                             log wtH Twt + σt2 kwt k22
+                                                                                                                                             
+                                                                                                 γs =
+  The gradient of γc with respect to Fa is derived as                                                   t=1
+                               M                                                                           T
+                   ∂γc              H̄m Fa F̄d                                                            X
+                                                                                                                  log(wtH T0 wt + σt2 kwt k22 ),
+                               X
+   ∇Fa γc =            =                                                                                −                                                 (69)
+                     ∗
+                   ∂Fa       tr(Fa F̄d FH          2
+                         m=1            a H̄m ) + σm                                                        t=1
+                                  M                                              where
+                                  X          H̄m Fa F̄d,
+                                                        m
+                              −                    H H̄ ) + σ 2
+                                                                ,         (63)           TX
+                                                                                          +J                                    TX
+                                                                                                                                 +J
+                                  m=1
+                                      tr(F  F̄
+                                           a d, F
+                                               m a     m     m                                                        0
+                                                                                 T=             Hl Fa F̄d FH      H
+                                                                                                           a (Hl ) , T =                  Hl Fa F̄d FH      H
+                                                                                                                                                     a (Hl ) .
+where the property (25) is used.                                                          l=1                                  l=1,l6=t
+  Using tr(AB) = tr(BA), (62) can be further rewritten as
+                                                                                       The gradient of γ with respect to wt is derived as
+               M
+               X                                                                           ∂γ
+        γc =         log(tr(Fd FH  H             2
+                                d Fa H̄m Fa ) + σm )                             ∇wt γ =
+               m=1
+                                                                                          ∂wt∗
+                                                                                                 Twt + σt2 wt          T0 wt + σt2 wt
+                                                                                                                                         
+                 M
+                 X
+                                      H    H             2                       = (1 − ρ)                         − H 0                    ,
+               −         log(tr(Fd,
+                                   m Fd,
+                                        m Fa H̄m Fa ) + σm ).             (64)               wtH Twt + σt2 kwt k22  wt T wt + σt2 kwt k22
+                   m=1                                                                                                                   (70)
+  Then, the gradient of γc with respect to Fd is derived as                      where the properties in (26) and (29) are used.
+                               M
+            ∂γc             FHa H̄m Fa Fd
+                               X
+   ∇Fd γc =   ∗ =                                                                                                  R EFERENCES
+            ∂Fd   m=1
+                      tr(F̄d FH              2
+                               a H̄m Fa ) + σm
+                                                                                 [1]  N. T. Nguyen, L. V. Nguyen, N. Shlezinger, Y. C. Eldar,
+                                  M
+                                  X        FH
+                                            a H̄m Fa Fd,
+                                                        m
+                                                                                      A. L. Swindlehurst, and M. Juntti, “Joint communications and
+                              −                H H̄ F ) + σ 2
+                                                              ,           (65)        sensing hybrid beamforming design via deep unfolding,” IEEE
+                                m=1
+                                    tr(F̄ d,F
+                                            m a    m a     m                          J. Sel. Topics Signal Process., vol. 18, no. 5, pp. 901–916,
+                                                                                      Jul. 2024.
+by leveraging on the property in (25) again.                                     [2] S. Lu et al., “Integrated sensing and communications: Recent advances
+   Note that in [1, Eq. (13)-(14)], a constant factor ln 2 appears                    and ten open challenges,” IEEE Internet Things J., vol. 11, no. 11,
+                                                                                      pp. 19094–19120, Jun. 2024.
+in the denominator of each term because the physical unit for                    [3] A. F. Molisch et al., “Hybrid beamforming for massive MIMO: A
+communication used in [1] is bit. In contrast, the physical units                     survey,” IEEE Commun. Mag., vol. 55, no. 9, pp. 134–141, Sep. 2017.
+in our case for communication and sensing are nat. Hence, the                    [4] O. E. Ayach, S. Rajagopal, S. Abu-Surra, Z. Pi, and R. W. Heath,
+                                                                                      “Spatially sparse precoding in millimeter wave MIMO systems,”
+ln 2 factor is not present in our expressions.                                        IEEE Trans. Wireless Commun., vol. 13, no. 3, pp. 1499–1513,
+   Then, we are left with deriving gradients of γs with respect                       Mar. 2014.
+to Fa , Fd . Using the property in (30), (40) becomes                            [5] C. Wang, Z. Li, N. Al-Dhahir, K. J. Kim, and K.-K. Wong, “QoS-aware
+                                                                                      precoder optimization for radar sensing and multiuser communications
+               T
+               X                                                                      under per-antenna power constraints,” IEEE Trans. Signal Process.,
+                     log tr(Fa F̄d FH         2      2                                vol. 71, pp. 2235–2250, 2023.
+                                                              
+        γs =                        a Gt ) + σt kwt k2                           [6] N. T. Nguyen, N. Shlezinger, Y. C. Eldar, and M. Juntti, “Multiuser
+               t=1                                                                    MIMO wideband joint communications and sensing system with sub-
+                 XT                                                                   carrier allocation,” IEEE Trans. Signal Process., vol. 71, pp. 2997–3013,
+                                           0
+                         log tr(Fa F̄d FH         2      2
+                                                           
+               −                        a Gt ) + σt kwt k2 ,              (66)        2023.
+                                                                                 [7] S. D. Liyanaarachchi, T. Riihonen, C. B. Barneto, and
+                   t=1
+                                                                                      M. Valkama, “Joint MIMO communications and sensing with
+                   T+J
+                   X                       T+J
+                                           X                                          hybrid beamforming architecture and OFDM waveform optimization,”
+where Gt =                    H
+                         gtl gtl , G0t =               H
+                                                  gtl gtl , and gtl = HH              IEEE Trans. Wireless Commun., vol. 23, no. 2, pp. 1565–1580,
+                                                                       l wt .         Feb. 2024.
+                   l=1                 l=1,l6=t                                  [8] J. Zou, S. Sun, C. Masouros, Y. Cui, Y. Liu, and D. W. K. Ng, “Energy-
+  Following similar routine of deriving the gradients of γc                           efficient beamforming design for integrated sensing and communications
+with respect to Fa and Fd , the gradients of γs with respect to                       systems,” IEEE Trans. Commun., vol. 72, no. 6, pp. 3766–3782,
+                                                                                      Feb. 2024.
+Fa and Fa are respectively derived as                                            [9] Z. Cheng, Z. He, and B. Liao, “Hybrid beamforming design for OFDM
+                           T                                                          dual-function radar-communication system,” IEEE J. Sel. Topics Signal
+                   ∂γs    X              Gt Fa F̄d                                    Process., vol. 15, no. 6, pp. 1455–1467, Nov. 2021.
+  ∇F a γ s =            =
+                   ∂F∗a   t=1
+                              tr(Fa F̄d FH         2      2
+                                         a Gt ) + σt kwt k2
+                                                                                 [10] C. B. Barneto, T. Riihonen, S. D. Liyanaarachchi, M. Heino,
+                                                                                      N. González-Prelcic, and M. Valkama, “Beamformer design and
+                                 T                                                    optimization for joint communication and full-duplex sensing at
+                                 X              G0t Fa F̄d                            mm-waves,” IEEE Trans. Commun., vol. 70, no. 12, pp. 8298–8312,
+                             −                       0     2     2
+                                                                   , (67)
+                                 t=1
+                                     tr(Fa F̄d FH
+                                                a Gt ) + σt kwt k2                    Dec. 2022.
+WANG et al.: L2O ROBUST HYBRID BEAMFORMING FOR ISAC                                                                                                    18793
+
+
+
+[11] X. Wang, Z. Fei, J. A. Zhang, and J. Xu, “Partially-connected             [31] B. Liao, X. Xiong, and Z. Quan, “Robust beamforming design for
+     hybrid beamforming design for integrated sensing and communication             dual-function radar-communication system,” IEEE Trans. Veh. Technol.,
+     systems,” IEEE Trans. Commun., vol. 70, no. 10, pp. 6648–6660, Oct.            vol. 72, no. 6, pp. 7508–7516, Jun. 2023.
+     2022.                                                                     [32] Z. Ren, L. Qiu, J. Xu, and D. W. K. Ng, “Robust transmit beamforming
+[12] A. M. Elbir, K. V. Mishra, S. A. Vorobyov, and R. W. Heath,                    for secure integrated sensing and communication,” IEEE Trans. Com-
+     “Twenty-five years of advances in beamforming: From convex and                 mun., vol. 71, no. 9, pp. 5549–5564, Sep. 2023.
+     nonconvex optimization to learning techniques,” IEEE Signal Process.      [33] Y. Zhang et al., “Robust transceiver design for covert integrated sens-
+     Mag., vol. 40, no. 4, pp. 118–131, Jun. 2023.                                  ing and communications with imperfect CSI,” IEEE Trans. Commun.,
+[13] A. M. Elbir and K. V. Mishra, “Joint antenna selection and hybrid beam-        vol. 73, no. 9, pp. 8016–8031, Sep. 2025.
+     former design using unquantized and quantized deep learning networks,”    [34] Y. Huang and J. Liang, “Joint robust optimal transmit and receive
+     IEEE Trans. Wireless Commun., vol. 19, no. 3, pp. 1677–1688, Mar.              beamforming designs for a DFRC system for the MIMO radar and
+     2020.                                                                          secondary multicast communication in a cognitive radio network,” in
+[14] Q. Hu, Y. Cai, K. Kang, G. Yu, J. Hoydis, and Y. C. Eldar,                     Proc. IEEE Int. Conf. Acoust., Speech Signal Process. (ICASSP), Apr.
+     “Two-timescale end-to-end learning for channel acquisition and hybrid          2024, pp. 8801–8805.
+     precoding,” IEEE J. Sel. Areas Commun., vol. 40, no. 1, pp. 163–181,      [35] L. Wang, S. A. Vorobyov, and E. Ollila, “Robust hybrid beamforming
+     Jan. 2022.                                                                     for integrated sensing and communications via learned optimization,”
+[15] J. M. Mateos-Ramos et al., “End-to-end learning for integrated sensing         in Proc. IEEE Int. Conf. Acoust., Speech Signal Process. (ICASSP),
+     and communication,” in Proc. IEEE Int. Conf. Commun., May 2022,                Hyderabad, India, Apr. 2025, pp. 1–5.
+     pp. 1942–1947.                                                            [36] M. A. Richards, J. A. Scheer, and W. A. Holm, Principles of Modern
+                                                                                    Radar: Basic Principles. The Institution of Engineering and Technology,
+[16] C. Muth and L. Schmalen, “Autoencoder-based joint communication and
+                                                                                    SciTech Publishing, 2010.
+     sensing of multiple targets,” in Proc. WSA SCC; 26th Int. ITG Workshop
+     Smart Antennas 13th Conf. Syst., Commun., Coding, Braunschweig,           [37] X. Liu, T. Huang, N. Shlezinger, Y. Liu, J. Zhou, and Y. C. Eldar,
+     Germany, Feb. 2023, pp. 1–6.                                                   “Joint transmit beamforming for multiuser MIMO communications and
+                                                                                    MIMO radar,” IEEE Trans. Signal Process., vol. 68, pp. 3929–3944,
+[17] L. Xu, R. Zheng, and S. Sun, “A deep reinforcement learning approach
+                                                                                    2020.
+     for integrated automotive radar sensing and communication,” in Proc.
+                                                                               [38] B. Tang, J. Tang, and Y. Peng, “MIMO radar waveform design in colored
+     IEEE 12th Sensor Array Multichannel Signal Process. Workshop, Jun.
+                                                                                    noise based on information theory,” IEEE Trans. Signal Process.,
+     2022, pp. 316–320.
+                                                                                    vol. 58, no. 9, pp. 4684–4697, Sep. 2010.
+[18] A. M. Elbir, K. V. Mishra, and S. Chatzinotas, “Terahertz-band joint      [39] J. A. Zhang et al., “Enabling joint communication and radar sensing
+     ultra-massive MIMO radar-communications: Model-based and model-                in mobile networks—A survey,” IEEE Commun. Surveys Tuts., vol. 24,
+     free hybrid beamforming,” IEEE J. Sel. Topics Signal Process., vol. 15,        no. 1, pp. 306–345, 1st Quart., 2022.
+     no. 6, pp. 1468–1483, Nov. 2021.                                          [40] J. Li, G. Zhou, T. Gong, and N. Liu, “A framework for mutual
+[19] V. Monga, Y. Li, and Y. C. Eldar, “Algorithm unrolling:                        information-based MIMO integrated sensing and communication
+     Interpretable, efficient deep learning for signal and image                    beamforming design,” IEEE Trans. Veh. Technol., vol. 73, no. 6,
+     processing,” IEEE Signal Process. Mag., vol. 38, no. 2, pp. 18–44,             pp. 8352–8366, Jun. 2024.
+     Mar. 2021.                                                                [41] C. Meng, Z. Wei, D. Ma, W. Ni, L. Su, and Z. Feng, “Multiobjective-
+[20] N. Shlezinger, Y. C. Eldar, and S. P. Boyd, “Model-based deep learning:        optimization-based transmit beamforming for multitarget and multiuser
+     On the intersection of deep learning and optimization,” IEEE Access,           MIMO-ISAC systems,” IEEE Internet Things J., vol. 11, no. 18,
+     vol. 10, pp. 115384–115398, 2022.                                              pp. 29260–29274, Jun. 2024.
+[21] T. Chen et al., “Learning to optimize: A primer and a benchmark,”         [42] Y. Cheng, M. Pesavento, and A. Philipp, “Joint network optimization
+     J. Mach. Learn. Res., vol. 23, no. 189, pp. 1–59, 2022.                        and downlink beamforming for CoMP transmissions using mixed integer
+[22] Q. Hu, Y. Cai, Q. Shi, K. Xu, G. Yu, and Z. Ding, “Iterative algo-             conic programming,” IEEE Trans. Signal Process., vol. 61, no. 16,
+     rithm induced deep-unfolding neural networks: Precoding design for             pp. 3972–3987, Aug. 2013.
+     multiuser MIMO systems,” IEEE Trans. Wireless Commun., vol. 20,           [43] K. Hassas Irani, S. A. Vorobyov, and Y. Huang, “Wasserstein distribu-
+     no. 2, pp. 1394–1410, Feb. 2021.                                               tionally robust adaptive beamforming,” 2025, arXiv:2506.01154.
+[23] E. Balevi and J. G. Andrews, “Unfolded hybrid beamforming                 [44] A. Sadraoui, A. Laurent-Bellue, M. Kaaniche, A. Benazza-Benyahia,
+     with GAN compressed ultra-low feedback overhead,” IEEE                         C. Guettier, and J. Pesquet, “Unrolled projected gradient algorithm for
+     Trans. Wireless Commun., vol. 20, no. 12, pp. 8381–8392,                       stain separation in digital histopathological images,” in Proc. IEEE Int.
+     Dec. 2021.                                                                     Conf. Image Process., Oct. 2024, pp. 2814–2819.
+[24] N. T. Nguyen et al., “Deep unfolding hybrid beamforming designs for       [45] C. Bertocchi, É. Chouzenoux, M.-C. Corbineau, J. Pesquet, and
+     THz massive MIMO systems,” IEEE Trans. Signal Process., vol. 71,               M. Prato, “Deep unfolding of a proximal interior point method
+     pp. 3788–3804, 2023.                                                           for image restoration,” Inverse Problems, vol. 36, no. 3, 2019,
+[25] O. Lavi and N. Shlezinger, “Learn to rapidly and robustly opti-                Art. no. 034005.
+     mize hybrid precoding,” IEEE Trans. Commun., vol. 71, no. 10,             [46] H. Cai, J. Liu, and W. Yin, “Learned robust PCA: A scalable deep
+     pp. 5814–5830, Oct. 2023.                                                      unfolding approach for high-dimensional outlier detection,” in Proc. Adv.
+[26] O. Levy and N. Shlezinger, “Rapid and power-aware learned optimiza-            Neural Inf. Process. Syst., 2021, pp. 16977–16989.
+     tion for modular receive beamforming,” IEEE Trans. Commun., vol. 73,      [47] J. Blanchet, J. Li, A. M.-C. So, T. Zheng, and L. Zhu, “Universal
+     no. 9, pp. 7136–7150, Sep. 2025.                                               gradient descent ascent method for nonconvex-nonconcave mini-
+                                                                                    max optimization,” in Proc. Adv. Neural Inf. Process. Syst., 2023,
+[27] A. Milstein, T. Yablonka, and N. Shlezinger, “Learned approximated
+                                                                                    pp. 54075–54110.
+     optimization for rapid low-complexity hybrid beamforming
+     design,” in Proc. ICASSP - IEEE Int. Conf. Acoust., Speech                [48] M. Chiang, C. W. Tan, D. P. Palomar, D. O’Neill, and D. Julian, “Power
+     Signal Process. (ICASSP), Hyderabad, India, Apr. 2025,                         control by geometric programming,” IEEE Trans. Wireless Commun.,
+     pp. 1–5.                                                                       vol. 6, no. 7, pp. 2640–2651, Jul. 2007.
+                                                                               [49] H. Huang, Y. Song, J. Yang, G. Gui, and F. Adachi, “Deep-learning-
+[28] S. A. Vorobyov, A. B. Gershman, and Z.-Q. Luo, “Robust adaptive
+                                                                                    based millimeter-wave massive MIMO for hybrid precoding,”
+     beamforming using worst-case performance optimization: A solution to
+                                                                                    IEEE Trans. Veh. Technol., vol. 68, no. 3, pp. 3027–3032,
+     the signal mismatch problem,” IEEE Trans. Signal Process., vol. 51,
+                                                                                    Mar. 2019.
+     no. 2, pp. 313–324, Feb. 2003.
+                                                                               [50] A. M. Elbir, “CNN-based precoder and combiner design in mmWave
+[29] S. A. Vorobyov, H. Chen, and A. B. Gershman, “On the                           MIMO systems,” IEEE Commun. Lett., vol. 23, no. 7, pp. 1240–1243,
+     relationship between robust minimum variance beamformers with                  Jul. 2019.
+     probabilistic and worst-case distortionless response constraints,”        [51] P. Saikia, W.-J. Huang, K. Singh, and S. Biswas, “Enhancing V2X
+     IEEE Trans. Signal Process., vol. 56, no. 11, pp. 5719–5724,                   communication with active RIS: A mixed action DRL approach with
+     Nov. 2008.                                                                     perfect and imperfect CSI,” IEEE Trans. Veh. Technol., vol. 74, no. 10,
+[30] G. Zhou, C. Pan, H. Ren, K. Wang, and A. Nallanathan, “A framework             pp. 15803–15818, Oct. 2025.
+     of robust transmission design for IRS-aided MISO communications with      [52] A. Hjørungnes, Complex-valued Matrix Derivatives: With Applications
+     imperfect cascaded channels,” IEEE Trans. Signal Process., vol. 68,            in Signal Processing and Communications. Cambridge, U.K.: Cam-
+     pp. 5092–5106, 2020.                                                           bridge Univ. Press, 2011.
+18794                                                                                     IEEE TRANSACTIONS ON WIRELESS COMMUNICATIONS, VOL. 25, 2026
+
+
+
+                          Lei Wang (Graduate Student Member, IEEE)                                             Esa Ollila (Senior Member, IEEE) received the
+                          is currently pursuing the Ph.D. degree with the                                      M.Sc. degree in mathematics from the University of
+                          Department of Information and Communications                                         Oulu, Finland, in 1998, the Ph.D. degree (Hons.) in
+                          Engineering, Aalto University, Finland. His research                                 statistics from the University of Jyväskylä, Finland,
+                          interests include integrated sensing and communica-                                  in 2002, and the D.Sc. (Tech.) degree (Hons.) in
+                          tions, learning to optimize, and artificial intelligence                             signal processing from Aalto University, Finland, in
+                          for wireless communications.                                                         2010. From 2004 to 2007, he was a Post-Doctoral
+                                                                                                               Fellow and from August 2010 to May 2015, he was
+                                                                                                               an Academy Research Fellow with the Research
+                                                                                                               Council of Finland. From 2010 to 2011, he was
+                                                                                                               a Visiting Post-Doctoral Research Associate with
+                                                                                     the Department of Electrical Engineering, Princeton University, NJ, USA.
+                                                                                     He was a Senior Lecturer with the University of Oulu, where he holds
+                                                                                     the title of Adjunct Professor of Statistics. He is currently a Professor
+                           Sergiy A. Vorobyov (Fellow, IEEE) is currently            with the Department of Information and Communications Engineering, Aalto
+                           a Professor with the Department of Information            University, Finland. He has co-authored a textbook Robust Statistics for Signal
+                           and Communications Engineering, Aalto Univer-             Processing (Cambridge University Press in 2018). His research interests
+                           sity, Finland. Since his graduation, he held various      include statistical signal processing, optimization, graph signal processing,
+                           faculty and research positions with the University        high-dimensional statistics, compressive sensing, and integrated sensing and
+                           of Alberta, Canada, the Joint Research Institute          communications. He is an elected member of the EURASIP Board of Directors
+                           between Heriot-Watt University and Edinburgh Uni-         and IEEE SPS Signal Processing Theory and Methods Technical Committee
+                           versity, U.K., Darmstadt University of Technology,        from 2022 to 2027 where he serves as the chair of the Awards subcommittee.
+                           Duisburg-Essen University, Germany, McMaster              He was the General Co-Chair for EUSIPCO-2023 and served as an Associate
+                           University, Canada, the Institute of Physical and         Editor for the Scandinavian Journal of Statistics from 2021 to 2025.
+                           Chemical Research, Japan, and the National Univer-
+sity of Radio Electronics, Ukraine. His research interests include optimization
+and multi-linear algebra methods in signal processing and data analysis, sta-
+tistical, array, and graph signal processing, estimation, detection and learning
+theory and methods, computational imaging, multi-antenna, very large, coop-
+erative, and cognitive systems, and integrated sensing and communications.
+   Dr. Vorobyov was the recipient of the 2004 IEEE Signal Processing Society
+Best Paper Award, the 2007 Alberta Ingenuity New Faculty Award, the 2011
+Carl Zeiss Award, in Germany, the 2012 NSERC Discovery Accelerator
+Award, and IEEE ICASSP 2023 Top 3% paper recognition, and other awards.
+He was a Senior Area Editor for IEEE S IGNAL P ROCESSING L ETTERS
+in 2016 and 2020, an Associate Editor for IEEE T RANSACTION S IGNAL
+P ROCESSING in 2006 and 2010 and IEEE S IGNAL P ROCESSING L ETTERS
+in 2007 to 2009. He was a member of the Sensor Array and Multi-Channel
+Signal Processing and Signal Processing for Communications and Networking
+Technical Committees of the IEEE Signal Processing Society in 2007 and
+2012 and 2010 and 2016, respectively. He was the Track Chair for Asilomar
+2011, Pacific Grove, CA, USA, the Technical Co-Chair for IEEE CAMSAP
+2011, Puerto Rico, the Tutorial Chair for ISWCS 2013, Ilmenau, Germany,
+the Technical Co-Chair for IEEE SAM 2018, Sheffield, U.K., the Technical
+Co-Chair for IEEE CAMSAP 2023, Costa Rica, and the General Co-Chair
+for EUSIPCO 2023, Helsinki, Finland.
+

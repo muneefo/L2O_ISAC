@@ -1,0 +1,1224 @@
+{
+  "preserved_baseline_files": 1041,
+  "baseline_commit": "4fc8a448441523ec33c677e2df6640dd09bedfa2",
+  "verified_methods": 67,
+  "max_feasibility_residual": 1.6689300537109375e-06,
+  "max_complete_replay_difference": 0.0,
+  "checks": {
+    "A/AnalyticULA": {
+      "independent_numpy_errors": {
+        "comm": 3.8299088656046365e-07,
+        "sense": 7.764879565996807e-07,
+        "objective": 3.6005457371146576e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 4.76837158203125e-07,
+      "scenarios": 100
+    },
+    "A/FixedL2O_s401": {
+      "independent_numpy_errors": {
+        "comm": 4.771441979301017e-07,
+        "sense": 7.365311534002217e-07,
+        "objective": 6.687837457164392e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "A/FixedL2O_s402": {
+      "independent_numpy_errors": {
+        "comm": 4.516640701446306e-07,
+        "sense": 7.162639477087396e-07,
+        "objective": 6.24292586515196e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "A/FixedL2O_s403": {
+      "independent_numpy_errors": {
+        "comm": 4.679110117145058e-07,
+        "sense": 7.385079161537078e-07,
+        "objective": 6.650213508763159e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "A/FluidL2O_s401": {
+      "independent_numpy_errors": {
+        "comm": 4.842865739540514e-07,
+        "sense": 8.77914719588091e-07,
+        "objective": 6.465084307905045e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "A/FluidL2O_s402": {
+      "independent_numpy_errors": {
+        "comm": 4.804000051095159e-07,
+        "sense": 7.158107147020587e-07,
+        "objective": 5.365292077286199e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "A/FluidL2O_s403": {
+      "independent_numpy_errors": {
+        "comm": 5.24428378501085e-07,
+        "sense": 7.913356867561561e-07,
+        "objective": 5.652774417441719e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "A/FluidNoPositionMomentum_s401": {
+      "independent_numpy_errors": {
+        "comm": 4.842865739540514e-07,
+        "sense": 8.77914719588091e-07,
+        "objective": 6.465084307905045e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "A/FluidUntrained": {
+      "independent_numpy_errors": {
+        "comm": 4.921216421038821e-07,
+        "sense": 7.866899940367489e-07,
+        "objective": 5.098479824994229e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 1.430511474609375e-06,
+      "scenarios": 100
+    },
+    "A/Fluid_G180": {
+      "independent_numpy_errors": {
+        "comm": 4.3320290821213803e-07,
+        "sense": 7.166250854950817e-07,
+        "objective": 5.305296997271114e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "A/Fluid_G360": {
+      "independent_numpy_errors": {
+        "comm": 4.830634434682679e-07,
+        "sense": 7.597287989824508e-07,
+        "objective": 6.546389377248829e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "A/Fluid_G40": {
+      "independent_numpy_errors": {
+        "comm": 4.554346286766986e-07,
+        "sense": 8.06178510615041e-07,
+        "objective": 4.871648222604108e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "A/Fluid_G60": {
+      "independent_numpy_errors": {
+        "comm": 4.921216421038821e-07,
+        "sense": 7.866899940367489e-07,
+        "objective": 5.098479824994229e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 1.430511474609375e-06,
+      "scenarios": 100
+    },
+    "A/Fluid_time_FixedL2O": {
+      "independent_numpy_errors": {
+        "comm": 4.515773257551814e-07,
+        "sense": 8.195168961222521e-07,
+        "objective": 4.955889956193005e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "A/Fluid_time_FluidL2O": {
+      "independent_numpy_errors": {
+        "comm": 4.6399990694112603e-07,
+        "sense": 7.421770158444474e-07,
+        "objective": 5.309303903189289e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "A/StaticRandom": {
+      "independent_numpy_errors": {
+        "comm": 4.3142622052627644e-07,
+        "sense": 7.623369944198544e-07,
+        "objective": 4.85701529662208e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "A/TrainOptimizedFixed": {
+      "independent_numpy_errors": {
+        "comm": 4.4416576105987815e-07,
+        "sense": 8.817985657216809e-07,
+        "objective": 5.316923217257852e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "A/ULA_G180": {
+      "independent_numpy_errors": {
+        "comm": 4.165205642614467e-07,
+        "sense": 8.107012936520164e-07,
+        "objective": 6.635736400362191e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "A/ULA_G360": {
+      "independent_numpy_errors": {
+        "comm": 4.579088082046212e-07,
+        "sense": 7.308869589550682e-07,
+        "objective": 4.2256090893033615e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 4.76837158203125e-07,
+      "scenarios": 100
+    },
+    "A/ULA_G40": {
+      "independent_numpy_errors": {
+        "comm": 4.787856333621221e-07,
+        "sense": 8.698873088519576e-07,
+        "objective": 5.580432049789863e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "A/ULA_G60": {
+      "independent_numpy_errors": {
+        "comm": 4.305945244809095e-07,
+        "sense": 7.331291991263811e-07,
+        "objective": 4.5417384075818745e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "A/ULA_time_FixedL2O": {
+      "independent_numpy_errors": {
+        "comm": 4.90186268464754e-07,
+        "sense": 9.229748432204588e-07,
+        "objective": 5.861903464854379e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "A/ULA_time_FluidL2O": {
+      "independent_numpy_errors": {
+        "comm": 4.305945244809095e-07,
+        "sense": 7.331291991263811e-07,
+        "objective": 4.5417384075818745e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "B/FixedL2O_s401": {
+      "independent_numpy_errors": {
+        "comm": 4.631680754485501e-07,
+        "sense": 7.305209317465255e-07,
+        "objective": 5.85769421856952e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "B/FixedL2O_s402": {
+      "independent_numpy_errors": {
+        "comm": 5.671564720088895e-07,
+        "sense": 7.016916838686882e-07,
+        "objective": 5.77070665919166e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 1.430511474609375e-06,
+      "scenarios": 100
+    },
+    "B/FixedL2O_s403": {
+      "independent_numpy_errors": {
+        "comm": 5.250249692778652e-07,
+        "sense": 8.74775451187304e-07,
+        "objective": 6.074469256489579e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "B/FluidL2O_s401": {
+      "independent_numpy_errors": {
+        "comm": 5.548992989545809e-07,
+        "sense": 7.334639482436955e-07,
+        "objective": 5.291017535213882e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "B/FluidL2O_s402": {
+      "independent_numpy_errors": {
+        "comm": 5.399932208050018e-07,
+        "sense": 7.220266828866784e-07,
+        "objective": 5.497661677011934e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 1.430511474609375e-06,
+      "scenarios": 100
+    },
+    "B/FluidL2O_s403": {
+      "independent_numpy_errors": {
+        "comm": 5.955508912691698e-07,
+        "sense": 7.489171247598847e-07,
+        "objective": 5.235560336380729e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 7.152557373046875e-07,
+      "scenarios": 100
+    },
+    "B/FluidNoPositionMomentum_s401": {
+      "independent_numpy_errors": {
+        "comm": 5.934940734420024e-07,
+        "sense": 7.313741070547053e-07,
+        "objective": 4.787243574888578e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "B/FluidUntrained": {
+      "independent_numpy_errors": {
+        "comm": 4.90718172319049e-07,
+        "sense": 7.907246590832528e-07,
+        "objective": 5.009829520119524e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "B/Fluid_G180": {
+      "independent_numpy_errors": {
+        "comm": 5.376777245658104e-07,
+        "sense": 7.086477378237532e-07,
+        "objective": 6.159338905575851e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "B/Fluid_G360": {
+      "independent_numpy_errors": {
+        "comm": 5.854580162889533e-07,
+        "sense": 7.705267366375779e-07,
+        "objective": 5.919755547978411e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "B/Fluid_G40": {
+      "independent_numpy_errors": {
+        "comm": 5.184993407958416e-07,
+        "sense": 6.78343310411833e-07,
+        "objective": 5.40713265717585e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "B/Fluid_G60": {
+      "independent_numpy_errors": {
+        "comm": 4.90718172319049e-07,
+        "sense": 7.907246590832528e-07,
+        "objective": 5.009829520119524e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "B/Fluid_time_FixedL2O": {
+      "independent_numpy_errors": {
+        "comm": 5.145125570038545e-07,
+        "sense": 9.206087794311202e-07,
+        "objective": 5.643637916996624e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "B/Fluid_time_FluidL2O": {
+      "independent_numpy_errors": {
+        "comm": 5.260659872163842e-07,
+        "sense": 7.403963362406785e-07,
+        "objective": 5.607147324226958e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "B/StaticRandom": {
+      "independent_numpy_errors": {
+        "comm": 5.289065834190865e-07,
+        "sense": 7.63245447288341e-07,
+        "objective": 5.492248478233819e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "B/TrainOptimizedFixed": {
+      "independent_numpy_errors": {
+        "comm": 4.9131822477122e-07,
+        "sense": 6.947948634206114e-07,
+        "objective": 5.366241890847334e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 1.6689300537109375e-06,
+      "scenarios": 100
+    },
+    "B/ULA_G180": {
+      "independent_numpy_errors": {
+        "comm": 5.057161311938785e-07,
+        "sense": 7.048224741623699e-07,
+        "objective": 4.648436924270527e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "B/ULA_G360": {
+      "independent_numpy_errors": {
+        "comm": 5.085639558366495e-07,
+        "sense": 7.322400215059588e-07,
+        "objective": 5.366335242840137e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "B/ULA_G40": {
+      "independent_numpy_errors": {
+        "comm": 4.960232393713682e-07,
+        "sense": 7.145039209177639e-07,
+        "objective": 5.391100401652693e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "B/ULA_G60": {
+      "independent_numpy_errors": {
+        "comm": 4.911330644397083e-07,
+        "sense": 7.341933887516916e-07,
+        "objective": 5.31587688978874e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "B/ULA_time_FixedL2O": {
+      "independent_numpy_errors": {
+        "comm": 4.960232393713682e-07,
+        "sense": 7.145039209177639e-07,
+        "objective": 5.391100401652693e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "B/ULA_time_FluidL2O": {
+      "independent_numpy_errors": {
+        "comm": 4.911330644397083e-07,
+        "sense": 7.341933887516916e-07,
+        "objective": 5.31587688978874e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "C/FixedL2O_s401": {
+      "independent_numpy_errors": {
+        "comm": 5.463080490208938e-07,
+        "sense": 9.523959603185972e-07,
+        "objective": 5.949805217397852e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "C/FixedL2O_s402": {
+      "independent_numpy_errors": {
+        "comm": 4.917679516935891e-07,
+        "sense": 9.65809553665764e-07,
+        "objective": 5.603192954062308e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "C/FixedL2O_s403": {
+      "independent_numpy_errors": {
+        "comm": 4.831480615585804e-07,
+        "sense": 1.0470917755078801e-06,
+        "objective": 5.307149080202578e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "C/FluidL2O_s401": {
+      "independent_numpy_errors": {
+        "comm": 5.601505539409857e-07,
+        "sense": 1.0210274377087103e-06,
+        "objective": 6.270559165244549e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "C/FluidL2O_s402": {
+      "independent_numpy_errors": {
+        "comm": 5.601505539409857e-07,
+        "sense": 1.0210274377087103e-06,
+        "objective": 6.270559165244549e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "C/FluidL2O_s403": {
+      "independent_numpy_errors": {
+        "comm": 5.601505539409857e-07,
+        "sense": 1.0210274377087103e-06,
+        "objective": 6.270559165244549e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "C/FluidNoPositionMomentum_s401": {
+      "independent_numpy_errors": {
+        "comm": 5.601505539409857e-07,
+        "sense": 1.0210274377087103e-06,
+        "objective": 6.270559165244549e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "C/FluidUntrained": {
+      "independent_numpy_errors": {
+        "comm": 5.601505539409857e-07,
+        "sense": 1.0210274377087103e-06,
+        "objective": 6.270559165244549e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "C/Fluid_G180": {
+      "independent_numpy_errors": {
+        "comm": 4.699291844545428e-07,
+        "sense": 1.064185382926297e-06,
+        "objective": 6.155512033423349e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "C/Fluid_G360": {
+      "independent_numpy_errors": {
+        "comm": 4.874258059395231e-07,
+        "sense": 1.023364094798751e-06,
+        "objective": 5.827093865207189e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "C/Fluid_G40": {
+      "independent_numpy_errors": {
+        "comm": 4.986759192249224e-07,
+        "sense": 9.84633261147394e-07,
+        "objective": 5.246065102326725e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 1.430511474609375e-06,
+      "scenarios": 100
+    },
+    "C/Fluid_G60": {
+      "independent_numpy_errors": {
+        "comm": 5.601505539409857e-07,
+        "sense": 1.3748956444459282e-06,
+        "objective": 6.270559165244549e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "C/Fluid_time_FixedL2O": {
+      "independent_numpy_errors": {
+        "comm": 5.062316090764796e-07,
+        "sense": 9.434499093075033e-07,
+        "objective": 5.303024233072051e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "C/Fluid_time_FluidL2O": {
+      "independent_numpy_errors": {
+        "comm": 5.528839635005056e-07,
+        "sense": 1.7078139826764982e-06,
+        "objective": 5.390143367201006e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "C/StaticRandom": {
+      "independent_numpy_errors": {
+        "comm": 6.135264114526251e-07,
+        "sense": 1.2639582940288108e-06,
+        "objective": 5.358098476015982e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "C/TrainOptimizedFixed": {
+      "independent_numpy_errors": {
+        "comm": 5.131821190218488e-07,
+        "sense": 1.0415697637711219e-06,
+        "objective": 5.592511342911166e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "C/ULA_G180": {
+      "independent_numpy_errors": {
+        "comm": 4.545432550351336e-07,
+        "sense": 1.0224103039746524e-06,
+        "objective": 4.943757545561311e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "C/ULA_G360": {
+      "independent_numpy_errors": {
+        "comm": 4.702089100305784e-07,
+        "sense": 9.920555301690115e-07,
+        "objective": 5.079695113430205e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "C/ULA_G40": {
+      "independent_numpy_errors": {
+        "comm": 5.336333339656107e-07,
+        "sense": 1.0323856116656316e-06,
+        "objective": 5.195757495357611e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "C/ULA_G60": {
+      "independent_numpy_errors": {
+        "comm": 5.881204532265372e-07,
+        "sense": 8.899635863812705e-07,
+        "objective": 5.584789968260395e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    },
+    "C/ULA_time_FixedL2O": {
+      "independent_numpy_errors": {
+        "comm": 5.336333339656107e-07,
+        "sense": 1.0323856116656316e-06,
+        "objective": 5.195757495357611e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 9.5367431640625e-07,
+      "scenarios": 100
+    },
+    "C/ULA_time_FluidL2O": {
+      "independent_numpy_errors": {
+        "comm": 5.881204532265372e-07,
+        "sense": 8.899635863812705e-07,
+        "objective": 5.584789968260395e-07
+      },
+      "source_replay": {
+        "positions": 0.0,
+        "dh": 0.0,
+        "dt": 0.0,
+        "dr": 0.0,
+        "a": 0.0,
+        "d": 0.0,
+        "w": 0.0
+      },
+      "max_residual": 1.1920928955078125e-06,
+      "scenarios": 100
+    }
+  },
+  "source_sha256": {
+    "experiments/fluid_tx_l2o/model.py": "fff69773e452c2134b4cb753d56c1bae9b6128b061b7ba1cc3a108a83300e1ea",
+    "experiments/fluid_tx_l2o/run.py": "f73169e178092b2a80eaa5e51fb8a19fc36d6f20067c0c34ec1562b0db253c99"
+  },
+  "scenario_sha256": "82eaacaa747d816f82910e820412e27e023723a20aa11a895b6ec5e3779a5781",
+  "independent_scenarios_per_regime": 100,
+  "primary_training_runs": 18,
+  "momentum_ablation_runs": 3,
+  "failure_accounting": "21/21 scheduled models completed. Failed initial regression test (position coefficient precision comparison) retained in work history; corrected comparison uses identical numeric schedule. No training run omitted."
+}

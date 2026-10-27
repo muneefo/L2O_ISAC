@@ -1,6 +1,6 @@
 # Initial IEEE Wireless Communications Letters draft
 
-Working title: **Geometry-Aware Robust Hybrid Beamforming for ISAC with Fluid Transmit Antennas**.
+Working title: **Learning to Optimize Robust Hybrid ISAC with Fluid Transmit Antennas: A Controlled Study**.
 
 - `main.pdf`: four-page, 10-point, double-column IEEE draft, with measured tables and figures.
 - `main.tex`: editable manuscript; author names/affiliations are explicit placeholders.

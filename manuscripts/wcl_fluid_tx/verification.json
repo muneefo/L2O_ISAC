@@ -1,8 +1,8 @@
 {
-  "abstract_words": 95,
+  "abstract_words": 93,
   "pdf_pages": {
     "main": 4,
-    "main_single_column": 8,
+    "main_single_column": 9,
     "initial_model_user": 5
   },
   "latex_unresolved_references": false,
@@ -33,7 +33,7 @@
   },
   "los_construction_max_error_30_draws": 8.881784197001252e-16,
   "source_sha256": {
-    "main.tex": "c8cece2c9dcf68a6cb0dfb3f1c102bf21918956e0a79d3cf7917790b71404312",
+    "main.tex": "ced68f7f65c196c45c6512df37c36e6b363279ae66de99c8f6304725af166272",
     "initial_model_user.tex": "809a0c2ede89dd3f9f69aed6ac87ec22e36fb5c3bb07c17788cdc040bb32f833",
     "make_assets.py": "74fb4a6d53b728439076b553c1ef47f93b5948873ce56c0b9d0333280f6dea6c",
     "build.sh": "f836f8ebe63de79aec54d35b8c807735b9c9d1e9d31f53587d809a43d9b06fd9",

@@ -1,0 +1,107 @@
+2026-10-26T21:46:51.931788+00:00 Saved new fixed spatial paths and immutable paired splits
+Validation tuned A BF={'inner': 0.01, 'outer': 0.001, 'utility': 2.472189426422119} plain={'position': 0.02, 'utility': 2.472189426422119}
+Validation tuned B BF={'inner': 0.01, 'outer': 0.001, 'utility': 1.781757116317749} plain={'position': 0.02, 'utility': 1.8470628261566162}
+Validation tuned C BF={'inner': 0.01, 'outer': 0.001, 'utility': 1.4533061981201172} plain={'position': 0.02, 'utility': 1.4835742712020874}
+A FixedL2O seed401 epoch1: layerloss=-2.569743, independent_val=2.472189
+Completed experiments/fluid_tx_l2o/outputs/smoke/training/A/FixedL2O_s401
+A FluidL2O seed401 epoch1: layerloss=-2.569743, independent_val=2.472189
+Completed experiments/fluid_tx_l2o/outputs/smoke/training/A/FluidL2O_s401
+A FluidNoPositionMomentum seed401 epoch1: layerloss=-2.569743, independent_val=2.472189
+Completed experiments/fluid_tx_l2o/outputs/smoke/training/A/FluidNoPositionMomentum_s401
+B FixedL2O seed401 epoch1: layerloss=-1.896130, independent_val=1.782563
+Completed experiments/fluid_tx_l2o/outputs/smoke/training/B/FixedL2O_s401
+B FluidL2O seed401 epoch1: layerloss=-1.944455, independent_val=1.848450
+Completed experiments/fluid_tx_l2o/outputs/smoke/training/B/FluidL2O_s401
+B FluidNoPositionMomentum seed401 epoch1: layerloss=-1.944455, independent_val=1.848450
+Completed experiments/fluid_tx_l2o/outputs/smoke/training/B/FluidNoPositionMomentum_s401
+C FixedL2O seed401 epoch1: layerloss=-1.605890, independent_val=1.453685
+Completed experiments/fluid_tx_l2o/outputs/smoke/training/C/FixedL2O_s401
+C FluidL2O seed401 epoch1: layerloss=-1.625053, independent_val=1.484059
+Completed experiments/fluid_tx_l2o/outputs/smoke/training/C/FluidL2O_s401
+C FluidNoPositionMomentum seed401 epoch1: layerloss=-1.625053, independent_val=1.484059
+Completed experiments/fluid_tx_l2o/outputs/smoke/training/C/FluidNoPositionMomentum_s401
+A/ULA_G6: independent=2.760925
+A/Fluid_G6: independent=2.760925
+A/ULA_G12: independent=2.760925
+A/Fluid_G12: independent=2.760925
+A/StaticRandom: independent=2.760925
+A/TrainOptimizedFixed: independent=2.760925
+A/FluidUntrained: independent=2.760925
+A/FixedL2O_s401: independent=2.760925
+A/FluidL2O_s401: independent=2.760925
+A/FluidNoPositionMomentum_s401: independent=2.760925
+A/ULA_time_FixedL2O: independent=2.760925
+A/Fluid_time_FixedL2O: independent=2.760925
+A/ULA_time_FluidL2O: independent=2.760925
+A/Fluid_time_FluidL2O: independent=2.760925
+A/AnalyticULA: independent=2.760925
+B/ULA_G6: independent=1.921467
+B/Fluid_G6: independent=1.994580
+B/ULA_G12: independent=1.924311
+B/Fluid_G12: independent=2.043737
+B/StaticRandom: independent=1.991251
+B/TrainOptimizedFixed: independent=1.924501
+B/FluidUntrained: independent=2.021704
+B/FixedL2O_s401: independent=1.922353
+B/FluidL2O_s401: independent=2.023860
+B/FluidNoPositionMomentum_s401: independent=2.023860
+B/ULA_time_FixedL2O: independent=1.921467
+B/Fluid_time_FixedL2O: independent=1.994580
+B/ULA_time_FluidL2O: independent=1.922425
+B/Fluid_time_FluidL2O: independent=2.021704
+C/ULA_G6: independent=1.752510
+C/Fluid_G6: independent=1.784375
+C/ULA_G12: independent=1.760514
+C/Fluid_G12: independent=1.814928
+C/StaticRandom: independent=1.693019
+C/TrainOptimizedFixed: independent=1.749568
+C/FluidUntrained: independent=1.800598
+C/FixedL2O_s401: independent=1.754501
+C/FluidL2O_s401: independent=1.802882
+C/FluidNoPositionMomentum_s401: independent=1.802882
+C/ULA_time_FixedL2O: independent=1.749736
+C/Fluid_time_FixedL2O: independent=1.784375
+C/ULA_time_FluidL2O: independent=1.755231
+C/Fluid_time_FluidL2O: independent=1.784375
+Timed A/ULA_time_FixedL2O: 5.31 ms
+Timed A/ULA_time_FluidL2O: 7.54 ms
+Timed A/ULA_G6: 5.19 ms
+Timed A/FluidUntrained: 6.33 ms
+Timed A/Fluid_G12: 10.89 ms
+Timed A/TrainOptimizedFixed: 4.79 ms
+Timed A/Fluid_time_FluidL2O: 5.86 ms
+Timed A/StaticRandom: 4.18 ms
+Timed A/Fluid_G6: 6.44 ms
+Timed A/FluidNoPositionMomentum_s401: 6.27 ms
+Timed A/FluidL2O_s401: 6.36 ms
+Timed A/Fluid_time_FixedL2O: 5.48 ms
+Timed A/FixedL2O_s401: 7.04 ms
+Timed A/ULA_G12: 14.39 ms
+Timed B/ULA_time_FixedL2O: 7.43 ms
+Timed B/ULA_time_FluidL2O: 10.73 ms
+Timed B/ULA_G6: 5.21 ms
+Timed B/FluidUntrained: 7.89 ms
+Timed B/Fluid_G12: 13.19 ms
+Timed B/TrainOptimizedFixed: 5.14 ms
+Timed B/Fluid_time_FluidL2O: 8.27 ms
+Timed B/StaticRandom: 5.07 ms
+Timed B/Fluid_G6: 6.43 ms
+Timed B/FluidNoPositionMomentum_s401: 6.22 ms
+Timed B/FluidL2O_s401: 6.46 ms
+Timed B/Fluid_time_FixedL2O: 6.81 ms
+Timed B/FixedL2O_s401: 5.57 ms
+Timed B/ULA_G12: 9.05 ms
+Timed C/ULA_time_FixedL2O: 4.47 ms
+Timed C/ULA_time_FluidL2O: 10.12 ms
+Timed C/ULA_G6: 6.00 ms
+Timed C/FluidUntrained: 6.25 ms
+Timed C/Fluid_G12: 11.32 ms
+Timed C/TrainOptimizedFixed: 5.17 ms
+Timed C/Fluid_time_FluidL2O: 6.25 ms
+Timed C/StaticRandom: 4.52 ms
+Timed C/Fluid_G6: 6.13 ms
+Timed C/FluidNoPositionMomentum_s401: 13.42 ms
+Timed C/FluidL2O_s401: 11.99 ms
+Timed C/Fluid_time_FixedL2O: 11.20 ms
+Timed C/FixedL2O_s401: 8.77 ms
+Timed C/ULA_G12: 18.45 ms

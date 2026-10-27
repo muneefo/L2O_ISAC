@@ -18,16 +18,16 @@
 \newcommand{\ddelta}{\bm\delta}
 \newcommand{\norm}[1]{\left\|#1\right\|}
 \newtheorem{proposition}{Proposition}
-\title{Geometry-Aware Robust Hybrid Beamforming for ISAC with Fluid Transmit Antennas}
+\title{Learning to Optimize Robust Hybrid ISAC with Fluid Transmit Antennas: A Controlled Study}
 \author{Author names and affiliations to be supplied%
 \thanks{Working draft, October 2026. Numerical results are from an independent implementation; this manuscript has not been submitted.}}
 \begin{document}
 \maketitle
 \begin{abstract}
-We study single-user, single-target integrated sensing and communication with fluid transmit antennas and a fixed receive array. A geometry-aware projected descent--ascent method jointly updates hybrid beamformers and ordered antenna positions under bounded channel and steering errors. An exact spacing projection preserves geometric feasibility. Across 100 paired scenarios per regime, independently attacked weighted utility improves by 11.8\% without clutter and 10.6\% with clutter relative to retuned fixed arrays at matched gradient-call budgets. An aligned line-of-sight control has no intrinsic geometry gain. Learned position-step schedules provide no useful advantage over an equally trained scalar in this pilot.
+We investigate learning to optimize (L2O) for robust hybrid integrated sensing and communication with fluid transmit antennas. A geometry-aware projected descent--ascent solver is unrolled with trainable position steps and exact spacing projection. We compare layer-specific schedules against equally trained scalar steps and classical baselines under independent adversarial evaluation. Across 100 paired scenarios per regime, classical fluid optimization improves weighted utility by 11.8\% without clutter and 10.6\% with clutter over retuned fixed arrays at matched gradient budgets. The tested L2O schedule offers no useful scalar-control advantage, while aligned line-of-sight has no intrinsic geometry gain.
 \end{abstract}
 \begin{IEEEkeywords}
-Integrated sensing and communication, fluid antennas, hybrid beamforming, robust optimization, antenna positioning.
+Learning to optimize (L2O), algorithm unrolling, integrated sensing and communication, fluid antennas, robust hybrid beamforming.
 \end{IEEEkeywords}
 
 \section{Introduction}
@@ -35,7 +35,7 @@ Fluid antennas provide spatial degrees of freedom for integrated sensing and com
 
 Wang \emph{et al.}~\cite{wang2026} consider a weighted robust communication/sensing objective with hybrid beamforming and channel/steering uncertainty. We specialize that structure to one user and one target and introduce adjustable transmit coordinates with a spatially consistent communication channel. The receive array remains fixed. Our focus is the conditional benefit of geometry under the inherited metrics and continuous-phase hybrid constraints.
 
-We develop a geometry-aware projected gradient descent--ascent (PGDA) procedure using an exact ordered-spacing projection. A closed-form aligned line-of-sight (LOS) control identifies a regime where position changes cannot improve the optimal robust objective. Paired multipath experiments compare fluid designs with retuned uniform and fixed nonuniform arrays under common uncertainty sets and independent attacks. A position-step learning ablation tests whether a small learned schedule adds value. The study establishes empirical gains for the tested spatial distributions; it does not establish global robustness, hardware latency, or a general advantage of learned optimization.
+We develop a geometry-aware projected gradient descent--ascent (PGDA) procedure using an exact ordered-spacing projection. A closed-form aligned line-of-sight (LOS) control identifies a regime where position changes cannot improve the optimal robust objective. Paired multipath experiments compare fluid designs with retuned uniform and fixed nonuniform arrays under common uncertainty sets and independent attacks. We study learning to optimize (L2O) by unrolling the geometry-aware solver and training its position steps. An equally trained scalar control isolates the value of layer-specific adaptation. The study establishes empirical gains for the tested spatial distributions; it does not establish global robustness, hardware latency, or a general advantage of learned optimization.
 
 \section{System Model and Robust Design}
 \subsection{Geometry and spatial channels}
@@ -127,6 +127,36 @@ An offset preserves Euclidean distances and converts spacing constraints into mo
 
 A fixed-array iteration uses two calls to the full analytic helper, each computing all six error/beamforming gradients. A fluid iteration uses a third call for \eqref{eq:chain}. Thus $G$ full calls permit $G/2$ fixed or $G/3$ fluid iterations. Equal calls do not imply equal operations: spatial reconstruction, PAV, and backtracking add work. Wall time is reported separately.
 
+\subsection{Learning to optimize the position updates}
+For a $K$-layer unroll, replace the safeguarded step in
+\eqref{eq:update} by trainable coefficients
+$\phi=(\tau_0,\ldots,\tau_{K-1})$:
+\begin{equation}
+ \xx^{k+1}=\Pi_{\mathcal X}\bigl(\xx^k+\tau_k\nabla_{\xx}u(\xx^k;b^{k+1},e^{k+1})\bigr).
+ \label{eq:l2o}
+\end{equation}
+Beamforming and error iterates still evolve, but their update coefficients
+are fixed. Thus this experiment learns the position-update policy within the
+hybrid solver; it is not joint learning of all beamforming/adversary steps.
+A scalar control ties all $\tau_k=\tau$. Both policies omit backtracking,
+start from the same validation-selected step, and receive matched training.
+Let $(\xx_i^K(\phi),b_i^K(\phi))$ be the terminal design for training
+scenario $i$. An independent terminal attack supplies $\widehat e_i$ and
+we minimize the surrogate
+\begin{equation}
+ \mathcal L(\phi)=-\frac{1}{B_{\rm tr}}\sum_{i=1}^{B_{\rm tr}}
+ u\bigl(\xx_i^K(\phi);b_i^K(\phi),\operatorname{sg}(\widehat e_i)\bigr),
+ \label{eq:train}
+\end{equation}
+where $\operatorname{sg}$ detaches only the terminal attack errors.
+Differentiation through the physical unroll and the active-face position
+projection is retained. After each Adam update the trainable steps are
+clipped to $[10^{-5},0.2]$. This projected parameterization guarantees
+positive step values, not global robustness or convergence. Validation selects
+the checkpoint, including the initialization. Learning is evaluated against
+both the untrained policy and the equally trained scalar rather than being
+credited with gains produced by geometry alone.
+
 \subsection{An aligned-LOS control}
 \begin{proposition}\label{prop:los}
 Suppose $K_c=1$, $|\beta_1|=1$, $\vartheta_1=\theta_0$, $J=0$, $L\ge2$, and $0\le\epsilon_h,\epsilon_t,\epsilon_r<1$. Under \eqref{eq:balls}, the optimal value of \eqref{eq:opt} is independent of feasible positions and equals
@@ -184,7 +214,7 @@ Table~\ref{tab:short} exposes both components. Fluid improves both at $\rho=0.8$
 \caption{Communication/sensing tradeoff at 60 full gradient calls. Labels indicate $\rho$; each point is separately validation tuned.}\label{fig:tradeoff}
 \end{figure}
 
-\subsection{Runtime, feasibility, and a learning ablation}
+\subsection{Runtime, feasibility, and L2O evaluation}
 Timing uses one AMD EPYC 9V74 CPU thread, complex64, batch one, three warmups, and 15 paired test scenarios. Table~\ref{tab:short} includes channel reconstruction, projection, and backtracking; initialization, independent attacks, CSI acquisition, RF programming, and antenna movement are excluded. Extra overhead prevents inferring acceleration from gradient counts alone. Validation-time-selected ULA runs near fluid-20 runtime use 45 iterations in B/C: utilities are $2.9700$ and $2.5965$, with medians $63.4$ and $55.9$ ms. These are approximate runtime comparisons, not equal deadlines or hardware latency guarantees. Attack cost is recorded separately in the artifact.
 
 All observed geometry, uncertainty, power, phase, and receive-norm residuals are below $1.5\times10^{-6}$ at a $10^{-5}$ acceptance tolerance. Independent NumPy checks and final-source replay validate saved designs. Tests cover signal conventions, spatial derivatives, exact projection, unrolled differentiation, and feasibility. Constraint feasibility follows the projections; the global robust minimum remains uncertified.

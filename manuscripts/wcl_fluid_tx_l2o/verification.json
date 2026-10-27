@@ -1,0 +1,28 @@
+{
+  "abstract_words": 94,
+  "pages": {
+    "main": 4,
+    "main_single_column": 7
+  },
+  "L2O_in_title_abstract_keywords": true,
+  "unresolved_references": false,
+  "overflow_boxes": false,
+  "paired_models": 3,
+  "scenarios_per_regime": 100,
+  "source_and_assets_sha256": {
+    "numbers.tex": "05e63334d88a0efb673dd63a4c726e937708547a98976f500be04027070bad60",
+    "initial_model_user.tex": "809a0c2ede89dd3f9f69aed6ac87ec22e36fb5c3bb07c17788cdc040bb32f833",
+    "table_main.tex": "b2b57f4a17fee149216b8be6822794d74bbb5539af81e6f0b63548431b6ede3f",
+    "main_single_column.pdf": "8cca2cd81c64c7cd062c5ab8ae398237293209e9735d1cbb6a5487988a9c36e6",
+    "asset_provenance.json": "c579828675832fca22bfee32fc69973a4d8652ca7b3ee5ef6f871d8b387afe86",
+    "table_components.tex": "ee5af44da81f45e36bbf82646b59b002819e706ac7d99086f93e7d0e1278453a",
+    "make_assets.py": "b206ce5efcc7941d1530d397da274d86013f16e65ad28fb05f255b9f6da47738",
+    "main.pdf": "c0ba092af813f14807e00c23f2a8754aa0283cb523180e8758a5903af0734d53",
+    "table_learning.tex": "4817585003cc68f0d4c19d4bf37647bcba1f360f5323abacc39679ab59efaafe",
+    "main.tex": "bf57f9d4108b434f10887b73eca9ebd61f66e29c0e3b95ddad68dc9cc19ef7c2",
+    "verify_manuscript.py": "688dbb19b11e3a1f915e84fd588a3541249f2d412cdda6395a0300d5a790334a",
+    "initial_model_user.pdf": "9b79876c1accb69a115c6cce1b3b100d9274cd0802ca2210d5e8626ca3c617db",
+    "figures/compute.pdf": "fb5da6e7c62ad1fb02c035b0128e6cf6c43d417bd64747a0a1388169870f56a9"
+  },
+  "visual_check": "All four double-column pages and both editable diagrams rendered and inspected; no plotted result is a placeholder."
+}

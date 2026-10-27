@@ -1,0 +1,94 @@
+{
+  "sha256": "aff06f0a5016eedeb34ffe57565d04132039ea6c8792a25303e7d48dfb4096f2",
+  "spec": {
+    "nt": 4,
+    "nr": 3,
+    "rf_chains": 2,
+    "wavelength_m": 0.01,
+    "aperture_wavelengths": 1.8,
+    "min_spacing_wavelengths": 0.25,
+    "ula_spacing_wavelengths": 0.5,
+    "rho": 0.8,
+    "snr_db": 5.0,
+    "epsilon": 0.05,
+    "clutter_case_c": 1,
+    "communication_paths": 4,
+    "train_scenarios_per_case": 4,
+    "validation_scenarios_per_case": 2,
+    "test_scenarios_per_case": 3,
+    "split_seeds": {
+      "train": 926101,
+      "validation": 926102,
+      "test": 926103
+    },
+    "initialization_seed": 927100,
+    "layers": 3,
+    "epochs": 1,
+    "batch_size": 2,
+    "lr": 0.0001,
+    "decay": 0.98,
+    "seeds": [
+      401
+    ],
+    "inner_step_grid": [
+      0.01
+    ],
+    "outer_step_grid": [
+      0.001
+    ],
+    "position_step_grid": [
+      0.02
+    ],
+    "classical_budgets": [
+      6,
+      12
+    ],
+    "tuning_iterations": 20,
+    "position_backtracks": 6,
+    "position_armijo": 0.0001,
+    "validation_attack_steps": 2,
+    "validation_random_restarts": 1,
+    "test_attack_budgets": [
+      2,
+      4
+    ],
+    "attack_random_restarts": 1,
+    "attack_adam_steps": 1,
+    "attack_step": 0.2,
+    "attack_seed": 928100,
+    "timing_scenarios": 2,
+    "timing_repeats": 1,
+    "timing_warmup": 1,
+    "runtime_candidates": [
+      2,
+      3,
+      4
+    ],
+    "offline_geometry_updates": 2,
+    "offline_geometry_lr": 0.01,
+    "loss": "paper Eq22 negative layer-and-scenario average; full differentiation; original direct unconstrained steps/momenta",
+    "selection": "inherited validation Eq22 loss, including initialization; independently attacked validation is diagnostic only",
+    "primary_variants": [
+      "FixedL2O",
+      "FluidL2O"
+    ],
+    "ablations_first_seed_only": [
+      "FluidNoPositionMomentum"
+    ]
+  },
+  "scope": "Fresh field-response scenario splits; not the paper CN channel law",
+  "source_commit": "4fc8a448441523ec33c677e2df6640dd09bedfa2",
+  "source_sha256": {
+    "experiments/fluid_tx_single_user/report.py": "b641922e6eda1dd713cb6078b8c25bac3f654bd0dbc040347905e5be2bd12985",
+    "experiments/fluid_tx_single_user/spatial.py": "c685bc5bb5fc313fd60e995144de5feada9f096b6e23c0491bdb4dc4bc44c7d1",
+    "experiments/fluid_tx_single_user/run.py": "87fe7cfdc9c8772b7f2dc57311f0a7b29f5285b6f514b140c5ba4a01eda0529a",
+    "experiments/fluid_tx_single_user/learning.py": "063257f77eb22c00b83d733f8f972ab573131a4bcb66d7b30b8271584051c319",
+    "experiments/fluid_tx_single_user/tradeoff.py": "3813c2da0dd19497985c79e9917967308a3f184c2cace1a1117c83064d4842bf",
+    "experiments/fluid_tx_single_user/geometry.py": "d0b5ee6b231f80f7afe117166e4281de376cd032057a6dc667e0e75aae93dc44",
+    "experiments/fluid_tx_single_user/__init__.py": "adedfaf5a9f1bf8154a4894aae24e6998b97d086182435a83d9a9dbb74cf9a72",
+    "experiments/fluid_tx_single_user/optimizer.py": "dbc3aecfa430c35a91da4c1b6e09c4255b08ba8e658fe59fd95df0b895b70017",
+    "experiments/fluid_tx_single_user/evidence.py": "5f8687461b7182b0498a2e29085981c781d0ca59d0ebcb0608a1b278b1b5cc75",
+    "experiments/fluid_tx_single_user/static_random.py": "a851c604da8b415b2e9dceb7f7f837f16a120895ecaad214560d43fb80375094",
+    "experiments/fluid_tx_single_user/checks.py": "6e28bd401b853dc139725dc6c37ca11b0b9fd22dae5e855b90572f34ff69e4e2"
+  }
+}

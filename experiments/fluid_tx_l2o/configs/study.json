@@ -1,0 +1,18 @@
+{
+ "nt":8,"nr":8,"rf_chains":4,"wavelength_m":0.01,
+ "aperture_wavelengths":3.5,"min_spacing_wavelengths":0.25,"ula_spacing_wavelengths":0.5,
+ "rho":0.8,"snr_db":5.0,"epsilon":0.05,"clutter_case_c":1,"communication_paths":4,
+ "train_scenarios_per_case":128,"validation_scenarios_per_case":32,"test_scenarios_per_case":100,
+ "split_seeds":{"train":926101,"validation":926102,"test":926103},"initialization_seed":927100,
+ "layers":20,"epochs":10,"batch_size":32,"lr":0.0001,"decay":0.98,"seeds":[401,402,403],
+ "inner_step_grid":[0.01,0.05,0.2],"outer_step_grid":[0.001,0.005,0.02],"position_step_grid":[0.005,0.02,0.08],
+ "classical_budgets":[40,60,180,360],"tuning_iterations":20,"position_backtracks":6,"position_armijo":0.0001,
+ "validation_attack_steps":50,"validation_random_restarts":1,"test_attack_budgets":[50,200,1000],
+ "attack_random_restarts":5,"attack_adam_steps":50,"attack_step":0.2,"attack_seed":928100,
+ "timing_scenarios":20,"timing_repeats":3,"timing_warmup":3,
+ "runtime_candidates":[5,10,15,20,30,45,60,90,120],
+ "offline_geometry_updates":8,"offline_geometry_lr":0.01,
+ "loss":"paper Eq22 negative layer-and-scenario average; full differentiation; original direct unconstrained steps/momenta",
+ "selection":"inherited validation Eq22 loss, including initialization; independently attacked validation is diagnostic only",
+ "primary_variants":["FixedL2O","FluidL2O"],"ablations_first_seed_only":["FluidNoPositionMomentum"]
+}
